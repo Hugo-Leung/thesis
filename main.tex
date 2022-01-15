@@ -12,7 +12,7 @@
 \usepackage{physics}
 \usepackage{subcaption}
 \usepackage{tikz}
-
+\usepackage{listings}
 % \usepackage{ruledchapters}  % example of compliant heading format, uncomment to use
 
 \usepackage{lipsum}  % just for placeholder code
@@ -20,8 +20,8 @@
 % uncomment the below to show a grid on all pages
 % \usepackage[grid, gridunit=in, gridcolor=blue!40, subgridcolor=blue!20]{eso-pic}
 
-\addbibresource{./references.bib}
-
+\addbibresource{references.bib}
+\graphicspath{ {images/} }
 \begin{document}
 
 \title{Probing parton distributions in proton with charmonium production with
@@ -41,10 +41,16 @@
 \frontmatter
 
 \begin{abstract}
-This is a comprehensive study of caffeine consumption by graduate
-students at the University of Illinois who are in the very final
-stages of completing their doctoral degrees. A study group of six
-hundred doctoral students\ldots.
+E906/SeaQuest is a fixed-target experiment at Fermilab with a 120 GeV proton 
+beam. Muon pairs with mass between 2 to 9 GeV from the interaction of 
+proton beam with various targets has been detected. The primary goal of the 
+experiment is to study the partonic structure of the nucleon. In particular, 
+the charmonium production data can be used to probe both the quark content as 
+well as the gluon content. The preliminary result from the analysis of the 
+SeaQuest charmonium production data will be presented.  E1039/SpinQuest is a 
+follow up experiment of SeaQuest. By utilizing a transversely polarized target,
+we could extend this study to the transverse momentum distribution of the 
+partons. 
 \end{abstract}
 
 \begin{dedication}
@@ -57,28 +63,19 @@ To Father and Mother.
 	\hypersetup{linkcolor=black}  % disable link coloring locally
 	\tableofcontents
 	% the Graduate College doesn't recommend including lot or lof
-	 \listoftables
-	 \listoffigures
+	%\listoftables
+	%\listoffigures
 }
 
 
 \mainmatter
 
-\chapter{The first chapter}
+\chapter{Introduction}
+\input{section/1_Intro.tex}
 
-\section{A section}
+\chapter{SeaQuest Experiment}
+\input{section/2_seaquest.tex}
 
-\lipsum[1-5]
-
-How does this relate to coffee? We direct the reader to Refs.~\cite{Trembly98,Childish07,Presso10}.
-
-Equations are numbered within chapters:
-\begin{align}
-	a
-	&= b + c \\
-	d
-	&= \frac{e}{f}.
-\end{align}
 
 % input individual chapters files
 % \input{1-introduction}
