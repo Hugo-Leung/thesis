@@ -1,0 +1,9 @@
+Intro
+Need to say a few word about the nuclear dependence. Why is this interesting
+
+E906
+Check the density, interaction length etc fot the various target
+
+
+E1039
+I beleive the target(or some part of it) was used by an experiment in LANL, which experiment is it?	Is it E143 at SLAC?

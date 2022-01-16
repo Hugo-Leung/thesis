@@ -17,6 +17,7 @@ maxnames=4,sorting=none]{biblatex}
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{listings}
+\usepackage{siunitx}
 % \usepackage{ruledchapters}  % example of compliant heading format, uncomment to use
 
 \usepackage{lipsum}  % just for placeholder code
@@ -25,7 +26,6 @@ maxnames=4,sorting=none]{biblatex}
 % \usepackage[grid, gridunit=in, gridcolor=blue!40, subgridcolor=blue!20]{eso-pic}
 
 \addbibresource{references.bib}
-\graphicspath{ {images/} }
 \begin{document}
 
 \title{Probing parton distributions in proton with charmonium production with
@@ -45,6 +45,7 @@ maxnames=4,sorting=none]{biblatex}
 \frontmatter
 
 \begin{abstract}
+\SI{2}{\second}\\
 E906/SeaQuest is a fixed-target experiment at Fermilab with a 120 GeV proton 
 beam. Muon pairs with mass between 2 to 9 GeV from the interaction of 
 proton beam with various targets has been detected. The primary goal of the 
@@ -68,25 +69,26 @@ To Father and Mother.
 	\tableofcontents
 	% the Graduate College doesn't recommend including lot or lof
 	%\listoftables
-	%\listoffigures
+	\listoffigures
 }
 
 
 \mainmatter
 
 \chapter{Introduction}
-\input{section/1_Intro.tex}
+\input{section/1_Intro}
 
 \chapter{SeaQuest Experiment}
-\input{section/2_seaquest.tex}
+\input{section/2_seaquest}
 
 \chapter{Analysis}
-\input{section/3_analysis.tex}
+\input{section/3_analysis}
 
 \chapter{Results}
-\input{section/4_result.tex}
+\input{section/4_result}
 
-\chapter{SpinQuest Experiment}
+\chapter{TMD with Transversely Polarized Target}
+\input{section/5_spinquest}
 
 
 % input individual chapters files
@@ -95,9 +97,8 @@ To Father and Mother.
 % \input{3-model}
 % \input{4-predictions}
 
-\chapter{Conclusions}
-
-We conclude that graduate students like coffee.
+\chapter{Conclusion and Future Prospects}
+\input{section/6_conclusion}
 
 % per Graduate College preference, place the \appendix and the appendices content before the
 % bibliography (here) only if the appendices contain references.
@@ -106,14 +107,5 @@ We conclude that graduate students like coffee.
 
 \printbibliography[heading=bibintoc,title={References}]
 
-\mainmatter  % only needed if bibliography is preceding appendices
-
-\appendix
-
-\chapter{An appendix}
-
-\lipsum[1-5]
-
-% \input{Appendix.tex}
 
 \end{document}
