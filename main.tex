@@ -9,9 +9,9 @@
 	linkcolor=blue,citecolor=blue]{hyperref}
 \usepackage[capitalize]{cleveref}
 \usepackage[style=phys,%
-biblabel=brackets,%
-chaptertitle=false,pageranges=false,%
-maxnames=4,sorting=none]{biblatex}
+	biblabel=brackets,%
+	chaptertitle=false,pageranges=false,%
+	maxnames=4,sorting=none]{biblatex}
 %\usepackage[style=ieee]{biblatex}
 \usepackage{physics}
 \usepackage{subcaption}
@@ -22,8 +22,7 @@ maxnames=4,sorting=none]{biblatex}
 % \usepackage{ruledchapters}  % example of compliant heading format, uncomment to use
 
 \usepackage{lipsum}  % just for placeholder code
-\usepackage{pdfcomment}
-\pdfcommentsetup{draft} %set to 'final' to prevent all comments from showing up
+\usepackage[author=chleung,draft]{pdfcomment}
 
 \usepackage{lineno}
 \linenumbers
@@ -35,10 +34,10 @@ maxnames=4,sorting=none]{biblatex}
 \begin{document}
 
 \title{Probing parton distributions in proton with charmonium production with
-	120 GeV proton beam at Fermilab}
+	\SI{120}{\GeV} proton beam at Fermilab \pdfcomment{copied from prelim}}
 \author{Ching Him Leung}
 \department{Physics}
-%\concentration{Coffee Studies}
+
 \phdthesis
 \degreeyear{2023}
 \committee{
@@ -64,11 +63,8 @@ the partons.
 \pdfcomment{copied from prelim, needed to be rewritten}
 \end{abstract}
 
-\begin{dedication}
-To Father and Mother.
-\end{dedication}
 
-\input{section/ack.tex}
+%\input{section/ack.tex}
 
 {
 	\hypersetup{linkcolor=black}  % disable link coloring locally
@@ -82,28 +78,28 @@ To Father and Mother.
 \mainmatter
 
 \chapter{Introduction}
+\label{ch:intro}
 \input{section/1_Intro}
 
 \chapter{SeaQuest Experiment}
+\label{ch:seaquest}
 \input{section/2_seaquest}
 
 \chapter{Analysis}
+\label{ch:analysis}
 \input{section/3_analysis}
 
 \chapter{Results}
+\label{ch:tesult}
 \input{section/4_result}
 
 \chapter{TMD with Transversely Polarized Target}
+\label{ch:spinquest}
 \input{section/5_spinquest}
 
 
-% input individual chapters files
-% \input{1-introduction}
-% \input{2-related}
-% \input{3-model}
-% \input{4-predictions}
-
 \chapter{Conclusion and Future Prospects}
+\label{ch:conclusion}
 \input{section/6_conclusion}
 
 % per Graduate College preference, place the \appendix and the appendices content before the
