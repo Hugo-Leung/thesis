@@ -100,30 +100,45 @@ To explain the scaling behavior, Feynman proposed the parton model\cite{feynman1
 In this model,hadrons are treated as an extended objects which are made up of 
 constituents (partons) held together by their mutual interaction. We now know 
 these partons are quarks and gluons described by QCD, but this was not known at 
-the time. In the DIS process, the high energy lepton is scattered off the 
-partons elastically. In the center-of-mass frame, the hadron is Lorentz 
-contracted in the direction of the collision, and the internal interaction are
-time dilated. Hence as the center-of-mass energy increases, the lifetime of the
-virtual partonic state is lengthened, and the time for the electron to pass 
-traverse the hadron is shortened. If the lifetime of the virtual partonic states
-is longer than the duration of the electron-hadron interaction, the partons are
-essentially frozen and the parton-parton interactions are neglectable. One can
+the time. Consider the DIS process, the hadron is Lorentz contracted in the 
+direction of the collision in the center-of-mass frame, and the internal 
+interaction are time dilated. Hence as the center-of-mass energy increases, the 
+lifetime of the virtual partonic state is lengthened, and the time for the 
+electron to pass traverse the hadron is shortened. If the lifetime of the 
+virtual partonic states is longer than the duration of the electron-hadron 
+interaction, the partons are essentially frozen and the parton-parton 
+interactions are neglectable. The hadrons can be considered as a collection of 
+``free'' partons, and each parton may be thought of as carrying a definite 
+fraction $x$ of the hadron's momentum. The high energy lepton in DIS can be 
+treated as scattering of these partons elastically. The electron-parton elastic 
+scattering can be calculated using perturbation QCD, where as the non-perturbation
+long-range interaction within the hadron is encapsulated in the Parton Distribution
+Function (PDF) $f_{a/J}\left(x\right)$, which can be interpreted as the probability 
+of finding a parton of species $a$ with fraction $x$ of the hadron's momentum. 
+And the structure functions and the cross section can be written as a convolution
+as non-perturbative PDF and the perturbative short range interaction. To Leading
+order, the structure function $F_2\left(x\right)$ is given by
+\begin{equation}
+F_2\left(x\right)=x\sum_i e^2_i f_i\left(x\right),
+\end{equation}
+where $i$ sum over the quark and antiquark flavors. The ability to write the 
+structure function and the cross section as a convolution of the non-perturbative 
+PDF and pertubative short range interaction is known as the factorization theorem 
+\cite{collins1989}. These PDFs are also expected to be universal and independent 
+of the details of the scattering process, as they describe the dynamics of the 
+partons in a given hadron.
 
 
-The ability to write the structure function and the cross section as a 
-convolution of the long-range interaction and pQCD short range interaction is 
-known as the factorization theorem \cite{collins1989}.
-
-
-\pdfcomment{callan-gross relation shows that the protons are made up of spin 1/2
-	partons. This relation would be different if the spin of partons is 
-	different}
-From Eq.\ \ref{eq:DIS_cs1}, it is obvious that the structure function $W_1$ is 
-related to the magnetic form factor $G_E$ in Eq.\ \ref{eq:ep_cs}. 
-
-In the case where the partons are spin 0 particles, one would expect $F_1$ to 
-be zero.
-
+In the parton model, the structure functions $F_{1,2}$ are clearly related. And
+from Eq.\ \ref{eq:DIS_cs1}, it is obvious that the structure function $F_1$ is 
+related to the magnetic form factor $G_E$ in Eq.\ \ref{eq:ep_cs}. If the partons
+are spin 0 particles, one would expect $F_1$ to be zero. In leading order in QCD,
+only the quarks and antiquarks contribute to the cross section. Since quarks and 
+antiquarks are spin 1/2 particles, this relation is given by the Callan-Gross 
+relation\cite{callan1968,callan1969}
+\begin{equation}
+F_2\left(x\right) = 2x F_1\left(x\right).
+\end{equation}
 The measured deviation of the Callan-Gross relation, defined as 
 \begin{equation}
 K_0 = \frac{F_2}{2xF_1}-1,
