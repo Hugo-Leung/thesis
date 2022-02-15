@@ -1,7 +1,8 @@
 name: Build LaTeX document
-on: [push]
-  tags:
-    - "v*"
+on:
+  push:
+    tags:
+      - "v*"
 jobs:
   build_latex:
     runs-on: ubuntu-latest
