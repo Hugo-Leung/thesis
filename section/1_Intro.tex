@@ -74,7 +74,7 @@ where $\nu$ is the energy transferred by the scattering lepton. It is also
 customary to the define the structure functions $F_{1,2}$ from $W_{1,2}$ as:
 \begin{equation}
 	\begin{split}
-		F_1\left(x,Q^2\right) &= MW_1\left(\nu,Q^2\right)\\
+		F_1\left(x,Q^2\right) &= MW_1\left(\nu,Q^2\right),\\
 		F_2\left(x,Q^2\right) &= \nu W_2\left(\nu,Q^2\right),
 	\end{split}
 \end{equation}
@@ -104,16 +104,16 @@ the time. Consider the DIS process, the hadron is Lorentz contracted in the
 direction of the collision in the center-of-mass frame, and the internal 
 interaction are time dilated. Hence as the center-of-mass energy increases, the 
 lifetime of the virtual partonic state is lengthened, and the time for the 
-electron to pass traverse the hadron is shortened. If the lifetime of the 
-virtual partonic states is longer than the duration of the electron-hadron 
-interaction, the partons are essentially frozen and the parton-parton 
-interactions are neglectable. The hadrons can be considered as a collection of 
-``free'' partons, and each parton may be thought of as carrying a definite 
-fraction $x$ of the hadron's momentum. The high energy lepton in DIS can be 
-treated as scattering of these partons elastically. The electron-parton elastic 
-scattering can be calculated using perturbation QCD, where as the non-perturbation
-long-range interaction within the hadron is encapsulated in the Parton Distribution
-Function (PDF) $f_{a/J}\left(x\right)$, which can be interpreted as the probability 
+electron to pass trough the hadron is shortened. If the lifetime of the virtual
+partonic states is longer than the duration of the electron-hadron interaction,
+the partons are essentially frozen and the parton-parton interactions are 
+neglectable. The hadrons can be considered as a collection of ``free'' partons,
+and each parton may be thought of as carrying a definite fraction $x$ of the 
+hadron's momentum. The high energy lepton in DIS can be treated as scattering 
+of these partons elastically. The electron-parton elastic scattering can be 
+calculated using perturbation QCD, where as the non-perturbation long-range 
+interaction within the hadron is encapsulated in the Parton Distribution
+Function (PDF) $f_{a/h}\left(x\right)$, which can be interpreted as the probability 
 of finding a parton of species $a$ with fraction $x$ of the hadron's momentum. 
 And the structure functions and the cross section can be written as a convolution
 as non-perturbative PDF and the perturbative short range interaction. To Leading
@@ -121,18 +121,18 @@ order, the structure function $F_2\left(x\right)$ is given by
 \begin{equation}
 F_2\left(x\right)=x\sum_i e^2_i f_i\left(x\right),
 \end{equation}
-where $i$ sum over the quark and antiquark flavors. The ability to write the 
-structure function and the cross section as a convolution of the non-perturbative 
-PDF and pertubative short range interaction is known as the factorization theorem 
-\cite{collins1989}. These PDFs are also expected to be universal and independent 
-of the details of the scattering process, as they describe the dynamics of the 
-partons in a given hadron.
-
+where $e_i$ is the charge carried quark and antiquark of flavors $i$. Since, the 
+gluon does not carry any charge, it does not enter the cross section at leading 
+order. The ability to write the structure function and the cross section as a 
+convolution of the non-perturbative PDF and pertubative short range interaction
+is known as the factorization theorem \cite{collins1989}. These PDFs are also 
+expected to be universal and independent of the details of the scattering 
+process, as they describe the dynamics of the partons in a given hadron.
 
 In the parton model, the structure functions $F_{1,2}$ are clearly related. And
 from Eq.\ \ref{eq:DIS_cs1}, it is obvious that the structure function $F_1$ is 
 related to the magnetic form factor $G_E$ in Eq.\ \ref{eq:ep_cs}. If the partons
-are spin 0 particles, one would expect $F_1$ to be zero. In leading order in QCD,
+are spin 0 particles, one would expect $F_1$ to be zero. In leading order of QCD,
 only the quarks and antiquarks contribute to the cross section. Since quarks and 
 antiquarks are spin 1/2 particles, this relation is given by the Callan-Gross 
 relation\cite{callan1968,callan1969}
@@ -158,26 +158,95 @@ For large $Q^2$, $K_0$ is consistent with zero, establishing the parton spin as
 
 \subsection{Gottfried Sum Rule}
 \label{sec:gottfried}
+Since hadrons characterized by their quantum numbers, and these quantum numbers 
+are carried by the constituent partons, these quantum numbers serve as constrains
+on these PDF. For protons, there are two valance $u$ quarks and one valance $d$ 
+quarks, hence
+\begin{equation}
+\begin{split}
+	\int_{0}^{1} \dd{x} \left[f_{u/p} \left(x\right)-f_{\bar{u}/p} \left(x\right)\right]&=2,\\
+	\int_{0}^{1} \dd{x} \left[f_{d/p} \left(x\right)-f_{\bar{d}/p} \left(x\right)\right]&=1,\\
+	\int_{0}^{1} \dd{x} \left[f_{i/p} \left(x\right)-f_{\bar{i}/p} \left(x\right)\right]&=0 \qquad \text{other quark flavors}.
+\end{split}
+\end{equation}
+And the momentum of the hadron should be distributed among the partons, hence
+\begin{equation}
+	\sum_{i=q,\bar{q},g}\int_{0}^{1} \dd{x} xf_{i/h}\left(x\right)=1.
+\end{equation}
+An important sum rule is the Gottfired sum rule\cite{gottfried1967}. It can be obtained
+if we use the isospin symmetry to relate the neutron distributions to those of 
+the proton, namely the (anti) up quark in the neutron would have the same distribution 
+as (anti) down quark in proton, and vice-versa; the other quarks flavors and gluon
+distribution would be the same in both proton and neutron. Using this relation
+\begin{equation}
+\begin{split}
+	S_G & = \int_0^1 \frac{\dd{x}}{x}\left(F_2^{p} - F_{2}^{n}\right)\\
+	    & = \frac{1}{3} \int_0^1 \dd{x} \left[u\left(x\right) - d\left(x\right) 
+			+ \bar{u}\left(x\right) - \bar{s}\left(x\right)\right]\\
+		& = \frac{1}{3} \int_0^1 \dd{x} \left[u\left(x\right) - \bar{u}\left(x\right)\right]
+			- \frac{1}{3} \int_0^1 \dd{x} \left[d\left(x\right) - \bar{d}\left(x\right)\right]
+			+ \frac{2}{3} \int_0^1 \dd{x} \left[\bar{u}\left(x\right)-\bar{d}\left(x\right)\right]\\
+		& = \frac{1}{3} + \frac{2}{3} \int_0^1 \dd{x} \left[\bar{u}\left(x\right)-\bar{d}\left(x\right)\right]. 
+\end{split}
+\end{equation}
+If one made the naive assumption that $\int_0^1\dd{x} \bar{u}\left(x\right)=\int_0^1\dd{x} \bar{d}\left(x\right)=$,
+then $S_G$ would be expected to be $1/3$. And this assumption can be tested using DIS.
+One of the early measurements is from the New Muon Collaboration (NMC)\cite{amaudruz1991}. 
+The measured $F_2^p-F_2^n$ by NMC is shown in Fig.\ \ref{fig:NMC_Gottfried}. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/Gottfried}
+	\caption{The difference $F_2^p -F_2^n$ (solid and scale to the right) and 
+		$\int_{x_{min}}^1 (F_2^p-F_2^n)\dd{x}/x$ (open and scale to the left) 
+		determined by NMC, taken from Ref.\ \cite{amaudruz1991}. The extrpolation
+		to $x_{min}=0$ is indicated by the bar.}
+	\label{fig:NMC_Gottfried}
+\end{figure}
+The measured Gottfried sum to be $0.240 \pm 0.016$, which is significantly below 
+$1/3$, suggesting the sea-quark asymmetry.
+
 
 \section{Drell-Yan Process}
 \label{sec:DY}
+Another process for probing the hadron structure is the Drell-Yan process\cite{drell1970}.
+As illustrated in Fig.\ \ref{fig:DY}, this process involves two partons from the 
+two colliding hadrons to annihilate and form a lepton pair.
+\begin{equation}
+	h_A + h_B \rightarrow l + \bar{l} + X.
+\end{equation}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/Drell-Yan}
+    \caption{The Feynman diagram for the Drell-Yan process}
+    \label{fig:DY}
+\end{figure}
+Similar to DIS, the Drell-Yan cross section can be factorized into the non-perturbative
+PDF and the purtabative parton-parton scattering. And the proof of factorization 
+theorem for Drell-Yan can be found in Ref.\ \cite{collins1989}. At leading-order 
+of QCD, the cross section can be written as
+\begin{equation}
+	\frac{d^2\sigma_{DY}}{dx_{1}dx_{2}} = \frac{4\pi\alpha^2}{9M^2}\sum_i e^2_i
+		\left[f_{i/A}\left(x_1\right)f_{\bar{i}/B}\left(x_2\right) +
+			f_{\bar{i}/A}\left(x_1\right)f_{i/B}\left(x_2\right)
+		\right]
+\end{equation}
 
 \pdfcomment{factorization and universality of PDF, scaling plot for both DIS 
 	and DY}
 \begin{figure}
-\centering
-\begin{subfigure}{0.45\linewidth}
-\includegraphics[width=\linewidth]{images/DIS_scaling}
-\caption{taken from Ref.\ \cite{theh1collaboration2003}}
-\label{subfig:DIS_scaling}
-\end{subfigure}
-\begin{subfigure}{0.45\linewidth}
-\includegraphics[width=\linewidth]{images/DY_scaling}
-\caption{taken from Ref.\ \cite{mcgaughey1999}}
-\label{subfig:DY_scaling}
-\end{subfigure}
-\caption{Compilation of data on DIS (\subref{subfig:DIS_scaling}) and Drell-Yan
- (\subref{subfig:DY_scaling})}
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{images/DIS_scaling}
+		\caption{taken from Ref.\ \cite{theh1collaboration2003}}
+		\label{subfig:DIS_scaling}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{images/DY_scaling}
+		\caption{taken from Ref.\ \cite{mcgaughey1999}}
+		\label{subfig:DY_scaling}
+	\end{subfigure}
+	\caption{Compilation of data on DIS (\subref{subfig:DIS_scaling}) and 
+		Drell-Yan (\subref{subfig:DY_scaling})}
 \end{figure}
 
 
