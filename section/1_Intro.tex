@@ -120,6 +120,7 @@ as non-perturbative PDF and the perturbative short range interaction. To Leading
 order, the structure function $F_2\left(x\right)$ is given by
 \begin{equation}
 F_2\left(x\right)=x\sum_i e^2_i f_i\left(x\right),
+\label{eq:F2_parton}
 \end{equation}
 where $e_i$ is the charge carried quark and antiquark of flavors $i$. Since, the 
 gluon does not carry any charge, it does not enter the cross section at leading 
@@ -155,9 +156,45 @@ For large $Q^2$, $K_0$ is consistent with zero, establishing the parton spin as
 \label{fig:callan_gross}
 \end{figure}
 
+\subsection{Quantum Chromodynamics}
+\label{sec:QCD}
+\pdfcomment{QCD correction to parton model: Q2 dependence introduce by the 
+	renormalization and factorization}
+Quantum Chromodynamics(QCD) being a renormalizable theory, a regularization 
+procedure and a set of renormalization prescription need to be specified. 
+dependence
 
-\subsection{Gottfried Sum Rule}
-\label{sec:gottfried}
+The renormalization scheme will also introduce a $Q^2$ dependency, known as scaling
+violation. 
+
+This $Q^2$ dependency can be understood as as due to the fact that a current with 
+larger $Q^2$ probes a wider range of $k_\perp^2$ in the parton cloud of the target.
+
+The QCD generalization of Eq.\ \ref{eq:F2_parton} is given by
+\pdfcomment{check what nonsingulet means here}
+\begin{equation}
+F_2^{NS}\left(x,Q^2\right) = \int_0^1 \frac{\dd{y}}{y} \tilde{C}_2\left[\frac{x}{y},\frac{Q^2}{\mu^2},\frac{\mu^2_f}{\mu^2}.\alpha_s^{\mu^2}\right]\sum_i e_i^2 f_{i/p}(y,\mu_f,mu^2)
+\end{equation}
+As a consequence of the perturbative  calculation, a dependence on the renomalization
+scale $\mu$ is introduced. The factorization scale $\mu_f$ is introduce to separate the 
+low- and high-momentum regime, as the long-distance contributions cannot be calculated 
+perturbatively and needs to be absorbed into the definition of the parton distribution
+functions. It is also customary to choose $\mu_f^2=\mu^2$.
+
+In leading-order of QCD, the coefficient function is given by
+\begin{equation}
+\tilde{C}_2 = \delta\left(1-\frac{x}{y}\right)+\frac{\alpha_s\left(Q^2\right)}{2\pi} \left[P_{qq}\left(\frac{x}{y}\right)\ln\frac{Q^2}{\mu}+R_2\left(\frac{x}{y}\right)\right]
+\end{equation}
+The splitting function $P_{qq}(z)$ is the Altarelli-Parisi kernel.\pdfcomment{citation}.
+Since the leading logarithmic term is universal for all structure functions, it can 
+be absorbed into a newly defined, $Q^2$ dependent parton distribution function:
+\begin{equation}
+f_{i/h}\left(x,Q^2\right) = f_{i/h}\left(x\right) + \frac{\alpha_s\left(Q^2\right)}{2\pi} 
+	\int_0^1 \frac{\dd{\xi}}{\xi} f_{i/h}\left(\xi\right)\left[P_{qq}\ln\frac{Q^2}{\mu^2}\right]
+\end{equation}
+
+\subsection{Sum Rules}
+\label{sec:sum_rules}
 Since hadrons characterized by their quantum numbers, and these quantum numbers 
 are carried by the constituent partons, these quantum numbers serve as constrains
 on these PDF. For protons, there are two valance $u$ quarks and one valance $d$ 
@@ -189,7 +226,7 @@ distribution would be the same in both proton and neutron. Using this relation
 		& = \frac{1}{3} + \frac{2}{3} \int_0^1 \dd{x} \left[\bar{u}\left(x\right)-\bar{d}\left(x\right)\right]. 
 \end{split}
 \end{equation}
-If one made the naive assumption that $\int_0^1\dd{x} \bar{u}\left(x\right)=\int_0^1\dd{x} \bar{d}\left(x\right)=$,
+If one made the naive assumption that $\int_0^1\dd{x} \bar{u}\left(x\right)=\int_0^1\dd{x} \bar{d}\left(x\right)$,
 then $S_G$ would be expected to be $1/3$. And this assumption can be tested using DIS.
 One of the early measurements is from the New Muon Collaboration (NMC)\cite{amaudruz1991}. 
 The measured $F_2^p-F_2^n$ by NMC is shown in Fig.\ \ref{fig:NMC_Gottfried}. 
@@ -228,11 +265,16 @@ of QCD, the cross section can be written as
 	\frac{d^2\sigma_{DY}}{dx_{1}dx_{2}} = \frac{4\pi\alpha^2}{9M^2}\sum_i e^2_i
 		\left[f_{i/A}\left(x_1\right)f_{\bar{i}/B}\left(x_2\right) +
 			f_{\bar{i}/A}\left(x_1\right)f_{i/B}\left(x_2\right)
-		\right]
+		\right].
+	\label{eq:DY_cs}
 \end{equation}
-
+Fig.\ \ref{fig:scaling} shows some of the existing data on DIS and Drell-Yan. By
+performing a global fit to both DIS and Drell-Yan data, the parton distribution 
+functions can be extracted. The ability to fit both DIS and Drell-Yan data using 
+the same PDF demonstrate the universality of the PDF and the usefulness of the 
+factorization theorem. 
 \pdfcomment{factorization and universality of PDF, scaling plot for both DIS 
-	and DY}
+	and DY.May need better plot. Shows some PDF extraction}
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.45\linewidth}
@@ -247,11 +289,45 @@ of QCD, the cross section can be written as
 	\end{subfigure}
 	\caption{Compilation of data on DIS (\subref{subfig:DIS_scaling}) and 
 		Drell-Yan (\subref{subfig:DY_scaling})}
+	\label{fig:scaling}
 \end{figure}
+One of the advantages of Drell-Yan over DIS is the explicit separation of the quark
+and anti-quark distributions in Eq.\ \ref{eq:DY_cs}. Since the structure functions
+are dominated by valance quark distribution at large $x$, DIS is less sensitive to
+the sea-quarks distribution at large $x$. On the other hand, in the high $x_F=x_1-x_2$
+of Drell-Yan, the valance quark is more likely to come from the beam hadron, and 
+the anti-quark is more likely to come from the target hadron. Hence, Drell-Yan can
+be more sensitive to the anti-quark distribution than DIS. In particular, for high
+$x_F$ and using the fact there are two up valance quarks in protons, the $(p+d/2(p+p))$
+Drell-Yan cross section ratio can be approximated as 
+\begin{equation}
+	\frac{\sigma^{p+d}}{2\sigma^{p+p}} \approx \frac{1}{2} \left( 1+ \frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} \right).
+\end{equation}
+Thus the Drell-Yan process has been used in many experiments to probe the sea-quarks 
+asymmetry.
 
 
 \subsection{E866/NuSea}
 \label{sec:E866}
+The E866/NuSea experiment was designed to measure the flavor structure of the sea 
+quark over a broad range of $x$ to hiher precision than previous experiments. The 
+experiment utilized the \SI{800}{\GeV} proton beam from the Tevatron on liquid 
+hydrogen and deutrium targets. The deuterium over hydrogen cross section ratio 
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{images/e866_csr}
+		\caption{$(p+p)/2(p+d)$ Drell-Yan cross section ratio}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{images/e866_dbarubar}
+		\caption{$\bar{d}/\bar{u}$ extracted from E866 result.}
+	\end{subfigure}
+	\caption{The E866 result taken from Ref.\ \cite{fnale866/nuseacollaboration2001}}
+\end{figure}
+
+
 
 \section{Charmonium Production}
 \label{sec:jpsi}
