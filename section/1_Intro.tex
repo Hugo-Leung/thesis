@@ -147,7 +147,7 @@ K_0 = \frac{F_2}{2xF_1}-1,
 is shown in Fig.\ \ref{fig:callan_gross}, taken from Ref.\ \cite{kendall1991}. 
 For large $Q^2$, $K_0$ is consistent with zero, establishing the parton spin as
 1/2.
-\begin{figure}
+\begin{figure}[htbp!]
 \centering
 \includegraphics[width=0.5\linewidth]{images/Callan_Gross_relation}
 \caption{The deviation from the Callan-Gross relation, defined as 
@@ -230,7 +230,7 @@ If one made the naive assumption that $\int_0^1\dd{x} \bar{u}\left(x\right)=\int
 then $S_G$ would be expected to be $1/3$. And this assumption can be tested using DIS.
 One of the early measurements is from the New Muon Collaboration (NMC)\cite{amaudruz1991}. 
 The measured $F_2^p-F_2^n$ by NMC is shown in Fig.\ \ref{fig:NMC_Gottfried}. 
-\begin{figure}
+\begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/Gottfried}
 	\caption{The difference $F_2^p -F_2^n$ (solid and scale to the right) and 
@@ -251,7 +251,7 @@ two colliding hadrons to annihilate and form a lepton pair.
 \begin{equation}
 	h_A + h_B \rightarrow l + \bar{l} + X.
 \end{equation}
-\begin{figure}
+\begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{images/Drell-Yan}
     \caption{The Feynman diagram for the Drell-Yan process}
@@ -275,7 +275,7 @@ the same PDF demonstrate the universality of the PDF and the usefulness of the
 factorization theorem. 
 \pdfcomment{factorization and universality of PDF, scaling plot for both DIS 
 	and DY.May need better plot. Shows some PDF extraction}
-\begin{figure}
+\begin{figure}[htbp!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{images/DIS_scaling}
@@ -292,14 +292,13 @@ factorization theorem.
 	\label{fig:scaling}
 \end{figure}
 One of the advantages of Drell-Yan over DIS is the explicit separation of the quark
-and anti-quark distributions in Eq.\ \ref{eq:DY_cs}. Since the structure functions
-are dominated by valance quark distribution at large $x$, DIS is less sensitive to
-the sea-quarks distribution at large $x$. On the other hand, in the high $x_F=x_1-x_2$
-of Drell-Yan, the valance quark is more likely to come from the beam hadron, and 
-the anti-quark is more likely to come from the target hadron. Hence, Drell-Yan can
-be more sensitive to the anti-quark distribution than DIS. In particular, for high
-$x_F$ and using the fact there are two up valance quarks in protons, the $(p+d/2(p+p))$
-Drell-Yan cross section ratio can be approximated as 
+and anti-quark distributions in Eq.\ \ref{eq:DY_cs}. At large $x$, DIS cross section 
+is dominated by the valance quark distribution. On the other hand, in the region $x_1 \gg x_2$,
+the valance quark in the Drell-Yan process is more likely to come from the beam 
+hadron, and the anti-quark is more likely to come from the target hadron. Hence,
+Drell-Yan can be more sensitive to the anti-quark distribution than DIS. In 
+particular, for high $x_F$ and using the fact there are two up valance quarks in 
+protons, the $(p+d/2(p+p))$ Drell-Yan cross section ratio can be approximated as 
 \begin{equation}
 	\frac{\sigma^{p+d}}{2\sigma^{p+p}} \approx \frac{1}{2} \left( 1+ \frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} \right).
 \end{equation}
@@ -310,21 +309,29 @@ asymmetry.
 \subsection{E866/NuSea}
 \label{sec:E866}
 The E866/NuSea experiment was designed to measure the flavor structure of the sea 
-quark over a broad range of $x$ to hiher precision than previous experiments. The 
+quark over a broad range of $x$ to higer precision than previous experiments. The 
 experiment utilized the \SI{800}{\GeV} proton beam from the Tevatron on liquid 
-hydrogen and deutrium targets. The deuterium over hydrogen cross section ratio 
-
-\begin{figure}
+hydrogen and deutrium targets. The measured deuterium over hydrogen cross section 
+ratio from E866/NuSea is shown in Fig.\ \ref{fig:e866_result}. They observed the
+cross section ratio drop off below unity at $x_2>0.25$, suggesting the $\bar{d}/\bar{u}$ 
+ratio drop off below 1. Various models had difficulties explaining this surprising 
+behavior. Due to the large uncertainty on the data points at large $x_2$, a new 
+experiment was needed to explore sea quark asymmetry the high $x$ region with better 
+accuracy.
+\begin{figure}[htbp!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{images/e866_csr}
 		\caption{$(p+p)/2(p+d)$ Drell-Yan cross section ratio}
+		\label{subfig:e866_csr}
 	\end{subfigure}
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{images/e866_dbarubar}
 		\caption{$\bar{d}/\bar{u}$ extracted from E866 result.}
+		\label{subfig:e866_dbarubar}
 	\end{subfigure}
 	\caption{The E866 result taken from Ref.\ \cite{fnale866/nuseacollaboration2001}}
+	\label{fig:e866_result}
 \end{figure}
 
 
@@ -341,12 +348,91 @@ $c\bar{c}$ pairs to hadronize into different charmonium state and this
 probability is independent of the kinematics or the production subprocess. The 
 charmonium production cross section in the CEM framework can be expressed as
 \begin{equation}
-\eval{\dv{\sigma}{x_{F}}}_{J/\psi\left(\psi^\prime\right)} =
-	F_{J/\psi\left(\psi^\prime\right)} \sum_{i,j=q,\bar{q},g} \int_{2m_c}^{2m_D}
+    \begin{split}
+        \left.\frac{d\sigma}{dx_F}\right|_{J/\Psi} &= F \sum_{i,j = q,\bar{q},G}\int^{2m_D}_{2m_c} dM_{c\bar{c}}  \frac{2M_{c\bar{c}}}{s\sqrt{x_F^2+4M_{c\bar{c}}^2/s}}\\
+        &\cross f_{i/A}\left(x_1,\mu_F\right)f_{j/B}\left(x_2,\mu_F\right)\sigma\left[ij\rightarrow c\bar{c}X\right]\left(x_1P_A,x_2P_B,\mu_F,\mu_R \right),
+    \end{split}
 \end{equation}
+where $i$,$j$ denote the type of interacting partons. At leading-order, the 
+$c\bar{c}$ pairs are produced via two subprocesses, gluon fusion and 
+quark-antiquark annihilation, as illustrated in Fig.\ \ref{fig:charmonium}.
+\begin{figure}[htpb!]
+    \centering
+    \begin{subfigure}{0.4\linewidth}
+        \begin{subfigure}{\linewidth}
+        \input{images/gg1}
+        \end{subfigure}
+        \begin{subfigure}{\linewidth}
+        \input{images/gg2}
+        \end{subfigure}
+        \caption{gluon fusion\label{subfig:gluon}}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}{0.4\linewidth}
+    \input{images/qq}
+    \caption{quark-antiquark annihilation\label{subfig:qqbar}}
+    \end{subfigure}
+    \caption{The Feynman diagram for $c\bar{c}$ pair production}
+    \label{fig:charmonium}
+\end{figure}
+The calculated cross section for $J/\Psi$ production in $p+p$ at 120 GeV using 
+CEM is shown in Fig.\ \ref{fig:cem_cs}. The relative importance of gluon fusion 
+and quark-antiquark annihilation is a strong function of $x_F=2P_L/\sqrt{s}$, 
+where $P_L$ is the longitudinal momemtumn of the $J/\Psi$ meson in the 
+hadron-hadron center-of-mass frame and $\sqrt{s}$ is the total energy in this 
+frame. At large $x_F$, the quark-antiquark annihilation is the dominant subprocess.  
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.45\linewidth]{images/pp_norm_cs_NLO_pp}
+    \caption{Calculated cross section for $J/\Psi$ production using CEM model. 
+		The CEM code is obtained from Ref.\ \cite{mangano1993}.}
+    \label{fig:cem_cs}
+\end{figure}
 
-
-\pdfcomment{CEM and NRCD}
+Another theoretical model for quarkonium productions is the non-relativistic 
+QCD (NRQCD) \cite{bodwin1995,bodwin1997}. Unlike CEM, the probability of 
+hadronization depends on the color and spin state of the $c\bar{c}$ pairs and 
+is described by various long-distance matrix elements (LDMEs). The quarkonium 
+production cross section in this framework is given as
+\begin{equation}
+    \begin{split}
+        \frac{d\sigma^H}{dx_F} &=\sum_{i,j = q,\bar{q},G}\int^1_0 dx_1 dx_2 \delta(x_F-x_1+x_2)\\
+        &\cross f_{i/A}\left(x_1,\mu_F\right)f_{j/B}\left(x_2,\mu_F\right)\hat{\sigma}\left[ij\rightarrow H\right]\left(x_1P_A,x_2P_B,\mu_F,\mu_R , m_c\right),
+    \end{split}
+\end{equation}
+\begin{equation}
+    \hat{\sigma}\left[ij\rightarrow H\right]= \sum_n C^{ij}_{c\bar{c}\left[n\right]}\left(x_1P_A,x_2P_B,\mu_F,\mu_R , m_c\right)\expval{O^H_n \left[^{2S+1}L_J\right]},
+\end{equation}
+where the $c\bar{c}$ pair is labeled by its color ($n$), spin ($S$), orbital 
+angular momentum ($L$) and total angular momentum ($J$). The coefficient 
+$C^{ij}_{c\bar{c}\left[n\right]}$ describes the production of $c\bar{c}$ pair 
+with specific color-spin state and is calculated perturbatively in powers of 
+$\alpha_s$ using pQCD. The LDME $\expval{O^H_n \left[^{2S+1}L_J\right]}$ accounts 
+for the hardronization probability for a specfic $c\bar{c}$ state into the 
+charmonium state $H$. These LDMEs are obtained by fitting to data and assumed to
+be universal, independent of beam or target hadrons and the energy scale. The 
+calculated cross sections for $J/\Psi$ and $\Psi'$ production using NRQCD for 
+$p+p$ at 120 GeV are shown in Fig.\ \ref{fig:NRQCD_cs}. In this model, quark-antiquark
+annihilation is more important than suggested by CEM. This model also suggests 
+that the relative importance of the two subprocess depends on the charmonium state. 
+In particular, Fig.\ \ref{fig:NRQCD_cs} shows that the quark-antiquark annihilation 
+is the dominatent process for $\Psi^\prime$ production.
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+    \includegraphics[width=\linewidth]{images/jpsi_cs_pp}
+    \caption{$J/\Psi$ production}
+    \end{subfigure}
+    \quad
+    \begin{subfigure}{0.45\linewidth}
+    \includegraphics[width=\linewidth]{images/psip_cs_pp}
+    \caption{$\Psi'$ production}
+    \end{subfigure}
+    \caption{Calculated cross section for charmonium production using NRQCD model \cite{chang2021}.
+		CT14nlo is used as the proton PDF. The LDMEs used are taken from table 4 
+		in Ref.\ \cite{hsieh2021}, and are obtained from a global fit to fixed-target charmonium production data. }
+    \label{fig:NRQCD_cs}
+\end{figure}
 
 \pdfcomment{what is physical significant of the nuclear dependence}
 

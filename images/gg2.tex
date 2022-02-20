@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+\tikzstyle{every node}=[font=\large]
+    \begin{feynman}
+    \vertex  (a1);
+    \vertex [right= of a1, blob] (a2) {};
+    \vertex [right= 4cm of a2] (a3) ;
+    \vertex [below= 2cm of a1] (b1);
+    \vertex [below= 2cm of a2,blob] (b2) {};
+    \vertex [below= 2cm of a3] (b3);
+    \vertex  at ($(b2) + (1.5cm , +0.666cm)$) [dot] (d);
+    \vertex [above= 0.668cm of d] (d1);
+     \vertex [right= 2.25cm of d1] (c1) {$c$};
+     \vertex [right= 2.25cm of d] (c2) {$\bar{c}$};
+     \diagram*{
+     (a1) --[fermion](a2),
+     (a2) --[double](a3),
+     (b1) --[fermion](b2),
+     (b2) --[double](b3),
+     (b2) --[gluon, edge label=$g$] (d),
+     
+     (a2) --[gluon, edge label'=$g$](d1),
+     (d) --[fermion](d1),
+     (d1) --[fermion] (c1);
+     (c2) --[fermion] (d);
+     };
+    \end{feynman}
+\end{tikzpicture}
