@@ -200,10 +200,27 @@ generating matrices $t_c$ is used in $\mathcal{G}$.
 \pdfmargincomment{QCD correction to parton model: Q2 dependence introduce by the 
 	renormalization and factorization}
 
+The QCD generalization of Eq.\ \ref{eq:F2_parton} is given 
+\begin{equation}
+\frac{1}{x}F_2\left(x,Q^2\right) = \sum_a \int_x^1 \frac{\dd{\xi}}{x}f_{a/h}\left(\xi,\mu\right)\frac{\xi}{x}H_{2a}\left( \frac{x}{\xi}, \frac{Q}{\mu}, \alpha_s\left(\mu\right)\right)
+	+ \text{Remainder}
+\end{equation}
+The hard scattering coefficient $H_{2a}$ would be power series in $\alpha_s$. It
+can be shown the the remainder is suppress by powers of $Q$. Here the parton 
+distribution also depends on the renormalization scale $\mu$. This scale 
+dependency is introduce by the renomalization procedure. By requiring the cross 
+section and the structure function to be independent of the scale $\mu$,
+one can show that the renormalization group equation for the distribution 
+functions is
+\begin{equation}
+	\mu\frac{d}{d\mu}f_{a/h}\left(\xi,\mu\right)=\sum_b \int_\xi^1 \frac{\dd{\zeta}}{\zeta} P_{a/b}\left(\zeta,\alpha_s\left(\mu\right)\right) f_{b/h}\left(\frac{\xi}{\zeta},\mu\right),
+\end{equation}
+where $P_{a/b}$ is the Altarelli-Parisi kernel\cite{altarelli1977}. 
 
-
-
-
+It is customary to choose $\mu =Q$ to avoid large logarithms of $\mu /Q$ in the 
+power expansions of $H$ As such the $\mu$ dependency in the parton distribution 
+functions can be interpreted as a virtual photon with higher $Q$ would probe the
+nucleon with better resolution. 
 
 \section{Sum Rules}
 \label{sec:sum_rules}
@@ -321,9 +338,9 @@ asymmetry.
 \subsection{E866/NuSea}
 \label{sec:E866}
 The E866/NuSea experiment was designed to measure the flavor structure of the sea 
-quark over a broad range of $x$ to higer precision than previous experiments. The 
+quark over a broad range of $x$ to higher precision than previous experiments. The 
 experiment utilized the \SI{800}{\GeV} proton beam from the Tevatron on liquid 
-hydrogen and deutrium targets. The measured deuterium over hydrogen cross section 
+hydrogen and deuterium targets. The measured deuterium over hydrogen cross section 
 ratio from E866/NuSea is shown in Fig.\ \ref{fig:e866_result}. They observed the
 cross section ratio drop off below unity at $x_2>0.25$, suggesting the $\bar{d}/\bar{u}$ 
 ratio drop off below 1. Various models had difficulties explaining this surprising 
@@ -446,9 +463,10 @@ is the dominatent process for $\Psi^\prime$ production.
     \includegraphics[width=\linewidth]{images/psip_cs_pp}
     \caption{$\Psi'$ production}
     \end{subfigure}
-    \caption{Calculated cross section for charmonium production using NRQCD model \cite{chang2021}.
-		CT14nlo is used as the proton PDF. The LDMEs used are taken from table 4 
-		in Ref.\ \cite{hsieh2021}, and are obtained from a global fit to fixed-target charmonium production data. }
+    \caption{Calculated cross section for charmonium production using NRQCD model
+		\cite{chang2021}. CT14nlo is used as the proton PDF. The LDMEs used are
+		taken from table \num{4} in Ref.\ \cite{hsieh2021}, and are obtained from a 
+		global fit to fixed-target charmonium production data. }
     \label{fig:NRQCD_cs}
 \end{figure}
 
