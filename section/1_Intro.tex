@@ -1,5 +1,4 @@
 \documentclass[../main.tex]{subfiles}
-\graphicspath{{\subfix{../images/}}}
 \begin{document}
 
 \ifSubfilesClassLoaded{\mainmatter}{}
@@ -16,19 +15,17 @@ magnetic moment can be expressed as
 \begin{equation}
 \mu = \frac{g}{2}\mu_B ~~~~ \mu_B = \frac{e\hbar}{2m},
 \end{equation}
-with $g$ expected to be $2$. Such measurement was first carried out by Otto 
-Stern in 1933. And they found that the $g$ factor for proton is significantly 
-greater than $2$. Since the neutron is a neutral particle, it was expected that
-to have a zero magnetic moment. Stern and his team would later found that the 
-neutron moment to be non-zero, suggesting that proton and neutron are composite
-particles.
-\pdfmargincomment{find appropriate citation. The original paper on proton magnetic
-	moment is in Germany which I can't read}
+with $g$ expected to be \num{2}. Such measurement was first carried out in 1933. 
+And the $g$ factor for proton is found to be  significantly greater than \num{2}
+\cite{frisch1933}. Since the neutron is a neutral particle, it was expected that
+to have a zero magnetic moment. The neutron magnetic moment would later be 
+measured and found to be non-zero, suggesting that proton and neutron are 
+composite particles \cite{rabi1934a}. 
 
 In the 1950s, the proton form factor was measured using electron proton elastic
 scattering experiments\cite{hofstadter1956}. The electron-proton elastic 
-scattering in the laboratory frame can be expressed in the Rosenbluth formula
-\pdfmargincomment{citation}
+scattering in the laboratory frame can be expressed in the Rosenbluth formula 
+\cite{rosenbluth1950}.
 \begin{equation}
 \dv{\sigma}{\Omega} = \frac{\alpha^2}{4E^2 \sin^2\left(\theta/2\right)} 
 	\frac{E^\prime}{E} \left( \frac{G_E^2+\tau G_M^2}{1+\tau} \cos^2 
@@ -380,17 +377,17 @@ Yet another process for probing the nucleon structure is via the charmonium prod
 Unlike DIS and Drell-Yan, the charmonium production involves the strong interaction
 at leading-order. Therefore it can be used to probe the gluon structure, which is 
 less sensitive in DIS or Drell-Yan, and the quark anti-quark structure. However, 
-
-There are various models for calculating the charmonium production. The models 
-usually separate the production mechanism into two parts, the production of 
-heavy-quark pairs and the subsequent hadronization into quarkonium states. One 
-of the early approaches is the Color Evaporation method (CEM)\cite{einhorn1975,bodwin1995,bodwin1997}.
-The heavy-quark pairs production is expanded in terms of the strong coupling 
-constant $\alpha_s$ and is calculated with perturbative QCD (pQCD). CEM then 
-assumes a constant probability $F$ for the $c\bar{c}$ pairs to hadronize into 
-different charmonium state and this probability is independent of the kinematics 
-or the production subprocess. The charmonium production cross section in the CEM 
-framework can be expressed as
+because of the non-pertiubative nature of QCD, there are various models for 
+calculating the charmonium production. The models usually separate the production
+mechanism into two parts, the production of heavy-quark pairs and the subsequent
+hadronization into quarkonium states. One of the early approaches is the Color 
+Evaporation method (CEM)\cite{einhorn1975,bodwin1995,bodwin1997}. The heavy-quark 
+pairs production is expanded in terms of the strong coupling constant $\alpha_s$
+and is calculated with perturbative QCD (pQCD). CEM then assumes a constant 
+probability $F$ for the $c\bar{c}$ pairs to hadronize into different charmonium
+state and this probability is independent of the kinematics or the production
+subprocess. The charmonium production cross section in the CEM framework can be 
+expressed as
 \begin{equation}
     \begin{split}
         \left.\frac{d\sigma}{dx_F}\right|_{J/\Psi} &= F \sum_{i,j = q,\bar{q},G}\int^{2m_D}_{2m_c} dM_{c\bar{c}}  \frac{2M_{c\bar{c}}}{s\sqrt{x_F^2+4M_{c\bar{c}}^2/s}}\\
