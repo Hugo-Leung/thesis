@@ -1,3 +1,12 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\ifSubfilesClassLoaded{\mainmatter}{}
+
+\chapter{Results}
+\label{ch:tesult}
+
 \section{Drell-Yan Cross Section Ratio}
 
 \subsection{Extraction of \texorpdfstring{$\bar{d}/\bar{u}$}{dbar/ubar}}
@@ -30,3 +39,7 @@ their PDF extraction\cite{ball2021} and their result is shown in Fig.\
 
 
 \subsection{Nuclear Dependence}
+
+\ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
+
+\end{document}

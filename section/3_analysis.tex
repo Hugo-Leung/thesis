@@ -1,3 +1,12 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\ifSubfilesClassLoaded{\mainmatter}{}
+
+\chapter{Analysis}
+\label{ch:analysis}
+
 \section{Data Sets}
 
 \begin{table}[h!]
@@ -38,3 +47,6 @@
 \section{Intensity Extrapolation}
 
 \section{Mass Spectrum Fitting}
+
+\ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
+\end{document}

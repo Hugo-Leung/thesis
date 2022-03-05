@@ -33,6 +33,7 @@
 \graphicspath{{images/}}
 \addbibresource{references.bib}
 \setcounter{tocdepth}{2}
+\usepackage{subfiles}
 \begin{document}
 
 \title{Probing parton distributions in proton with charmonium production with
@@ -65,7 +66,7 @@ the partons.
 \end{abstract}
 
 
-%\input{section/ack.tex}
+\subfile{section/ack}
 
 {
 	\hypersetup{linkcolor=black}  % disable link coloring locally
@@ -78,30 +79,17 @@ the partons.
 
 \mainmatter
 
-\chapter{Introduction}
-\label{ch:intro}
-\input{section/1_Intro}
+\subfile{section/1_Intro}
 
-\chapter{SeaQuest Experiment}
-\label{ch:seaquest}
-\input{section/2_seaquest}
+\subfile{section/2_seaquest}
 
-\chapter{Analysis}
-\label{ch:analysis}
-\input{section/3_analysis}
+\subfile{section/3_analysis}
 
-\chapter{Results}
-\label{ch:tesult}
-\input{section/4_result}
+\subfile{section/4_result}
 
-\chapter{TMD with Transversely Polarized Target}
-\label{ch:spinquest}
-\input{section/5_spinquest}
+\subfile{section/5_spinquest}
 
-
-\chapter{Conclusion and Future Prospects}
-\label{ch:conclusion}
-\input{section/6_conclusion}
+\subfile{section/6_conclusion}
 
 % per Graduate College preference, place the \appendix and the appendices content before the
 % bibliography (here) only if the appendices contain references.

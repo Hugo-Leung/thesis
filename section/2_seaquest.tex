@@ -1,3 +1,12 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\ifSubfilesClassLoaded{\mainmatter}{}
+
+\chapter{SeaQuest Experiment}
+\label{ch:seaquest}
+
 \section{Introduction}
 SeaQuest is a fixed-target experiment utilizing the \SI{120}{\GeV} proton beam 
 from the Fermilab Main Injector. Details of the SeaQuest spectrometer can be 
@@ -52,3 +61,5 @@ beginning of spills is one minute. Beam is
 \pdfmargincomment{list the properties of the targets. Some past thesis quoted the
 	wrong number. Check PDG}
 
+\ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
+\end{document}

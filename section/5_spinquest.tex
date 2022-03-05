@@ -1,3 +1,12 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\ifSubfilesClassLoaded{\mainmatter}{}
+
+\chapter{TMD with Transversely Polarized Target}
+\label{ch:spinquest}
+
 \section{Introduction}
 
 \subsection{Transverse momentum dependent parton distributions}
@@ -18,3 +27,6 @@ target is polarized using Dynamic Nuclear Polarization(DNP)\cite{crabb1995}.
 \section{Preliminary Result}
 \pdfmargincomment{Hoping we got a mass spectrum from spinquest and possibly comment 
 	on the enhance jpsi peak due to new trigger road and magnet settings}
+
+\ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
+\end{document}
