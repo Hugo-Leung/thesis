@@ -45,15 +45,46 @@ produce hits on station 4 are assumed to be from muons.
 	is monitor. And finally says that the varying instantaneous beam intensity 
 	allows us to do intensity extrapolation which will be discussed in next 
 	chapter}
+The layout of the Fermilab accelerator complex is shown in Fig.\ \ref{fig:complex}.
 SeaQuest received its \SI{120}{\GeV} proton beam from the Fermilab Main Injector.
-The beam is extracted in a slow spill lasting 4 seconds. The time between the 
-beginning of spills is one minute. Beam is 
+The proton beam originate from a direct-extraction magnetron hydrogen ion source,
+which produce a \SI{35}{\keV} negative hydrogen ion beam. It is then accelerated 
+to \SI{750}{\keV} using Radio-frequency Quadrupole. Then the Linac accelrate the 
+$H^-$ ions to \SI{400}{MeV}. The $H^-$ ions are then sent through a stripping foil 
+to remove the electrons. The resulting proton beam then circulates in the Booster
+accelerator and accelerates to \SI{8}{\GeV}. The \SI{8}{\GeV} proton beam is 
+further accelerated by the Main Injector to \SI{120}{GeV}. The proton beam is 
+extracted from the Main Injector using a process known as resonant extraction to 
+provide a lower intensity beam over a 5 second spill. The extracted beam, which 
+is sent to SeaQuest, retains the the \SI{53.1}{\MHz} structure of the Main 
+Injector RF frequency, dividing hte beam in to ``RF buckets'' that are less than
+\SI{2}{\ns} long and occur every \SI{18.8}{\ns}
+\begin{figure}[htbp!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Fermilab-complex}
+	\caption{Layout of the Fermilab accelerator complex. Taken from Ref.\ \cite{concept-book}}
+	\label{fig:complex}
+\end{figure}
+However the number of protons in each bucket varies greatly during the spill, as 
+is shown in Fig.\ \ref{fig:intensity}.
+
+The beam intensity is monitored using a Cerenkov counter, shown in Fig.\ \ref{fig:BIM}.
+\begin{figure}[htbp!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{BIMCerenkov}
+	\caption{The Beam Intensity Monitor (BIM) Cerenkov counter. Taken from Ref.\
+	\cite{aidala2019}.}
+	\label{fig:BIM}
+\end{figure}
+
+
 
 \begin{figure}[htpb!]
 	\centering
 	\includegraphics[width =0.8\linewidth, angle =270]{beam_intensity}
 	\caption{The beam intensity measured by the Beam DAQ Cerenkov counter every 
 		bucket. Taken from Ref.\ \cite{aidala2019}}
+	\label{fig:intensity}
 \end{figure}
 
 \section{Target}
