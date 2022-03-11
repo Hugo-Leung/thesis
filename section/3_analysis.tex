@@ -1,7 +1,10 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
-\ifSubfilesClassLoaded{\mainmatter}{}
+\ifSubfilesClassLoaded{
+	\mainmatter
+	\setcounter{chapter}{2}
+}{}
 
 \chapter{Analysis}
 \label{ch:analysis}
@@ -46,6 +49,7 @@
 \section{Intensity Extrapolation}
 
 \section{Mass Spectrum Fitting}
+\label{sec:extrapolation}
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
 \end{document}

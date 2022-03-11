@@ -1,7 +1,10 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
-\ifSubfilesClassLoaded{\mainmatter}{}
+\ifSubfilesClassLoaded{
+	\mainmatter
+	\setcounter{chapter}{1}
+}{}
 
 \chapter{SeaQuest Experiment}
 \label{ch:seaquest}
@@ -76,7 +79,8 @@ The beam intensity is monitored using a Cerenkov counter, shown in Fig.\ \ref{fi
 	\cite{aidala2019}.}
 	\label{fig:BIM}
 \end{figure}
-
+This allows us the obtain the yield ratios as a function of the instantaneous
+intensity, which will be discussed further in Sec.\ \ref{M-sec:extrapolation}
 
 
 \begin{figure}[htpb!]
