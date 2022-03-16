@@ -7,6 +7,7 @@
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage[bookmarksdepth=3,linktoc=all,colorlinks=true,urlcolor=blue,
 	linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage{url}
 \usepackage[capitalize]{cleveref}
 \usepackage[style=phys,%
 	biblabel=brackets,%
@@ -20,16 +21,17 @@
 \usepackage{siunitx}
 \usepackage[version=4]{mhchem}
 \usepackage[compat=1.1.0]{tikz-feynman}
-% \usepackage{ruledchapters}  % example of compliant heading format, uncomment to use
-
-\usepackage{lipsum}  % just for placeholder code
-\usepackage[author=chleung,draft]{pdfcomment}
 \usepackage{tensor}
-\usepackage{lineno}
-\linenumbers
+\usepackage{ifdraft}
 
-% uncomment the below to show a grid on all pages
-% \usepackage[grid, gridunit=in, gridcolor=blue!40, subgridcolor=blue!20]{eso-pic}
+\ifoptionfinal{
+	\usepackage[disable]{pdfcomment}
+}{
+	\usepackage[author=chleung,draft]{pdfcomment}
+	\usepackage{lineno}
+	\linenumbers
+}
+\usepackage{graphicx}
 \graphicspath{{images/}}
 \addbibresource{references.bib}
 \setcounter{tocdepth}{2}
