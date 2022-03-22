@@ -33,7 +33,7 @@ muon identifier. Station 4 consists of a hodoscope array and 4 layers of
 proportional tube planes. Tracks that pass through the hadron absorber and
 produce hits on station 4 are assumed to be from muons.
 \pdfmargincomment{Should there be a dedicated section on the spectrometer?
-	how much detail od the spetrometer is need?
+	how much detail of the spectrometer is need?
 }
 
 \begin{figure}[htbp!]
@@ -54,16 +54,16 @@ The layout of the Fermilab accelerator complex is shown in Fig.\ \ref{fig:comple
 SeaQuest received its \SI{120}{\GeV} proton beam from the Fermilab Main Injector.
 The proton beam originate from a direct-extraction magnetron hydrogen ion source,
 which produce a \SI{35}{\keV} negative hydrogen ion beam. It is then accelerated
-to \SI{750}{\keV} using Radio-frequency Quadrupole. Then the Linac accelrate the
-$H^-$ ions to \SI{400}{MeV}. The $H^-$ ions are then sent through a stripping foil
+to \SI{750}{\keV} using Radio-frequency Quadrupole. Then the Linac accelerate the
+$H^-$ ions to \SI{400}{\MeV}. The $H^-$ ions are then sent through a stripping foil
 to remove the electrons. The resulting proton beam then circulates in the Booster
 accelerator and accelerates to \SI{8}{\GeV}. The \SI{8}{\GeV} proton beam is
-further accelerated by the Main Injector to \SI{120}{GeV}. The proton beam is
+further accelerated by the Main Injector to \SI{120}{\GeV}. The proton beam is
 extracted from the Main Injector using a process known as resonant extraction to
 provide a lower intensity beam over a 5 second spill. The extracted beam, which
-is sent to SeaQuest, retains the the \SI{53.1}{\MHz} structure of the Main
-Injector RF frequency, dividing hte beam in to ``RF buckets'' that are less than
-\SI{2}{\ns} long and occur every \SI{18.8}{\ns}
+is sent to SeaQuest, retains the \SI{53.1}{\MHz} structure of the Main
+Injector RF frequency, dividing the beam in to ``RF buckets'' that are less than
+\SI{2}{\ns} long and occur every \SI{18.8}{\ns}.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{Fermilab-complex}
@@ -88,19 +88,19 @@ The beam intensity is monitored using a Cerenkov counter, shown in Fig.\ \ref{fi
 	\label{fig:BIM}
 \end{figure}
 A aluminized Kapton mirror reflect the Cerenkov light, produced when the proton beam
-passing through the radiator, into a signle photomultiplier tube. The signal is then
-sent to a custom ``QIE'' (Charge Integrator and Encoder) module. This custom module 
+passing through the radiator, into a single photomultiplier tube. The signal is then
+sent to a custom ``QIE'' (Charge Integrator and Encoder) module. This custom module
 is clocked with the Main Injector RF, and is capable to recording the beam intensity
 of each RF bucket for the entire spill. The QIE module is linked to the trigger
-system, and would raise a trigger inhibit when the beam intensity is above a 
-threshold. The module is also read out by the Beam DAQ, which provides the (a) 
-integrated beam instensity for entire spill; (b) integrated beam while inhibit is 
-aserted at tigger logic; (c) integrated intensity during deadtime; (d) a snapshot 
-of the beam intensity flose in time to the trigger; and (e) a complete record of the
-bucket-bucket instensity for the entire spill.
+system, and would raise a trigger inhibit when the beam intensity is above a
+threshold. The module is also read out by the Beam DAQ, which provides the (a)
+integrated beam intensity for entire spill; (b) integrated beam while inhibit is
+asserted at trigger logic; (c) integrated intensity during deadtime; (d) a snapshot
+of the beam intensity close in time to the trigger; and (e) a complete record of the
+bucket-bucket intensity for the entire spill.
 
-The ability to record the numbers of proton in each bucket allows us the obtain the 
-yield ratios as a function of the instantaneous intensity, which will be discussed 
+The ability to record the numbers of proton in each bucket allows us the obtain the
+yield ratios as a function of the instantaneous intensity, which will be discussed
 further in Sec.\ \ref{M-sec:extrapolation}
 
 
