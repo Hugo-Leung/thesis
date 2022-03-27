@@ -61,8 +61,8 @@ accelerator and accelerates to \SI{8}{\GeV}. The \SI{8}{\GeV} proton beam is
 further accelerated by the Main Injector to \SI{120}{GeV}. The proton beam is
 extracted from the Main Injector using a process known as resonant extraction to
 provide a lower intensity beam over a 5 second spill. The extracted beam, which
-is sent to SeaQuest, retains the the \SI{53.1}{\MHz} structure of the Main
-Injector RF frequency, dividing hte beam in to ``RF buckets'' that are less than
+is sent to SeaQuest, retains the \SI{53.1}{\MHz} structure of the Main
+Injector RF frequency, dividing the beam in to ``RF buckets'' that are less than
 \SI{2}{\ns} long and occur every \SI{18.8}{\ns}
 \begin{figure}[htbp!]
 	\centering
@@ -88,25 +88,40 @@ The beam intensity is monitored using a Cerenkov counter, shown in Fig.\ \ref{fi
 	\label{fig:BIM}
 \end{figure}
 A aluminized Kapton mirror reflect the Cerenkov light, produced when the proton beam
-passing through the radiator, into a signle photomultiplier tube. The signal is then
-sent to a custom ``QIE'' (Charge Integrator and Encoder) module. This custom module 
+passing through the radiator, into a single photomultiplier tube. The signal is then
+sent to a custom ``QIE'' (Charge Integrator and Encoder) module. This custom module
 is clocked with the Main Injector RF, and is capable to recording the beam intensity
 of each RF bucket for the entire spill. The QIE module is linked to the trigger
-system, and would raise a trigger inhibit when the beam intensity is above a 
-threshold. The module is also read out by the Beam DAQ, which provides the (a) 
-integrated beam instensity for entire spill; (b) integrated beam while inhibit is 
-aserted at tigger logic; (c) integrated intensity during deadtime; (d) a snapshot 
-of the beam intensity flose in time to the trigger; and (e) a complete record of the
-bucket-bucket instensity for the entire spill.
+system, and would raise a trigger inhibit when the beam intensity is above a
+threshold. The module is also read out by the Beam DAQ, which provides the (a)
+integrated beam intensity for entire spill; (b) integrated beam while inhibit is
+asserted at trigger logic; (c) integrated intensity during dead time; (d) a snapshot
+of the beam intensity close in time to the trigger; and (e) a complete record of the
+bucket-bucket intensity for the entire spill.
 
-The ability to record the numbers of proton in each bucket allows us the obtain the 
-yield ratios as a function of the instantaneous intensity, which will be discussed 
+The ability to record the numbers of proton in each bucket allows us the obtain the
+yield ratios as a function of the instantaneous intensity, which will be discussed
 further in Sec.\ \ref{M-sec:extrapolation}
 
 
 \section{Target}
 \pdfmargincomment{list the properties of the targets. Some past thesis quoted the
 	wrong number. Check PDG}
+The SeaQuest target is place between the Beam Intensity Monitor and the front face
+of FMag. The target system consists of two liquid targets, hydrogen and deuterium,
+and three solid targets, iron, carbon and tungsten. Each solid target is divided
+into \num{3} discs of equal length, and are spatially separated along the beam
+direction to minimize variation in acceptance between liquid and solid targets.
+To account for background originating from the interaction with the instruments,
+there are also two calibration targets, an empty vacuum filled flask, known as
+empty flask, and the solid target holder, known as no-target. The different targets
+are mounted on a motorized table, which allows the targets to be interchanged
+between spills to minimized systematic effect due to spectrometer performance.
+The properties of the targets and the spills per cycle of each target positions
+are listed in Table.\
+
+
+
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
 \end{document}
