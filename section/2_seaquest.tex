@@ -63,7 +63,11 @@ extracted from the Main Injector using a process known as resonant extraction to
 provide a lower intensity beam over a 5 second spill. The extracted beam, which
 is sent to SeaQuest, retains the \SI{53.1}{\MHz} structure of the Main
 Injector RF frequency, dividing the beam in to ``RF buckets'' that are less than
+<<<<<<< HEAD
 \SI{2}{\ns} long and occur every \SI{18.8}{\ns}.
+=======
+\SI{2}{\ns} long and occur every \SI{18.8}{\ns}
+>>>>>>> d73f1b0326a2a163c425f584af013b5ac935d382
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{Fermilab-complex}
@@ -95,7 +99,7 @@ of each RF bucket for the entire spill. The QIE module is linked to the trigger
 system, and would raise a trigger inhibit when the beam intensity is above a
 threshold. The module is also read out by the Beam DAQ, which provides the (a)
 integrated beam intensity for entire spill; (b) integrated beam while inhibit is
-asserted at trigger logic; (c) integrated intensity during deadtime; (d) a snapshot
+asserted at trigger logic; (c) integrated intensity during dead time; (d) a snapshot
 of the beam intensity close in time to the trigger; and (e) a complete record of the
 bucket-bucket intensity for the entire spill.
 
@@ -107,6 +111,21 @@ further in Sec.\ \ref{M-sec:extrapolation}
 \section{Target}
 \pdfmargincomment{list the properties of the targets. Some past thesis quoted the
 	wrong number. Check PDG}
+The SeaQuest target is place between the Beam Intensity Monitor and the front face
+of FMag. The target system consists of two liquid targets, hydrogen and deuterium,
+and three solid targets, iron, carbon and tungsten. Each solid target is divided
+into \num{3} discs of equal length, and are spatially separated along the beam
+direction to minimize variation in acceptance between liquid and solid targets.
+To account for background originating from the interaction with the instruments,
+there are also two calibration targets, an empty vacuum filled flask, known as
+empty flask, and the solid target holder, known as no-target. The different targets
+are mounted on a motorized table, which allows the targets to be interchanged
+between spills to minimized systematic effect due to spectrometer performance.
+The properties of the targets and the spills per cycle of each target positions
+are listed in Table.\
+
+
+
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
 \end{document}
