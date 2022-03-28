@@ -63,11 +63,7 @@ extracted from the Main Injector using a process known as resonant extraction to
 provide a lower intensity beam over a 5 second spill. The extracted beam, which
 is sent to SeaQuest, retains the \SI{53.1}{\MHz} structure of the Main
 Injector RF frequency, dividing the beam in to ``RF buckets'' that are less than
-<<<<<<< HEAD
 \SI{2}{\ns} long and occur every \SI{18.8}{\ns}.
-=======
-\SI{2}{\ns} long and occur every \SI{18.8}{\ns}
->>>>>>> d73f1b0326a2a163c425f584af013b5ac935d382
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{Fermilab-complex}
@@ -122,8 +118,25 @@ empty flask, and the solid target holder, known as no-target. The different targ
 are mounted on a motorized table, which allows the targets to be interchanged
 between spills to minimized systematic effect due to spectrometer performance.
 The properties of the targets and the spills per cycle of each target positions
-are listed in Table.\
+are listed in Table.\ \ref{table:target}.
 
+
+
+\begin{table}[h!]
+\caption{SeaQuest target configuration}
+\label{table:target}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Target      & Position & Density (\unit{\g\per\cm\cubed}) & length (\unit{\cm}} & interaction length   (\unit{\g\per\cm\squared}) & spill/cycle \\ \hline
+\ce{LH_2}   & 1        & \num{0.071}                      & \num{50.8}          & \num{52.0}                                      & 10          \\ \hline
+Empty Flask & 2        & -                                & -                   & -                                               & 2           \\ \hline
+\ce{LD_2}   & 3        & \num{0.1634}                     & \num{50.8}          & \num{71.8}                                      & 5           \\ \hline
+No target   & 4        & -                                & -                   & -                                               & 2           \\ \hline
+Iron        & 5        & \num{7.87}                       & \num{1.905}         & \num{132.1}                                     & 1           \\ \hline
+Carbon      & 6        & \num{1.80}                       & \num{3.322}         & \num{85.8}                                      & 2           \\ \hline
+Tungsten    & 7        & \num{19.30}                      & \num{0.953}         & \num{191.9}                                     & 1           \\ \hline
+\end{tabular}
+\end{table}
 
 
 
