@@ -117,8 +117,8 @@ To account for background originating from the interaction with the instruments,
 there are also two calibration targets, an empty vacuum filled flask, known as
 empty flask, and the solid target holder, known as no-target. The different targets
 are mounted on a motorized table, shown in Fig.~\ref{fig:target}, which allows the
-targets to be interchanged between spills to minimized systematic effect due to 
-spectrometer performance. The properties of the targets and the spills per cycle 
+targets to be interchanged between spills to minimized systematic effect due to
+spectrometer performance. The properties of the targets and the spills per cycle
 of each target positions are listed in Table.~\ref{table:target}.
 \pdfmargincomment{schematics of target system}
 \begin{figure}[htbp!]
@@ -129,31 +129,45 @@ of each target positions are listed in Table.~\ref{table:target}.
 \end{figure}
 
 \begin{table}[h!]
-\caption{SeaQuest target configuration}
-\label{table:target}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-Target      & Position & Density (\unit{\g\per\cm\cubed}) & length (\unit{\cm}) & interaction length   (\unit{\g\per\cm\squared}) & spill/cycle \\ \hline
-\ce{LH_2}   & 1        & \num{0.071}                      & \num{50.8}          & \num{52.0}                                      & 10          \\ \hline
-Empty Flask & 2        & -                                & -                   & -                                               & 2           \\ \hline
-\ce{LD_2}   & 3        & \num{0.1634}                     & \num{50.8}          & \num{71.8}                                      & 5           \\ \hline
-No target   & 4        & -                                & -                   & -                                               & 2           \\ \hline
-Iron        & 5        & \num{7.87}                       & \num{1.905}         & \num{132.1}                                     & 1           \\ \hline
-Carbon      & 6        & \num{1.80}                       & \num{3.322}         & \num{85.8}                                      & 2           \\ \hline
-Tungsten    & 7        & \num{19.30}                      & \num{0.953}         & \num{191.9}                                     & 1           \\ \hline
-\end{tabular}
+	\caption{SeaQuest target configuration}
+	\label{table:target}
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		Target      & Position & Density (\unit{\g\per\cm\cubed}) & length (\unit{\cm}) & interaction length   (\unit{\g\per\cm\squared}) & spill/cycle \\ \hline
+		\ce{LH_2}   & 1        & \num{0.071}                      & \num{50.8}          & \num{52.0}                                      & 10          \\ \hline
+		Empty Flask & 2        & -                                & -                   & -                                               & 2           \\ \hline
+		\ce{LD_2}   & 3        & \num{0.1634}                     & \num{50.8}          & \num{71.8}                                      & 5           \\ \hline
+		No target   & 4        & -                                & -                   & -                                               & 2           \\ \hline
+		Iron        & 5        & \num{7.87}                       & \num{1.905}         & \num{132.1}                                     & 1           \\ \hline
+		Carbon      & 6        & \num{1.80}                       & \num{3.322}         & \num{85.8}                                      & 2           \\ \hline
+		Tungsten    & 7        & \num{19.30}                      & \num{0.953}         & \num{191.9}                                     & 1           \\ \hline
+	\end{tabular}
 \end{table}
 
 \section{Tracking Station}
 The SeaQuest detector system is separated into four tracking stations. Stations \num{1},
 \num{2} and \num{3} comprise of hodoscopes and drift chambers. Whereas station \num{4}
 comprises of hodoscope and proportional tubes. The hodoscopes in each stations provides
-a fast signal for triggering whereas the drift chambers provide good spatial resolution 
+a fast signal for triggering whereas the drift chambers provide good spatial resolution
 for pprecise reconstruction. The proportional tubes at station 4 is also used for muon
 identification.
 
 \subsection{Hodoscope}
-\pdfmargincomment{why are there 2 y hodo in St4? Lower rate at St4? }
+\pdfmargincomment{why are there 2 y hodo in St4? Lower rate at St4? The size is different in Shivangi's thesis and NIM paper}
+\begin{table}[h!]
+	\caption{SeaQuest hodoscope configuration}
+	\begin{tabular}{lllllll}
+		Plane & Number      & Length (\unit{\cm}) & Width (\unit{\cm}) & Thickness (\unit{\cm}) & Array Width (\unit{\cm}) & Location (\unit{\cm})                                                 \\ \hline
+		1Y    & $20\times2$ & \num{78.7}          & \num{7.32}         & \num{0.64}             & \num{140}                & \num{663}                                                             \\
+		1X    & $23\times2$ & \num{69.9}          & \num{7.32}         & \num{0.64}             & \num{161}                & \num{653}                                                             \\
+		2Y    & $19\times2$ & \num{132.0}         & \num{13.0}         & \num{0.64}             & \num{241}                & \num{1403}                                                            \\
+		2X    & $16\times2$ & \num{152.0}         & \num{13.0}         & \num{0.64}             & \num{203}                & \num{1421}                                                            \\
+		3X    & $16\times2$ & \num{167.6}         & \num{14.3}         & \num{1.3}              & \num{224}                & \num{1958}                                                            \\
+		4Y1   & $16\times2$ & \num{152.4}         & \num{23.16}        & \num{1.3}              & \num{366}                & \begin{tabular}[c]{@{}l@{}}\num{2130}(L)\\ \num{2146}(R)\end{tabular} \\
+		4Y2   & $16\times2$ & \num{152.4}         & \num{23.16}        & \num{1.3}              & \num{366}                & \begin{tabular}[c]{@{}l@{}}\num{2200}(L)\\ \num{2217}(R)\end{tabular} \\
+		4X    & $16\times2$ & \num{182.9}         & \num{19.33}        & \num{1.3}              & \num{305}                & \num{2240}                                                            \\ \hline
+	\end{tabular}
+\end{table}
 
 \subsection{Trigger System}
 \pdfmargincomment{how is the charge determined?}
