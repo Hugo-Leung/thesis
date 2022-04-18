@@ -131,16 +131,16 @@ of each target positions are listed in Table.~\ref{table:target}.
 \begin{table}[h!]
 	\caption{SeaQuest target configuration}
 	\label{table:target}
-	\begin{tabular}{|c|c|c|c|c|c|}
+	\begin{tabular}{cccccc}
 		\hline
 		Target      & Position & Density (\unit{\g\per\cm\cubed}) & length (\unit{\cm}) & interaction length   (\unit{\g\per\cm\squared}) & spill/cycle \\ \hline
-		\ce{LH_2}   & 1        & \num{0.071}                      & \num{50.8}          & \num{52.0}                                      & 10          \\ \hline
-		Empty Flask & 2        & -                                & -                   & -                                               & 2           \\ \hline
-		\ce{LD_2}   & 3        & \num{0.1634}                     & \num{50.8}          & \num{71.8}                                      & 5           \\ \hline
-		No target   & 4        & -                                & -                   & -                                               & 2           \\ \hline
-		Iron        & 5        & \num{7.87}                       & \num{1.905}         & \num{132.1}                                     & 1           \\ \hline
-		Carbon      & 6        & \num{1.80}                       & \num{3.322}         & \num{85.8}                                      & 2           \\ \hline
-		Tungsten    & 7        & \num{19.30}                      & \num{0.953}         & \num{191.9}                                     & 1           \\ \hline
+		\ce{LH_2}   & 1        & \num{0.071}                      & \num{50.8}          & \num{52.0}                                      & 10          \\ 
+		Empty Flask & 2        & -                                & -                   & -                                               & 2           \\
+		\ce{LD_2}   & 3        & \num{0.1634}                     & \num{50.8}          & \num{71.8}                                      & 5           \\ 
+		No target   & 4        & -                                & -                   & -                                               & 2           \\ 
+		Iron        & 5        & \num{7.87}                       & \num{1.905}         & \num{132.1}                                     & 1           \\ 
+		Carbon      & 6        & \num{1.80}                       & \num{3.322}         & \num{85.8}                                      & 2           \\ 
+		Tungsten    & 7        & \num{19.30}                      & \num{0.953}         & \num{191.9}                                     & 1           \\ 
 	\end{tabular}
 \end{table}
 
@@ -153,24 +153,33 @@ for pprecise reconstruction. The proportional tubes at station 4 is also used fo
 identification.
 
 \subsection{Hodoscope}
-\pdfmargincomment{why are there 2 y hodo in St4? Lower rate at St4? The size is different in Shivangi's thesis and NIM paper}
+The primimary purpose of the scintillator hodoscopes are are to provide fast singal for 
+trigger system. the x-palnes are place vertically to measure the bend plane Position.
+And the y-planes are arranged horizontally to measure the non-bend plane.
+
+Station 1 and 2 each have single x-y planes. Station 3 ahs a single x plane, and station
+4 has two y planes and one x plane. The station 4 hodoscopes have PMTs on both ends of the 
+sintillator bars. The configuration of the hodoscope is summariezed in Table.~\ref{table:hodo}.
+\pdfmargincomment{why are there 2 y hodo in St4? Lower rate at St4? Shivangi's thesis is correct NIM paper is wrong}
 \begin{table}[h!]
 	\caption{SeaQuest hodoscope configuration}
+	\label{table:hodo}
 	\begin{tabular}{lllllll}
+		\hline
 		Plane & Number      & Length (\unit{\cm}) & Width (\unit{\cm}) & Thickness (\unit{\cm}) & Array Width (\unit{\cm}) & Location (\unit{\cm})                                                 \\ \hline
-		1Y    & $20\times2$ & \num{78.7}          & \num{7.32}         & \num{0.64}             & \num{140}                & \num{663}                                                             \\
-		1X    & $23\times2$ & \num{69.9}          & \num{7.32}         & \num{0.64}             & \num{161}                & \num{653}                                                             \\
-		2Y    & $19\times2$ & \num{132.0}         & \num{13.0}         & \num{0.64}             & \num{241}                & \num{1403}                                                            \\
+		1Y    & $20\times2$ & \num{78.7}          & \num{7.32}         & \num{0.64}             & \num{140}                & \num{667}                                                             \\
+		1X    & $23\times2$ & \num{69.9}          & \num{7.32}         & \num{0.64}             & \num{161}                & \num{654}                                                             \\
+		2Y    & $19\times2$ & \num{132.0}         & \num{13.0}         & \num{0.64}             & \num{241}                & \num{1402}                                                            \\
 		2X    & $16\times2$ & \num{152.0}         & \num{13.0}         & \num{0.64}             & \num{203}                & \num{1421}                                                            \\
-		3X    & $16\times2$ & \num{167.6}         & \num{14.3}         & \num{1.3}              & \num{224}                & \num{1958}                                                            \\
-		4Y1   & $16\times2$ & \num{152.4}         & \num{23.16}        & \num{1.3}              & \num{366}                & \begin{tabular}[c]{@{}l@{}}\num{2130}(L)\\ \num{2146}(R)\end{tabular} \\
-		4Y2   & $16\times2$ & \num{152.4}         & \num{23.16}        & \num{1.3}              & \num{366}                & \begin{tabular}[c]{@{}l@{}}\num{2200}(L)\\ \num{2217}(R)\end{tabular} \\
-		4X    & $16\times2$ & \num{182.9}         & \num{19.33}        & \num{1.3}              & \num{305}                & \num{2240}                                                            \\ \hline
+		3X    & $16\times2$ & \num{167.6}         & \num{14.6}         & \num{1.3}              & \num{224}                & \num{1958}                                                            \\
+		4Y1   & $16\times2$ & \num{152.4}         & \num{23.5}         & \num{1.3}              & \num{366}                & \begin{tabular}[c]{@{}l@{}}\num{2130}(L)\\ \num{2146}(R)\end{tabular} \\
+		4Y2   & $16\times2$ & \num{152.4}         & \num{23.5}         & \num{1.3}              & \num{366}                & \begin{tabular}[c]{@{}l@{}}\num{2200}(L)\\ \num{2217}(R)\end{tabular} \\
+		4X    & $16\times2$ & \num{182.9}         & \num{19.6}         & \num{1.3}              & \num{305}                & \begin{tabular}[c]{@{}l@{}}\num{2236}(T)\\ \num{2251}(B)\end{tabular} \\ 
 	\end{tabular}
 \end{table}
 
 \subsection{Trigger System}
-\pdfmargincomment{how is the charge determined?}
+\pdfmargincomment{the charge is determined from the px kick}
 
 \subsection{Drift Chambers}
 
