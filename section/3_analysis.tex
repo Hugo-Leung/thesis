@@ -44,6 +44,89 @@
 \section{Track Reconstruction}
 
 \section{Event Selection}
+\begin{table}[ht!]
+	\centering
+	\caption{Track level cuts.}
+	\label{table:trackCut}
+	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
+		\hline
+		Variable                                                                                                                             & Description                                                                          & Cut                          \\ \hline
+		$\chi^2_{target}$                                                                                                                    & $\chi^2$ when tack is   forced to pass through center of target ($z=\SI{-129}{\cm}$) & $< 15$                       \\ \hline
+		$pz_1$                                                                                                                               & z momentum at station 1                                                              & (\SI{9}{\GeV},\SI{75}{\GeV}) \\ \hline
+		nHits                                                                                                                                & total number of hits on wire chambers by each   muon track                           & $> 13$                       \\ \hline
+		$x_T^2 +(y_T - \textrm{beamOffset})^2$                                                                                               & radial distance of track from   beam line at the center of target                    & $< \SI{320}{\cm\squared}$    \\ \hline
+		$x_D^2 +(y_D - \textrm{beamOffset})^2$                                                                                               &
+		radial distance of track from   beam line at the center of beam dump ($z=\SI{42}{\cm}$)                                              &
+		(\SI{8}{\cm\squared},\SI{1100}{\cm\squared})   \footnotemark[1]                                                                                                                                                                                            \\ \hline
+		\begin{tabular}[c]{@{}c@{}}$\chi^2_{target}<1.5\chi^2_{upstream}$\\      $\chi^2_{target}<1.5\chi^2_{dump}$\end{tabular}             &
+		$\chi^2$ when tack is   forced to pass through $z=\SI{-490}{\cm}$(upstream), $z=\SI{-129}{\cm}$(traget) and   $z=\SI{42}{\cm}$(dump) &
+		\\ \hline
+		$z_0$                                                                                                                                & z position of track's closest approach to beam   line                                & (\SI{320}{\cm},\SI{-5}{\cm}) \\ \hline
+		$\chi^2/(\textrm{nHits}-5)$                                                                                                          & $\chi^2/\textrm{ndf}$                                                                & $<12$                        \\ \hline
+		$y_1/y_3$                                                                                                                            & y position of track ast St.\ 1   and St.\ 3                                          & $<1$                         \\ \hline
+		$y_1\times y_3$                                                                                                                      &                                                                                      & $>0$                         \\ \hline
+		$| |px_1 - px_3| -0.416|$                                                                                                            & difference in x momentum at St.\   1 and St.\ 3 accounting for the Kmag kick         & $<\SI{0.008}{\GeV}$          \\ \hline
+		$|py_1 - py_3|$                                                                                                                      & difference in y momentum at St.\   1 and St.\ 3                                      & $<\SI{0.008}{\GeV}$          \\ \hline
+		$|pz_1 - pz_3|$                                                                                                                      & difference in z momentum at St.\   1 and St.\ 3                                      & $<\SI{0.08}{\GeV}$           \\ \hline
+		$|py_1 |$                                                                                                                            & absolute value of the y momentum   at St.\ 1                                         & $>\SI{0.02}{\GeV}$           \\ \hline
+	\end{tabular}
+\end{table}
+\begin{table}[ht!]
+	\centering
+	\caption{dimuon level cuts.}
+	\label{table:dimuonCut}
+	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
+		\hline
+		Variable                                                                                            & Description                                                                              & Cut                            \\ \hline
+		$|dx|$                                                                                              & x position of dimuon vertex                                                              & $<\SI{0.25}{\cm}$              \\ \hline
+		$|dy-\textrm{beamOffset}|$                                                                          & y position of dimuon vertex                                                              & $<\SI{0.22}{\cm}$              \\ \hline
+		$dz$                                                                                                & z position of dimuon vertex                                                              & (\SI{-280}{\cm},\SI{-5}{\cm})  \\ \hline
+		$dx^2+(dy-\textrm{beamOffset})^2$                                                                   & radial distance of the dimuon vertex from beam line                                      & $<\SI{0.06}{\cm\squared}$      \\ \hline
+		$|dpx|$                                                                                             & absolute value of dimuon x   momentum                                                    & $<\SI{1.8}{\GeV}$              \\ \hline
+		$|dpy|$                                                                                             & absolute value of dimuon y   momentum                                                    & $<\SI{2}{\GeV}$                \\ \hline
+		$dpx^2+dpy^2$                                                                                       & transverse momentum squared of   dimuon                                                  & $<\SI{5}{\GeV}$                \\ \hline
+		dpz                                                                                                 & dimuon z momentum                                                                        & (\SI{38}{\GeV},\SI{116}{\GeV}) \\ \hline
+		$|\textrm{tackSeparation}|$                                                                         & distance in z between points   of  closest approach between $\mu^+$   and $\mu^-$ track  & $<\SI{270}{\cm}$               \\ \hline
+		$\chi^2_{dimuon}$                                                                                   & $\chi^2$ when both $\mu^+$ and   $\mu^-$ tracks are forced to pass thorugh dimuon vertex & $<18$                          \\ \hline
+		$\begin{aligned} |\chi^2_{target}(\mu^+) &+ \chi^2_{target}(\mu^-)\\& -x^2_{dimuon}| \end{aligned}$ &                                                                                          & $<2$                           \\ \hline
+		$y_3(\mu^+) \times y_3(\mu^-)$                                                                      & y position at St.\ 3 for both tracks                                                     & $<0$                           \\ \hline
+		$\textrm{nHists}(\mu^+)+\textrm{nHists}(\mu^-)$                                                     & sum of the total number if hits   on wire chamber by $\mu^+$ and $\mu^-$ track           & $>29$                          \\ \hline
+		$\textrm{nHists}_1(\mu^+)+\textrm{nHists}_1(\mu^-)$                                                 & sum of the total number if hits   on St.\ 1 wire chamber by $\mu^+$ and $\mu^-$ track    & $>8$                           \\ \hline
+		$|x_1(\mu^+) + x_1(\mu^-)|$                                                                         & sum off x position of of tracks   at St.\ 1                                              & $>\SI{42}{\cm}$                \\ \hline
+	\end{tabular}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{ physics cuts}
+	\label{table:physCut}
+	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
+		\hline
+		Variable         & Description                          & Cut                                                            \\ \hline
+		mass             & dimuon mass                          & (\SI{2}{\GeV},\SI{8.8}{\GeV}) \footnotemark[1]\footnotemark[2] \\ \hline
+		$x_F$            & Feynman x                            & (-0.1,0.95)                                                    \\ \hline
+		$x_{target}$     & Bjorken x of target                  & (0.005,0.55)  \footnotemark[1]                                 \\ \hline
+		$|\cos(\theta)|$ & polar angle in Collins-Soper   frame & $<0.5$                                                         \\ \hline
+	\end{tabular}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{occupancy cuts}
+	\label{table:occCut}
+	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
+		\hline
+		Variable                          & Description                                & Cut      \\ \hline
+		D1                                & total hits on St.\ 1 Chamber               & $<400$   \\ \hline
+		D2                                & total hits on St.\ 2 Chamber               & $<400$   \\ \hline
+		D3                                & total hits on St.\ 3 Chamber               & $<400$   \\ \hline
+		$D1+D2+D3$                        & total numbers of hits in all wire Chambers & $<1000$  \\ \hline
+		Trigger intensity\footnotemark[3] & numbers of proton in the triggering bucket & $<80000$ \\ \hline
+	\end{tabular}
+\end{table}
+
+\footnotetext[1]{modified from Ref.\ \cite{chuck-2111}}
+\footnotetext[2]{The 0.99 scaling factor is applied to MC}
+\footnotetext[3]{Not applied to MC or Mix background}
+
 
 \section{Target Contamination}
 
