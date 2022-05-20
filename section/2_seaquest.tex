@@ -146,12 +146,12 @@ of each target positions are listed in Table.~\ref{table:target}.
 
 \section{Magnets}
 There are two dipole magnets used in the SeaQuest spectrometer. The upstream magent (FMag)
-is a solid iron magnet. The magent consists of a stack of high purity iron, recovered from 
+is a solid iron magnet. The magent consists of a stack of high purity iron, recovered from
 the Columbia University Nevis Laboratory Cyclotron, and the aluminium coils from the E866
 SM3 magent. The coils are excited to \SI{2000}{\ampere} and generate a \SI{1.9}{\tesla}
 magnetic field within the iron block. This correponds to a transverse momentum kick of
 \SI{3.07}{\GeV}. FMag serves three main purpose: focuing high mass muon pairs, beam
-dump and hadron absorber. 
+dump and hadron absorber.
 
 The downstream magent (KMag) is a \SI{3}{\meter} opeb aperture magnet. The coils are excited
 to \SI{1600}{\ampere} which produce a magnetic field of \SI{0.4}{\tesla} correponding to a
@@ -200,11 +200,66 @@ The configuration of the hodoscope is summariezed in Table.~\ref{table:hodo}. \p
 \subsection{Drift Chambers}
 The primary purpose of the Drift Chambers is to provide better position resolution of the muons
 at each station. Each drift chamber consist of six planes of sense wires. The wires in two planes,
-denoted as x and x$'$, are aligned vertically. Two planes are tilted by \ang[retain-explicit-plus]{+14}
+denoted as x and x$'$, are aligned vertically. Two planes are tilted by \ang[retain-explicit-plus]{+14},
+denoted as u and u$'$, and two planes are tilted by \ang[retain-explicit-plus]{-14}. The wires
+in the primed planes are offset by half a drift cell to resolve left-right ambiguity of the
+drift direction. Station 1 and 2 each have one chamber referred as D1 and D3. The chamber at station
+3 is separated into top and bottom halve, D3p and D3m.
+
+In data sets 1-3, a smaller chamber, D1.1, was used. It was latter replaced by a newly constructed
+chamber, D1.2, with better expected high rate capacity in data set 4-6. However, D1.1 would be 
+reinstalled later for data set 5-6. D3m.1 was used during the commissioning run, data set 1, and
+was latter replaced by D3m.2 for the latter data sets.
+
+The D1.1, D2 and D3m.1 chambers was recycled from previous Fermilab experiments, E605 (D2 and D3m.1)
+and E866 (D1.1). The other chambers were designed and constructed for the SeaQuest experiment.
+\pdfmargincomment{why do we have separate top and bottom chamber for D3 }
+Specification of each chamber are listed in Table.~\ref{table:chamber}.
+
+\begin{table}[h!]
+	\caption{SeaQuest drift chamber configuration. The primed planes are almost the same as the unprimed
+		planes. The position of the x planes is defined to be the distance between the chamber and the
+		upstream face of FMag, while the position for u and v denote the offset relative to the x plane.}
+	\label{table:chamber}
+	\begin{tabular}{cccccc}
+		\hline
+		Chamber & Plane & \# of wires & Cell width (\unit{\cm}) & Width\texttimes Height (\unit{\cm}\texttimes\unit{\cm}) & z Position (\unit{cm}) \\ \hline
+		D1.1    & X     & \num{160}   & \num{0.64}              & $102\times 122$                                         & \num{617}              \\
+		        & U, V  & \num{201}   & \num{0.64}              & $101\times 122$                                         & $\pm20$                \\
+		D1.2    & X     & \num{320}   & \num{0.50}              & $153\times 137$                                         & \num{691}              \\
+		        & U, V  & \num{384}   & \num{0.50}              & $153\times 137$                                         & $\pm1.2$               \\
+		D2      & X     & \num{112}   & \num{2.1}               & $233\times264$                                          & \num{1347}             \\
+		        & U, V  & \num{128}   & \num{2.0}               & $233\times264$                                          & $\pm25$                \\
+		D3p     & X     & \num{116}   & \num{2.0}               & $232\times166$                                          & \num{1931}             \\
+		        & U, V  & \num{134}   & \num{2.0}               & $268\times166$                                          & $\pm6$                 \\
+		D3m.1   & X     & \num{176}   & \num{1.0}               & $179\times168$                                          & \num{1879}             \\
+		        & U, V  & \num{208}   & \num{1.0}               & $171\times163$                                          & $\pm19$                \\
+		D3m.2   & X     & \num{116}   & \num{2.0}               & $232\times166$                                          & \num{1895}             \\
+		        & U, V  & \num{134}   & \num{2.0}               & $268\times166$                                          & $\pm6$
+	\end{tabular}
+\end{table}
 
 \subsection{Proportional tubes}
-\pdfmargincomment{https://doi.org/10.1080/08929880802335758}
+The muon identification is accomplished with the proportional tube at station 4. A \SI{1}{\meter} thick
+iron wall separate station 3 and 4, which act as an absorber to stop hadrons and electrons from reaching
+station 4. For precise track reconstruction, there are four layers of proportional tubes planes. Each plane
+is made up of eight proportional tube modules, with 16 proportional tubes per module. The 16 proportional tubes
+in each module further divided into two sub-layers, with the second layers shifted by half a tube width to
+resolve the left-right ambiguity, as in the case of drift chambers. The proportional tubes orientated horizontally
+(vertically) are in the first and fourth (second and third) planes as shown in Fig.~\ref{fig:prop}
+The proportional tube modules were originally used in a Homeland Security project at Los Alamos National Laboratory.
 
+\begin{figure}[ht!]
+\centering
+\begin{subfigure}{0.45\linewidth}
+\includegraphics[width=0.9\linewidth]{proptubeview_xz}
+\end{subfigure}
+\begin{subfigure}{0.45\linewidth}
+\includegraphics[width=0.9\linewidth]{proptubeview_yz}
+\end{subfigure}
+\caption{XZ (left) and YZ (left) view of the proportional tube at station 4.}
+\label{fig:prop}
+\end{figure}
 \subsection{Trigger System}
 \pdfmargincomment{the charge is determined from the px kick}
 
