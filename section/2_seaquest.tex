@@ -73,7 +73,7 @@ However the number of protons in each bucket varies greatly during the spill, as
 is shown in Fig.~\ref{fig:intensity}.
 \begin{figure}[htpb!]
 	\centering
-	\includegraphics[width =0.8\linewidth, angle =270]{beam_intensity}
+	\includegraphics[width =0.8\linewidth]{beam_intensity_v2}
 	\caption{The beam intensity measured by the Beam DAQ Cerenkov counter every
 		bucket. Taken from Ref.~\cite{aidala2019}}
 	\label{fig:intensity}
@@ -83,7 +83,7 @@ is shown in Fig.~\ref{fig:intensity}.
 The beam intensity is monitored using a Cerenkov counter, shown in Fig.~\ref{fig:BIM}.
 \begin{figure}[htbp!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{BIMCerenkov}
+	\includegraphics[width=0.4\linewidth]{BIMCerenkov}
 	\caption{The Beam Intensity Monitor (BIM) Cerenkov counter. Taken from Ref.\
 		\cite{aidala2019}.}
 	\label{fig:BIM}
@@ -123,12 +123,13 @@ of each target positions are listed in Table.~\ref{table:target}.
 \pdfmargincomment{schematics of target system}
 \begin{figure}[htbp!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{target-tableLayout}
+	\includegraphics[width=0.4\linewidth]{target-tableLayout}
 	\caption{The schematic of the movable target table}
 	\label{fig:target}
 \end{figure}
 
 \begin{table}[h!]
+	\centering
 	\caption{SeaQuest target configuration}
 	\label{table:target}
 	\begin{tabular}{cccccc}
@@ -181,6 +182,7 @@ down to $10-15$\unit{\ns} full width.
 
 The configuration of the hodoscope is summariezed in Table.~\ref{table:hodo}. \pdfmargincomment{why are there 2 y hodo in St4? Lower rate at St4? Shivangi's thesis is correct NIM paper is wrong}
 \begin{table}[h!]
+	\centering
 	\caption{SeaQuest hodoscope configuration}
 	\label{table:hodo}
 	\begin{tabular}{lllllll}
@@ -217,6 +219,7 @@ and E866 (D1.1). The other chambers were designed and constructed for the SeaQue
 Specification of each chamber are listed in Table.~\ref{table:chamber}.
 
 \begin{table}[h!]
+	\centering
 	\caption{SeaQuest drift chamber configuration. The primed planes are almost the same as the unprimed
 		planes. The position of the x planes is defined to be the distance between the chamber and the
 		upstream face of FMag, while the position for u and v denote the offset relative to the x plane.}
@@ -260,7 +263,39 @@ The proportional tube modules were originally used in a Homeland Security projec
 \caption{XZ (left) and YZ (left) view of the proportional tube at station 4.}
 \label{fig:prop}
 \end{figure}
-\subsection{Trigger System}
+\section{Trigger System}
+The SeaQuest trigger uses discriminated signals from the hodoscope counters.
+Two kinds of trigger systems are used in SeaQuest, NIM-based and FPGA-baesd.
+The FPGA trigger system is the main trigger system. It utilizes uses 9 CAEN
+v1495 VME modules, Altera EP1C20F400C6 FPGA (Field Programmable Gate Array)
+modules. The 9 modules are separated into three levels from level 0 to level
+2. Four FPGA modules form the level 0, with one module for each hodoscope
+``quadrant'' (upper bend plane, lower bend plane, upper nonbend plane and
+lower nonbend plane). During data taking, level 0 simply pass the input signal
+to level 1. At level 1, four FPGA modules are used to search for four-hit track
+candidates in each quadrant. The level 2 consists of a single module, and form
+a trigger decision based on types of track candidates found at level 1. During
+SeaQuest data taking, the are five output triggers, as listed in Table.~\ref{tab:FPGA}.
+
+
+
+\begin{table}[h!]
+\centering
+\caption{The five output trigger of the Level 2 trigger module.}
+\label{tab:FPGA}
+\begin{tabular}{lllll}
+Name     & side  & Charge  & $p_x$ Req. & Notes                \\ \hline
+Matrix 1 & TB/BT & $+-/-+$ & None       & Main physics trigger \\
+Matrix 2 & TT/BB & $+-/-+$ & None       & Same-side trigger \\
+Matrix 3 & TB/BT & $++/--$ & None       & Like-charge trigger \\
+Matrix 4 & T/B & $+/-$ & None       & Single muon trigger \\
+Matrix 5 & T/B & $+/-$ & $p_x>\SI{3}{\GeV}$       & High-$p_T$ single trigger                 
+\end{tabular}
+\end{table}
+
+
+The NIM trigger utilizes Nuclear Instrumentation Modules to form the trigger
+logic. During f
 \pdfmargincomment{the charge is determined from the px kick}
 
 

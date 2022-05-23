@@ -4,7 +4,11 @@
 
 This is the source code of my thesis. 
 
-This work is licensed under a
+##License
+The uiucthesis2021 class files are maintained by Zachary J. Weiner and is licensed under 
+the [LaTeX Project Public License version 1.3](http://www.latex-project.org/lppl.txt)
+
+The thesis itself and content is licensed under a
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
