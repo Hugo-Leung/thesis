@@ -4,8 +4,8 @@
 
 This is the source code of my thesis. 
 
-##License
-The uiucthesis2021 class files are maintained by Zachary J. Weiner and is licensed under 
+## License
+The [uiucthesis2021](https://grad.illinois.edu/thesis) class files are maintained by Zachary J. Weiner and is licensed under 
 the [LaTeX Project Public License version 1.3](http://www.latex-project.org/lppl.txt)
 
 The thesis itself and content is licensed under a
