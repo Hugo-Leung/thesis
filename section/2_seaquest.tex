@@ -13,7 +13,7 @@
 SeaQuest is a fixed-target experiment utilizing the \SI{120}{\GeV} proton beam
 from the Fermilab Main Injector. Details of the SeaQuest spectrometer can be
 found in Ref.~\cite{aidala2019}. A schematics of the spectrometer is shown in
-Fig.~\ref{fig:spectrometer}. The target system consists of seven
+\cref{fig:spectrometer}. The target system consists of seven
 interchangeable targets, including a flask with liquid hydrogen, a flask with
 liquid deuterium,an empty flask (vacuum), solid carbon, iron, and tungsten
 targets as well as a space with no target (air). The targets are interchanged
@@ -49,7 +49,7 @@ produce hits on station 4 are assumed to be from muons.
 	is monitor. And finally says that the varying instantaneous beam intensity
 	allows us to do intensity extrapolation which will be discussed in next
 	chapter}
-The layout of the Fermilab accelerator complex is shown in Fig.~\ref{fig:complex}.
+The layout of the Fermilab accelerator complex is shown in \cref{fig:complex}.
 SeaQuest received its \SI{120}{\GeV} proton beam from the Fermilab Main Injector.
 The proton beam originate from a direct-extraction magnetron hydrogen ion source,
 which produce a \SI{35}{\keV} negative hydrogen ion beam. It is then accelerated
@@ -70,7 +70,7 @@ Injector RF frequency, dividing the beam in to ``RF buckets'' that are less than
 	\label{fig:complex}
 \end{figure}
 However the number of protons in each bucket varies greatly during the spill, as
-is shown in Fig.~\ref{fig:intensity}.
+is shown in \cref{fig:intensity}.
 \begin{figure}[htpb!]
 	\centering
 	\includegraphics[width =0.8\linewidth]{beam_intensity_v2}
@@ -80,7 +80,7 @@ is shown in Fig.~\ref{fig:intensity}.
 \end{figure}
 
 \subsection{Beam Intensity Monitor}
-The beam intensity is monitored using a Cerenkov counter, shown in Fig.~\ref{fig:BIM}.
+The beam intensity is monitored using a Cerenkov counter, shown in \cref{fig:BIM}.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.4\linewidth]{BIMCerenkov}
@@ -102,7 +102,7 @@ bucket-bucket intensity for the entire spill.
 
 The ability to record the numbers of proton in each bucket allows us the obtain the
 yield ratios as a function of the instantaneous intensity, which will be discussed
-further in Sec.~\ref{M-sec:extrapolation}
+further in \cref{M-sec:extrapolation}
 
 
 \section{Target}
@@ -116,10 +116,10 @@ direction to minimize variation in acceptance between liquid and solid targets.
 To account for background originating from the interaction with the instruments,
 there are also two calibration targets, an empty vacuum filled flask, known as
 empty flask, and the solid target holder, known as no-target. The different targets
-are mounted on a motorized table, shown in Fig.~\ref{fig:target}, which allows the
+are mounted on a motorized table, shown in \cref{fig:target}, which allows the
 targets to be interchanged between spills to minimized systematic effect due to
 spectrometer performance. The properties of the targets and the spills per cycle
-of each target positions are listed in Table.~\ref{table:target}.
+of each target positions are listed in \cref{table:target}.
 \pdfmargincomment{schematics of target system}
 \begin{figure}[htbp!]
 	\centering
@@ -180,7 +180,7 @@ hodoscopes have PMTs on both ends of the sintillator bars. Each of the PMT base 
 ``clip line'' attached at the output to reduce the output pulse from $20-25$\unit{\ns}
 down to $10-15$\unit{\ns} full width.
 
-The configuration of the hodoscope is summariezed in Table.~\ref{table:hodo}. \pdfmargincomment{why are there 2 y hodo in St4? Lower rate at St4? Shivangi's thesis is correct NIM paper is wrong}
+The configuration of the hodoscope is summariezed in \cref{table:hodo}. \pdfmargincomment{why are there 2 y hodo in St4? Lower rate at St4? Shivangi's thesis is correct NIM paper is wrong}
 \begin{table}[h!]
 	\centering
 	\caption{SeaQuest hodoscope configuration}
@@ -216,7 +216,7 @@ was latter replaced by D3m.2 for the latter data sets.
 The D1.1, D2 and D3m.1 chambers was recycled from previous Fermilab experiments, E605 (D2 and D3m.1)
 and E866 (D1.1). The other chambers were designed and constructed for the SeaQuest experiment.
 \pdfmargincomment{why do we have separate top and bottom chamber for D3 }
-Specification of each chamber are listed in Table.~\ref{table:chamber}.
+Specification of each chamber are listed in \cref{table:chamber}.
 
 \begin{table}[h!]
 	\centering
@@ -249,7 +249,7 @@ station 4. For precise track reconstruction, there are four layers of proportion
 is made up of eight proportional tube modules, with 16 proportional tubes per module. The 16 proportional tubes
 in each module further divided into two sub-layers, with the second layers shifted by half a tube width to
 resolve the left-right ambiguity, as in the case of drift chambers. The proportional tubes orientated horizontally
-(vertically) are in the first and fourth (second and third) planes as shown in Fig.~\ref{fig:prop}
+(vertically) are in the first and fourth (second and third) planes as shown in \cref{fig:prop}
 The proportional tube modules were originally used in a Homeland Security project at Los Alamos National Laboratory.
 
 \begin{figure}[ht!]
@@ -275,7 +275,7 @@ lower nonbend plane). During data taking, level 0 simply pass the input signal
 to level 1. At level 1, four FPGA modules are used to search for four-hit track
 candidates in each quadrant. The level 2 consists of a single module, and form
 a trigger decision based on types of track candidates found at level 1. During
-SeaQuest data taking, the are five output triggers, as listed in Table.~\ref{tab:FPGA}.
+SeaQuest data taking, the are five output triggers, as listed in \cref{tab:FPGA}.
 During SeaQuest, only x-measuring (bend plane) hodoscopes are used in making
 trigger decisions.
 \begin{table}[h!]
@@ -304,7 +304,7 @@ clock generated by a gate generated by a gate generator and the \SI{53.1}{\MHz}
 RF clock. The NIM-3 trigger is used to understand the intensity profile of the
 beam and the background hits in the spectrometer. The hits from NIM-3 trigger
 are also used in the Monte Carlo simulation to understand the rate dependence
-of the reconstruction. This will be discussed further in Sec.~\ref{M-sec:MC}.
+of the reconstruction. This will be discussed further in \cref{M-sec:MC}.
 \pdfmargincomment{the charge is determined from the px kick}
 
 
