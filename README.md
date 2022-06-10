@@ -5,7 +5,7 @@
 This is the source code of [my thesis](https://github.com/Hugo-Leung/thesis/releases/latest/download/main.pdf). 
 
 ## License
-The [uiucthesis2021](https://grad.illinois.edu/thesis) class files are maintained by Zachary J. Weiner and is licensed under 
+The [uiucthesis2021](https://grad.illinois.edu/thesis/format) class files are maintained by Zachary J. Weiner and is licensed under 
 the [LaTeX Project Public License version 1.3](http://www.latex-project.org/lppl.txt)
 
 The [thesis](https://github.com/Hugo-Leung/thesis/releases/latest/download/main.pdf) itself and content is licensed under a
