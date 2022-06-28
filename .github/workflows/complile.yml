@@ -23,8 +23,9 @@ jobs:
       - name: compile
         env:
           tag: ${{ steps.previous_tag.outputs.TAGNAME }}
+          ref: ${{ github.ref }}
         run: |
-          sh  ${GITHUB_WORKSPACE}/.github/compile.sh ${tag}
+          bash  ${GITHUB_WORKSPACE}/.github/compile.sh ${ref} ${tag}
       - name: upload compiled document
         uses: softprops/action-gh-release@v1
         with:
