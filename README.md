@@ -2,7 +2,7 @@
 [![Build LaTeX document](https://github.com/Hugo-Leung/thesis/actions/workflows/complile.yml/badge.svg)](https://github.com/Hugo-Leung/thesis/actions/workflows/complile.yml)
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
-This is the source code of [my thesis](https://github.com/Hugo-Leung/thesis/releases/latest/download/main.pdf). 
+This is the source code of [my thesis](https://github.com/Hugo-Leung/thesis/releases/latest/). 
 
 ## License
 The [uiucthesis2021](https://grad.illinois.edu/thesis/format) class files are maintained by Zachary J. Weiner and is licensed under 

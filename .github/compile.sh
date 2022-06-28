@@ -1,7 +1,14 @@
-prev_tag=$1
+current_tag=$1
+prev_tag=$2
 
 MAIN="main"
 latex_option=""
+outName=""
+if [[ "${current_tag}" =~ refs/tags/* ]]
+then
+	outName="thesis_chleung_${current_tag:10}"
+fi
+
 latexmk ${latex_option} -outdir=build ${MAIN}
 
 if [ -n "${prev_tag}" ]; then
@@ -9,4 +16,8 @@ if [ -n "${prev_tag}" ]; then
 	diffName=${MAIN}-diff${prev_tag}
 	echo ${diffName}
 	latexmk ${latex_option} -outdir=build ${diffName}
+fi
+
+if [ -n "${outName}" ]; then
+	mv build/${MAIN}.pdf build/$outName.pdf
 fi
