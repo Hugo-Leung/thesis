@@ -45,6 +45,56 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 \section{Monte Carlo}
 \label{sec:MC}
 
+One of the changes made is the maximum transverse momentum of the virtual photon.
+
+The maximum $P_T$ carried by the virtual photon is given by
+\begin{equation}
+	\left(P_T^{\mathtt{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2 - P_L^2,
+\end{equation}
+where $P_L$ is the longitudinal momentum of the virtual photon.
+Subsituting $x_F = \frac{P_L}{\sqrt{s}\left[1-M^2_\gamma\right]}$, 
+\begin{equation}
+	\left(P_T^{\mathtt{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2\left[1-x_F^2\right].
+	\label{eq:pTmax}
+\end{equation}
+
+\subsection{\texorpdfstring{$p_T$}{pT} re-weighting in Monte Carlo}
+This was first studied by S.~Prasard\pdfcomment{reference}.
+Because the transeverse momentum distribution ($p_T$) cannot be calculated using
+fixed order pQCD, it is typically pramaterized using some functional form.
+In the SeaQuest monte carlo simulation, the input $p_T$ distribution is based on the
+Kaplan functional form\pdfcomment{reference}.
+\begin{equation}
+	f\left(P_T^2\right) \propto \frac{1}{\left(1+ P_T^2/p_1\right)^6},
+	\label{eq:kaplan}
+\end{equation}
+with $p_1$ is set to \SI{2.8}{\GeV}. The parameter $p_1$ controls the broadness
+of the $p_T$ distribution. In the MC, the $p_T$ of a dimuon is chosen randomly
+according to the \cref{eq:kaplan}. If the chosen $p_T$ is exceed \cref{eq:pTmax}
+and does not satisfy the kinamtic constrain, a new $p_T$ is will be chosen until
+the constrain is satisfy.
+
+The chosen value of $p_1$ is taken from experiment conducted at higher
+energy, and may not be suitable to the SeaQuest kinamtic. Any additional weight is
+applied to account for the difference between the $p_T$ distribution in the MC input
+and in the real data. 
+
+In this analysis, a new re-weighting formula is used. Because of the way $p_T$ is chosen
+in the MC, the probability density function is nomalized to unity as follows
+\begin{equation}
+	\int^{\left(P_T^{max}\right)^2}_0 dP_T^2 \frac{N}{\left(1+ P_T^2/p_1\right)^6}=1
+\end{equation}
+where $N$ is the normalization constant and is given by
+\begin{equation}
+	N=\frac{1}{1-\left[ 1+ \frac{\left(P_T^{max}\right)^2}{p_1^2}\right]^{-5}}.
+\end{equation}
+To correctly account for the normalization, $p_T$ reweight is therefore given by 
+\begin{equation}
+    P_T \textrm{ reweight}\left(m,x_F\right)=
+      \frac{\left(1 + \frac{p_T^2}{2.8^2} \right)^6}{\left(1 + \frac{p_T^2}{\left(p_1\left(x_F\right)\right)^2} \right)^6} \frac{2.8^2}{\left(p_1\left(x_F\right)\right)^2}\frac{1-\left[ 1+ \frac{\left(P_T^{max}\left(m,x_F\right)\right)^2}{2.8^2}\right]^{-5}}{1-\left[ 1+ \frac{\left(P_T^{max}\left(m,x_F\right)\right)^2}{\left(p_1\left(x_F\right)\right)^2}\right]^{-5}}
+\end{equation}
+
+
 \section{Track Reconstruction}
 
 \section{Event Selection}
@@ -144,7 +194,6 @@ full list of cuts is tabulated in \cref{table:trackCut,table:dimuonCut,table:phy
 
 \section{Mass Spectrum Fitting}
 \pdfmargincomment{see analysis note}
-\subsection{\texorpdfstring{$p_T$}{pT} re-weighting in Monte Carlo}
 
 \section{Acceptance Calculation}
 
