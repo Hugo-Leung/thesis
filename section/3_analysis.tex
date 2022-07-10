@@ -52,16 +52,18 @@ The maximum $P_T$ carried by the virtual photon is given by
 	\left(P_T^{\mathtt{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2 - P_L^2,
 \end{equation}
 where $P_L$ is the longitudinal momentum of the virtual photon.
-Subsituting $x_F = \frac{P_L}{\sqrt{s}\left[1-M^2_\gamma\right]}$, 
+Subsituting $x_F = \frac{P_L}{\sqrt{s}\left[1-M^2_\gamma\right]}$,
 \begin{equation}
 	\left(P_T^{\mathtt{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2\left[1-x_F^2\right].
 	\label{eq:pTmax}
 \end{equation}
+Earlier versions of the SeaQuest Monte Carlo generators used an inconsistent definition of $x_F$
+and $P_T^{\mathtt{max}}$ resulting in an incomplete coverage of the kinematic phase space.
 
 \subsection{\texorpdfstring{$p_T$}{pT} re-weighting in Monte Carlo}
-This was first studied by S.~Prasard\pdfcomment{reference}.
-Because the transeverse momentum distribution ($p_T$) cannot be calculated using
-fixed order pQCD, it is typically pramaterized using some functional form.
+This was first studied by S.~Prasard \cite{prasad2020}.
+Because the transverse momentum distribution ($p_T$) cannot be calculated using
+fixed order pQCD, it is typically parameterized using some functional form.
 In the SeaQuest monte carlo simulation, the input $p_T$ distribution is based on the
 Kaplan functional form\pdfcomment{reference}.
 \begin{equation}
@@ -69,30 +71,34 @@ Kaplan functional form\pdfcomment{reference}.
 	\label{eq:kaplan}
 \end{equation}
 with $p_1$ is set to \SI{2.8}{\GeV}. The parameter $p_1$ controls the broadness
-of the $p_T$ distribution. In the MC, the $p_T$ of a dimuon is chosen randomly
-according to the \cref{eq:kaplan}. If the chosen $p_T$ is exceed \cref{eq:pTmax}
-and does not satisfy the kinamtic constrain, a new $p_T$ is will be chosen until
+of the $P_T$ distribution. In the MC, the $P_T$ of a dimuon is chosen randomly
+according to the \cref{eq:kaplan}. If the chosen $P_T$ is exceed \cref{eq:pTmax}
+and does not satisfy the kinematic constrain, a new $P_T$ is will be chosen until
 the constrain is satisfy.
 
-The chosen value of $p_1$ is taken from experiment conducted at higher
-energy, and may not be suitable to the SeaQuest kinamtic. Any additional weight is
-applied to account for the difference between the $p_T$ distribution in the MC input
-and in the real data. 
+The chosen value of $p_1$ is taken from experiments conducted at higher
+energy, and may not be suitable to the SeaQuest kinematic. An additional weight is
+applied to account for the difference between the $P_T$ distribution in the MC input
+and in the real data.
 
-In this analysis, a new re-weighting formula is used. Because of the way $p_T$ is chosen
-in the MC, the probability density function is nomalized to unity as follows
+In this analysis, a different re-weighting formula is used. Because of the way $p_T$ is chosen
+in the MC, the probability density function is normalized to unity as follows
 \begin{equation}
 	\int^{\left(P_T^{max}\right)^2}_0 dP_T^2 \frac{N}{\left(1+ P_T^2/p_1\right)^6}=1
 \end{equation}
 where $N$ is the normalization constant and is given by
 \begin{equation}
-	N=\frac{1}{1-\left[ 1+ \frac{\left(P_T^{max}\right)^2}{p_1^2}\right]^{-5}}.
+	N=\frac{5}{p_1^2-p_1^2\left[ 1+ \left(P_T^{max}\right)^2/p_1^2\right]^{-5}}.
 \end{equation}
-To correctly account for the normalization, $p_T$ reweight is therefore given by 
+Therefore the $p_T$ reweight is given by
 \begin{equation}
-    P_T \textrm{ reweight}\left(m,x_F\right)=
-      \frac{\left(1 + \frac{p_T^2}{2.8^2} \right)^6}{\left(1 + \frac{p_T^2}{\left(p_1\left(x_F\right)\right)^2} \right)^6} \frac{2.8^2}{\left(p_1\left(x_F\right)\right)^2}\frac{1-\left[ 1+ \frac{\left(P_T^{max}\left(m,x_F\right)\right)^2}{2.8^2}\right]^{-5}}{1-\left[ 1+ \frac{\left(P_T^{max}\left(m,x_F\right)\right)^2}{\left(p_1\left(x_F\right)\right)^2}\right]^{-5}}
+	P_T \textrm{ reweight}\left(m,x_F\right)=
+	\frac{\left(1 + \frac{p_T^2}{2.8^2} \right)^6}{\left(1 + \frac{p_T^2}{\left(p_1\left(x_F\right)\right)^2} \right)^6} \frac{2.8^2}{\left(p_1\left(x_F\right)\right)^2}\frac{1-\left[ 1+ \frac{\left(P_T^{max}\left(m,x_F\right)\right)^2}{2.8^2}\right]^{-5}}{1-\left[ 1+ \frac{\left(P_T^{max}\left(m,x_F\right)\right)^2}{\left(p_1\left(x_F\right)\right)^2}\right]^{-5}}.
+	\label{eq:pT_reWeight}
 \end{equation}
+The addition of last factor in \cref{eq:pT_reWeight} as compared to previous studies,
+is to ensure the normalization is preserved and would not affect the other kinematic
+distributions at generator level.
 
 
 \section{Track Reconstruction}
@@ -188,12 +194,60 @@ full list of cuts is tabulated in \cref{table:trackCut,table:dimuonCut,table:phy
 
 
 \section{Target Contamination}
+\begin{table}[h!]
+	\centering
+	\caption{Summary of \ce{LD_2} contamination}
+	\label{table:LD2_contamination}
+	\begin{tabular}{|l|ll|l|l|}
+		\hline
+		Sample no. & \multicolumn{2}{l|}{\ce{D_2} bottle no.} & Sample date & description                                                                                                                          \\ \hline
+		1          & \multicolumn{1}{l|}{Fermilab}            & 53          & 4/12/18     & \SI{95.6}{\percent} \ce{D}, \SI{4.4}{\percent} \ce{H}; \SI{92}{\percent}  \ce{D_2}, \SI{8}{\percent} \ce{HD} gases     \\
+		2          & \multicolumn{1}{l|}{Fermilab}            & 113         & 4/12/18     & \SI{96}{\percent} \ce{D}, \SI{4}{\percent} \ce{H}; \SI{93}{\percent}  \ce{D_2}, \SI{7}{\percent} \ce{HD} gases         \\
+		3          & \multicolumn{1}{l|}{Fermilab}            & 53          & 4/12/18     & just air; gas must have leaked                                                                                         \\
+		4          & \multicolumn{1}{l|}{Matheson}            & 127         & 4/12/18     & about half air; remaining \SI{99.1}{\percent} \ce{D}, \SI{0.3}{\percent} \ce{H}                                        \\
+		5          & \multicolumn{1}{l|}{Matheson}            & 2           & 4/12/18     & sample for test purposes; not analyzed                                                                                 \\
+		6          & \multicolumn{1}{l|}{Matheson}            &             & 7/28/16     & more than half air; remaining \SI{99.3}{\percent} \ce{D}, \SI{0.7}{\percent} \ce{H}                                    \\
+		7          & \multicolumn{1}{l|}{Matheson}            &             & 5/28/17     & \SI{99.8}{\percent} \ce{D}, \SI{0.2}{\percent} \ce{H}; \SI{99.6}{\percent}  \ce{D_2}, \SI{0.4}{\percent} \ce{HD} gases \\ \hline
+	\end{tabular}
+\end{table}
+
 
 \section{Intensity Extrapolation}
 \label{sec:extrapolation}
 
 \section{Mass Spectrum Fitting}
 \pdfmargincomment{see analysis note}
+
+\subsection{TFractionFitter}
+To account for the statistical uncertainties in both the data and Monte Carlo
+simulation, the TFrationFitter algorithm is used in this analysis \pdfcomment{reference}.
+This is achieved by performing a standard likelihood fit using Poisson statistics,
+while the template, generated from MC, are also varied within statistics, leading 
+to additional contributions to the overall likelihood.
+
+Let there are $m$ sources. The number of MC events in bin $i$ from the $j$ source
+is given by $a_{ji}$. For each source, there is some (unknown) expected distribution
+$A_{ji}$. The expected number of events in each bin is given by 
+\begin{equation}
+	f_i = \sum^m_{j=1} p_j A_{ji}.
+	\label{eq:TF_f}
+\end{equation}
+The total likelihood is the combined probability of the observed $\left\{d_i\right\}$
+and the observed $\left\{a_{ji}\right\}$
+\begin{equation}
+	\ln \mathcal{L} = \sum^n_{i=1} d_i \ln f_i -f_i + \sum^n_{i=1} \sum^m_{j=1} a_{ji} \ln A_{ji} - A_{ji}.
+	\label{eq:TF_likelihood}
+\end{equation}
+The estimates for the strength $p_j$ and the expected distribution $A_{ji}$ are 
+found by maximizing this likelihood. One consequence of this approach is the
+$n \cross m$ fit parameters $A_{ji}$. However, the  minimization of these additional
+parameters is done analytically ratter than treating them as formal fit parameters.
+
+In the case of weighted MC, \cref{eq:TF_f} is modified into
+\begin{equation}
+	f_i = \sum^m_{j=1} p_j w_{ji}A_{ji},
+\end{equation}
+where $w_{ji}$ is the average weight of the MC events in bin $i$ from the $j$th source.
 
 \section{Acceptance Calculation}
 
