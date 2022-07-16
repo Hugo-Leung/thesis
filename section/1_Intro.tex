@@ -6,7 +6,6 @@
 \chapter{Introduction}
 \label{ch:intro}
 
-%\section{Theory}
 \section {Early Evidence of the Internal Structure of Nucleon}
 \pdfmargincomment{magnetic moment of proton and neutron}
 The first evidence of nucleons being a composite particles comes form the
@@ -276,6 +275,49 @@ The measured $F_2^p-F_2^n$ by NMC is shown in \cref{fig:NMC_Gottfried}.
 \end{figure}
 The measured Gottfried sum is $0.240 \pm 0.016$, which is significantly below
 $1/3$, suggesting an asymmetry in the light sea-quarks.
+
+\section{Origin of the \texorpdfstring{$\bar{d}/\bar{u}$}{dbar/ubar} Asymmetry }
+After the result from NMC and other DIS experiments indicating the violation of the Gottfired sum rule,
+various models have been proposed to explain the $\bar{d}/\bar{u}$ asymmetry. One of the early proposal
+is by Field and Feynman \pdfcomment{PhysRevD.15.2590}. They suggested that the Pauli blocking effect
+could suppress the production of $u\bar{u}$ pairs relative to  $d\bar{d}$ as due to the presence of two
+valance $u$ quarks in the proton. It was later shown that the effect by Pauli blocking would be small and
+may effect have an opposite effect \pdfcomment{PhysRevC.55.900}
+
+The asymmetry in the light sea-quarks is expected to originate from a non-perturbative mechanism. Some of
+the models will be presented in this section.
+
+\subsection{Meson Cloud model}
+Some of the early models attribute the asymmetry to the existence of a `pion cloud' in the proton.
+In the meson cloud model the proton wave function is written as a sum of meson-baryon state
+\begin{equation}
+	\ket{p} = \sqrt{Z}\ket{p_0} + \sum_{MB}\int \dd{y} \dd[2]{\vec{k}_\perp} \phi_{BM} \left(y, \vec{k}_\perp\right)\ket{B\left(y, \vec{k}_\perp\right);MB\left(1-y, -\vec{k}_\perp\right)}
+\end{equation}
+
+\subsection{Chiral-quark model}
+
+\subsection{Statistical model}
+In the statistical model\pdfcomment{ref}, the nucleon is viewed as a gas of massless partons in equilibrium in
+a finite volume. And the parton distributions at the initial scale would then be proportional to
+\begin{equation}
+	\left[ \exp\left[\left(x-X_{0p}\right)\bar{x}\right] \pm 1 \right]^{-1},
+\end{equation}
+where the plus sign for the quarks and antiquarks corresponds to a Fermi-Dirac distribution and
+the minus sign for gluons corresponds to a Bose-Einstein distribution. The constant $X_{0p}$
+plays the role of the thermodynamic potential of the parton $p$ and $\bar{x}$ is the universal
+temperature.
+
+In this model, the potential of a quark $q_i^h$ with helicity $h$ is opposite to the potential
+of the corresponding antiquark $q_i^{-h}$ with helicity $-h$
+\begin{equation}
+	X_{0q}^h = -X_{0\bar{q}}^{-h}.
+	\label{eq:stat_potential}
+\end{equation}
+Since there are more $u$ quarks than $d$ quarks in the proton, on should expect
+\begin{equation}
+	X_{0u}^+ + X_{0u}^- > X_{0d}^+ + X_{0d}^-,
+\end{equation}
+and combing with \cref{eq:stat_potential}, one would expect $\bar{d} > \bar{u}$ in the proton.
 
 
 \section{Drell-Yan Process}
