@@ -287,20 +287,38 @@ may effect have an opposite effect \pdfcomment{PhysRevC.55.900}
 The asymmetry in the light sea-quarks is expected to originate from a non-perturbative mechanism. Some of
 the models will be presented in this section.
 
-\subsection{Meson Cloud model}
+\subsection{Meson Cloud Model}
 Some of the early models attribute the asymmetry to the existence of a `pion cloud' in the proton.
 In the meson cloud model the proton wave function is written as a sum of meson-baryon state
 \begin{equation}
 	\ket{p} = \sqrt{Z}\ket{p_0} + \sum_{MB}\int \dd{y} \dd[2]{\vec{k}_\perp} \phi_{BM} \left(y, \vec{k}_\perp\right)\ket{B\left(y, \vec{k}_\perp\right);MB\left(1-y, -\vec{k}_\perp\right)}
 \end{equation}
+where $\phi_{BM}$ is the probability amplitude to find a physical nucleon in a state consisting of a virtual
+meson $M$ and virtual baryon $B$ with longitudinal momentum fraction $y$ and $1-y$ and transverse momenta
+$\vec{k}_\perp$ and $-\vec{k}_\perp$.
 
-\subsection{Chiral-quark model}
+The main hypothesis is that the hard photon in the DIS process interact with the virtual meson or the virtual
+baryon. Therefore, the PDF can be related to the PDF of either the stuck meson or stuck baryon.
+\begin{equation}
+f_{i/N}\left(x\right) = f_{i/N}^{\mathrm{bare}}\left(x\right) +  \int^1_x f_{MB/N}\left(y\right) f_{i/M}\left(\frac{x}{y}\right) \frac{\dd{y}}{y} + \int^1_x f_{BM/N}\left(y\right) f_{i/B}\left(\frac{x}{y}\right) \frac{\dd{y}}{y},
+\end{equation}
+where $f_{MB/N}$ and $f_{BM/N}$ are the splitting function, related to $\phi_{BM}$.
+If we restrict to $\pi N$ and $\pi\Delta$ states, and using isospin symmetry, 
+\begin{align}
+	f_{\pi^+n/p}=\frac{2}{3} f_{\pi N/p}&, ~f_{\pi^0 p/p}=\frac{1}{3} f_{\pi N/p}\\
+	f_{\pi^-\Delta^{++}/p}=\frac{1}{2} f_{\pi \Delta/p}, ~f_{\pi^0 \Delta^+/p}&=\frac{1}{3} f_{\pi \Delta/p},  ~f_{\pi^+ \Delta^0/p}=\frac{1}{6} f_{\pi \Delta/p}
+\end{align}
 
-\subsection{Statistical model}
+The asymmetry in the proton sea arises because of the dominance of the $\pi^+$ among the virtual
+configurations.
+
+\subsection{Chiral Quark Model}
+
+\subsection{Statistical Model}
 In the statistical model\pdfcomment{ref}, the nucleon is viewed as a gas of massless partons in equilibrium in
 a finite volume. And the parton distributions at the initial scale would then be proportional to
 \begin{equation}
-	\left[ \exp\left[\left(x-X_{0p}\right)\bar{x}\right] \pm 1 \right]^{-1},
+	\left[ \exp\left[\left(x-X_{0p}\right)/\bar{x}\right] \pm 1 \right]^{-1},
 \end{equation}
 where the plus sign for the quarks and antiquarks corresponds to a Fermi-Dirac distribution and
 the minus sign for gluons corresponds to a Bose-Einstein distribution. The constant $X_{0p}$
@@ -313,7 +331,7 @@ of the corresponding antiquark $q_i^{-h}$ with helicity $-h$
 	X_{0q}^h = -X_{0\bar{q}}^{-h}.
 	\label{eq:stat_potential}
 \end{equation}
-Since there are more $u$ quarks than $d$ quarks in the proton, on should expect
+Since there are more $u$ quarks than $d$ quarks in the proton, on should expect 
 \begin{equation}
 	X_{0u}^+ + X_{0u}^- > X_{0d}^+ + X_{0d}^-,
 \end{equation}
