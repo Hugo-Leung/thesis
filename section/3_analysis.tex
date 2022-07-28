@@ -65,7 +65,7 @@ This was first studied by S.~Prasard \cite{prasad2020}.
 Because the transverse momentum distribution ($p_T$) cannot be calculated using
 fixed order pQCD, it is typically parameterized using some functional form.
 In the SeaQuest monte carlo simulation, the input $p_T$ distribution is based on the
-Kaplan functional form\pdfcomment{reference}.
+Kaplan functional form \cite{kaplan1978}.
 \begin{equation}
 	f\left(P_T^2\right) \propto \frac{1}{\left(1+ P_T^2/p_1\right)^6},
 	\label{eq:kaplan}
@@ -79,7 +79,10 @@ the constrain is satisfy.
 The chosen value of $p_1$ is taken from experiments conducted at higher
 energy, and may not be suitable to the SeaQuest kinematic. An additional weight is
 applied to account for the difference between the $P_T$ distribution in the MC input
-and in the real data.
+and in the real data. In addition, the $P_T$ distribution can also depends on $x_F$.
+The $x_F$ dependence of the $P_T$ distribution has been reported in the pion induced
+Drell-Yan experiment E615 \cite{conway1989}. The $x_F$ and $\sqrt{s}$ dependence in 
+proton induced Drell-Yan have also been reported in Ref.~\cite{prasad2020}.
 
 In this analysis, a different re-weighting formula is used. Because of the way $p_T$ is chosen
 in the MC, the probability density function is normalized to unity as follows
@@ -214,13 +217,15 @@ full list of cuts is tabulated in \cref{table:trackCut,table:dimuonCut,table:phy
 
 \section{Intensity Extrapolation}
 \label{sec:extrapolation}
+Extracting the cross section ratio is fisrt stuidied by J.~Dove \cite{dove2020} and A.~Tadepalli
+\cite{tadepalli2019}
 
 \section{Mass Spectrum Fitting}
 \pdfmargincomment{see analysis note}
 
 \subsection{TFractionFitter}
 To account for the statistical uncertainties in both the data and Monte Carlo
-simulation, the TFrationFitter algorithm is used in this analysis \pdfcomment{reference}.
+simulation, the TFrationFitter algorithm is used in this analysis \cite{barlow1993}.
 This is achieved by performing a standard likelihood fit using Poisson statistics,
 while the template, generated from MC, are also varied within statistics, leading 
 to additional contributions to the overall likelihood.
