@@ -81,7 +81,7 @@ energy, and may not be suitable to the SeaQuest kinematic. An additional weight 
 applied to account for the difference between the $P_T$ distribution in the MC input
 and in the real data. In addition, the $P_T$ distribution can also depends on $x_F$.
 The $x_F$ dependence of the $P_T$ distribution has been reported in the pion induced
-Drell-Yan experiment E615 \cite{conway1989}. The $x_F$ and $\sqrt{s}$ dependence in 
+Drell-Yan experiment E615 \cite{conway1989}. The $x_F$ and $\sqrt{s}$ dependence in
 proton induced Drell-Yan have also been reported in Ref.~\cite{prasad2020}.
 
 In this analysis, a different re-weighting formula is used. Because of the way $p_T$ is chosen
@@ -197,6 +197,14 @@ full list of cuts is tabulated in \cref{table:trackCut,table:dimuonCut,table:phy
 
 
 \section{Target Contamination}
+The liquid targets are held in a flask \SI{50.8}{\cm} long and \SI{7.62}{\cm} in diameter
+and can contain \SI{2.2}{\l} of liquid. The liquid Hydrogen used is \SI{99.999}{\percent}
+pure. On the other hand, the Deuterium used came from two sources:
+\begin{itemize}
+	\item \SI{95.8\pm0.2}{\percent} pure deuterium that was used for bubble chamber experiments
+	      at Fermilab, with contamination in the form of \ce{HD}.
+	\item \SI{99.99}{\percent}
+\end{itemize}
 \begin{table}[h!]
 	\centering
 	\caption{Summary of \ce{LD_2} contamination}
@@ -218,7 +226,24 @@ full list of cuts is tabulated in \cref{table:trackCut,table:dimuonCut,table:phy
 \section{Intensity Extrapolation}
 \label{sec:extrapolation}
 Extracting the cross section ratio is fisrt stuidied by J.~Dove \cite{dove2020} and A.~Tadepalli
-\cite{tadepalli2019}
+\cite{tadepalli2019}. The idea behind this method is that the number of observed Drell-Yan
+events ,in the absent of any spectrometer effects, should be linearly proportional to the beam
+intensity. On the contrary, the two muons in the accidental background are typical coming from two separate interactions, and there it is expected proportional to the intensity squared. By taking the ratio of the
+$(p+p)$ and $(p+d)$ dimuon event rates, other rate dependence effect would also be cancel out
+at zero intensity.
+
+The procedure for this method is summarized here. The dimuon selection is applied to remove contributions
+from the charmonium decay and to exclude region close to the boundaries of the acceptance.
+Then the background originated from the interaction with the instruments is estimated by using
+the empty flask data normalized by the integrated beam intensity, and is subtracted from the
+$p+p$ and $p+d$ data. Third, the $(p+d)/2(p+p)$ ratios are formed by empty flask subtracted
+dimuon data, normalized by the beam intensity. The ratio is calculated as a function of the
+instantaneous beam intensity measured by the BIM. The ratio is then fitted with the following function
+\begin{equation}
+	R_i \left(I\right) = p_{0i} + p_1 I + p_2 I^2,
+\end{equation}
+where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p_{0i}$ give
+the value of the cross section ratio in each $x_T$ bins.
 
 \section{Mass Spectrum Fitting}
 \pdfmargincomment{see analysis note}
@@ -227,12 +252,12 @@ Extracting the cross section ratio is fisrt stuidied by J.~Dove \cite{dove2020} 
 To account for the statistical uncertainties in both the data and Monte Carlo
 simulation, the TFrationFitter algorithm is used in this analysis \cite{barlow1993}.
 This is achieved by performing a standard likelihood fit using Poisson statistics,
-while the template, generated from MC, are also varied within statistics, leading 
+while the template, generated from MC, are also varied within statistics, leading
 to additional contributions to the overall likelihood.
 
 Let there are $m$ sources. The number of MC events in bin $i$ from the $j$ source
 is given by $a_{ji}$. For each source, there is some (unknown) expected distribution
-$A_{ji}$. The expected number of events in each bin is given by 
+$A_{ji}$. The expected number of events in each bin is given by
 \begin{equation}
 	f_i = \sum^m_{j=1} p_j A_{ji}.
 	\label{eq:TF_f}
@@ -243,7 +268,7 @@ and the observed $\left\{a_{ji}\right\}$
 	\ln \mathcal{L} = \sum^n_{i=1} d_i \ln f_i -f_i + \sum^n_{i=1} \sum^m_{j=1} a_{ji} \ln A_{ji} - A_{ji}.
 	\label{eq:TF_likelihood}
 \end{equation}
-The estimates for the strength $p_j$ and the expected distribution $A_{ji}$ are 
+The estimates for the strength $p_j$ and the expected distribution $A_{ji}$ are
 found by maximizing this likelihood. One consequence of this approach is the
 $n \cross m$ fit parameters $A_{ji}$. However, the  minimization of these additional
 parameters is done analytically ratter than treating them as formal fit parameters.

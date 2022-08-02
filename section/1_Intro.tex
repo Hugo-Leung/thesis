@@ -21,10 +21,10 @@ to have a zero magnetic moment. The neutron magnetic moment would later be
 measured and found to be non-zero, suggesting that proton and neutron are
 composite particles \cite{rabi1934a}.
 
-In the 1950s, the proton form factor was measured using electron proton elastic
-scattering experiments \cite{hofstadter1956}. The electron-proton elastic
-scattering in the laboratory frame can be expressed in the Rosenbluth formula
-\cite{rosenbluth1950}.
+The first insight into the internal structure of the nucleon came from the 
+electron proton elastic scattering experiments \cite{hofstadter1956} in the
+1950s. The electron-proton elastic scattering cross section in the laboratory
+frame can be expressed in the Rosenbluth formula \cite{rosenbluth1950}
 \begin{equation}
 	\dv{\sigma}{\Omega} = \frac{\alpha^2}{4E^2 \sin^2\left(\theta/2\right)}
 	\frac{E^\prime}{E} \left( \frac{G_E^2+\tau G_M^2}{1+\tau} \cos^2
@@ -41,7 +41,7 @@ factors are functions of the four momentum squared of the virtual photon. At
 low-$Q^2$ limit, these form factors can be interpreted as the Fourier transforms
 of the charge and magnetic moment distribution of the nucleon. \Cref{fig:charge}
 shows recent extraction of the proton and neutron charge density from the electric
-form factor taken from Ref.~\cite{miller2007}. In particular, Miller found that
+form factor taken from Ref.~\cite{miller2007}. In particular, it was found that
 the neutron has a negatively charged center and surrounded by a positive cloud.
 \begin{figure}[htbp!]
 	\centering
@@ -137,7 +137,7 @@ process, as they describe the dynamics of the partons in a given hadron.
 
 In the parton model, the structure functions $F_{1,2}$ are clearly related. And
 from \cref{eq:DIS_cs1}, it is obvious that the structure function $F_1$ is
-related to the magnetic form factor $G_E$ in \cref{eq:ep_cs}. If the partons
+related to the magnetic form factor $G_M$ in \cref{eq:ep_cs}. If the partons
 are spin 0 particles, one would expect $F_1$ to be zero. In leading order of QCD,
 only the quarks and antiquarks contribute to the cross section. Since quarks and
 antiquarks are spin 1/2 particles, this relation is given by the Callan-Gross
@@ -150,8 +150,8 @@ The measured deviation of the Callan-Gross relation, defined as
 	K_0 = \frac{F_2}{2xF_1}-1,
 \end{equation}
 is shown in \cref{fig:callan_gross}, taken from Ref.~\cite{kendall1991}.
-For large $Q^2$, $K_0$ is consistent with zero, establishing the parton spin as
-1/2.
+For large $Q^2$, $K_0$ is consistent with zero, establishing the spin of the
+charged partons is 1/2.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{Callan_Gross_relation}
@@ -299,13 +299,13 @@ $\vec{k}_\perp$ and $-\vec{k}_\perp$.
 The main hypothesis is that the hard photon in the DIS process interact with the virtual meson or the virtual
 baryon. Therefore, the PDF can be related to the PDF of either the stuck meson or stuck baryon.
 \begin{equation}
-f_{i/N}\left(x\right) = f_{i/N}^{\mathrm{bare}}\left(x\right) +  \int^1_x f_{MB/N}\left(y\right) f_{i/M}\left(\frac{x}{y}\right) \frac{\dd{y}}{y} + \int^1_x f_{BM/N}\left(y\right) f_{i/B}\left(\frac{x}{y}\right) \frac{\dd{y}}{y},
+	f_{i/N}\left(x\right) = f_{i/N}^{\mathrm{bare}}\left(x\right) +  \int^1_x f_{MB/N}\left(y\right) f_{i/M}\left(\frac{x}{y}\right) \frac{\dd{y}}{y} + \int^1_x f_{BM/N}\left(y\right) f_{i/B}\left(\frac{x}{y}\right) \frac{\dd{y}}{y},
 \end{equation}
 where $f_{MB/N}$ and $f_{BM/N}$ are the splitting function, related to $\phi_{BM}$.
-If we restrict to $\pi N$ and $\pi\Delta$ states, and using isospin symmetry, 
+If we restrict to $\pi N$ and $\pi\Delta$ states, and using isospin symmetry,
 \begin{align}
-	f_{\pi^+n/p}=\frac{2}{3} f_{\pi N/p}&, ~f_{\pi^0 p/p}=\frac{1}{3} f_{\pi N/p}\\
-	f_{\pi^-\Delta^{++}/p}=\frac{1}{2} f_{\pi \Delta/p}, ~f_{\pi^0 \Delta^+/p}&=\frac{1}{3} f_{\pi \Delta/p},  ~f_{\pi^+ \Delta^0/p}=\frac{1}{6} f_{\pi \Delta/p}
+	f_{\pi^+n/p}=\frac{2}{3} f_{\pi N/p}                                       & , ~f_{\pi^0 p/p}=\frac{1}{3} f_{\pi N/p}                                           \\
+	f_{\pi^-\Delta^{++}/p}=\frac{1}{2} f_{\pi \Delta/p}, ~f_{\pi^0 \Delta^+/p} & =\frac{1}{3} f_{\pi \Delta/p},  ~f_{\pi^+ \Delta^0/p}=\frac{1}{6} f_{\pi \Delta/p}
 \end{align}
 
 The asymmetry in the proton sea arises because of the dominance of the $\pi^+$ among the $\pi N$ states. However, the effect is slightly canceled out by the $\pi\Delta$ configurations.
@@ -320,7 +320,7 @@ After one emission, the $u$ quark wavefuction has the components
 	\Psi\left(u\right) \sim \left[d\pi^+ + s K^+ + u \left(\frac{\pi^0}{\sqrt{2}} + \frac{\eta}{\sqrt{6}}\right)\right],
 \end{equation}
 which can be expressed in terms of the quark contents by using $\pi^+ = u\bar{d}$ and $K^+ = u\bar{s}$. etc.
-The probability of the transitions is given by the squaring the wavefunction, and if 
+The probability of the transitions is given by the squaring the wavefunction, and if
 \begin{equation}
 	Prob\left[ u_+ \rightarrow \pi^+d_-\right] \equiv a,
 \end{equation}
@@ -328,16 +328,11 @@ and using isospin asymmetry to determine the $d$ quark wavefucntion, the number 
 by the initial $(2u+d)$ valance quarks in the proton is given by
 \begin{equation}
 	\begin{aligned}
-		\bar{u} &= 2\cross\frac{4}{9}a +a+\frac{1}{9}a = 2a,\\
-		\bar{d} &= 2\cross\left(a+\frac{1}{9}a\right) + \frac{4}{9}a = \frac{8}{3}a.
+		\bar{u} & = 2\cross\frac{4}{9}a +a+\frac{1}{9}a = 2a,                         \\
+		\bar{d} & = 2\cross\left(a+\frac{1}{9}a\right) + \frac{4}{9}a = \frac{8}{3}a.
 	\end{aligned}
 \end{equation}
 Therefore the model predicts a light sea-quark asymmetry $\bar{d}/\bar{u} =\frac{4}{3} $.
-
-
-\subsection{Lattice QCD}
-Lattice QCD calculations of the $\bar{d} - \bar{u}$ based on the Large Momentum Effective 
-theory (LaMET) \cite{ji2021} have become available recently \cite{alexandrou2021}. 
 
 \subsection{Statistical Model}
 In the statistical model\cite{bourrely2015}, the nucleon is viewed as a gas of massless partons in equilibrium in
@@ -356,13 +351,40 @@ of the corresponding antiquark $q_i^{-h}$ with helicity $-h$
 	X_{0q}^h = -X_{0\bar{q}}^{-h}.
 	\label{eq:stat_potential}
 \end{equation}
-Since there are more $u$ quarks than $d$ quarks in the proton, on should expect 
+Since there are more $u$ quarks than $d$ quarks in the proton, on should expect
 \begin{equation}
 	X_{0u}^+ + X_{0u}^- > X_{0d}^+ + X_{0d}^-,
 \end{equation}
 and combing with \cref{eq:stat_potential}, one would expect $\bar{d} > \bar{u}$ in the proton.
 
+\subsection{Intrinsic Sea}
 
+
+
+\subsection{Lattice QCD}
+Lattice QCD calculations of the $\bar{d} - \bar{u}$ based on the Large Momentum Effective
+theory (LaMET) \cite{ji2021} have become available recently by two different groups \cite{chen2018, alexandrou2018}. 
+The parton distribution functions described the quarks and gluons in hadrons traveling at infinite
+momentum. The principle for LaMET comes from the observation that the structure of the proton is
+approximately independent of its momentum so long as it is much larger than the strong interaction
+scale or its mass. Therefore the patronic structure can be calculated for a proton with
+moderately-large momentum and taking the limit of the proton momentum to infinity.
+
+\begin{figure}[h!]
+\begin{subfigure}{0.45\linewidth}
+\includegraphics[width=0.9\linewidth]{LP3-PDF-CT14}
+\end{subfigure}
+\begin{subfigure}{0.45\linewidth}
+\includegraphics[width=0.9\linewidth]{alexandrou2018}
+\end{subfigure}
+\caption{The calculated isovector PDF from two different group. Taken from Ref.~\cite{chen2018} (left)
+and Ref.~\cite{alexandrou2018}(right). The negative $x$ region denote $\bar{d}-\bar{u}$ at $\left|x\right|$.}
+\label{fig:lamet}
+\end{figure}
+\Cref{fig:lamet} shows the result using LaMET from two different groups and are compared with
+different global PDF extractions. While the result by the LP\textsubscript{3} collaboration
+is in good agreement with CT14, the result from the Cyprus group differs from the PDFs,
+especially in the antiquark region.
 
 \section{Drell-Yan Process}
 \label{sec:DY}
