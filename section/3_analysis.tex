@@ -60,7 +60,7 @@ Subsituting $x_F = \frac{P_L}{\sqrt{s}\left[1-M^2_\gamma\right]}$,
 Earlier versions of the SeaQuest Monte Carlo generators used an inconsistent definition of $x_F$
 and $P_T^{\mathtt{max}}$ resulting in an incomplete coverage of the kinematic phase space.
 
-\subsection{\texorpdfstring{$p_T$}{pT} re-weighting in Monte Carlo}
+\subsection{\texorpdfstring{$P_T$}{P_T} re-weighting in Monte Carlo}
 This was first studied by S.~Prasard \cite{prasad2020}.
 Because the transverse momentum distribution ($p_T$) cannot be calculated using
 fixed order pQCD, it is typically parameterized using some functional form.
@@ -108,8 +108,8 @@ distributions at generator level.
 
 \section{Event Selection}
 The event selection that is used in this study is based on the study by C.~Brown
-\cite{chuck-2111} with some modification to increase acceptance at low mass. The
-full list of cuts is tabulated in \cref{table:trackCut,table:dimuonCut,table:physCut,table:occCut}.
+\cite{chuck-2111} with some modification to increase acceptance at low mass. These cuts
+are categorized into different groups and are tabulated in \cref{table:trackCut,table:dimuonCut,table:physCut,table:occCut}.
 
 
 \begin{table}[ht!]
@@ -131,12 +131,12 @@ full list of cuts is tabulated in \cref{table:trackCut,table:dimuonCut,table:phy
 		\\ \hline
 		$z_0$                                                                                                                                & z position of track's closest approach to beam   line                                & (\SI{320}{\cm},\SI{-5}{\cm}) \\ \hline
 		$\chi^2/(\textrm{nHits}-5)$                                                                                                          & $\chi^2/\textrm{ndf}$                                                                & $<12$                        \\ \hline
-		$y_1/y_3$                                                                                                                            & y position of track ast St.\ 1   and St.\ 3                                          & $<1$                         \\ \hline
+		$y_1/y_3$                                                                                                                            & y position of track ast St.~1   and St.~3                                            & $<1$                         \\ \hline
 		$y_1\times y_3$                                                                                                                      &                                                                                      & $>0$                         \\ \hline
-		$| |px_1 - px_3| -0.416|$                                                                                                            & difference in x momentum at St.\   1 and St.\ 3 accounting for the Kmag kick         & $<\SI{0.008}{\GeV}$          \\ \hline
-		$|py_1 - py_3|$                                                                                                                      & difference in y momentum at St.\   1 and St.\ 3                                      & $<\SI{0.008}{\GeV}$          \\ \hline
-		$|pz_1 - pz_3|$                                                                                                                      & difference in z momentum at St.\   1 and St.\ 3                                      & $<\SI{0.08}{\GeV}$           \\ \hline
-		$|py_1 |$                                                                                                                            & absolute value of the y momentum   at St.\ 1                                         & $>\SI{0.02}{\GeV}$           \\ \hline
+		$| |px_1 - px_3| -0.416|$                                                                                                            & difference in x momentum at St.~1 and St.~3 accounting for the Kmag kick             & $<\SI{0.008}{\GeV}$          \\ \hline
+		$|py_1 - py_3|$                                                                                                                      & difference in y momentum at St.~1 and St.~3                                          & $<\SI{0.008}{\GeV}$          \\ \hline
+		$|pz_1 - pz_3|$                                                                                                                      & difference in z momentum at St.~1 and St.~3                                          & $<\SI{0.08}{\GeV}$           \\ \hline
+		$|py_1 |$                                                                                                                            & absolute value of the y momentum   at St.~1                                          & $>\SI{0.02}{\GeV}$           \\ \hline
 	\end{tabular}
 \end{table}
 \begin{table}[ht!]
@@ -155,12 +155,12 @@ full list of cuts is tabulated in \cref{table:trackCut,table:dimuonCut,table:phy
 		$dpx^2+dpy^2$                                                                                       & transverse momentum squared of   dimuon                                                  & $<\SI{5}{\GeV}$                \\ \hline
 		dpz                                                                                                 & dimuon z momentum                                                                        & (\SI{38}{\GeV},\SI{116}{\GeV}) \\ \hline
 		$|\textrm{tackSeparation}|$                                                                         & distance in z between points   of  closest approach between $\mu^+$   and $\mu^-$ track  & $<\SI{270}{\cm}$               \\ \hline
-		$\chi^2_{dimuon}$                                                                                   & $\chi^2$ when both $\mu^+$ and   $\mu^-$ tracks are forced to pass thorugh dimuon vertex & $<18$                          \\ \hline
+		$\chi^2_{dimuon}$                                                                                   & $\chi^2$ when both $\mu^+$ and   $\mu^-$ tracks are forced to pass through dimuon vertex & $<18$                          \\ \hline
 		$\begin{aligned} |\chi^2_{target}(\mu^+) &+ \chi^2_{target}(\mu^-)\\& -x^2_{dimuon}| \end{aligned}$ &                                                                                          & $<2$                           \\ \hline
-		$y_3(\mu^+) \times y_3(\mu^-)$                                                                      & y position at St.\ 3 for both tracks                                                     & $<0$                           \\ \hline
-		$\textrm{nHists}(\mu^+)+\textrm{nHists}(\mu^-)$                                                     & sum of the total number if hits   on wire chamber by $\mu^+$ and $\mu^-$ track           & $>29$                          \\ \hline
-		$\textrm{nHists}_1(\mu^+)+\textrm{nHists}_1(\mu^-)$                                                 & sum of the total number if hits   on St.\ 1 wire chamber by $\mu^+$ and $\mu^-$ track    & $>8$                           \\ \hline
-		$|x_1(\mu^+) + x_1(\mu^-)|$                                                                         & sum off x position of of tracks   at St.\ 1                                              & $>\SI{42}{\cm}$                \\ \hline
+		$y_3(\mu^+) \times y_3(\mu^-)$                                                                      & y position at St.~3 for both tracks                                                      & $<0$                           \\ \hline
+		$\textrm{nHists}(\mu^+)+\textrm{nHists}(\mu^-)$                                                     & sum of the total number if hits on wire chamber by $\mu^+$ and $\mu^-$ track             & $>29$                          \\ \hline
+		$\textrm{nHists}_1(\mu^+)+\textrm{nHists}_1(\mu^-)$                                                 & sum of the total number if hits on St.~1 wire chamber by $\mu^+$ and $\mu^-$ track       & $>8$                           \\ \hline
+		$|x_1(\mu^+) + x_1(\mu^-)|$                                                                         & sum off x position of of tracks   at St.~1                                               & $>\SI{42}{\cm}$                \\ \hline
 	\end{tabular}
 \end{table}
 \begin{table}[h!]
@@ -183,31 +183,45 @@ full list of cuts is tabulated in \cref{table:trackCut,table:dimuonCut,table:phy
 	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
 		\hline
 		Variable                          & Description                                & Cut      \\ \hline
-		D1                                & total hits on St.\ 1 Chamber               & $<400$   \\ \hline
-		D2                                & total hits on St.\ 2 Chamber               & $<400$   \\ \hline
-		D3                                & total hits on St.\ 3 Chamber               & $<400$   \\ \hline
+		D1                                & total hits on St.~1 Chamber                & $<400$   \\ \hline
+		D2                                & total hits on St.~2 Chamber                & $<400$   \\ \hline
+		D3                                & total hits on St.~3 Chamber                & $<400$   \\ \hline
 		$D1+D2+D3$                        & total numbers of hits in all wire Chambers & $<1000$  \\ \hline
 		Trigger intensity\footnotemark[3] & numbers of proton in the triggering bucket & $<80000$ \\ \hline
 	\end{tabular}
 \end{table}
 
-\footnotetext[1]{modified from Ref.\ \cite{chuck-2111}}
+\footnotetext[1]{modified from Ref.~\cite{chuck-2111}}
 \footnotetext[2]{The 0.99 scaling factor is applied to MC}
 \footnotetext[3]{Not applied to MC or Mix background}
 
 
 \section{Target Contamination}
+For a pure target, the cross section can be obtained from the yield using the following
+\begin{equation}
+	\sigma = \frac{Y A}{T N_A P X \epsilon},
+\end{equation}
+where $Y$ is the extracted yield, $A$ is the atomic mass of the target,
+$T$ is the thickness of the target, $N_A$ is the Avogadro’s number,
+$P$ is the proton on target, $\epsilon$ is the acceptance and efficiency correction,
+and $X$ is the beam attenuation factor given by
+\begin{equation}
+	X=\frac{\lambda}{L\rho} \left[1-\exp\left(-\frac{L\rho}{\lambda}\right)\right],
+\end{equation}
+where $\lambda$ is the interaction length, $L$ and $\rho$ are the length and density
+of the target.
+
 The liquid targets are held in a flask \SI{50.8}{\cm} long and \SI{7.62}{\cm} in diameter
 and can contain \SI{2.2}{\l} of liquid. The liquid Hydrogen used is \SI{99.999}{\percent}
 pure. On the other hand, the Deuterium used came from two sources:
 \begin{itemize}
 	\item \SI{95.8\pm0.2}{\percent} pure deuterium that was used for bubble chamber experiments
 	      at Fermilab, with contamination in the form of \ce{HD}.
-	\item \SI{99.99}{\percent}
+	\item \SI{99.99}{\percent} pure commercial deuterium which is used in later half of the experiment.
 \end{itemize}
 \begin{table}[h!]
 	\centering
-	\caption{Summary of \ce{LD_2} contamination}
+	\caption{Summary of \ce{LD_2} contamination with the mole fraction of each source of contamination}
 	\label{table:LD2_contamination}
 	\begin{tabular}{|l|ll|l|l|}
 		\hline
@@ -221,14 +235,91 @@ pure. On the other hand, the Deuterium used came from two sources:
 		7          & \multicolumn{1}{l|}{Matheson}            &             & 5/28/17     & \SI{99.8}{\percent} \ce{D}, \SI{0.2}{\percent} \ce{H}; \SI{99.6}{\percent}  \ce{D_2}, \SI{0.4}{\percent} \ce{HD} gases \\ \hline
 	\end{tabular}
 \end{table}
+Therefore, care is needed to account for the contribution from the hydrogen contamination in deuterium
+target data.
+
+The yield of the contaminated hydrogen can be expressed as
+\begin{equation}
+	Y_{\text{cont.~\ce{LD_2}}} = N_A P_D X_D \epsilon_D \left( T_D^D \sigma_{pd}/A_D + T^D_H \sigma_{pp}/A_H   \right).
+\end{equation}
+Here $T_D^D$ and $T^D_H$ are the thickness of deuterium and hydrogen in the deuterium target.
+The subscript $D$ denote these deuterium target specific quantities.
+
+In order to extract the $T_D^D$ and $T^D_H$ from the mole fraction listed in \cref{table:LD2_contamination},
+we first note that the volume of a \ce{HD} molecule is about \num{1.094} times the volume of a \ce{D_2}
+molecule. Therefore the effective volume of molecules in the target is
+\begin{equation}
+	\begin{split}
+		V_{\text{eff.}}&=\frac{N_{\ce{HD}} V_{\ce{HD}} + N_{\ce{D_2}} V_{\ce{D_2}}}{N_{tot}}\\
+		&=V_{D_2} \left[ C \frac{V_{\ce{HD}}}{V_{\ce{D_2}}} + (1-C) \right]\\
+		&=V_{D_2} f,
+	\end{split}
+\end{equation}
+where $f=\left[ C \frac{V_{\ce{HD}}}{V_{D_2}} + (1-C) \right]$.
+The total number of molecules per area is
+\begin{equation}
+	\begin{split}
+		\frac{N_{\text{tot.}}}{\text{Area}} &= \frac{L}{V_{eff}}\\
+		&= \frac{L}{V_{D_2}f}=\frac{L\rho_{D_2}}{2A_Df}.
+	\end{split}
+\end{equation}
+The thickness of D (in \unit{\g\per\cm\squared}) in the target cell is
+\begin{equation}
+	\begin{split}
+		T_D^D &= \frac{N_D A_D}{A} = A_D\frac{N_{\text{tot.}}}{\text{Area}} \left[ 2(1-C) + C \right]\\
+		&=A_D \frac{L\rho_{\ce{D_2}}}{2A_Df}(2-C)\\
+		&=\frac{L\rho_{D_2}}{f}(1-C/2).
+	\end{split}
+\end{equation}
+The thickness of H (in \unit{\g\per\cm\squared}) in the target cell is
+\begin{equation}
+	\begin{split}
+		T^D_H &= \frac{N_H A_H}{A} = A_H\frac{N_{\text{tot.}}}{\text{Area}}C\\
+		&=\frac{L\rho_{\ce{D_2}}}{f}\frac{A_H}{A_D}\frac{C}{2}.
+	\end{split}
+	\label{eq:TDH}
+\end{equation}
+The effective density is
+\begin{equation}
+	\begin{split}
+		\rho_{\text{eff.}} &= \frac{1}{L} (T_D^H + T_D^D)\\
+		&=\frac{\rho_{\ce{D_2}}}{f} \left[ \frac{A_H}{A_D}\frac{C}{2}+(1-C/2) \right].
+	\end{split}
+\end{equation}
+and the effective interaction length is
+\begin{equation}
+	\begin{split}
+		\frac{1}{\lambda_{\text{eff.}}} &= \frac{1}{L\rho_{\text{eff.}}} \left[\frac{T_D^H}{\lambda_H} +\frac{T_D^D}{\lambda_D}\right]\\
+		&=\left[\frac{A_H}{A_D}\frac{C}{2\lambda_H} + \frac{1-C/2}{\lambda_D}\right]\left( \frac{A_H}{A_D}\frac{C}{2} +(1-C/2)\right)^{-1}.
+	\end{split}
+\end{equation}
+
+Note that in previous studies and publication, including Ref.~\cite{dove2021}, the ratio of the atomic mass
+is missing in \cref{eq:TDH}. This causes a roughly \SI{2}{\percent} difference in the cross section ratio
+that will be discussed later.
+
+Thus the deuterium cross section is
+\begin{equation}
+	\sigma_{pd} = \frac{Y_{\ce{LD_2}} A_D}{T_D^D N_A P_D X_{\text{eff}} \epsilon_D} - \frac{T^D_H}{T_D^D} \frac{A_D}{A_H} \sigma_{pp},
+\end{equation}
+where
+\begin{equation}
+	\sigma_{pp} = \frac{Y_{\ce{LH_2}} A_H}{T_H^H N_A P_D X_{H} \epsilon_H}.
+\end{equation}
+And the cross section ratio is given by
+\begin{equation}
+	\frac{\sigma_{pd}}{2\sigma_{pp}} = \frac{Y_{\ce{LD_2}}}{2Y_{\ce{LH2}}}\frac{A_D}{A_H}\frac{T_H^H P_H X_{H} \epsilon_H}{T_D^D P_D X_{\text{eff}} \epsilon_D} - \frac{T^D_H}{2T_D^D} \frac{A_D}{A_H}
+\end{equation}
 
 
 \section{Intensity Extrapolation}
 \label{sec:extrapolation}
-Extracting the cross section ratio is fisrt stuidied by J.~Dove \cite{dove2020} and A.~Tadepalli
-\cite{tadepalli2019}. The idea behind this method is that the number of observed Drell-Yan
+Extracting the Drell-Yan cross section ratio using the intensity extrapolation method
+is first studied by J.~Dove \cite{dove2020} and A.~Tadepalli \cite{tadepalli2019}.
+The idea behind this method is that the number of observed Drell-Yan
 events ,in the absent of any spectrometer effects, should be linearly proportional to the beam
-intensity. On the contrary, the two muons in the accidental background are typical coming from two separate interactions, and there it is expected proportional to the intensity squared. By taking the ratio of the
+intensity. On the contrary, the two muons in the accidental background are typical coming from
+two separate interactions, and there it is expected proportional to the intensity squared. By taking the ratio of the
 $(p+p)$ and $(p+d)$ dimuon event rates, other rate dependence effect would also be cancel out
 at zero intensity.
 
