@@ -12,7 +12,7 @@
 \usepackage[style=phys,%
 	biblabel=brackets,%
 	chaptertitle=false,pageranges=false,%
-	maxnames=4,sorting=none]{biblatex}
+	maxnames=4,sorting=none,eprint]{biblatex}
 \usepackage{physics}
 \usepackage{subcaption}
 \usepackage{tikz}
@@ -41,8 +41,8 @@
 \begin{document}
 
 
-\title{Probing parton distributions in proton using Drell-Yan and Charmonium Production with
-	\SI{120}{\GeV} proton beam at Fermilab}
+\title{Probing parton distributions in proton using Drell-Yan and Charmonium Production
+	in $p+p$ and $p+d$ interactions with \SI{120}{\GeV} proton beam at Fermilab}
 \author{Ching Him Leung}
 \department{Physics}
 
@@ -60,13 +60,14 @@
 	E906/SeaQuest is a fixed-target experiment at Fermilab with a \SI{120}{\GeV}
 	proton beam. Muon pairs with mass between \num{2} to \SI{9}{\GeV} from the
 	interaction of proton beam with various targets has been detected. The primary
-	goal of the experiment is to study the partonic structure of the nucleon. In
-	particular, the charmonium production data can be used to probe both the quark
-	content as well as the gluon content. The preliminary result from the analysis
-	of the SeaQuest charmonium production data will be presented.  E1039/SpinQuest
-	is a follow up experiment of SeaQuest. By utilizing a transversely polarized
-	target,we could extend this study to the transverse momentum distribution of
-	the partons.
+	goal of the experiment is to study the partonic structure of the nucleon. This 
+	events contains muons originating from the Drell-Yan process as well as 
+	charmonium decays.The measurement of the Drell-Yan $(p+d)/2(p+p)$ cross section
+	ratio is particularly sensitive to the light sea-quark asymmetry in the proton.
+	On the other hand, the charmonium production data can be used to probe both the quark
+	content as well as the gluon content.
+
+
 	\pdfmargincomment{copied from prelim, needed to be rewritten}
 \end{abstract}
 
@@ -94,7 +95,7 @@
 
 \subfile{section/4_result}
 
-\subfile{section/5_spinquest}
+%\subfile{section/5_spinquest} % comment out SpinQuest for now
 
 \subfile{section/6_conclusion}
 

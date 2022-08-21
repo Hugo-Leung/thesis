@@ -3,7 +3,7 @@
 
 \ifSubfilesClassLoaded{
 	\mainmatter
-	\setcounter{chapter}{2}
+	\setcounter{chapter}{4}
 }{}
 
 \chapter{Analysis}
@@ -13,7 +13,7 @@
 SeaQuest received its first proton in the beginning of 2012, and began beam
 commission. After a short commissioning run, the Main Injector was shut down for
 upgrade. After the Main Injector restarted in 2013, the data collection began in
-2014. The time line and some important dates is tabulated in \cref{tab:dataset}.
+2014. The timeline and some important dates is tabulated in \cref{tab:dataset}.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{ c c c }
@@ -45,7 +45,8 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 \section{Monte Carlo}
 \label{sec:MC}
 
-One of the changes made is the maximum transverse momentum of the virtual photon.
+One of the changes made to the Monte Carlo generator during this study 
+is the maximum transverse momentum of the virtual photon.
 
 The maximum $P_T$ carried by the virtual photon is given by
 \begin{equation}
@@ -54,11 +55,11 @@ The maximum $P_T$ carried by the virtual photon is given by
 where $P_L$ is the longitudinal momentum of the virtual photon.
 Subsituting $x_F = \frac{P_L}{\sqrt{s}\left[1-M^2_\gamma\right]}$,
 \begin{equation}
-	\left(P_T^{\mathtt{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2\left[1-x_F^2\right].
+	\left(P_T^{\textrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2\left[1-x_F^2\right].
 	\label{eq:pTmax}
 \end{equation}
 Earlier versions of the SeaQuest Monte Carlo generators used an inconsistent definition of $x_F$
-and $P_T^{\mathtt{max}}$ resulting in an incomplete coverage of the kinematic phase space.
+and $P_T^{\textrm{max}}$ resulting in an incomplete coverage of the kinematic phase space.
 
 \subsection{\texorpdfstring{$P_T$}{P_T} re-weighting in Monte Carlo}
 This was first studied by S.~Prasard \cite{prasad2020}.
@@ -87,16 +88,16 @@ proton induced Drell-Yan have also been reported in Ref.~\cite{prasad2020}.
 In this analysis, a different re-weighting formula is used. Because of the way $p_T$ is chosen
 in the MC, the probability density function is normalized to unity as follows
 \begin{equation}
-	\int^{\left(P_T^{max}\right)^2}_0 dP_T^2 \frac{N}{\left(1+ P_T^2/p_1\right)^6}=1
+	\int^{\left(P_T^{\textrm{max}}\right)^2}_0 dP_T^2 \frac{N}{\left(1+ P_T^2/p_1\right)^6}=1
 \end{equation}
 where $N$ is the normalization constant and is given by
 \begin{equation}
-	N=\frac{5}{p_1^2-p_1^2\left[ 1+ \left(P_T^{max}\right)^2/p_1^2\right]^{-5}}.
+	N=\frac{5}{p_1^2-p_1^2\left[ 1+ \left(P_T^{\textrm{max}}\right)^2/p_1^2\right]^{-5}}.
 \end{equation}
 Therefore the $p_T$ reweight is given by
 \begin{equation}
 	P_T \textrm{ reweight}\left(m,x_F\right)=
-	\frac{\left(1 + \frac{p_T^2}{2.8^2} \right)^6}{\left(1 + \frac{p_T^2}{\left(p_1\left(x_F\right)\right)^2} \right)^6} \frac{2.8^2}{\left(p_1\left(x_F\right)\right)^2}\frac{1-\left[ 1+ \frac{\left(P_T^{max}\left(m,x_F\right)\right)^2}{2.8^2}\right]^{-5}}{1-\left[ 1+ \frac{\left(P_T^{max}\left(m,x_F\right)\right)^2}{\left(p_1\left(x_F\right)\right)^2}\right]^{-5}}.
+	\frac{\left(1 + \frac{p_T^2}{2.8^2} \right)^6}{\left(1 + \frac{p_T^2}{\left(p_1\left(x_F\right)\right)^2} \right)^6} \frac{2.8^2}{\left(p_1\left(x_F\right)\right)^2}\frac{1-\left[ 1+ \frac{\left(P_T^{\textrm{max}}\left(m,x_F\right)\right)^2}{2.8^2}\right]^{-5}}{1-\left[ 1+ \frac{\left(P_T^{\textrm{max}}\left(m,x_F\right)\right)^2}{\left(p_1\left(x_F\right)\right)^2}\right]^{-5}}.
 	\label{eq:pT_reWeight}
 \end{equation}
 The addition of last factor in \cref{eq:pT_reWeight} as compared to previous studies,
@@ -155,8 +156,8 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 		$dpx^2+dpy^2$                                                                                       & transverse momentum squared of   dimuon                                                  & $<\SI{5}{\GeV}$                \\ \hline
 		dpz                                                                                                 & dimuon z momentum                                                                        & (\SI{38}{\GeV},\SI{116}{\GeV}) \\ \hline
 		$|\textrm{tackSeparation}|$                                                                         & distance in z between points   of  closest approach between $\mu^+$   and $\mu^-$ track  & $<\SI{270}{\cm}$               \\ \hline
-		$\chi^2_{dimuon}$                                                                                   & $\chi^2$ when both $\mu^+$ and   $\mu^-$ tracks are forced to pass through dimuon vertex & $<18$                          \\ \hline
-		$\begin{aligned} |\chi^2_{target}(\mu^+) &+ \chi^2_{target}(\mu^-)\\& -x^2_{dimuon}| \end{aligned}$ &                                                                                          & $<2$                           \\ \hline
+		$\chi^2_{\textrm{dimuon}}$                                                                                   & $\chi^2$ when both $\mu^+$ and   $\mu^-$ tracks are forced to pass through dimuon vertex & $<18$                          \\ \hline
+		$\begin{aligned} |\chi^2_{\textrm{target}}(\mu^+) &+ \chi^2_{\textrm{target}}(\mu^-)\\& -\chi^2_{\textrm{dimuon}}| \end{aligned}$ &                                                                                          & $<2$                           \\ \hline
 		$y_3(\mu^+) \times y_3(\mu^-)$                                                                      & y position at St.~3 for both tracks                                                      & $<0$                           \\ \hline
 		$\textrm{nHists}(\mu^+)+\textrm{nHists}(\mu^-)$                                                     & sum of the total number if hits on wire chamber by $\mu^+$ and $\mu^-$ track             & $>29$                          \\ \hline
 		$\textrm{nHists}_1(\mu^+)+\textrm{nHists}_1(\mu^-)$                                                 & sum of the total number if hits on St.~1 wire chamber by $\mu^+$ and $\mu^-$ track       & $>8$                           \\ \hline
@@ -171,8 +172,8 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 		\hline
 		Variable         & Description                          & Cut                                                            \\ \hline
 		mass             & dimuon mass                          & (\SI{2}{\GeV},\SI{8.8}{\GeV}) \footnotemark[1]\footnotemark[2] \\ \hline
-		$x_F$            & Feynman x                            & (-0.1,0.95)                                                    \\ \hline
-		$x_{target}$     & Bjorken x of target                  & (0.005,0.55)  \footnotemark[1]                                 \\ \hline
+		$x_F$            & Feynman $x$                            & (-0.1,0.95)                                                    \\ \hline
+		$x_{\textrm{target}}$     & Bjorken $x$ of target                  & (0.005,0.55)  \footnotemark[1]                                 \\ \hline
 		$|\cos(\theta)|$ & polar angle in Collins-Soper   frame & $<0.5$                                                         \\ \hline
 	\end{tabular}
 \end{table}
@@ -217,11 +218,11 @@ pure. On the other hand, the Deuterium used came from two sources:
 \begin{itemize}
 	\item \SI{95.8\pm0.2}{\percent} pure deuterium that was used for bubble chamber experiments
 	      at Fermilab, with contamination in the form of \ce{HD}.
-	\item \SI{99.99}{\percent} pure commercial deuterium which is used in later half of the experiment.
+	\item \SI{99.99}{\percent} pure commercial deuterium which is used in later part of the experiment.
 \end{itemize}
 \begin{table}[h!]
 	\centering
-	\caption{Summary of \ce{LD_2} contamination with the mole fraction of each source of contamination}
+	\caption{Summary of \ce{LD_2} contamination, taken from Ref.~\cite{don-4993}}
 	\label{table:LD2_contamination}
 	\begin{tabular}{|l|ll|l|l|}
 		\hline
@@ -236,11 +237,13 @@ pure. On the other hand, the Deuterium used came from two sources:
 	\end{tabular}
 \end{table}
 Therefore, care is needed to account for the contribution from the hydrogen contamination in deuterium
-target data.
+target data. The result of the mass spectroscopy of the deuterium gas \cite{don-4993} is
+summarized in \cref{table:LD2_contamination}. Based this analysis, it is concluded the Fermilab
+deuterium contains \SI{91.6}{\percent} \ce{D_2} and \SI{8.4}{\percent} \ce{HD} by moles. \pdfcomment{need to check this sentence.}
 
 The yield of the contaminated hydrogen can be expressed as
 \begin{equation}
-	Y_{\text{cont.~\ce{LD_2}}} = N_A P_D X_D \epsilon_D \left( T_D^D \sigma_{pd}/A_D + T^D_H \sigma_{pp}/A_H   \right).
+	Y_{\textrm{cont.~\ce{LD_2}}} = N_A P_D X_D \epsilon_D \left( T_D^D \sigma_{pd}/A_D + T^D_H \sigma_{pp}/A_H   \right).
 \end{equation}
 Here $T_D^D$ and $T^D_H$ are the thickness of deuterium and hydrogen in the deuterium target.
 The subscript $D$ denote these deuterium target specific quantities.
@@ -250,23 +253,23 @@ we first note that the volume of a \ce{HD} molecule is about \num{1.094} times t
 molecule. Therefore the effective volume of molecules in the target is
 \begin{equation}
 	\begin{split}
-		V_{\text{eff.}}&=\frac{N_{\ce{HD}} V_{\ce{HD}} + N_{\ce{D_2}} V_{\ce{D_2}}}{N_{tot}}\\
+		V_{\text{eff.}}&=\frac{N_{\ce{HD}} V_{\ce{HD}} + N_{\ce{D_2}} V_{\ce{D_2}}}{N_{\text{tot.}}}\\
 		&=V_{D_2} \left[ C \frac{V_{\ce{HD}}}{V_{\ce{D_2}}} + (1-C) \right]\\
 		&=V_{D_2} f,
 	\end{split}
 \end{equation}
-where $f=\left[ C \frac{V_{\ce{HD}}}{V_{D_2}} + (1-C) \right]$.
+where $f=\left[ C \frac{V_{\ce{HD}}}{V_{\ce{D_2}}} + (1-C) \right]$.
 The total number of molecules per area is
 \begin{equation}
 	\begin{split}
-		\frac{N_{\text{tot.}}}{\text{Area}} &= \frac{L}{V_{eff}}\\
+		\frac{N_{\textrm{tot.}}}{\textrm{Area}} &= \frac{L}{V_{eff}}\\
 		&= \frac{L}{V_{D_2}f}=\frac{L\rho_{D_2}}{2A_Df}.
 	\end{split}
 \end{equation}
 The thickness of D (in \unit{\g\per\cm\squared}) in the target cell is
 \begin{equation}
 	\begin{split}
-		T_D^D &= \frac{N_D A_D}{A} = A_D\frac{N_{\text{tot.}}}{\text{Area}} \left[ 2(1-C) + C \right]\\
+		T_D^D &= \frac{N_D A_D}{A} = A_D\frac{N_{\textrm{tot.}}}{\textrm{Area}} \left[ 2(1-C) + C \right]\\
 		&=A_D \frac{L\rho_{\ce{D_2}}}{2A_Df}(2-C)\\
 		&=\frac{L\rho_{D_2}}{f}(1-C/2).
 	\end{split}
@@ -274,22 +277,24 @@ The thickness of D (in \unit{\g\per\cm\squared}) in the target cell is
 The thickness of H (in \unit{\g\per\cm\squared}) in the target cell is
 \begin{equation}
 	\begin{split}
-		T^D_H &= \frac{N_H A_H}{A} = A_H\frac{N_{\text{tot.}}}{\text{Area}}C\\
+		T^D_H &= \frac{N_H A_H}{A} = A_H\frac{N_{\textrm{tot.}}}{\textrm{Area}}C\\
 		&=\frac{L\rho_{\ce{D_2}}}{f}\frac{A_H}{A_D}\frac{C}{2}.
 	\end{split}
 	\label{eq:TDH}
 \end{equation}
-The effective density is
+To determine the density of the deuterium target, the vent pressure is measured and is compared
+with NIST database to obtained the expected density for pure deuterium ($\rho_{\ce{D_2}}$) \cite{density-1453}.
+For contaminated deuterium, the effective density is
 \begin{equation}
 	\begin{split}
-		\rho_{\text{eff.}} &= \frac{1}{L} (T_D^H + T_D^D)\\
+		\rho_{\textrm{eff.}} &= \frac{1}{L} (T_D^H + T_D^D)\\
 		&=\frac{\rho_{\ce{D_2}}}{f} \left[ \frac{A_H}{A_D}\frac{C}{2}+(1-C/2) \right].
 	\end{split}
 \end{equation}
 and the effective interaction length is
 \begin{equation}
 	\begin{split}
-		\frac{1}{\lambda_{\text{eff.}}} &= \frac{1}{L\rho_{\text{eff.}}} \left[\frac{T_D^H}{\lambda_H} +\frac{T_D^D}{\lambda_D}\right]\\
+		\frac{1}{\lambda_{\textrm{eff.}}} &= \frac{1}{L\rho_{\textrm{eff.}}} \left[\frac{T_D^H}{\lambda_H} +\frac{T_D^D}{\lambda_D}\right]\\
 		&=\left[\frac{A_H}{A_D}\frac{C}{2\lambda_H} + \frac{1-C/2}{\lambda_D}\right]\left( \frac{A_H}{A_D}\frac{C}{2} +(1-C/2)\right)^{-1}.
 	\end{split}
 \end{equation}
@@ -308,9 +313,32 @@ where
 \end{equation}
 And the cross section ratio is given by
 \begin{equation}
-	\frac{\sigma_{pd}}{2\sigma_{pp}} = \frac{Y_{\ce{LD_2}}}{2Y_{\ce{LH2}}}\frac{A_D}{A_H}\frac{T_H^H P_H X_{H} \epsilon_H}{T_D^D P_D X_{\text{eff}} \epsilon_D} - \frac{T^D_H}{2T_D^D} \frac{A_D}{A_H}
+	\frac{\sigma_{pd}}{2\sigma_{pp}} = \frac{Y_{\ce{LD_2}}}{2Y_{\ce{LH2}}}\frac{A_D}{A_H}\frac{T_H^H P_H X_{H} \epsilon_H}{T_D^D P_D X_{\textrm{eff}} \epsilon_D} - \frac{T^D_H}{2T_D^D} \frac{A_D}{A_H}.
 \end{equation}
 
+The switch to commercial pure deuterium gas happened during Roadset 67 data taking. Therefore,
+an average contamination, weighted by the proton on target, is used for the entire dataset.
+The average contamination for entire roadset 57 -70 data is determined to be $C=\SI{5.95}{\percent}$.
+Therefore the effective values for target contamination for this dataset are
+\begin{equation}
+	\begin{split}
+		T_D^H &= \SI{0.1230}{\g\per\cm\squared}, \\
+		T_D^D &= \SI{8.009}{\g\per\cm\squared},\\
+		\rho_{\textrm{eff.}} & = \SI{0.1601}{\g\per\cm\squared},\\
+		\lambda_{\textrm{eff.}} &= \SI{71.39}{\g\per\cm\squared},\\
+		\lambda_{\textrm{eff.}}/\rho_{\textrm{eff.}} &= \SI{446.0}{\cm},\\
+		X_{\textrm{eff.}} &= 0.9451.
+	\end{split}
+\end{equation}
+And since there is no contamination in the \ce{LH_2} target
+\begin{equation}
+	\begin{split}
+		\rho_{H_2} &= \SI{0.0708}{\g\per\cm\cubed},\\
+		T_H^H &= L\rho_{\ce{H_2}} = \SI{3.597}{\g\per\cm\squared},\\
+		\lambda_H/\rho_{\ce{H_2}} &= \SI{734.5}{\cm},\\
+		X_H &=0.9662.
+	\end{split}
+\end{equation}
 
 \section{Intensity Extrapolation}
 \label{sec:extrapolation}
