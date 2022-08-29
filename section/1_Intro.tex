@@ -5,15 +5,13 @@
 
 \chapter{Introduction}
 \label{ch:intro}
-
-
 This paper is organized as follows. After reviewing the early studies
 on the nucleon structure and the Deep inelastic scattering in this chapter,
 the Drell-Yan process and the kinematic variables are summarized in
 \cref{ch:DY}. The charmonium production and gluon distribution are described
 in \cref{ch:jpsi}. The SeaQuest experiment is described in \cref{M-ch:seaquest}.
 \Cref{M-ch:analysis} covers the procedure for data analysis. The results are 
-presented in \cref{ch:result}, followed by a summary and future prospects
+presented in \cref{M-ch:result}, followed by a summary and future prospects
 in \cref{M-ch:conclusion}.
 
 \section{Early Evidence of the Internal Structure of Nucleon}
@@ -175,7 +173,7 @@ charged partons is 1/2.
 \label{sec:sum_rules}
 Since hadrons are characterized by their quantum numbers, and these quantum numbers
 are carried by the constituent partons, these quantum numbers serve as constrains
-on these PDF. For example, using the numbers of valance quarks in the protons,
+on these PDFs. For example, using the numbers of valance quarks in the protons,
 one can impose the following constrains
 \begin{equation}
 	\begin{split}
@@ -192,12 +190,19 @@ An important sum rule is the Gottfired sum rule \cite{gottfried1967}. It can be 
 if we use the isospin symmetry to relate the neutron distributions to those of
 the proton, namely the (anti) up quark in the neutron would have the same distribution
 as (anti) down quark in proton, and vice-versa; the other quarks flavors and gluon
-distribution would be the same in both proton and neutron. Using this relation
+distribution would be the same in both proton and neutron. 
+\begin{equation}
+\begin{split}
+\bar{u}(x) &\equiv f_{\bar{u}/p}(x) = f_{\bar{d}/n}(x),\text{ and }\\
+\bar{d}(x) &\equiv f_{\bar{d}/p}(x) = f_{\bar{u}/n}(x).
+\end{split}
+\end{equation}
+Using this relation
 \begin{equation}
 	\begin{split}
 		S_G & = \int_0^1 \frac{\dd{x}}{x}\left(F_2^{p} - F_{2}^{n}\right)\\
 		& = \frac{1}{3} \int_0^1 \dd{x} \left[u\left(x\right) - d\left(x\right)
-			+ \bar{u}\left(x\right) - \bar{s}\left(x\right)\right]\\
+			+ \bar{u}\left(x\right) - \bar{d}\left(x\right)\right]\\
 		& = \frac{1}{3} \int_0^1 \dd{x} \left[u\left(x\right) - \bar{u}\left(x\right)\right]
 		- \frac{1}{3} \int_0^1 \dd{x} \left[d\left(x\right) - \bar{d}\left(x\right)\right]
 		+ \frac{2}{3} \int_0^1 \dd{x} \left[\bar{u}\left(x\right)-\bar{d}\left(x\right)\right]\\
@@ -388,12 +393,12 @@ various models have been proposed to explain the $\bar{d}/\bar{u}$ asymmetry. On
 is by Field and Feynman \cite{field1977}. They suggested that the Pauli blocking effect
 could suppress the production of $u\bar{u}$ pairs relative to  $d\bar{d}$ as due to the presence of two
 valance $u$ quarks in the proton. It was later shown that the effect by Pauli blocking would be small and
-may effect have an opposite effect \cite{steffens1997}. Since the contribution from gluon splitting to the
+may actually have an opposite effect \cite{steffens1997}. Since the contribution from gluon splitting to the
 sea quarks is flavor-blind and the mass of $u$ and $d$ quarks are roughly equal, the asymmetry in the
 light sea-quarks must originate from a non-perturbative mechanism. Some of the models will be presented in this section.
 
 \subsection{Meson Cloud Model}
-Some of the early models attribute the asymmetry to the existence of a `pion cloud' in the proton.
+Some of the early models attribute the asymmetry to the existence of a ``pion cloud'' in the proton.
 In the meson cloud model \cite{kumano1998} the proton wave function is written as a sum of meson-baryon state
 \begin{equation}
 	\ket{p} = \sqrt{Z}\ket{p_0} + \sum_{MB}\int \dd{y} \dd[2]{\vec{k}_\perp} \phi_{BM} \left(y, \vec{k}_\perp\right)\ket{B\left(y, \vec{k}_\perp\right);MB\left(1-y, -\vec{k}_\perp\right)}
@@ -417,11 +422,13 @@ If we restrict to $\pi N$ and $\pi\Delta$ states, and using isospin symmetry,
 The asymmetry in the proton sea arises because of the dominance of the $\pi^+$ among the $\pi N$ states. However, the effect is slightly canceled out by the $\pi\Delta$ configurations.
 
 \subsection{Chiral Quark Model}
-In the Chiral Quark Model \cite{li1998}, the Goldstone boson is emitted from the the valance quarks.
+Similar to the meson cloud model, the chiral quark model \cite{li1998} attribute the sea quarks to 
+the present of Goldstone boson in the nucleon. However, the Goldstone boson in chiral quark model 
+is emitted from the the valance quarks.
 \begin{equation}
-	q_{\pm} \rightarrow GB + q^\prime_\pm \rightarrow \left(q q^\prime\right)_0 q_{\pm}^\prime.
+	q_{\pm} \rightarrow GB + q^\prime_\mp \rightarrow \left(q q^\prime\right)_0 q_{\mp}^\prime.
 \end{equation}
-After one emission, the $u$ quark wavefuction has the components
+For example, after one emission, the $u$ quark wavefuction would have the following components
 \begin{equation}
 	\Psi\left(u\right) \sim \left[d\pi^+ + s K^+ + u \left(\frac{\pi^0}{\sqrt{2}} + \frac{\eta}{\sqrt{6}}\right)\right],
 \end{equation}
@@ -457,7 +464,7 @@ of the corresponding antiquark $q_i^{-h}$ with helicity $-h$
 	X_{0q}^h = -X_{0\bar{q}}^{-h}.
 	\label{eq:stat_potential}
 \end{equation}
-Since there are more $u$ quarks than $d$ quarks in the proton, on should expect
+Since there are more $u$ quarks than $d$ quarks in the proton, one would expect
 \begin{equation}
 	X_{0u}^+ + X_{0u}^- > X_{0d}^+ + X_{0d}^-,
 \end{equation}
@@ -474,7 +481,8 @@ Since the BHPS model also predicts the probability for the $\ket{uudQ\bar{Q}}$ c
 be inversely proportional to the mass of the quark $Q$, the intrinsic sea can have important
 contribution to the light sea-quarks. In Ref.~\cite{chang2011,chang2011a}, the BHPS model 
 was extend to the light quark sector and is compared with experimental measurements.
-
+Recent global analysis from NNPDF \cite{ball2022} and measurement from the LHCb \cite{aaij2022} 
+has shown the importance of intrinsic charm in the proton.
 
 
 
@@ -495,8 +503,9 @@ moderately-large momentum and taking the limit of the proton momentum to infinit
 \begin{subfigure}{0.45\linewidth}
 \includegraphics[width=0.9\linewidth]{alexandrou2018}
 \end{subfigure}
-\caption{The calculated isovector PDF from two different group. Taken from Ref.~\cite{chen2018} (left)
-and Ref.~\cite{alexandrou2018}(right). The negative $x$ region denote $\bar{d}-\bar{u}$ at $\left|x\right|$.}
+\caption{The calculated isovector PDF from the LP\textsubscript{3} collaboration (left)
+\cite{alexandrou2018}(right)and a Cyprus group (right)\cite{alexandrou2018}(right).
+The negative $x$ region denote $\bar{d}-\bar{u}$ at $\left|x\right|$.}
 \label{fig:lamet}
 \end{figure}
 \Cref{fig:lamet} shows the result using LaMET from two different groups and are compared with
