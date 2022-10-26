@@ -3,7 +3,7 @@
 
 \ifSubfilesClassLoaded{
 	\mainmatter
-	\setcounter{chapter}{1}
+	\setcounter{chapter}{3}
 }{}
 
 \chapter{SeaQuest Experiment}
@@ -49,7 +49,7 @@ produce hits on station 4 are assumed to be from muons.
 	is monitor. And finally says that the varying instantaneous beam intensity
 	allows us to do intensity extrapolation which will be discussed in next
 	chapter}
-The layout of the Fermilab accelerator complex is shown in \cref{fig:complex}.
+The layout of the Fermilab accelerator complex is shown in \cref{fig:complex}, taken from Ref.~\cite{concept-book}}.
 SeaQuest received its \SI{120}{\GeV} proton beam from the Fermilab Main Injector.
 The proton beam originate from a direct-extraction magnetron hydrogen ion source,
 which produce a \SI{35}{\keV} negative hydrogen ion beam. It is then accelerated
@@ -98,7 +98,9 @@ threshold. The module is also read out by the Beam DAQ, which provides the (a)
 integrated beam intensity for entire spill; (b) integrated beam while inhibit is
 asserted at trigger logic; (c) integrated intensity during dead time; (d) a snapshot
 of the beam intensity close in time to the trigger; and (e) a complete record of the
-bucket-bucket intensity for the entire spill.
+bucket-bucket intensity for the entire spill. The beam intensity monitor is calibrated
+against a secondary emission monitor, which provides the integrated beam luminosity
+integrated over the entire beam spill, located upstream of the SeaQuest experimental hall.
 
 The ability to record the numbers of proton in each bucket allows us the obtain the
 yield ratios as a function of the instantaneous intensity, which will be discussed
