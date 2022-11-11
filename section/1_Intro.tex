@@ -14,7 +14,7 @@ and the  $J/\Psi$ and $\Psi^\prime$ resonances.
 Both the Drell-Yan and the $J/\Psi$ ($\Psi^\prime$) data can probe the antiquark structures in the proton. 
 The $J/\Psi$ ($\Psi^\prime$) production can further be sensitive to the gluon structure in the proton. 
 
-This paper is organized as follows. After reviewing the early studies
+This thesis is organized as follows. After reviewing the early studies
 on the nucleon structure and the Deep inelastic scattering in this chapter,
 the Drell-Yan process and the kinematic variables are summarized in
 \cref{ch:DY}. The charmonium production and gluon distribution are described
@@ -296,11 +296,47 @@ functions is
 \end{equation}
 where $P_{a/b}$ is the Altarelli-Parisi kernel \cite{altarelli1977}.
 
+At order $\alpha_s$, the $F_2$ structure function is given by \cite{collins1989}
+\begin{equation}
+	\frac{1}{x} F_2\left(x,Q^2\right) = \sum_j e^2_j f_{j/h}\left(x,\mu\right) + \sum_{j,b} e^2_j \int^1_x \frac{\dd{\xi}}{\xi} f_{b/h}\left(x,\mu\right) \frac{\alpha_s}{\pi} C_{jb}\left(\frac{x}{\xi}, \frac{Q}{\mu}\right) + \mathcal{O}(\alpha_s^2).
+\end{equation}
+The sums over $j$ runs over the quarks and antiquarks flavors. While the gluons
+did not contribute at leading order, they contribute at order $\alpha_s$ through
+virtual quark-antiquark pairs. The hard scattering coefficients $C_{jb}$ are
+given by
+\begin{align}
+	C_{jk}(z,1) &= \delta_{jk} \frac{4}{3} \left[ -\frac{1}{2}\frac{1+z^2}{1-z} \ln\left(\frac{z}{1-z}\right) + \frac{3}{4} \frac{1}{1-z} -\frac{3}{2} -z\right]_+\\
+	C_{jg}(z,1) &= -\frac{1}{2} \left\{ \frac{1}{2}\left[z^2+(1-z)^2\right] \left[\ln\left(\frac{z}{1-z}\right)+1\right] -3z(1-z)\right\},
+\end{align}
+where the plus sign denote the subtraction that regulate the $z\rightarrow1$ 
+singularity,
+\begin{equation}
+	\begin{split}
+		\int^1_x \dd{z} \left[C(z)\right]_+ h(z) &= \int_0^1 \dd{z} \left[C(z)\right]_+ h(z)\Theta(z>x)\\
+		& = \int_0^1 \dd{z} C(z) \left\{h(z)\Theta(z>x) -h(1)\right\}.
+	\end{split}
+\end{equation}
+
 It is customary to choose $\mu =Q$ to avoid large logarithms of $\mu /Q$ in the
 power expansions of $H$. As such the $\mu$ dependency in the parton distribution
 functions can be interpreted as a virtual photon with higher $Q$ would probe the
 nucleon with better resolution.
 
+\Cref{fig:CT18_scale} shows the PDF extracted by CTEQ-TEA collaboration in their
+CT18 global analysis \cite{hou2019}. At larger $Q$, the sea-quarks and gluon 
+carry at larger portion of the proton's momentum. 
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{CT18NLO}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{CT18NLO_100}
+	\end{subfigure}
+	\caption{The parton distribution function from CT18 \cite{hou2019} global analysis at two different scale.}
+	\label{fig:CT18_scale}
+\end{figure}
 
 
 \chapter{Drell-Yan Process}
@@ -517,7 +553,7 @@ has shown the importance of intrinsic charm in the proton.
 
 \subsection{Lattice QCD}
 Lattice QCD calculations of the $\bar{d} - \bar{u}$ based on the Large Momentum Effective
-theory (LaMET) \cite{ji2021} have become available recently by two different groups \cite{chen2018, alexandrou2018}. 
+theory (LaMET) \cite{ji2021,constantinou2021} have become available recently by two different groups ,LP3\cite{chen2018} and ETMC\cite{alexandrou2018}. 
 The parton distribution functions described quarks and gluons in hadrons traveling at infinite
 momentum. The principle for LaMET comes from the observation that the structure of the proton is
 approximately independent of its momentum so long as it is much larger than the strong interaction
@@ -532,20 +568,20 @@ moderately-large momentum and taking the limit of the proton momentum to infinit
 \begin{subfigure}{0.45\linewidth}
 \includegraphics[width=0.9\linewidth]{alexandrou2018}
 \end{subfigure}
-\caption{The calculated isovector PDF from the LP\textsubscript{3} collaboration (left)
-\cite{alexandrou2018}(right)and a Cyprus group (right)\cite{alexandrou2018}(right).
+\caption{The calculated isovector PDF from the LP3 collaboration (left)
+\cite{alexandrou2018}(right)and ETMC (right)\cite{alexandrou2018}(right).
 The negative $x$ region denote $\bar{d}-\bar{u}$ at $\left|x\right|$.}
 \label{fig:lamet}
 \end{figure}
 \Cref{fig:lamet} shows the result using LaMET from two different groups and are compared with
-different global PDF extractions. While the result by the LP\textsubscript{3} collaboration
-is in good agreement with CT14, the result from the Cyprus group differs from the PDFs,
-especially in the antiquark region.
+different global PDF extractions. While the result by the LP3 collaboration
+is in good agreement with CT14, the result from the ETMC group differs from the PDFs,
+especially in the antiquark region. 
 
 
 
 
-\chapter{Charmonium Production and Gluon Distribution}
+\chapter{Charmonium Production}
 \label{ch:jpsi}
 Yet another process for probing the nucleon structure is via the charmonium production \cite{peng1995,chang2020}.
 Unlike DIS and Drell-Yan, the charmonium production involves the strong interaction
