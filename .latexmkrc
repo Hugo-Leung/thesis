@@ -1,4 +1,4 @@
-$pdf_mode=1;
+$pdf_mode=4;
 $out_dir = 'build';
 @default_files = ("main");
 

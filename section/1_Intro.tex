@@ -7,12 +7,12 @@
 \label{ch:intro}
 The SeaQuest experiment is a fixed-target experiment at Fermilab,
 the primary goal of which is to investigate the antiquark structures
-in the proton from the detection of $\mu^+\mu^-$ pairs produced in 
-the interaction of a \SI{120}{\GeV} proton beam on various targets. 
+in the proton from the detection of $\mu^+\mu^-$ pairs produced in
+the interaction of a \SI{120}{\GeV} proton beam on various targets.
 The $\mu^+\mu^-$ data consist of two components, the Drell-Yan continuum
-and the  $J/\Psi$ and $\Psi^\prime$ resonances. 
-Both the Drell-Yan and the $J/\Psi$ ($\Psi^\prime$) data can probe the antiquark structures in the proton. 
-The $J/\Psi$ ($\Psi^\prime$) production can further be sensitive to the gluon structure in the proton. 
+and the  $J/\Psi$ and $\Psi^\prime$ resonances.
+Both the Drell-Yan and the $J/\Psi$ ($\Psi^\prime$) data can probe the antiquark structures in the proton.
+The $J/\Psi$ ($\Psi^\prime$) production can further be sensitive to the gluon structure in the proton.
 
 This thesis is organized as follows. After reviewing the early studies
 on the nucleon structure and the Deep inelastic scattering in this chapter,
@@ -39,7 +39,7 @@ to have a zero magnetic moment. The neutron magnetic moment would later be
 measured and found to be non-zero, suggesting that proton and neutron are
 composite particles \cite{rabi1934a}.
 
-The first insight into the internal structure of the nucleon came from the 
+The first insight into the internal structure of the nucleon came from the
 electron proton elastic scattering experiments \cite{hofstadter1956} in the
 1950s. The electron-proton elastic scattering cross section in the laboratory
 frame can be expressed in the Rosenbluth formula \cite{rosenbluth1950}
@@ -200,12 +200,12 @@ An important sum rule is the Gottfired sum rule \cite{gottfried1967}. It can be 
 if we use the isospin symmetry to relate the neutron distributions to those of
 the proton, namely the (anti) up quark in the neutron would have the same distribution
 as (anti) down quark in proton, and vice-versa; the other quarks flavors and gluon
-distribution would be the same in both proton and neutron. 
+distribution would be the same in both proton and neutron.
 \begin{equation}
-\begin{split}
-\bar{u}(x) &\equiv f_{\bar{u}/p}(x) = f_{\bar{d}/n}(x),\text{ and }\\
-\bar{d}(x) &\equiv f_{\bar{d}/p}(x) = f_{\bar{u}/n}(x).
-\end{split}
+	\begin{split}
+		\bar{u}(x) &\equiv f_{\bar{u}/p}(x) = f_{\bar{d}/n}(x),\text{ and }\\
+		\bar{d}(x) &\equiv f_{\bar{d}/p}(x) = f_{\bar{u}/n}(x).
+	\end{split}
 \end{equation}
 Using this relation
 \begin{equation}
@@ -305,10 +305,10 @@ did not contribute at leading order, they contribute at order $\alpha_s$ through
 virtual quark-antiquark pairs. The hard scattering coefficients $C_{jb}$ are
 given by
 \begin{align}
-	C_{jk}(z,1) &= \delta_{jk} \frac{4}{3} \left[ -\frac{1}{2}\frac{1+z^2}{1-z} \ln\left(\frac{z}{1-z}\right) + \frac{3}{4} \frac{1}{1-z} -\frac{3}{2} -z\right]_+\\
-	C_{jg}(z,1) &= -\frac{1}{2} \left\{ \frac{1}{2}\left[z^2+(1-z)^2\right] \left[\ln\left(\frac{z}{1-z}\right)+1\right] -3z(1-z)\right\},
+	C_{jk}(z,1) & = \delta_{jk} \frac{4}{3} \left[ -\frac{1}{2}\frac{1+z^2}{1-z} \ln\left(\frac{z}{1-z}\right) + \frac{3}{4} \frac{1}{1-z} -\frac{3}{2} -z\right]_+ \\
+	C_{jg}(z,1) & = -\frac{1}{2} \left\{ \frac{1}{2}\left[z^2+(1-z)^2\right] \left[\ln\left(\frac{z}{1-z}\right)+1\right] -3z(1-z)\right\},
 \end{align}
-where the plus sign denote the subtraction that regulate the $z\rightarrow1$ 
+where the plus sign denote the subtraction that regulate the $z\rightarrow1$
 singularity,
 \begin{equation}
 	\begin{split}
@@ -323,8 +323,8 @@ functions can be interpreted as a virtual photon with higher $Q$ would probe the
 nucleon with better resolution.
 
 \Cref{fig:CT18_scale} shows the PDF extracted by CTEQ-TEA collaboration in their
-CT18 global analysis \cite{hou2019}. At larger $Q$, the sea-quarks and gluon 
-carry at larger portion of the proton's momentum. 
+CT18 global analysis \cite{hou2019}. At larger $Q$, the sea-quarks and gluon
+carry at larger portion of the proton's momentum.
 
 \begin{figure}
 	\centering
@@ -365,6 +365,41 @@ the cross section can be written as
 	\right].
 	\label{eq:DY_cs}
 \end{equation}
+
+\begin{figure}[htbp!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\input{images/NLO_gb1}
+		\caption{Gluon bremstrahlung}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\input{images/NLO_interfer}
+		\caption{Interference from $\mathcal{O}(\alpha^2_s)$}
+	\end{subfigure}
+
+	\begin{subfigure}{\linewidth}
+		\centering
+		\begin{subfigure}{0.45\linewidth}
+			\centering
+			\input{images/NLO_gc1}
+		\end{subfigure}
+		\begin{subfigure}{0.45\linewidth}
+			\centering
+			\input{images/NLO_gc2}
+		\end{subfigure}
+		\caption{Gluon Compton scattering}
+	\end{subfigure}
+	\caption{Examples of diagrams contributing to the Drell-Yan cross section
+		at NLO.}
+	\label{fig:NLO_DY}
+\end{figure}
+
+At NLO, diagram such as gluon breamstrahlung and Compton scattering begin to 
+contribute, as shown in \cref{fig:NLO_DY}.
+And the NLO expression can be found in the appendix of Ref.~\cite{sutton1992}.
+
 Since the underlying mechanism for the Drell-Yan process involves the annihilation
 of a quark and antiquark, this process is particularly useful in probing the antiquark
 content of the hadron.
@@ -466,19 +501,19 @@ baryon. Therefore, the PDF can be related to the PDF of either the stuck meson o
 where $f_{MB/N}$ and $f_{BM/N}$ are the splitting function, related to $\phi_{BM}$.
 If we restrict to $\pi N$ and $\pi\Delta$ states, and using isospin symmetry,
 \begin{align}
-	f_{\pi^+n/p}=\frac{2}{3} f_{\pi N}                                       & , ~f_{\pi^0 p/p}=\frac{1}{3} f_{\pi N}                                           \\
+	f_{\pi^+n/p}=\frac{2}{3} f_{\pi N}                                       & , ~f_{\pi^0 p/p}=\frac{1}{3} f_{\pi N}                                         \\
 	f_{\pi^-\Delta^{++}/p}=\frac{1}{2} f_{\pi \Delta}, ~f_{\pi^0 \Delta^+/p} & =\frac{1}{3} f_{\pi \Delta},  ~f_{\pi^+ \Delta^0/p}=\frac{1}{6} f_{\pi \Delta}
 \end{align}
 Therefore the light sea-quark distribution in the proton is given by
 \begin{align}
-	\bar{d}(x) &= \left(\frac{5}{6}f_{\pi N} + \frac{1}{3}f_{\pi \Delta}\right)\otimes q^v_\pi + S(x)\\
-	\bar{u}(x) &= \left(\frac{1}{6}f_{\pi N} + \frac{2}{3}f_{\pi \Delta}\right)\otimes q^v_\pi + S(x)
+	\bar{d}(x) & = \left(\frac{5}{6}f_{\pi N} + \frac{1}{3}f_{\pi \Delta}\right)\otimes q^v_\pi + S(x) \\
+	\bar{u}(x) & = \left(\frac{1}{6}f_{\pi N} + \frac{2}{3}f_{\pi \Delta}\right)\otimes q^v_\pi + S(x)
 \end{align}
 where $f\otimes q\equiv \int^1_x \frac{dy}{y}f(y)q\left(\frac{x}{y}\right)$, and $q^v_\pi$ is the valance
-quark distribution in pions and $S(x)$ is the flavor symmetric contributions. 
+quark distribution in pions and $S(x)$ is the flavor symmetric contributions.
 The asymmetry in the proton sea arises because of the dominance of the $\pi^+$ among the $\pi N$ states.
 However, the effect is slightly canceled out by the $\pi\Delta$ configurations. \Cref{fig:pion_cloud}
-shows the predicted $\bar{d}-\bar{u}$ from the meson cloud model, taken from Ref.~\cite{alberg2022}. 
+shows the predicted $\bar{d}-\bar{u}$ from the meson cloud model, taken from Ref.~\cite{alberg2022}.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{rediff}
@@ -487,8 +522,8 @@ shows the predicted $\bar{d}-\bar{u}$ from the meson cloud model, taken from Ref
 \end{figure}
 
 \subsection{Chiral Quark Model}
-Similar to the meson cloud model, the chiral quark model \cite{li1998} attribute the sea quarks to 
-the present of Goldstone boson in the nucleon. However, the Goldstone boson in chiral quark model 
+Similar to the meson cloud model, the chiral quark model \cite{li1998} attribute the sea quarks to
+the present of Goldstone boson in the nucleon. However, the Goldstone boson in chiral quark model
 is emitted from the the valance quarks.
 \begin{equation}
 	q_{\pm} \rightarrow GB + q^\prime_\mp \rightarrow \left(q q^\prime\right)_0 q_{\mp}^\prime.
@@ -536,7 +571,7 @@ Since there are more $u$ quarks than $d$ quarks in the proton, one would expect
 and combing with \cref{eq:stat_potential}, one would expect $\bar{d} > \bar{u}$ in the proton.
 
 \subsection{Five-quark Intrinsic Sea Model}
-In the 1980s, Brodsky, Hoyer, Peterson and Sakai (BHPS) \cite{brodsky1980}, proposed 
+In the 1980s, Brodsky, Hoyer, Peterson and Sakai (BHPS) \cite{brodsky1980}, proposed
 the possible existance of a significant $\ket{uudc\bar{c}}$ five-quark Fock state component
 in the proton in order to explain the larger than expected charmed hadrons production rate.
 
@@ -544,16 +579,16 @@ in the proton in order to explain the larger than expected charmed hadrons produ
 
 Since the BHPS model also predicts the probability for the $\ket{uudQ\bar{Q}}$ configuration to
 be inversely proportional to the mass of the quark $Q$, the intrinsic sea can have important
-contribution to the light sea-quarks. In Ref.~\cite{chang2011,chang2011a}, the BHPS model 
+contribution to the light sea-quarks. In Ref.~\cite{chang2011,chang2011a}, the BHPS model
 was extend to the light quark sector and is compared with experimental measurements.
-Recent global analysis from NNPDF \cite{ball2022} and measurement from the LHCb \cite{aaij2022} 
+Recent global analysis from NNPDF \cite{ball2022} and measurement from the LHCb \cite{aaij2022}
 has shown the importance of intrinsic charm in the proton.
 
 
 
 \subsection{Lattice QCD}
 Lattice QCD calculations of the $\bar{d} - \bar{u}$ based on the Large Momentum Effective
-theory (LaMET) \cite{ji2021,constantinou2021} have become available recently by two different groups ,LP3\cite{chen2018} and ETMC\cite{alexandrou2018}. 
+theory (LaMET) \cite{ji2021,constantinou2021} have become available recently by two different groups ,LP3\cite{chen2018} and ETMC\cite{alexandrou2018}.
 The parton distribution functions described quarks and gluons in hadrons traveling at infinite
 momentum. The principle for LaMET comes from the observation that the structure of the proton is
 approximately independent of its momentum so long as it is much larger than the strong interaction
@@ -561,22 +596,22 @@ scale or its mass. Therefore the patronic structure can be calculated for a prot
 moderately-large momentum and taking the limit of the proton momentum to infinity.
 
 \begin{figure}[h!]
-\centering
-\begin{subfigure}{0.45\linewidth}
-\includegraphics[width=0.9\linewidth]{LP3-PDF-CT14}
-\end{subfigure}
-\begin{subfigure}{0.45\linewidth}
-\includegraphics[width=0.9\linewidth]{alexandrou2018}
-\end{subfigure}
-\caption{The calculated isovector PDF from the LP3 collaboration (left)
-\cite{alexandrou2018}(right)and ETMC (right)\cite{alexandrou2018}(right).
-The negative $x$ region denote $\bar{d}-\bar{u}$ at $\left|x\right|$.}
-\label{fig:lamet}
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{LP3-PDF-CT14}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{alexandrou2018}
+	\end{subfigure}
+	\caption{The calculated isovector PDF from the LP3 collaboration (left)
+		\cite{alexandrou2018}(right)and ETMC (right)\cite{alexandrou2018}(right).
+		The negative $x$ region denote $\bar{d}-\bar{u}$ at $\left|x\right|$.}
+	\label{fig:lamet}
 \end{figure}
 \Cref{fig:lamet} shows the result using LaMET from two different groups and are compared with
 different global PDF extractions. While the result by the LP3 collaboration
 is in good agreement with CT14, the result from the ETMC group differs from the PDFs,
-especially in the antiquark region. 
+especially in the antiquark region.
 
 
 

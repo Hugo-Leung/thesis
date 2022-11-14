@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+\tikzstyle{every node}=[font=\large]
+    \begin{feynman}
+    \vertex  (a1){$q$};
+    \vertex at ($(a1) + (1cm, -1cm)$) (a2);
+    \vertex [below= 4cm of a1] (b1) {$\bar{q}$};
+    \vertex [below= 2 cm of a2] (b2);
+    \vertex at ($(a2) + (1cm, -1cm)$) (d);
+    \vertex [right= 2 cm of d] (d1){$\gamma^*$};
+     \diagram*{
+     (a1) --[fermion](a2),
+     (b2) --[fermion](b1),
+     (a2) --[gluon] (b2),
+     (a2) --(d),
+     (b2) --(d),
+     (d) --[photon](d1);
+     };
+    \end{feynman}
+\end{tikzpicture}
