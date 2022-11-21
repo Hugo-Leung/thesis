@@ -36,7 +36,7 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 		\hline
 		4   & Constant adjustments    & 11/13/2015 to 03/06/2016 \\
 		5   & Roadset 78              & 03/06/2016 to 07/29/2016 \\
-		6   &                         & 01/14/2017 to 07/07/2017 \\
+		6   & DAQ upgrade             & 01/14/2017 to 07/07/2017 \\
 	\end{tabular}
 	\caption{SeaQuest data sets and apparatus adjustments}
 	\label{tab:dataset}
@@ -63,7 +63,7 @@ Substituting $x_F = \frac{P_L}{\sqrt{s}\left[1-M^2_\gamma\right]}$,
 	\label{eq:pTmax}
 \end{equation}
 Earlier versions of the SeaQuest Monte Carlo generators used an inconsistent definition of $x_F$
-and $P_T^{\mathrm{max}}$ resulting in an incomplete coverage of the kinematic phase space.
+and $P_T^{\mathrm{max}}$, resulting in an incomplete coverage of the kinematic phase space.
 
 \subsection{\texorpdfstring{$P_T$}{P\_T} re-weighting in Monte Carlo}
 This was first studied by S.~Prasard \cite{prasad2020}.
@@ -75,10 +75,11 @@ Kaplan functional form \cite{kaplan1978}.
 	f\left(P_T^2\right) \propto \frac{1}{\left(1+ P_T^2/p_1\right)^6},
 	\label{eq:kaplan}
 \end{equation}
-with $p_1$ is set to \SI{2.8}{\GeV}. The parameter $p_1$ controls the broadness
+with $p_1$ is set to \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
+decays. The parameter $p_1$ controls the broadness
 of the $P_T$ distribution. In the MC, the $P_T$ of a dimuon is chosen randomly
 according to the \cref{eq:kaplan}. If the chosen $P_T$ is exceed \cref{eq:pTmax}
-and does not satisfy the kinematic constrain, a new $P_T$ is will be chosen until
+and does not satisfy the kinematic constrain, a new $P_T$ will be chosen until
 the constrain is satisfy.
 
 The chosen value of $p_1$ is taken from experiments conducted at higher
@@ -104,7 +105,7 @@ Therefore the $p_T$ reweight is given by
 	\frac{\left(1 + \frac{p_T^2}{2.8^2} \right)^6}{\left(1 + \frac{p_T^2}{\left(p_1\left(x_F\right)\right)^2} \right)^6} \frac{2.8^2}{\left(p_1\left(x_F\right)\right)^2}\frac{1-\left[ 1+ \frac{\left(P_T^{\mathrm{max}}\left(m,x_F\right)\right)^2}{2.8^2}\right]^{-5}}{1-\left[ 1+ \frac{\left(P_T^{\mathrm{max}}\left(m,x_F\right)\right)^2}{\left(p_1\left(x_F\right)\right)^2}\right]^{-5}}.
 	\label{eq:pT_reWeight}
 \end{equation}
-The addition of last factor in \cref{eq:pT_reWeight} as compared to previous studies,
+The addition of last factor in \cref{eq:pT_reWeight}, as compared to previous studies,
 is to ensure the normalization is preserved and would not affect the other kinematic
 distributions at generator level. 
 
@@ -250,7 +251,7 @@ target data. The result of the mass spectroscopy of the deuterium gas \cite{don-
 summarized in \cref{table:LD2_contamination}. Based this analysis, it is concluded the Fermilab
 deuterium contains \SI{91.6}{\percent} \ce{D_2} and \SI{8.4}{\percent} \ce{HD} by moles. \pdfcomment{need to check this sentence.}
 
-The yield of the contaminated hydrogen can be expressed as
+The yield from the contaminated deuterium can be expressed as
 \begin{equation}
 	Y_{\mathrm{cont.~\ce{LD_2}}} = N_A P_D X_D \epsilon_D \left( T_D^D \sigma_{pd}/A_D + T^D_H \sigma_{pp}/A_H   \right).
 \end{equation}
@@ -272,7 +273,7 @@ The total number of molecules per area is
 \begin{equation}
 	\begin{split}
 		\frac{N_{\mathrm{tot.}}}{\mathrm{Area}} &= \frac{L}{V_{\mathrm{eff.}}}\\
-		&= \frac{L}{V_{D_2}f}=\frac{L\rho_{D_2}}{2A_Df}.
+		&= \frac{L}{V_{\ce{D_2}}f}=\frac{L\rho_{\ce{D_2}}}{2A_Df}.
 	\end{split}
 \end{equation}
 The thickness of D (in \unit{\g\per\cm\squared}) in the target cell is
@@ -280,7 +281,7 @@ The thickness of D (in \unit{\g\per\cm\squared}) in the target cell is
 	\begin{split}
 		T_D^D &= \frac{N_D A_D}{A} = A_D\frac{N_{\mathrm{tot.}}}{\mathrm{Area}} \left[ 2(1-C) + C \right]\\
 		&=A_D \frac{L\rho_{\ce{D_2}}}{2A_Df}(2-C)\\
-		&=\frac{L\rho_{D_2}}{f}(1-C/2).
+		&=\frac{L\rho_{\ce{D_2}}}{f}(1-C/2).
 	\end{split}
 \end{equation}
 The thickness of H (in \unit{\g\per\cm\squared}) in the target cell is
@@ -322,7 +323,7 @@ where
 \end{equation}
 And the cross section ratio is given by
 \begin{equation}
-	\frac{\sigma_{pd}}{2\sigma_{pp}} = \frac{Y_{\ce{LD_2}}}{2Y_{\ce{LH2}}}\frac{A_D}{A_H}\frac{T_H^H P_H X_{H} \epsilon_H}{T_D^D P_D X_{\mathrm{eff.}} \epsilon_D} - \frac{T^D_H}{2T_D^D} \frac{A_D}{A_H}.
+	\frac{\sigma_{pd}}{2\sigma_{pp}} = \frac{Y_{\ce{LD_2}}}{2Y_{\ce{LH_2}}}\frac{A_D}{A_H}\frac{T_H^H P_H X_{H} \epsilon_H}{T_D^D P_D X_{\mathrm{eff.}} \epsilon_D} - \frac{T^D_H}{2T_D^D} \frac{A_D}{A_H}.
 \end{equation}
 
 The switch to commercial pure deuterium gas happened during Roadset 67 data taking. Therefore,
