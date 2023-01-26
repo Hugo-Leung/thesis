@@ -49,6 +49,7 @@ performance of the spectrometer and the acceptance. The GMC is based on the
 E866 FastMC, a fortran-based simulation code, and is ported to SeaQuest and
 modified according to SeaQuest’s experimental configurations \cite{kerns2018,prasad2020}.
 
+\subsection{Maximum dimuon \texorpdfstring{$P_T$}{P\_T}}
 One of the changes made to the Monte Carlo generator during this study 
 is the maximum transverse momentum of the virtual photon.
 
@@ -111,13 +112,86 @@ distributions at generator level.
 
 To obtained the $P_T$ distribution 
 
+\subsection{Messy Monte Carlo}
 
-\section{Track Reconstruction}
+\section{Background Simulation}
+
+\section{Event Reconstruction}
 The SeaQuest reconstruction,
 
 One of my responsibility is the reconstruction of the run 5 and run 6 data.
+\subsection{Spill-level Cuts}
 
-\section{Event Selection}
+\subsection{Pre-tracking Cuts}
+In order to speed up the reconstruction, varies types of chamber hits are removed, as
+they are less likely to be park of a muon track. 
+
+\paragraph{In-time cut}
+During data taking, the TDC time window is deliberately set to be larger than the in-time
+window. This is done to avoid data loss in case of timing drift. During the offline
+processing, only in-time hits will be kept. This cut is applied to all detectors.
+
+\paragraph{After pulse cut}
+Due to the tendency of the wire chamber channels to `ring' after being hit,
+a single charge particle may produce multiple pulses on the same
+wire in quick succession. Therefore, if there are multiple hits on same camber wire
+within a small predefined time window, only the first hit will be kept.
+
+\paragraph{Cluster removal cut}
+There are three types of cluster hits: electronic noise, cell-edge hits and delta-rays.
+
+Delta rays are electrons knocked off by the primary radiation particle when passing
+through the chamber. The knocked off electron is capable of producing secondary ionization.
+SOme of these electrons scatter at large angles and travel parallel to the chamber plane
+and fire several wire. Since the primary muon would locate on either side on the hit cluster,
+only edge hits are retained.
+
+When a muon pass through the wire plane near the cell edge, it will often cause two adjacent
+wires to fire. If the drift distance of one hit is more than \SI{90}{\percent} of the cell width,
+while the drift distance of the other hit is less than \SI{40}{\percent} of the cell width, the hit
+with larger drift distance will be discard.
+
+\paragraph{Trigger Hodoscope masking}
+As the hodoscopes have a shorter time resolution compared to the chamber drift time and
+the RF vucket periodicity, the hodoscopes are used for triggering. The hodoscope hits
+are recorded by both the FPGA trigger modules as well as the TW-TDC. The in-time hodoscope
+hits from all 4 stations are combined to form all possible combinations, called road. These
+combinations are checked against the active trigger road set used. Only the chamber hits
+that fall behind a fired hodoscope paddle, which is part of a valid trigger road, will be retained.
+
+\paragraph{Sagitta ratios}
+\pdfcomment{Why do we expect the ratio to be constant?}
+
+\subsection{Track Finding}
+Following the hit removal stage, the next stage is to find single muon tracks.
+The first step in the single track reconstruction is the build tracklets in St.~2 and St.~3.
+
+A tracklet is a small track segment inside each drift chamber. Starting with the $X$ and
+$X'$ planes, a hit pairs is formed by locating a hit on each plane within one half cell spacing.
+The position of the a pair is taken as the average of the two hits, and is used to select a window
+in the $UU'$ planes to search for corresponding pairs. A window is then selected to locate hit pairs
+on the $VV'$ planes. Once the hits are selected, a straight tracklet can be fitted to the hits.
+To be considered valid, there must be at least 4 hits, with at least one hit per view. The trackelts
+should also be pointing at the target (or beam dump), this done by requiring the x and y slope to be
+less than $(0.15,0.1)$.
+
+Once all tracklets are constructed separately in St2.~ and St.~3. We try to connect a tracklet
+in St.~2 with a tracklet in St.~3 to form a partial track. Since there are no magnet between
+St.~2 and St.~3, the slope of the tracklets should be similarly. The partial track is then used to
+identify hits in the St.~4 proportional tubes for muon identification. The multiple scattering of 
+muons due to the iron wall between St.~3 and St.~4 is also taken into account.
+
+The St.~2 St.~3 partial track is then projected on to St.~1. The magnetic field of KMag is taken into
+account during this step. Since the magnetic field strength is fixed, the sagitta ratio of St.~1 to
+St.~2 is approximately a constant and is determined using Monte Carlo simulation. Using this fact,
+the search window on St.~1 is constrained by this ratio. 
+
+\subsection{Vertex Finding}
+Once all the tracks are found in each events, the reconstruction of the dimuon vertex can begin.
+For Matrix-1 events, all possible combinations of $\mu^+$ and $\mu^-$ are tested if they can form
+a dimuon.
+
+\section{Dimuon Selection}
 The event selection that is used in this study is based on the study by C.~Brown
 \cite{chuck-2111} with some modification to increase acceptance at low mass. These cuts
 are categorized into different groups and are tabulated in \cref{table:trackCut,table:dimuonCut,table:physCut,table:occCut}.
@@ -206,8 +280,75 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 \footnotetext[2]{The 0.99 scaling factor is applied to MC}
 \footnotetext[3]{Not applied to MC or Mix background}
 
+\section{Mass Spectrum Fitting}
+The event distribution can be expressed as a linear combination of different components,
+namely Drell-Yan, chamrmonium decays, accidental background and background from instruments.
+These different contributions would have distinct mass spectra, for example, the $J/\psi$
+and $\psi^\prime$ decays would have sharp distributions centered around their masses and
+can be easily identified. Therefore, the data can be fitted to varies templates to obtain
+the relative contribution from each sources.
 
-\section{Target Contamination}
+The mass templates for physics sources such as Drell-Yan process and charmonium decays are
+generated by analyzing the Monte Carlo simulation. 
+
+\subsection{TFractionFitter}
+To account for the statistical uncertainties in both the data and Monte Carlo
+simulation, the TFrationFitter algorithm is used in this analysis \cite{barlow1993}.
+This is achieved by performing a standard likelihood fit using Poisson statistics,
+while the template, generated from MC, are also varied within statistics, leading
+to additional contributions to the overall likelihood.
+
+Let there are $m$ sources. The number of MC events in bin $i$ from source $j$
+is given by $a_{ji}$. For each source, there is some (unknown) expected distribution
+$A_{ji}$. The expected number of events in each bin is given by
+\begin{equation}
+	f_i = \sum^m_{j=1} p_j A_{ji}.
+	\label{eq:TF_f}
+\end{equation}
+From each $A_{ji}$, the number of Monte Carlo events $a_{ji}$ is obtained.
+The total likelihood is the combined probability of the number observed events $\left\{d_i\right\}$
+and the number of MC events $\left\{a_{ji}\right\}$
+\begin{equation}
+	\ln \mathcal{L} = \sum^n_{i=1} d_i \ln f_i -f_i + \sum^n_{i=1} \sum^m_{j=1} a_{ji} \ln A_{ji} - A_{ji}.
+	\label{eq:TF_likelihood}
+\end{equation}
+The estimates for the strength $p_j$ and the expected distribution $A_{ji}$ are
+found by maximizing this likelihood. One consequence of this approach is the
+$n \cross m$ fit parameters $A_{ji}$. However, the  minimization of these additional
+parameters is done analytically ratter than treating them as formal fit parameters.
+
+In the case of weighted MC, \cref{eq:TF_f} is modified into
+\begin{equation}
+	f_i = \sum^m_{j=1} p_j w_{ji}A_{ji},
+\end{equation}
+where $w_{ji}$ is the average weight of the MC events in bin $i$ from the source $j$.
+
+\section{Intensity Extrapolation}
+\label{sec:extrapolation}
+Extracting the Drell-Yan cross section ratio using the intensity extrapolation method
+is first studied by J.~Dove \cite{dove2020} and A.~Tadepalli \cite{tadepalli2019}.
+The idea behind this method is that the number of observed Drell-Yan
+events ,in the absent of any spectrometer effects, should be linearly proportional to the beam
+intensity. On the contrary, the two muons in the accidental background are typical coming from
+two separate interactions, and there it is expected proportional to the intensity squared.
+By taking the ratio of the $(p+p)$ and $(p+d)$ dimuon event rates, 
+other rate dependence effect would also be cancel out at zero intensity.
+
+The procedure for this method is summarized here. The dimuon selection is applied to remove contributions
+from the charmonium decay and to exclude region close to the boundaries of the acceptance.
+Then the background originated from the interaction with the instruments is estimated by using
+the empty flask data normalized by the integrated beam intensity, and is subtracted from the
+$p+p$ and $p+d$ data. Third, the $(p+d)/2(p+p)$ ratios are formed by empty flask subtracted
+dimuon data, normalized by the beam intensity. The ratio is calculated as a function of the
+instantaneous beam intensity measured by the BIM. The ratio is then fitted with the following function
+\begin{equation}
+	R_i \left(I\right) = p_{0i} + p_1 I + p_2 I^2,
+\end{equation}
+where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p_{0i}$ give
+the value of the cross section ratio in each $x_T$ bins.
+
+\section{Absolute \texorpdfstring{$J/\psi$}{J/psi} Cross Section Extraction}
+\subsection{Target Contamination}
 For a pure target, the cross section can be obtained from the yield using the following
 \begin{equation}
 	\sigma = \frac{Y A}{T N_A P X \epsilon},
@@ -350,67 +491,10 @@ And since there is no contamination in the \ce{LH_2} target
 	\end{split}
 \end{equation}
 
-\section{Intensity Extrapolation}
-\label{sec:extrapolation}
-Extracting the Drell-Yan cross section ratio using the intensity extrapolation method
-is first studied by J.~Dove \cite{dove2020} and A.~Tadepalli \cite{tadepalli2019}.
-The idea behind this method is that the number of observed Drell-Yan
-events ,in the absent of any spectrometer effects, should be linearly proportional to the beam
-intensity. On the contrary, the two muons in the accidental background are typical coming from
-two separate interactions, and there it is expected proportional to the intensity squared. By taking the ratio of the
-$(p+p)$ and $(p+d)$ dimuon event rates, other rate dependence effect would also be cancel out
-at zero intensity.
 
-The procedure for this method is summarized here. The dimuon selection is applied to remove contributions
-from the charmonium decay and to exclude region close to the boundaries of the acceptance.
-Then the background originated from the interaction with the instruments is estimated by using
-the empty flask data normalized by the integrated beam intensity, and is subtracted from the
-$p+p$ and $p+d$ data. Third, the $(p+d)/2(p+p)$ ratios are formed by empty flask subtracted
-dimuon data, normalized by the beam intensity. The ratio is calculated as a function of the
-instantaneous beam intensity measured by the BIM. The ratio is then fitted with the following function
-\begin{equation}
-	R_i \left(I\right) = p_{0i} + p_1 I + p_2 I^2,
-\end{equation}
-where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p_{0i}$ give
-the value of the cross section ratio in each $x_T$ bins.
+\subsection{Acceptance Calculation}
 
-\section{Mass Spectrum Fitting}
-\pdfmargincomment{see analysis note}
-
-\subsection{TFractionFitter}
-To account for the statistical uncertainties in both the data and Monte Carlo
-simulation, the TFrationFitter algorithm is used in this analysis \cite{barlow1993}.
-This is achieved by performing a standard likelihood fit using Poisson statistics,
-while the template, generated from MC, are also varied within statistics, leading
-to additional contributions to the overall likelihood.
-
-Let there are $m$ sources. The number of MC events in bin $i$ from the $j$ source
-is given by $a_{ji}$. For each source, there is some (unknown) expected distribution
-$A_{ji}$. The expected number of events in each bin is given by
-\begin{equation}
-	f_i = \sum^m_{j=1} p_j A_{ji}.
-	\label{eq:TF_f}
-\end{equation}
-The total likelihood is the combined probability of the observed $\left\{d_i\right\}$
-and the observed $\left\{a_{ji}\right\}$
-\begin{equation}
-	\ln \mathcal{L} = \sum^n_{i=1} d_i \ln f_i -f_i + \sum^n_{i=1} \sum^m_{j=1} a_{ji} \ln A_{ji} - A_{ji}.
-	\label{eq:TF_likelihood}
-\end{equation}
-The estimates for the strength $p_j$ and the expected distribution $A_{ji}$ are
-found by maximizing this likelihood. One consequence of this approach is the
-$n \cross m$ fit parameters $A_{ji}$. However, the  minimization of these additional
-parameters is done analytically ratter than treating them as formal fit parameters.
-
-In the case of weighted MC, \cref{eq:TF_f} is modified into
-\begin{equation}
-	f_i = \sum^m_{j=1} p_j w_{ji}A_{ji},
-\end{equation}
-where $w_{ji}$ is the average weight of the MC events in bin $i$ from the $j$th source.
-
-\section{Acceptance Calculation}
-
-\section{Tracker Efficiency}
+\subsection{Tracking Efficiency}
 
 \section{Drell-Yan NLO calculation}
 The next-to-leading order (NLO) calculation is done using a parton level Monte
