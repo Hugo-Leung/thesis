@@ -113,6 +113,7 @@ distributions at generator level.
 To obtained the $P_T$ distribution 
 
 \subsection{Messy Monte Carlo}
+\label{subsec:messyMC}
 
 \section{Background Simulation}
 
@@ -420,7 +421,7 @@ The total number of molecules per area is
 The thickness of D (in \unit{\g\per\cm\squared}) in the target cell is
 \begin{equation}
 	\begin{split}
-		T_D^D &= \frac{N_D A_D}{A} = A_D\frac{N_{\mathrm{tot.}}}{\mathrm{Area}} \left[ 2(1-C) + C \right]\\
+		T_D^D &= \frac{N_D A_D}{\mathrm{Area}} = A_D\frac{N_{\mathrm{tot.}}}{\mathrm{Area}} \left[ 2(1-C) + C \right]\\
 		&=A_D \frac{L\rho_{\ce{D_2}}}{2A_Df}(2-C)\\
 		&=\frac{L\rho_{\ce{D_2}}}{f}(1-C/2).
 	\end{split}
@@ -428,7 +429,7 @@ The thickness of D (in \unit{\g\per\cm\squared}) in the target cell is
 The thickness of H (in \unit{\g\per\cm\squared}) in the target cell is
 \begin{equation}
 	\begin{split}
-		T^D_H &= \frac{N_H A_H}{A} = A_H\frac{N_{\mathrm{tot.}}}{\mathrm{Area}}C\\
+		T^D_H &= \frac{N_H A_H}{\mathrm{Area}} = A_H\frac{N_{\mathrm{tot.}}}{\mathrm{Area}}C\\
 		&=\frac{L\rho_{\ce{D_2}}}{f}\frac{A_H}{A_D}\frac{C}{2}.
 	\end{split}
 	\label{eq:TDH}
@@ -498,7 +499,40 @@ And since there is no contamination in the \ce{LH_2} target
 
 \section{Drell-Yan NLO calculation}
 The next-to-leading order (NLO) calculation is done using a parton level Monte
-Carlo program written by the INFN group\cite{catani2009,catani2007}.
+Carlo program written by the INFN group\cite{catani2009,catani2007}. This program
+is originally written to compute written to compute cross-section for vector boson
+production from $p+p$ and $p+\bar{p}$ collisions. It was later modified, in
+collaboration with Wen-Chen Chang and Shivangi Prasad, to perform $p+n$ calculation
+by utilizing isospin symmetry. The $p+d$ interaction can be computed by summing up
+the $p+p$ and $p+n$ calculation, assuming no nuclear corrections. For heavier nuclear
+targets, nuclear PDFs can also be used.
+
+\pdfmargincomment{Error calculations}
+The PDF sets used in this study are CT18\cite{hou2019} and NNPDF4.0\cite{ball2021}. 
+And they are accessed through the LHAPDF library\cite{buckley2015}. It should be noted
+that the CT18 PDF set is published before the SeaQuest result, whereas NNPDF4.0
+incorporate the SeaQuest measurements\cite{dove2021} in the global fit.
+
+The uncertainty band for calculations using CT18 PDFs are calculated using the hessian methods.
+Given a central PDF member $S_0$ and $2N_{par}$ eigenvector PDF member $S^\pm_i$ ($i=1,\dots,N_{par}$),
+where $N_{par}$ is the number of parameters. The central value $F_0$ and the uncertainty $\sigma^\pm_F$
+on a PDF-dependent quantity are given by:
+\begin{equation}
+	\begin{split}
+	F_0 &= F(S_0),\quad F_i^\pm=F(S_i^\pm) \\
+	\sigma^+_F &= \sqrt{\sum_{i=1}^{N_{par}} \left[max\left(F_i^+ - F_0, F_0 - F^-_i,0\right)\right]^2 }\\
+	\sigma^-_F &= \sqrt{\sum_{i=1}^{N_{par}} \left[max\left(F_0 - F^+_i, F_i^- - F_0,0\right)\right]^2 }
+	\end{split}
+\end{equation}
+
+Whereas the uncertainty for NNPDF4.0 is calculated using the replicas method. Given $N_{rep}$ replica
+PDF members $S^k$, the central value and the uncertainty is given by the mean and standard distribution
+\begin{equation}
+	\begin{split}
+F_0&=\expval{F}=\frac{1}{N_{rep}}\sum_{i=1}^{N_{rep}}F\left(S^k\right)\\
+\sigma_F&= \sqrt{\frac{1}{N_{rep}-1}\sum_{i=1}^{N_{rep}}\left[F\left(S^k\right)-F_0\right]^2}
+	\end{split}
+\end{equation}
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
 \end{document}
