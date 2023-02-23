@@ -45,12 +45,39 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 \section{Monte Carlo}
 \label{sec:MC}
 SeaQuest utilize a Geant4 based Monte Carlo simulation (GMC) to simulate the
-performance of the spectrometer and the acceptance. The GMC is based on the 
+performance of the spectrometer and the acceptance. The GMC is based on the
 E866 FastMC, a fortran-based simulation code, and is ported to SeaQuest and
 modified according to SeaQuest’s experimental configurations \cite{kerns2018,prasad2020}.
 
+\subsection{Messy and Clean Monte Carlo}
+\label{subsec:messyMC}
+The resolution and efficiency of the detectors are included before the reconstruction.
+This step is known as realization.
+From previous studies, the efficiency for the chamber is determined to be \SI{\sim 94}{\percent}
+with a resolution of \SI{\sim 0.04}{\cm}. Therefore for all chamber hits, \SI{6}{\percent} of
+hits are dropped randomly, with a Gaussian smearing applied to the drift distance for the remaining
+hits with a width of \SI{0.004}{\cm}. The Monte Carlo is now ready for reconstruction. This is
+labeled as clean Monte Carlo, it is use in acceptance studies where we are not interested in the
+rate dependent effect.
+
+If we are interested in the rate dependent effect, there is an option to embed NIM-3 hits into
+the clean Monte Carlo to create what known as messy Monte Carlo.
+The purpose is to simulate the noise and background hits in the spectrometer.
+Since the NIM-3 trigger randomly, the hit distribution in each detector would be identical to 
+the background and noise hits caused by the beam. However, as the probability of a dimuon event
+is higher at higher beam intensity, the signal (Matrix 1) events would have a significantly higher
+average occupancy then the NIM-3 events. The input occupancy distribution should have little or no
+effect on the reconstruction efficiency, as we are only interested the fraction of events that was 
+successfully reconstructed in each occupancy bin, not the absolute number of events in each bin.
+However, the occupancy profile could have significant effect when using the occupancy integrated 
+messy Monte Carlo such as mass fit studies. Therefore, when sampling the NIM-3 events, the ratio
+of the Matrix 1 and NIM-3 events is used as weights, and high occupancy NIM-3 would have a higher
+probability to be used, where as only a small fraction of lower occupancy NIM-3 events would be used.
+
+\pdfcomment{NIM-3 and FPGA1 occupancy profile}
+
 \subsection{Maximum dimuon \texorpdfstring{$P_T$}{P\_T}}
-One of the changes made to the Monte Carlo generator during this study 
+One of the changes made to the Monte Carlo generator during this study
 is the maximum transverse momentum of the virtual photon.
 
 The maximum $P_T$ carried by the virtual photon is given by
@@ -108,29 +135,35 @@ Therefore the $p_T$ reweight is given by
 \end{equation}
 The addition of last factor in \cref{eq:pT_reWeight}, as compared to previous studies,
 is to ensure the normalization is preserved and would not affect the other kinematic
-distributions at generator level. 
+distributions at generator level.
 
-To obtained the $P_T$ distribution 
-
-\subsection{Messy Monte Carlo}
-\label{subsec:messyMC}
+While we could modify the input $P_T$ distribution in the Monte Carlo event generator,
+it is decided to utilize this re-weighting procedure as this would allow for 
+more iterations of refinement with less computation overhead.
 
 \section{Background Simulation}
 
 \section{Event Reconstruction}
-The SeaQuest reconstruction,
-
+The SeaQuest reconstruction is done using kTracker, primarily developed by Kun Liu \cite{kTracker}.
 One of my responsibility is the reconstruction of the run 5 and run 6 data.
+
+The reconstruction is divided into three parts: EventReducer, kFastTracking, and kVertex.
+EventReducer prepares all the events for reconstruction by removing extraneous hits that are 
+unlikely to be part of a valid track. This is done to speed up the reconstructions. Then, kFastTracking
+will identify all valid tracks in the events. Finally, kVertex will try all possible track combinations
+to identify valid dimuons and reconstruct the dimuon kinematics.
+
 \subsection{Spill-level Cuts}
 
 \subsection{Pre-tracking Cuts}
 In order to speed up the reconstruction, varies types of chamber hits are removed, as
-they are less likely to be park of a muon track. 
+they are less likely to be part of a muon track.
 
 \paragraph{In-time cut}
 During data taking, the TDC time window is deliberately set to be larger than the in-time
-window. This is done to avoid data loss in case of timing drift. During the offline
-processing, only in-time hits will be kept. This cut is applied to all detectors.
+window. This is done to avoid data loss in case of timing drift\cite{daniel-4924}. 
+During the offline processing, only in-time hits will be kept. This cut is applied to
+all detectors.
 
 \paragraph{After pulse cut}
 Due to the tendency of the wire chamber channels to `ring' after being hit,
@@ -139,58 +172,65 @@ wire in quick succession. Therefore, if there are multiple hits on same camber w
 within a small predefined time window, only the first hit will be kept.
 
 \paragraph{Cluster removal cut}
-There are three types of cluster hits: electronic noise, cell-edge hits and delta-rays.
-
-Delta rays are electrons knocked off by the primary radiation particle when passing
-through the chamber. The knocked off electron is capable of producing secondary ionization.
-SOme of these electrons scatter at large angles and travel parallel to the chamber plane
-and fire several wire. Since the primary muon would locate on either side on the hit cluster,
-only edge hits are retained.
+There are three types of cluster hits: cell-edge hits, delta-rays and electronic noise.
 
 When a muon pass through the wire plane near the cell edge, it will often cause two adjacent
 wires to fire. If the drift distance of one hit is more than \SI{90}{\percent} of the cell width,
 while the drift distance of the other hit is less than \SI{40}{\percent} of the cell width, the hit
 with larger drift distance will be discard.
 
+Delta rays are electrons knocked off by the primary radiation particle when passing
+through the chamber. The knocked off electron is capable of producing secondary ionization.
+Some of these electrons scatter at large angles and travel parallel to the chamber plane
+and fire several wire. Since the primary muon would locate on either side on the hit cluster,
+only edge hits are retained.
+
+The chamber electronics are also prone to electronic noise, thereby creating clusters of
+hits that do not correspond to real particle. During the offline analysis, if a string of
+3 or more hits on adjacent wires have similar TDC time, with average time difference between
+hits less than \SI{10}{\ns}, all these hits are considered electronic noise and are removed.
+
 \paragraph{Trigger Hodoscope masking}
 As the hodoscopes have a shorter time resolution compared to the chamber drift time and
-the RF vucket periodicity, the hodoscopes are used for triggering. The hodoscope hits
+the RF bucket periodicity, the hodoscopes are used for triggering. The hodoscope hits
 are recorded by both the FPGA trigger modules as well as the TW-TDC. The in-time hodoscope
 hits from all 4 stations are combined to form all possible combinations, called road. These
 combinations are checked against the active trigger road set used. Only the chamber hits
-that fall behind a fired hodoscope paddle, which is part of a valid trigger road, will be retained.
+that fall behind a fired hodoscope paddle, of which is part of a valid trigger road, will be retained.
 
-\paragraph{Sagitta ratios}
-\pdfcomment{Why do we expect the ratio to be constant?}
 
 \subsection{Track Finding}
 Following the hit removal stage, the next stage is to find single muon tracks.
 The first step in the single track reconstruction is the build tracklets in St.~2 and St.~3.
 
 A tracklet is a small track segment inside each drift chamber. Starting with the $X$ and
-$X'$ planes, a hit pairs is formed by locating a hit on each plane within one half cell spacing.
+$X'$ planes, a hit pairs is formed by locating a hit on each plane within half of a cell spacing.
 The position of the a pair is taken as the average of the two hits, and is used to select a window
 in the $UU'$ planes to search for corresponding pairs. A window is then selected to locate hit pairs
 on the $VV'$ planes. Once the hits are selected, a straight tracklet can be fitted to the hits.
 To be considered valid, there must be at least 4 hits, with at least one hit per view. The trackelts
-should also be pointing at the target (or beam dump), this done by requiring the x and y slope to be
+should also be pointing at the target (or beam dump), this is done by requiring the x and y slope to be
 less than $(0.15,0.1)$.
 
-Once all tracklets are constructed separately in St2.~ and St.~3. We try to connect a tracklet
+Once all tracklets are constructed separately in St.~2 and St.~3. We try to connect a tracklet
 in St.~2 with a tracklet in St.~3 to form a partial track. Since there are no magnet between
 St.~2 and St.~3, the slope of the tracklets should be similarly. The partial track is then used to
-identify hits in the St.~4 proportional tubes for muon identification. The multiple scattering of 
+identify hits in the St.~4 proportional tubes for muon identification. The multiple scattering of
 muons due to the iron wall between St.~3 and St.~4 is also taken into account.
 
 The St.~2 St.~3 partial track is then projected on to St.~1. The magnetic field of KMag is taken into
 account during this step. Since the magnetic field strength is fixed, the sagitta ratio of St.~1 to
 St.~2 is approximately a constant and is determined using Monte Carlo simulation. Using this fact,
-the search window on St.~1 is constrained by this ratio. 
+the search window on St.~1 is constrained by this ratio.
+
+\pdfcomment{kalment filter}
 
 \subsection{Vertex Finding}
 Once all the tracks are found in each events, the reconstruction of the dimuon vertex can begin.
 For Matrix-1 events, all possible combinations of $\mu^+$ and $\mu^-$ are tested if they can form
 a dimuon.
+
+\pdfcomment{kalment filter}
 
 \section{Dimuon Selection}
 The event selection that is used in this study is based on the study by C.~Brown
@@ -204,25 +244,25 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 	\label{table:trackCut}
 	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
 		\hline
-		Variable                                                                                                                             & Description                                                                          & Cut                          \\ \hline
-		$\chi^2_{\mathrm{target}}$                                                                                                                    & $\chi^2$ when tack is   forced to pass through center of target ($z=\SI{-129}{\cm}$) & $< 15$                       \\ \hline
-		$pz_1$                                                                                                                               & z momentum at station 1                                                              & (\SI{9}{\GeV},\SI{75}{\GeV}) \\ \hline
-		nHits                                                                                                                                & total number of hits on wire chambers by each   muon track                           & $> 13$                       \\ \hline
-		$x_T^2 +(y_T - \mathrm{beamOffset})^2$                                                                                               & radial distance of track from   beam line at the center of target                    & $< \SI{320}{\cm\squared}$    \\ \hline
-		$x_D^2 +(y_D - \mathrm{beamOffset})^2$                                                                                               &
-		radial distance of track from   beam line at the center of beam dump ($z=\SI{42}{\cm}$)                                              &
-		(\SI{8}{\cm\squared},\SI{1100}{\cm\squared})   \footnotemark[1]                                                                                                                                                                                            \\ \hline
-		\begin{tabular}[c]{@{}c@{}}$\chi^2_{\mathrm{target}}<1.5\chi^2_{\mathrm{upstream}}$\\      $\chi^2_{\mathrm{target}}<1.5\chi^2_{\mathrm{dump}}$\end{tabular}             &
-		$\chi^2$ when tack is   forced to pass through $z=\SI{-490}{\cm}$(upstream), $z=\SI{-129}{\cm}$(traget) and   $z=\SI{42}{\cm}$(dump) &
+		Variable                                                                                                                                                                                 & Description                                                                          & Cut                          \\ \hline
+		$\chi^2_{\mathrm{target}}$                                                                                                                                                               & $\chi^2$ when tack is   forced to pass through center of target ($z=\SI{-129}{\cm}$) & $< 15$                       \\ \hline
+		$pz_1$                                                                                                                                                                                   & z momentum at station 1                                                              & (\SI{9}{\GeV},\SI{75}{\GeV}) \\ \hline
+		nHits                                                                                                                                                                                    & total number of hits on wire chambers by each   muon track                           & $> 13$                       \\ \hline
+		$x_T^2 +(y_T - \mathrm{beamOffset})^2$                                                                                                                                                   & radial distance of track from   beam line at the center of target                    & $< \SI{320}{\cm\squared}$    \\ \hline
+		$x_D^2 +(y_D - \mathrm{beamOffset})^2$                                                                                                                                                   &
+		radial distance of track from   beam line at the center of beam dump ($z=\SI{42}{\cm}$)                                                                                                  &
+		(\SI{8}{\cm\squared},\SI{1100}{\cm\squared})   \footnotemark[1]                                                                                                                                                                                                                                                \\ \hline
+		\begin{tabular}[c]{@{}c@{}}$\chi^2_{\mathrm{target}}<1.5\chi^2_{\mathrm{upstream}}$\\      $\chi^2_{\mathrm{target}}<1.5\chi^2_{\mathrm{dump}}$\end{tabular} &
+		$\chi^2$ when tack is   forced to pass through $z=\SI{-490}{\cm}$(upstream), $z=\SI{-129}{\cm}$(traget) and   $z=\SI{42}{\cm}$(dump)                                                     &
 		\\ \hline
-		$z_0$                                                                                                                                & z position of track's closest approach to beam   line                                & (\SI{320}{\cm},\SI{-5}{\cm}) \\ \hline
-		$\chi^2/(\mathrm{nHits}-5)$                                                                                                          & $\chi^2/\mathrm{ndf}$                                                                & $<12$                        \\ \hline
-		$y_1/y_3$                                                                                                                            & y position of track ast St.~1   and St.~3                                            & $<1$                         \\ \hline
-		$y_1\times y_3$                                                                                                                      &                                                                                      & $>0$                         \\ \hline
-		$| |px_1 - px_3| -0.416|$                                                                                                            & difference in x momentum at St.~1 and St.~3 accounting for the Kmag kick             & $<\SI{0.008}{\GeV}$          \\ \hline
-		$|py_1 - py_3|$                                                                                                                      & difference in y momentum at St.~1 and St.~3                                          & $<\SI{0.008}{\GeV}$          \\ \hline
-		$|pz_1 - pz_3|$                                                                                                                      & difference in z momentum at St.~1 and St.~3                                          & $<\SI{0.08}{\GeV}$           \\ \hline
-		$|py_1 |$                                                                                                                            & absolute value of the y momentum   at St.~1                                          & $>\SI{0.02}{\GeV}$           \\ \hline
+		$z_0$                                                                                                                                                                                    & z position of track's closest approach to beam   line                                & (\SI{320}{\cm},\SI{-5}{\cm}) \\ \hline
+		$\chi^2/(\mathrm{nHits}-5)$                                                                                                                                                              & $\chi^2/\mathrm{ndf}$                                                                & $<12$                        \\ \hline
+		$y_1/y_3$                                                                                                                                                                                & y position of track ast St.~1   and St.~3                                            & $<1$                         \\ \hline
+		$y_1\times y_3$                                                                                                                                                                          &                                                                                      & $>0$                         \\ \hline
+		$| |px_1 - px_3| -0.416|$                                                                                                                                                                & difference in x momentum at St.~1 and St.~3 accounting for the Kmag kick             & $<\SI{0.008}{\GeV}$          \\ \hline
+		$|py_1 - py_3|$                                                                                                                                                                          & difference in y momentum at St.~1 and St.~3                                          & $<\SI{0.008}{\GeV}$          \\ \hline
+		$|pz_1 - pz_3|$                                                                                                                                                                          & difference in z momentum at St.~1 and St.~3                                          & $<\SI{0.08}{\GeV}$           \\ \hline
+		$|py_1 |$                                                                                                                                                                                & absolute value of the y momentum   at St.~1                                          & $>\SI{0.02}{\GeV}$           \\ \hline
 	\end{tabular}
 \end{table}
 \begin{table}[ht!]
@@ -231,22 +271,22 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 	\label{table:dimuonCut}
 	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
 		\hline
-		Variable                                                                                            & Description                                                                              & Cut                            \\ \hline
-		$|dx|$                                                                                              & x position of dimuon vertex                                                              & $<\SI{0.25}{\cm}$              \\ \hline
-		$|dy-\mathrm{beamOffset}|$                                                                          & y position of dimuon vertex                                                              & $<\SI{0.22}{\cm}$              \\ \hline
-		$dz$                                                                                                & z position of dimuon vertex                                                              & (\SI{-280}{\cm},\SI{-5}{\cm})  \\ \hline
-		$dx^2+(dy-\mathrm{beamOffset})^2$                                                                   & radial distance of the dimuon vertex from beam line                                      & $<\SI{0.06}{\cm\squared}$      \\ \hline
-		$|dpx|$                                                                                             & absolute value of dimuon x   momentum                                                    & $<\SI{1.8}{\GeV}$              \\ \hline
-		$|dpy|$                                                                                             & absolute value of dimuon y   momentum                                                    & $<\SI{2}{\GeV}$                \\ \hline
-		$dpx^2+dpy^2$                                                                                       & transverse momentum squared of   dimuon                                                  & $<\SI{5}{\GeV}$                \\ \hline
-		dpz                                                                                                 & dimuon z momentum                                                                        & (\SI{38}{\GeV},\SI{116}{\GeV}) \\ \hline
-		$|\mathrm{tackSeparation}|$                                                                         & distance in z between points   of  closest approach between $\mu^+$   and $\mu^-$ track  & $<\SI{270}{\cm}$               \\ \hline
-		$\chi^2_{\mathrm{dimuon}}$                                                                                   & $\chi^2$ when both $\mu^+$ and   $\mu^-$ tracks are forced to pass through dimuon vertex & $<18$                          \\ \hline
+		Variable                                                                                                                          & Description                                                                              & Cut                            \\ \hline
+		$|dx|$                                                                                                                            & x position of dimuon vertex                                                              & $<\SI{0.25}{\cm}$              \\ \hline
+		$|dy-\mathrm{beamOffset}|$                                                                                                        & y position of dimuon vertex                                                              & $<\SI{0.22}{\cm}$              \\ \hline
+		$dz$                                                                                                                              & z position of dimuon vertex                                                              & (\SI{-280}{\cm},\SI{-5}{\cm})  \\ \hline
+		$dx^2+(dy-\mathrm{beamOffset})^2$                                                                                                 & radial distance of the dimuon vertex from beam line                                      & $<\SI{0.06}{\cm\squared}$      \\ \hline
+		$|dpx|$                                                                                                                           & absolute value of dimuon x   momentum                                                    & $<\SI{1.8}{\GeV}$              \\ \hline
+		$|dpy|$                                                                                                                           & absolute value of dimuon y   momentum                                                    & $<\SI{2}{\GeV}$                \\ \hline
+		$dpx^2+dpy^2$                                                                                                                     & transverse momentum squared of   dimuon                                                  & $<\SI{5}{\GeV}$                \\ \hline
+		dpz                                                                                                                               & dimuon z momentum                                                                        & (\SI{38}{\GeV},\SI{116}{\GeV}) \\ \hline
+		$|\mathrm{tackSeparation}|$                                                                                                       & distance in z between points   of  closest approach between $\mu^+$   and $\mu^-$ track  & $<\SI{270}{\cm}$               \\ \hline
+		$\chi^2_{\mathrm{dimuon}}$                                                                                                        & $\chi^2$ when both $\mu^+$ and   $\mu^-$ tracks are forced to pass through dimuon vertex & $<18$                          \\ \hline
 		$\begin{aligned} |\chi^2_{\mathrm{target}}(\mu^+) &+ \chi^2_{\mathrm{target}}(\mu^-)\\& -\chi^2_{\mathrm{dimuon}}| \end{aligned}$ &                                                                                          & $<2$                           \\ \hline
-		$y_3(\mu^+) \times y_3(\mu^-)$                                                                      & y position at St.~3 for both tracks                                                      & $<0$                           \\ \hline
-		$\mathrm{nHists}(\mu^+)+\mathrm{nHists}(\mu^-)$                                                     & sum of the total number if hits on wire chamber by $\mu^+$ and $\mu^-$ track             & $>29$                          \\ \hline
-		$\mathrm{nHists}_1(\mu^+)+\mathrm{nHists}_1(\mu^-)$                                                 & sum of the total number if hits on St.~1 wire chamber by $\mu^+$ and $\mu^-$ track       & $>8$                           \\ \hline
-		$|x_1(\mu^+) + x_1(\mu^-)|$                                                                         & sum off x position of of tracks   at St.~1                                               & $>\SI{42}{\cm}$                \\ \hline
+		$y_3(\mu^+) \times y_3(\mu^-)$                                                                                                    & y position at St.~3 for both tracks                                                      & $<0$                           \\ \hline
+		$\mathrm{nHists}(\mu^+)+\mathrm{nHists}(\mu^-)$                                                                                   & sum of the total number if hits on wire chamber by $\mu^+$ and $\mu^-$ track             & $>29$                          \\ \hline
+		$\mathrm{nHists}_1(\mu^+)+\mathrm{nHists}_1(\mu^-)$                                                                               & sum of the total number if hits on St.~1 wire chamber by $\mu^+$ and $\mu^-$ track       & $>8$                           \\ \hline
+		$|x_1(\mu^+) + x_1(\mu^-)|$                                                                                                       & sum off x position of of tracks   at St.~1                                               & $>\SI{42}{\cm}$                \\ \hline
 	\end{tabular}
 \end{table}
 \begin{table}[h!]
@@ -255,11 +295,11 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 	\label{table:physCut}
 	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
 		\hline
-		Variable         & Description                          & Cut                                                            \\ \hline
-		mass             & dimuon mass                          & (\SI{2}{\GeV},\SI{8.8}{\GeV}) \footnotemark[1]\footnotemark[2] \\ \hline
-		$x_F$            & Feynman $x$                            & (-0.1,0.95)                                                    \\ \hline
-		$x_{\mathrm{target}}$     & Bjorken $x$ of target                  & (0.005,0.55)  \footnotemark[1]                                 \\ \hline
-		$|\cos(\theta)|$ & polar angle in Collins-Soper   frame & $<0.5$                                                         \\ \hline
+		Variable              & Description                          & Cut                                                            \\ \hline
+		mass                  & dimuon mass                          & (\SI{2}{\GeV},\SI{8.8}{\GeV}) \footnotemark[1]\footnotemark[2] \\ \hline
+		$x_F$                 & Feynman $x$                          & (-0.1,0.95)                                                    \\ \hline
+		$x_{\mathrm{target}}$ & Bjorken $x$ of target                & (0.005,0.55)  \footnotemark[1]                                 \\ \hline
+		$|\cos(\theta)|$      & polar angle in Collins-Soper   frame & $<0.5$                                                         \\ \hline
 	\end{tabular}
 \end{table}
 \begin{table}[h!]
@@ -280,8 +320,97 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 \footnotetext[1]{modified from Ref.~\cite{chuck-2111}}
 \footnotetext[2]{The 0.99 scaling factor is applied to MC}
 \footnotetext[3]{Not applied to MC or Mix background}
+\clearpage
+\section{Beam Luminosity Normalization}\pdfmargincomment{might move this section to spectrometer}
+At SeaQuest, there are three beam luminosity related quantities.
+During data taking, the proton on target is monitored by two sets of instruments, a secondary
+emission monitor located upstream of the SeaQuest experimental hall, and a Cerenkov counter
+(as described in \cref{M-subsec:BIM}). The secondary emission monitor provides the integrated
+beam intensity for the entire beam spill (labeled as ``G2SEM"). This is sometimes refer to as
+``raw proton'' as this quantity does not include any deadtime or inhibit effect.
+
+The Cerenkov counter provides the beam intensity for each RF bucket in relative units.
+During normal data taking, the Beam DAQ records three quantities: integrated beam intensity for entire spill
+(labeled as ``QIEsum''), integrated beam while inhibit is asserted at trigger logic
+(labeled as ``inhibit\_block\_sum'') and integrated intensity during dead time (labeled as
+``trigger\_sum\_no\_inhibit''). All these quantities are in relative units.
+
+The number of protons on targets during DAQ live time can be calculated as follows:
+\begin{equation}
+	\mathrm{live\ proton} = \frac{\mathrm{QIEsum}-\mathrm{inhibit\_block\_sum}-\mathrm{trigger\_sum\_no\_inhibit}}{\mathrm{QIEsum}}\cdot \mathrm{G2SEM}
+\end{equation}
+
+The Main DAQ also reads out the beam intensity from Cerenkov counter the of the triggering bucket
+and the $\pm16$ RF buckets before and after the trigger (label as ``RF-16" to ``RF+16", with
+``RF00'' being the triggering bucket).
+
+The number of proton in the triggering bucket can be calculated as follows:
+\begin{equation}
+	\mathrm{trigger\ intensity} = \frac{\mathrm{RF00}-\mathrm{pedestal}}{\mathrm{QIEsum}-\mathrm{pedestal}\cdot 588\cdot 369000}\cdot \mathrm{G2SEM}
+\end{equation}
+The pedestal comes from the dark rate of the detector, and it is obtained from studying the
+empty spills. This value can change overtime and is summarize in \cref{tabel:pedestal}.
+This number should be subtracted from the bucket specific QIE value, as well as the spill 
+integrated QIEsum. There are a total of $588\cdot 369000$ buckets per spill, hence the
+numerator.
+
+\begin{table}[h!]
+\centering
+\caption{Summary of the QIE pedestal over time\cite{kenichi-9289}.}
+\label{tabel:pedestal}
+\begin{tabular}{|c|c|c|}
+\hline
+Run     & spill range                     & pedestal value \\ \hline
+2-3     &                                 & $34\pm5$       \\ \hline
+5ea-5eb & $[\num{910000},\num{1010000})$  & $33\pm 6$      \\ \hline
+5eb     & $[\num{1010000},\num{1100000})$ & $28\pm 5$      \\ \hline
+6       & $[\num{1200000},\num{1320000})$ & $40\pm 12$     \\ \cline{2-3} 
+        & $[\num{1320000},\num{1420000})$ & $30\pm 7$      \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Intensity Extrapolation}
+\label{sec:extrapolation}
+Extracting the Drell-Yan cross section ratio using the intensity extrapolation method
+is first studied by J.~Dove \cite{dove2020} and A.~Tadepalli \cite{tadepalli2019},
+and it is used in Ref.~\cite{dove2021}.
+The assumption behind this method is that the accidental background and physics events
+would have different intensity dependence. The number of observed physics
+events, in the absent of any spectrometer effects, should be linearly proportional to the beam
+intensity. On the contrary, the two muons in the accidental background are typical coming from
+two separate interactions, and therefore it is expected proportional to the intensity squared.
+By taking the ratio of the $(p+p)$ and $(p+d)$ dimuon event rates,
+other rate dependence effect would also be cancel out at zero intensity.
+
+The procedure for this method is summarized here. A mass cut at \SI{4.5}{\GeV} is applied to
+remove the charmonium decays, leaving only the Drell-Yan dimuons and the accidental background.
+Cuts are also applied to exclude region close to the boundaries of the acceptance.
+Then the background originated from the interaction with the instruments is estimated by using
+the empty flask data normalized by the integrated beam intensity, and is subtracted from the
+$p+p$ and $p+d$ data. Third, the $(p+d)/2(p+p)$ ratios are formed by empty flask subtracted
+dimuon data, normalized by the beam intensity. The ratio is calculated as a function of the
+instantaneous beam intensity measured by the BIM. The ratio is then fitted with the following function
+\begin{equation}
+	R_i \left(I\right) = p_{0i} + p_1 I + p_2 I^2,
+\end{equation}
+where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p_{0i}$ give
+the value of the cross section ratio in each $x_T$ bins. Other fit functions are also used
+to studied the fit function dependence. 
+
+\pdfcomment{intensity distribution plots, }
+
+While this method allows for extractions of the Drell-Yan cross section ratio without relying 
+heavily on simulation, this method cannot be used in the charmonium studies.
+Both Drell-Yan process and charmonium production would have the same linear intensity dependence,
+hence this method not be able to distinguish the different physics proccess, and therefore could
+not be use in the charmonium studies. Moreover, only the cross section ratio could be obtained in
+this method, as the absolute yield and value of rate dependency correction will be needed in 
+absolute cross section studies, and cannot be obtained from the intensity extrapolation methods.
 
 \section{Mass Spectrum Fitting}
+With the goal of obtaining the absolute yield for different process, the mass spectrum fitting
+procedure is developed. This also forms the bases of our recent publication\cite{dove2023}. 
+
 The event distribution can be expressed as a linear combination of different components,
 namely Drell-Yan, chamrmonium decays, accidental background and background from instruments.
 These different contributions would have distinct mass spectra, for example, the $J/\psi$
@@ -289,8 +418,21 @@ and $\psi^\prime$ decays would have sharp distributions centered around their ma
 can be easily identified. Therefore, the data can be fitted to varies templates to obtain
 the relative contribution from each sources.
 
-The mass templates for physics sources such as Drell-Yan process and charmonium decays are
-generated by analyzing the Monte Carlo simulation. 
+\paragraph{Physics sources}
+The templates for $J/\psi$, $\psi'$ and Drell-Yan are obtained by analyzing the messy Monte Carlo
+simulation (as described in \cref{subsec:messyMC}).
+
+\paragraph{Empty flask subtraction}
+The empty flask data is taken by placing just the flask (filled with vacuum) in the path of
+the beam. It is used for understanding the background originating from interactions of the beam
+with the flask wall, beam dump or various upstream instrumentation. The normalization of the
+empty flask contribution is obtained from the ratio of live protons for the liquid target and
+empty flask. The empty flask normalization is then kept fixed during the fitting procedure, while
+other componets are allowed to float.
+
+\paragraph{Accidental/Mixed background correction}
+
+
 
 \subsection{TFractionFitter}
 To account for the statistical uncertainties in both the data and Monte Carlo
@@ -324,29 +466,7 @@ In the case of weighted MC, \cref{eq:TF_f} is modified into
 \end{equation}
 where $w_{ji}$ is the average weight of the MC events in bin $i$ from the source $j$.
 
-\section{Intensity Extrapolation}
-\label{sec:extrapolation}
-Extracting the Drell-Yan cross section ratio using the intensity extrapolation method
-is first studied by J.~Dove \cite{dove2020} and A.~Tadepalli \cite{tadepalli2019}.
-The idea behind this method is that the number of observed Drell-Yan
-events ,in the absent of any spectrometer effects, should be linearly proportional to the beam
-intensity. On the contrary, the two muons in the accidental background are typical coming from
-two separate interactions, and there it is expected proportional to the intensity squared.
-By taking the ratio of the $(p+p)$ and $(p+d)$ dimuon event rates, 
-other rate dependence effect would also be cancel out at zero intensity.
 
-The procedure for this method is summarized here. The dimuon selection is applied to remove contributions
-from the charmonium decay and to exclude region close to the boundaries of the acceptance.
-Then the background originated from the interaction with the instruments is estimated by using
-the empty flask data normalized by the integrated beam intensity, and is subtracted from the
-$p+p$ and $p+d$ data. Third, the $(p+d)/2(p+p)$ ratios are formed by empty flask subtracted
-dimuon data, normalized by the beam intensity. The ratio is calculated as a function of the
-instantaneous beam intensity measured by the BIM. The ratio is then fitted with the following function
-\begin{equation}
-	R_i \left(I\right) = p_{0i} + p_1 I + p_2 I^2,
-\end{equation}
-where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p_{0i}$ give
-the value of the cross section ratio in each $x_T$ bins.
 
 \section{Absolute \texorpdfstring{$J/\psi$}{J/psi} Cross Section Extraction}
 \subsection{Target Contamination}
@@ -497,6 +617,10 @@ And since there is no contamination in the \ce{LH_2} target
 
 \subsection{Tracking Efficiency}
 
+\section{Comparison of data and Monte Carlo}
+
+\subsection{$P_T$ distribution}
+
 \section{Drell-Yan NLO calculation}
 The next-to-leading order (NLO) calculation is done using a parton level Monte
 Carlo program written by the INFN group\cite{catani2009,catani2007}. This program
@@ -508,29 +632,29 @@ the $p+p$ and $p+n$ calculation, assuming no nuclear corrections. For heavier nu
 targets, nuclear PDFs can also be used.
 
 \pdfmargincomment{Error calculations}
-The PDF sets used in this study are CT18\cite{hou2019} and NNPDF4.0\cite{ball2021}. 
+The PDF sets used in this study are CT18\cite{hou2019} and NNPDF4.0\cite{ball2021}.
 And they are accessed through the LHAPDF library\cite{buckley2015}. It should be noted
 that the CT18 PDF set is published before the SeaQuest result, whereas NNPDF4.0
 incorporate the SeaQuest measurements\cite{dove2021} in the global fit.
 
 The uncertainty band for calculations using CT18 PDFs are calculated using the hessian methods.
-Given a central PDF member $S_0$ and $2N_{par}$ eigenvector PDF member $S^\pm_i$ ($i=1,\dots,N_{par}$),
-where $N_{par}$ is the number of parameters. The central value $F_0$ and the uncertainty $\sigma^\pm_F$
+Given a central PDF member $S_0$ and $2N_{\mathrm{par}}$ eigenvector PDF member $S^\pm_i$ ($i=1,\dots,N_{\mathrm{par}}$),
+where $N_{\mathrm{par}}$ is the number of parameters. The central value $F_0$ and the uncertainty $\sigma^\pm_F$
 on a PDF-dependent quantity are given by:
 \begin{equation}
 	\begin{split}
-	F_0 &= F(S_0),\quad F_i^\pm=F(S_i^\pm) \\
-	\sigma^+_F &= \sqrt{\sum_{i=1}^{N_{par}} \left[max\left(F_i^+ - F_0, F_0 - F^-_i,0\right)\right]^2 }\\
-	\sigma^-_F &= \sqrt{\sum_{i=1}^{N_{par}} \left[max\left(F_0 - F^+_i, F_i^- - F_0,0\right)\right]^2 }
+		F_0 &= F(S_0),\quad F_i^\pm=F(S_i^\pm) \\
+		\sigma^+_F &= \sqrt{\sum_{i=1}^{N_{\mathrm{par}}} \left[\max\left(F_i^+ - F_0, F_0 - F^-_i,0\right)\right]^2 }\\
+		\sigma^-_F &= \sqrt{\sum_{i=1}^{N_{\mathrm{par}}} \left[\max\left(F_0 - F^+_i, F_i^- - F_0,0\right)\right]^2 }
 	\end{split}
 \end{equation}
 
-Whereas the uncertainty for NNPDF4.0 is calculated using the replicas method. Given $N_{rep}$ replica
+Whereas the uncertainty for NNPDF4.0 is calculated using the replicas method. Given $N_{\mathrm{rep}}$ replica
 PDF members $S^k$, the central value and the uncertainty is given by the mean and standard distribution
 \begin{equation}
 	\begin{split}
-F_0&=\expval{F}=\frac{1}{N_{rep}}\sum_{i=1}^{N_{rep}}F\left(S^k\right)\\
-\sigma_F&= \sqrt{\frac{1}{N_{rep}-1}\sum_{i=1}^{N_{rep}}\left[F\left(S^k\right)-F_0\right]^2}
+		F_0&=\expval{F}=\frac{1}{N_{\mathrm{rep}}}\sum_{i=1}^{N_{\mathrm{rep}}}F\left(S^k\right)\\
+		\sigma_F&= \sqrt{\frac{1}{N_{\mathrm{rep}}-1}\sum_{i=1}^{N_{\mathrm{rep}}}\left[F\left(S^k\right)-F_0\right]^2}
 	\end{split}
 \end{equation}
 

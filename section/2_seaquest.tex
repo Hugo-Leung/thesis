@@ -14,7 +14,7 @@ Following the E866 results \cite{towell2001}, there were great interest in impro
 the determination of the light sea-quark asymmetry at large $x$ and to understand
 the drop in $\bar{d}/\bar{u}$ at $x>0.25$.
 The E906 SeaQuest experiment was proposed as a following up to the E866 measurement \cite{isenhower2001}.
-The main objective of the experiment is to probed the light sea-quark asymmetry at 
+The main objective of the experiment is to probed the light sea-quark asymmetry at
 large $x$ with better accuracy than previous measurement thought the use of the Drell-Yan
 process. To gain better statistics at large $x$, the \SI{120}{\GeV} proton beam from the Main
 Injector is used instead of the \SI{800}{\GeV} beam from the Tevatron used during E866.
@@ -75,6 +75,7 @@ is shown in \cref{fig:intensity}.
 \end{figure}
 
 \subsection{Beam Intensity Monitor}
+\label{subsec:BIM}
 The beam intensity is monitored using a Cerenkov counter, shown in \cref{fig:BIM}.
 \begin{figure}[htbp!]
 	\centering
@@ -172,7 +173,7 @@ And the y-planes are arranged horizontally to measure the non-bend plane positio
 Station 1 and 2 each have single x-y planes. Station 3 has a single x plane, and station
 4 has two y planes and one x plane. The scintillator bars used in St 1 and 2 are recycled
 from HERMES experiment\pdfcomment{References}, whereas new Eljen EJ-200 scintillator material
-is used for St 3 and 4. Because of the physical size of the sin bars in St4, the station 4
+is used for St 3 and 4. Because of the physical size of the sintillatior bars in St4, the station 4
 hodoscopes have PMTs on both ends of the sintillator bars. Each of the PMT base has a
 ``clip line'' attached at the output to reduce the output pulse from $20-25$\unit{\ns}
 down to $10-15$\unit{\ns} full width.
@@ -201,12 +202,12 @@ The primary purpose of the Drift Chambers is to provide better position resoluti
 at each station. Each drift chamber consist of six planes of sense wires. The wires in two planes,
 denoted as x and x$'$, are aligned vertically. Two planes are tilted by \ang[retain-explicit-plus]{+14},
 denoted as u and u$'$, and two planes are tilted by \ang[retain-explicit-plus]{-14}. The wires
-in the primed planes are offset by half a drift cell to resolve left-right ambiguity of the
-drift direction. Station 1 and 2 each have one chamber referred as D1 and D3. The chamber at station
+in the primed planes are offset by half a drift cell relative to the unprimed planes to resolve left-right ambiguity of the
+drift direction. Station 1 and 2 each have one chamber referred as D1 and D2. The chamber at station
 3 is separated into top and bottom halve, D3p and D3m.
 
 In data sets 1-3, a smaller chamber, D1.1, was used. It was latter replaced by a newly constructed
-chamber, D1.2, with better expected high rate capacity in data set 4-6. However, D1.1 would be 
+chamber, D1.2, with better expected high rate capacity in data set 4-6. However, D1.1 would be
 reinstalled later for data set 5-6. D3m.1 was used during the commissioning run, data set 1, and
 was latter replaced by D3m.2 for the latter data sets.
 
@@ -250,15 +251,15 @@ resolve the left-right ambiguity, as in the case of drift chambers. The proporti
 The proportional tube modules were originally used in a Homeland Security project at Los Alamos National Laboratory.
 
 \begin{figure}[ht!]
-\centering
-\begin{subfigure}{0.45\linewidth}
-\includegraphics[width=0.9\linewidth]{proptubeview_xz}
-\end{subfigure}
-\begin{subfigure}{0.45\linewidth}
-\includegraphics[width=0.9\linewidth]{proptubeview_yz}
-\end{subfigure}
-\caption{XZ (left) and YZ (left) view of the proportional tube at station 4.}
-\label{fig:prop}
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{proptubeview_xz}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{proptubeview_yz}
+	\end{subfigure}
+	\caption{XZ (left) and YZ (left) view of the proportional tube at station 4.}
+	\label{fig:prop}
 \end{figure}
 \section{Trigger System}
 The SeaQuest trigger uses discriminated signals from the hodoscope counters.
@@ -276,17 +277,17 @@ SeaQuest data taking, the are five output triggers, as listed in \cref{tab:FPGA}
 During SeaQuest, only x-measuring (bend plane) hodoscopes are used in making
 trigger decisions.
 \begin{table}[h!]
-\centering
-\caption{The five output trigger of the Level 2 trigger module.}
-\label{tab:FPGA}
-\begin{tabular}{lllll}
-Name     & side  & Charge  & $p_x$ Req. & Notes                \\ \hline
-Matrix 1 & TB/BT & $+-/-+$ & None       & Main physics trigger \\
-Matrix 2 & TT/BB & $+-/-+$ & None       & Same-side trigger \\
-Matrix 3 & TB/BT & $++/--$ & None       & Like-charge trigger \\
-Matrix 4 & T/B & $+/-$ & None       & Single muon trigger \\
-Matrix 5 & T/B & $+/-$ & $p_x>\SI{3}{\GeV}$       & High-$p_T$ single trigger                 
-\end{tabular}
+	\centering
+	\caption{The five output trigger of the Level 2 trigger module.}
+	\label{tab:FPGA}
+	\begin{tabular}{lllll}
+		Name     & side  & Charge  & $p_x$ Req.         & Notes                     \\ \hline
+		Matrix 1 & TB/BT & $+-/-+$ & None               & Main physics trigger      \\
+		Matrix 2 & TT/BB & $+-/-+$ & None               & Same-side trigger         \\
+		Matrix 3 & TB/BT & $++/--$ & None               & Like-charge trigger       \\
+		Matrix 4 & T/B   & $+/-$   & None               & Single muon trigger       \\
+		Matrix 5 & T/B   & $+/-$   & $p_x>\SI{3}{\GeV}$ & High-$p_T$ single trigger
+	\end{tabular}
 \end{table}
 
 The NIM trigger utilizes Nuclear Instrumentation Modules to form the trigger
