@@ -142,10 +142,17 @@ it is decided to utilize this re-weighting procedure as this would allow for
 more iterations of refinement with less computation overhead.
 
 \section{Background Simulation}
+To obtain the profile of the accidental background, the MATRIX 4 events are used.
+
+
 
 \section{Event Reconstruction}
 The SeaQuest reconstruction is done using kTracker, primarily developed by Kun Liu \cite{kTracker}.
-One of my responsibility is the reconstruction of the run 5 and run 6 data.
+One of my responsibility is the reconstruction of the run 5 and run 6 data. To reduced the processing
+time, we utilize the Open Science Grid \cite{ruthpordes2007,sfiligoi2009,OSGPool} to run multiple kTracker
+instances and process multiple events in parallel.
+We also utilize Apptainer (formerly Singularity)\cite{kurtzer2021} to maintain better control of the
+runtime environment.
 
 The reconstruction is divided into three parts: EventReducer, kFastTracking, and kVertex.
 EventReducer prepares all the events for reconstruction by removing extraneous hits that are 
@@ -322,6 +329,7 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 \footnotetext[3]{Not applied to MC or Mix background}
 \clearpage
 \section{Beam Luminosity Normalization}\pdfmargincomment{might move this section to spectrometer}
+\label{sec:beam_norm}
 At SeaQuest, there are three beam luminosity related quantities.
 During data taking, the proton on target is monitored by two sets of instruments, a secondary
 emission monitor located upstream of the SeaQuest experimental hall, and a Cerenkov counter
@@ -402,7 +410,7 @@ to studied the fit function dependence.
 While this method allows for extractions of the Drell-Yan cross section ratio without relying 
 heavily on simulation, this method cannot be used in the charmonium studies.
 Both Drell-Yan process and charmonium production would have the same linear intensity dependence,
-hence this method not be able to distinguish the different physics proccess, and therefore could
+hence this method is not be able to distinguish the different physics proccess, and therefore could
 not be use in the charmonium studies. Moreover, only the cross section ratio could be obtained in
 this method, as the absolute yield and value of rate dependency correction will be needed in 
 absolute cross section studies, and cannot be obtained from the intensity extrapolation methods.
@@ -614,12 +622,51 @@ And since there is no contamination in the \ce{LH_2} target
 
 
 \subsection{Acceptance Calculation}
+The acceptance is obtained by comparing the clean Monte Carlo with thrown distribution,
+and is defined as follows
+\begin{equation}
+	\epsilon_{acc.}\left(\Omega\right)=\mathrm{Acceptance}\left(\Omega\right)= \frac{N_{accept}\left(\Omega\right)}{N_{thrown}\left(\Omega\right)},
+\end{equation}
+where $N_{accept}\left(\OMega\right)$ is the number of accepted events in a given kinematic bin $\Oemga$
+by analysis the clean Monte Carlo after passing the analysis procedure as the data, while $N_{thrown}$ is 
+the total number of generated Monte Carlo events in the same kinematic bin. 
 
-\subsection{Tracking Efficiency}
+The accepted histogram in the numerator is filled using the reconstructed kinematic, whereas
+the thrown histogram in the denominator is filled using the thrown kinematic.
+
+Since our histogram are weighted histogram, the uncertainty is calculated using the following
+\pdfcomment{verify the uncertainty calculation here}
 
 \section{Comparison of data and Monte Carlo}
 
 \subsection{$P_T$ distribution}
+
+
+\subsection{Tracking Efficiency}
+The tracking efficiency is obtained but studying the messy and clean Monte Carlo.
+As the detector occupancy increases, the is a higher probability for kTracker to 
+remove the wrong hit during the EventReducer stage. Therefore, events with higher occupancy
+would failed to be reconstructed at a higher rate than low occupancy events.
+
+\section{Systematic uncertainties}
+For the Drell-Yan cross section ratios studies, the intensity extrapolation method and mass fit
+method involve different assumption and therefore different sources of systematic uncertainties.
+\paragraph{Proton beam normalization}
+The beam normalization uncertainty is present in all studies presented here.
+As described in \cref{sec:beam_norm}, the number of protons are measured by the BIM, which is
+calibrated against a SEM monitor. The SEM monitor is further calibrated by studying the 
+
+\paragraph{Choice of fit function}
+This is specific to the cross section ratio studies using intensity extrapolation method.
+
+\paragraph{Mixed background}
+This is specific to studies using mass fit method.
+
+\paragraph{Acceptance simulation}
+This is a major systematics in the absolute cross section studies, particularly when using
+Run 2-3 data.
+
+
 
 \section{Drell-Yan NLO calculation}
 The next-to-leading order (NLO) calculation is done using a parton level Monte
