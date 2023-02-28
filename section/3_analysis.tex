@@ -627,7 +627,7 @@ and is defined as follows
 \begin{equation}
 	\epsilon_{acc.}\left(\Omega\right)=\mathrm{Acceptance}\left(\Omega\right)= \frac{N_{accept}\left(\Omega\right)}{N_{thrown}\left(\Omega\right)},
 \end{equation}
-where $N_{accept}\left(\OMega\right)$ is the number of accepted events in a given kinematic bin $\Oemga$
+where $N_{accept}\left(\Omega\right)$ is the number of accepted events in a given kinematic bin $\Omega$
 by analysis the clean Monte Carlo after passing the analysis procedure as the data, while $N_{thrown}$ is 
 the total number of generated Monte Carlo events in the same kinematic bin. 
 
@@ -639,7 +639,7 @@ Since our histogram are weighted histogram, the uncertainty is calculated using 
 
 \section{Comparison of data and Monte Carlo}
 
-\subsection{$P_T$ distribution}
+\subsection{\texorpdfstring{$P_T$}{P\_T} distribution}
 
 
 \subsection{Tracking Efficiency}
@@ -654,7 +654,19 @@ method involve different assumption and therefore different sources of systemati
 \paragraph{Proton beam normalization}
 The beam normalization uncertainty is present in all studies presented here.
 As described in \cref{sec:beam_norm}, the number of protons are measured by the BIM, which is
-calibrated against a SEM monitor. The SEM monitor is further calibrated by studying the 
+calibrated against a SEM monitor. The SEM monitor is further calibrated by studying the activation of
+an irradiated high purity copper foil. A copper foil is placed in the beam line near the monitor, 
+causing the production of \ce{^{24}Na}. The \ce{^{24}Na} then decay into \ce{^{24}Mg} through $\beta$
+decay. The number of  \ce{^{24}Na} nuclei is deduced by counting the number \SI{1369}{\keV} photons
+produced. Using the \SI{3.56}{\milli\barn} production cross section for \ce{^{24}Na} in natural
+copper  by \SI{120}{\GeV} protons, the number of incident protons can be deduced. The estimated 
+random uncertainty in the counting and extraction of \SI{1369}{\keV} peak is $\sim 1-2\%$.
+An additional \SI{8}{\percent} systematic uncertainty in the production cross section of \ce{^{24}Na}
+is also included \cite{docdb-457,docdb-7708}. 
+A total of \SI{10}{\percent} beam normalization uncertainty is assigned to absolute cross 
+section studies, whereas a \SI{2}{\percent} relative normalization uncertainty is assigned to ratios between
+targets. This \SI{2}{\percent} relative normalization uncertainty is also included in the empty flask
+subtraction.
 
 \paragraph{Choice of fit function}
 This is specific to the cross section ratio studies using intensity extrapolation method.
@@ -664,7 +676,15 @@ This is specific to studies using mass fit method.
 
 \paragraph{Acceptance simulation}
 This is a major systematics in the absolute cross section studies, particularly when using
-Run 2-3 data.
+Run 2-3 data. 
+During Run 2-3, multiple trigger road sets were used. However, due to the limited statistics in each
+data taking period, it is not possible to analysis each subset separately. Therefore these datasets 
+are combined into one. While the difference in trigger road set have little effect on the acceptance 
+for the high mass Drell-Yan dimuon \cite{jdove-8168}, the impact on the $J/\psi$ acceptance is much
+larger \cite{chleung-9643}.
+
+During later runs, only one trigger road set (roadset 78) was used, hence this is no 
+longer an issue.
 
 
 
