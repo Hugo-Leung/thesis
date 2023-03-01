@@ -144,18 +144,43 @@ of each target positions are listed in \cref{table:target}.
 \end{table}
 
 \section{Magnets}
-There are two dipole magnets used in the SeaQuest spectrometer. The upstream magnet (FMag)
-is a solid iron magnet. The magnet consists of a stack of high purity iron, recovered from
+There are two dipole magnets used in the SeaQuest spectrometer, namely the focusing
+magnet (FMag) and analyzing magnet (KMag). The magnetic field of both magnets point
+in the same direction vertically ($\pm y$), which bends the muons horizontally along 
+the $x$ direction. The polarity of the magnets were flipped during Run 3. 
+
+The upstream focusing magnet (FMag) is a solid iron magnet. It measures at \SI{503}{\cm}
+by \SI{302.4}{\cm} tall by \SI{160}{\cm} wide.
+The magnet consists of a stack of high purity iron, recovered from
 the Columbia University Nevis Laboratory Cyclotron, and the aluminium coils from the E866
 SM3 magnet. The coils are excited to \SI{2000}{\ampere} and generate a \SI{1.9}{\tesla}
 magnetic field within the iron block. This corresponds to a transverse momentum kick of
 \SI{3.07}{\GeV}. FMag serves three main purpose: focusing high mass muon pairs, beam
-dump and hadron absorber.
+dump and hadron absorber. As a focusing magnet, FMag would focuses dimuons with high $p_T$
+or high mass into the spectrometer acceptance. This is particularly important as SeaQuest
+aims to probe the partonic structure at high $x$, which would corresponds to high mass.
+Additionally, it would also defocus the low momentum muons, hence reducing the background.
+Due to the high beam intensity, FMag also serves as beam dump. Typically, only $\sim 10\%$
+of the proton beam would interact with target material. The remaining protons would interact
+within FMag. The hadrons produced during this process would also be absorbed by the iron,
+and therefore allowing muons into the spectrometer.
+A \SI{5}{\cm} diameter by \SI{25}{\cm} deep hole is drilled into the upstream
+end of FMag along the beam axis. This is done to move the initial interaction points
+of the beam with the beam dump further away from the targets, allows for better target dump
+separation. This also reduces the radiation within the target cave, which facilitate the
+access to the target for maintenance. 
+The magnetic field distribution is modeled using a magnetostatic modeling program, which is 
+by wrapping a 1-turn coil around the central region of the magnet and measuring the induced
+current. The final calibration of the field strength is determined by the reconstructed 
+mass of the $J/\psi$ resonance.
 
-The downstream magent (KMag) is a \SI{3}{\meter} open aperture magnet. The coils are excited
-to \SI{1600}{\ampere} which produce a magnetic field of \SI{0.4}{\tesla} corresponding to a
-\SI{0.41}{\GeV} transverse momentum kick. The primary purpose for KMag is to determine
-the momentum of the muons.
+The downstream analyzing magent (KMag) is a \SI{3}{\meter} open aperture magnet measures at
+\SI{300}{\cm} long with a \SI{289}{\cm} wide by \SI{203}{\cm} high central air gap. It was
+originally  constructed by E799/KTeV collaboration.
+The coils are excited to \SI{1600}{\ampere} which produce a magnetic field of \SI{0.4}{\tesla} 
+corresponding to a \SI{0.41}{\GeV} transverse momentum kick. The primary purpose for 
+KMag is to determine the momentum of the muons. The magnetic field is measured using a Hall
+probe and is further calibrated using the reconstructed mass of the $J/\psi$ resonance.
 
 \section{Tracking Station}
 The SeaQuest detector system is separated into four tracking stations. Stations \num{1},
@@ -166,13 +191,21 @@ for precise reconstruction. The proportional tubes at station 4 is also used for
 identification.
 
 \subsection{Hodoscope}
+A hodoscope is place on upstream end of each tracking. Each of the planes
+is composed of overlapping panels of scintillators which a PMT at the end. 
+When a charged particle pass through the scintillator, the molecules would be excited and 
+release photons. These photons are then collected at the PMT, which is then read out by the
+by the Time-to-Digital Converter (TDC).
 The primary purpose of the scintillator hodoscopes are to provide fast signal for
-trigger system. The x-planes are placed vertically to measure the bend plane position.
+trigger system. It is also used during reconstruction to reduce the number of chamber hits.
+The x-planes are placed vertically to measure the bend plane position.
 And the y-planes are arranged horizontally to measure the non-bend plane position.
+The scintillator bars in each plane is also splitted in the middle, denoted at Top and Bottom
+for the x-planes, or Left and Right for the y-planes.
 
 Station 1 and 2 each have single x-y planes. Station 3 has a single x plane, and station
 4 has two y planes and one x plane. The scintillator bars used in St 1 and 2 are recycled
-from HERMES experiment\pdfcomment{References}, whereas new Eljen EJ-200 scintillator material
+from HERMES experiment, whereas new Eljen EJ-200 scintillator material
 is used for St 3 and 4. Because of the physical size of the sintillatior bars in St4, the station 4
 hodoscopes have PMTs on both ends of the sintillator bars. Each of the PMT base has a
 ``clip line'' attached at the output to reduce the output pulse from $20-25$\unit{\ns}
@@ -215,6 +248,11 @@ The D1.1, D2 and D3m.1 chambers was recycled from previous Fermilab experiments,
 and E866 (D1.1). The other chambers were designed and constructed for the SeaQuest experiment.
 \pdfmargincomment{why do we have separate top and bottom chamber for D3 }
 Specification of each chamber are listed in \cref{table:chamber}.
+
+The signals from the sense wires are fed to ASDQ (Amplification, Shaper, Discriminator and Charger integrator)
+cards which are used to amplification and discrimination. The signal is then fed to LSB (Level Shifter Board)
+to covert into standard LVDS (low voltage differential signal), which can then be read out by the TDC 
+modules and recorded by the DAQ system.
 
 \begin{table}[h!]
 	\centering
@@ -267,15 +305,23 @@ Two kinds of trigger systems are used in SeaQuest, NIM-based and FPGA-baesd.
 The FPGA trigger system is the main trigger system. It utilizes uses 9 CAEN
 v1495 VME modules, Altera EP1C20F400C6 FPGA (Field Programmable Gate Array)
 modules. The 9 modules are separated into three levels from level 0 to level
-2. Four FPGA modules form the level 0, with one module for each hodoscope
+2, as illustrated in \cref{fig:trigger}. 
+Four FPGA modules form the level 0, with one module for each hodoscope
 ``quadrant'' (upper bend plane, lower bend plane, upper nonbend plane and
 lower nonbend plane). During data taking, level 0 simply pass the input signal
-to level 1. At level 1, four FPGA modules are used to search for four-hit track
+to level 1. The level 0 can also act as a pulser for diagnostic purpose.
+At level 1, four FPGA modules are used to search for four-hit track
 candidates in each quadrant. The level 2 consists of a single module, and form
 a trigger decision based on types of track candidates found at level 1. During
 SeaQuest data taking, the are five output triggers, as listed in \cref{tab:FPGA}.
 During SeaQuest, only x-measuring (bend plane) hodoscopes are used in making
 trigger decisions.
+\begin{figure}
+\centering
+\includegraphics[width=0.5\linewidth]{trigger_schematic}
+\caption{The schematic of the trigger hardware}
+\label{fig:trigger}
+\end{figure}
 \begin{table}[h!]
 	\centering
 	\caption{The five output trigger of the Level 2 trigger module.}
@@ -290,7 +336,7 @@ trigger decisions.
 	\end{tabular}
 \end{table}
 
-The NIM trigger utilizes Nuclear Instrumentation Modules to form the trigger
+The NIM trigger utilizes Nuclear Instrumentation Modules (NIM) to form the trigger
 logic. During data taking, two types of NIM trigger are used, known as NIM-1
 and NIM-3. The NIM-1 trigger is a coincidence of the y-measuring hodoscope hits
 from all 4 stations. This trigger is mainly used for studying the efficiency
@@ -305,7 +351,20 @@ of the reconstruction. This will be discussed further in \cref{M-sec:MC}.
 \pdfmargincomment{the charge is determined from the px kick}
 
 \subsection{Data Acquisition System}
+The data acquisition for SeaQuest is divided into three separate subsystem, namely
+the ``Event DAQ'', ``Scaler DAQ'' and ``Beam DAQ''.
 
+
+\subsubsection{Event DAQ}
+The Event DAQ records the event-by-event hit information and the trigger timing.
+It use the VME-based ``CODA'' \cite{CODA} system developed by Thomas Jefferson National Accelerator
+Facility.
+
+
+Between Run 5 and Run 6, a upgrade was preformed to the Event DAQ \cite{Kun-1724}. 
+Taking advantage of the beam structure, the beam is only on for \SI{4}{\s} every minute,
+the hit information can be buffered locally on each TDC during the \SI{4}{\s} beam on,
+and only send to the DAQ host during the beam off. 
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
 \end{document}

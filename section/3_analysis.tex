@@ -80,7 +80,8 @@ probability to be used, where as only a small fraction of lower occupancy NIM-3 
 One of the changes made to the Monte Carlo generator during this study
 is the maximum transverse momentum of the virtual photon.
 
-The maximum $P_T$ carried by the virtual photon is given by
+From the conservation of energy, one can deduce the  maximum $P_T$ carried by the virtual photon
+and is given by
 \begin{equation}
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2 - P_L^2,
 \end{equation}
@@ -400,12 +401,13 @@ dimuon data, normalized by the beam intensity. The ratio is calculated as a func
 instantaneous beam intensity measured by the BIM. The ratio is then fitted with the following function
 \begin{equation}
 	R_i \left(I\right) = p_{0i} + p_1 I + p_2 I^2,
+	\label{eq:common_pol2}
 \end{equation}
 where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p_{0i}$ give
 the value of the cross section ratio in each $x_T$ bins. Other fit functions are also used
 to studied the fit function dependence. 
 
-\pdfcomment{intensity distribution plots, }
+\pdfcomment{intensity distribution plots, integrated over kinematics}
 
 While this method allows for extractions of the Drell-Yan cross section ratio without relying 
 heavily on simulation, this method cannot be used in the charmonium studies.
@@ -474,7 +476,51 @@ In the case of weighted MC, \cref{eq:TF_f} is modified into
 \end{equation}
 where $w_{ji}$ is the average weight of the MC events in bin $i$ from the source $j$.
 
+\subsection{Tracking Efficiency}
+The tracking efficiency is obtained but studying the messy and clean Monte Carlo.
+As the detector occupancy increases, the is a higher probability for kTracker to 
+remove the wrong hit during the EventReducer stage. Therefore, events with higher occupancy
+would failed to be reconstructed at a higher rate than low occupancy events. Since the occupancy
+is correlated between different tracking stations, we parameterize the tracking efficiency 
+as a function of one of chambers. In early studies, it is typically parameterized using St.~1
+occupancy (D1), however, I chose to use the St.~2 occupancy (D2) in this study. This
+is due to the addition of the new chamber at St.~1 in later runs, and using D2 ensures the 
+extract efficiency can be compared between datasets. The occupancy is defined as the number of
+in-time hits in the chamber.
 
+The ratio of reconstructed events of messy over clean MC is plotted in \cref{fig:tracking efficiency}.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\linewidth]{placeholder}
+\caption{The reconstruction efficiency plotted as a function of station 2 occupancy, calculated using
+	Run 5 \ce{LD_2} Drell-Yan MCs.
+	The efficiency is calculated by taking the ratio of messy MC events over clean MC events in each
+	occupancy bin. Standard cuts were applied to both numerator and denominator 
+	(except the occupancy cut on clean MC).
+}
+\label{fig:tracking efficiency}
+\end{figure}
+\pdfcomment{fit to messy/clean}
+
+This tracking efficiency can also depends on the dimuon kinematics. This can be caused
+by the noise hits are more localized in some area of the detector, which can mapped to
+different kinematic phase space. To study this effect, we repeat the study with different
+Monte Carlo, and the extract efficiency is shown in 
+\pdfcomment{table of efficiency for different target, process and runs}
+
+Once the tracking efficiency obtained from the Monte Carlo, the efficiency correction ($\epsilon_{recon.Eff}$)
+is calculated, which is defined as the average of the inverse of tracking efficiency in each
+kinematic bin. This correction is calculated separately for each target, as a denser target 
+will produce more hits in the detector.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\linewidth]{placeholder}
+\caption{The D2 occupancy profile for \ce{LH_2} and \ce{LD_2} for run 5-6 after event selection. Both histogram are normalized to unit area.
+}
+\label{fig:target_D2}
+\end{figure}
+\pdfcomment{fig:target D2}
 
 \section{Absolute \texorpdfstring{$J/\psi$}{J/psi} Cross Section Extraction}
 \subsection{Target Contamination}
@@ -642,11 +688,6 @@ Since our histogram are weighted histogram, the uncertainty is calculated using 
 \subsection{\texorpdfstring{$P_T$}{P\_T} distribution}
 
 
-\subsection{Tracking Efficiency}
-The tracking efficiency is obtained but studying the messy and clean Monte Carlo.
-As the detector occupancy increases, the is a higher probability for kTracker to 
-remove the wrong hit during the EventReducer stage. Therefore, events with higher occupancy
-would failed to be reconstructed at a higher rate than low occupancy events.
 
 \section{Systematic uncertainties}
 For the Drell-Yan cross section ratios studies, the intensity extrapolation method and mass fit
@@ -670,6 +711,14 @@ subtraction.
 
 \paragraph{Choice of fit function}
 This is specific to the cross section ratio studies using intensity extrapolation method.
+To estimate the effect of the choice of fit function, different fit functions were examined.
+For example, we can allow the $p_1$ and $p_2$ parameters in \cref{eq:common_pol2} to have kinematic
+dependence
+\begin{equation}
+	R_i \left(I\right) = p_{0i} + \left[p_{10}+p_{11}x_i\right] I + \left[p_{20}+p_{21}x_i\right] I^2,
+\end{equation}
+where $x_i$ is the kinematic average in each bin. The difference between the fit functions are used 
+as the systematic uncertainty.
 
 \paragraph{Mixed background}
 This is specific to studies using mass fit method.
@@ -724,6 +773,9 @@ PDF members $S^k$, the central value and the uncertainty is given by the mean an
 		\sigma_F&= \sqrt{\frac{1}{N_{\mathrm{rep}}-1}\sum_{i=1}^{N_{\mathrm{rep}}}\left[F\left(S^k\right)-F_0\right]^2}
 	\end{split}
 \end{equation}
+
+It should also be noted that CT18 reports the \SI{90}{\percent} confidence level by default, whereas NNPDF4.0
+would report the \SI{68}{\percent} confidence level.
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
 \end{document}
