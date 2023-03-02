@@ -146,8 +146,8 @@ of each target positions are listed in \cref{table:target}.
 \section{Magnets}
 There are two dipole magnets used in the SeaQuest spectrometer, namely the focusing
 magnet (FMag) and analyzing magnet (KMag). The magnetic field of both magnets point
-in the same direction vertically ($\pm y$), which bends the muons horizontally along 
-the $x$ direction. The polarity of the magnets were flipped during Run 3. 
+in the same direction vertically ($\pm y$), which bend the muons horizontally along
+the $x$ direction. The polarity of the magnets were flipped during Run 3.
 
 The upstream focusing magnet (FMag) is a solid iron magnet. It measures at \SI{503}{\cm}
 by \SI{302.4}{\cm} tall by \SI{160}{\cm} wide.
@@ -168,17 +168,17 @@ A \SI{5}{\cm} diameter by \SI{25}{\cm} deep hole is drilled into the upstream
 end of FMag along the beam axis. This is done to move the initial interaction points
 of the beam with the beam dump further away from the targets, allows for better target dump
 separation. This also reduces the radiation within the target cave, which facilitate the
-access to the target for maintenance. 
-The magnetic field distribution is modeled using a magnetostatic modeling program, which is 
-by wrapping a 1-turn coil around the central region of the magnet and measuring the induced
-current. The final calibration of the field strength is determined by the reconstructed 
+access to the target for maintenance.
+The magnetic field distribution is modeled using a magnetostatic modeling program. The
+excitation measured by wrapping a 1-turn coil around the central region of the magnet and measuring the induced
+current. The final calibration of the field strength is determined by the reconstructed
 mass of the $J/\psi$ resonance.
 
 The downstream analyzing magent (KMag) is a \SI{3}{\meter} open aperture magnet measures at
 \SI{300}{\cm} long with a \SI{289}{\cm} wide by \SI{203}{\cm} high central air gap. It was
 originally  constructed by E799/KTeV collaboration.
-The coils are excited to \SI{1600}{\ampere} which produce a magnetic field of \SI{0.4}{\tesla} 
-corresponding to a \SI{0.41}{\GeV} transverse momentum kick. The primary purpose for 
+The coils are excited to \SI{1600}{\ampere} which produce a magnetic field of \SI{0.4}{\tesla}
+corresponding to a \SI{0.41}{\GeV} transverse momentum kick. The primary purpose for
 KMag is to determine the momentum of the muons. The magnetic field is measured using a Hall
 probe and is further calibrated using the reconstructed mass of the $J/\psi$ resonance.
 
@@ -192,8 +192,8 @@ identification.
 
 \subsection{Hodoscope}
 A hodoscope is place on upstream end of each tracking. Each of the planes
-is composed of overlapping panels of scintillators which a PMT at the end. 
-When a charged particle pass through the scintillator, the molecules would be excited and 
+is composed of overlapping panels of scintillators which a PMT at the end.
+When a charged particle pass through the scintillator, the molecules would be excited and
 release photons. These photons are then collected at the PMT, which is then read out by the
 by the Time-to-Digital Converter (TDC).
 The primary purpose of the scintillator hodoscopes are to provide fast signal for
@@ -251,7 +251,7 @@ Specification of each chamber are listed in \cref{table:chamber}.
 
 The signals from the sense wires are fed to ASDQ (Amplification, Shaper, Discriminator and Charger integrator)
 cards which are used to amplification and discrimination. The signal is then fed to LSB (Level Shifter Board)
-to covert into standard LVDS (low voltage differential signal), which can then be read out by the TDC 
+to covert into standard LVDS (low voltage differential signal), which can then be read out by the TDC
 modules and recorded by the DAQ system.
 
 \begin{table}[h!]
@@ -305,7 +305,7 @@ Two kinds of trigger systems are used in SeaQuest, NIM-based and FPGA-baesd.
 The FPGA trigger system is the main trigger system. It utilizes uses 9 CAEN
 v1495 VME modules, Altera EP1C20F400C6 FPGA (Field Programmable Gate Array)
 modules. The 9 modules are separated into three levels from level 0 to level
-2, as illustrated in \cref{fig:trigger}. 
+2, as illustrated in \cref{fig:trigger}.
 Four FPGA modules form the level 0, with one module for each hodoscope
 ``quadrant'' (upper bend plane, lower bend plane, upper nonbend plane and
 lower nonbend plane). During data taking, level 0 simply pass the input signal
@@ -317,10 +317,10 @@ SeaQuest data taking, the are five output triggers, as listed in \cref{tab:FPGA}
 During SeaQuest, only x-measuring (bend plane) hodoscopes are used in making
 trigger decisions.
 \begin{figure}
-\centering
-\includegraphics[width=0.5\linewidth]{trigger_schematic}
-\caption{The schematic of the trigger hardware}
-\label{fig:trigger}
+	\centering
+	\includegraphics[width=0.5\linewidth]{trigger_schematic}
+	\caption{The schematic of the trigger hardware}
+	\label{fig:trigger}
 \end{figure}
 \begin{table}[h!]
 	\centering
@@ -350,21 +350,95 @@ are also used in the Monte Carlo simulation to understand the rate dependence
 of the reconstruction. This will be discussed further in \cref{M-sec:MC}.
 \pdfmargincomment{the charge is determined from the px kick}
 
-\subsection{Data Acquisition System}
+\section{Data Acquisition, Decoding and Storage}
 The data acquisition for SeaQuest is divided into three separate subsystem, namely
-the ``Event DAQ'', ``Scaler DAQ'' and ``Beam DAQ''.
-
+the ``Event DAQ'', ``Scaler DAQ'' and ``Beam DAQ''. The slow control system
 
 \subsubsection{Event DAQ}
 The Event DAQ records the event-by-event hit information and the trigger timing.
 It use the VME-based ``CODA'' \cite{CODA} system developed by Thomas Jefferson National Accelerator
-Facility.
+Facility. This system uses 14 VME crates and can read out different detectors in parallel.
+Each VME crate contains a board processor, a trigger interface and a number TDCs
+to be readout. Each TDC will read out the hit information in each
+There is also a trigger supervisor crate.
 
+The trigger supervisor receive the trigger single from the trigger matrix and NIM triggers. The trigger supervisor
+can receive up to 12 different input triggers. The first 5 bits are used by the FPGA triggers
+and the next 3 bits are used by the NIM trigger (NIM-1 to NIM-3). The last 3 bits
+are used by BOS (Beginning of Spill), EOS (End of Spill) and flush events.
+The trigger supervisor can also prescale the first 8 triggers, such that the high rate triggers can be suppressed.
 
-Between Run 5 and Run 6, a upgrade was preformed to the Event DAQ \cite{Kun-1724}. 
+When the trigger supervisor receive a trigger, it generate a common stop signal, which is fan out
+to the trigger interface in each VME crate. The trigger interface then instruct the processor to readout the TDC
+and send the hit information back to the DAQ host over gigabit Ethernet. The trigger interface then
+reports back the the trigger supervisor once the crate has completed the readout. The trigger supervisor can process
+a new trigger after all trigger interface has reported back. The trigger supervisor would also send a trigger to QIE,
+which allows it to record beam intensity of the 16 RF buckets before and after the trigger.
+
+The deadtime of this system is approximately \SI{150}{\micro\second}. This is primary
+dominated by the time required to readout all the TDC in a single crate. Even though
+each detector channels is readout in parallel, the TDCs are readout in sequentially
+and each hit would take \SI{\sim 4}{\micro\second} to readout. Therefore, high occupancy
+events would cause a longer deadtime.
+
+Between Run 5 and Run 6, an upgrade was preformed to the Event DAQ \cite{Kun-1724}.
 Taking advantage of the beam structure, the beam is only on for \SI{4}{\s} every minute,
-the hit information can be buffered locally on each TDC during the \SI{4}{\s} beam on,
-and only send to the DAQ host during the beam off. 
+the hit information can be buffered in the VME during beam-on and only sent to the Event
+DAQ host during beam-off. When a hit occurred on a detector,
+the timing information is stored on a ring buffer.
+When a trigger signal is received by the trigger supervisor,
+a common-stop signal is issued to all TDC. The TDCs will then store the hit information
+to an event buffer. Once the spill is over, the readout controller will read the event
+buffers on all the TDCs and send the hit information back to the DAQ host.
+This design reduces the deadtime from $150 -200\unit{\micro\second}$ per event to a fixed $28\unit{\micro\second}$.
+
+\subsection{Scaler DAQ}
+The Scaler DAQ operates independently of the Event DAQ.
+It is alive regardless of the status of the Event DAQ.
+It is designed to monitor the spectrometer and trigger,
+providing fast diagnostic data while the experiment is running. Like the Event DAQ,
+it utilizes the ``CODA'' system. It consist of a single VME crate with four scaler
+cards. The Scaler DAQ is triggered by the a \SI{7.5}{\kilo\hertz} clock and the beam
+spill signal.
+
+\subsection{Beam DAQ}
+The Beam DAQ aims to provide the instantaneous beam intensity with a Cerenkov counter.
+The signal from the Cerenkov counter is sent to a Fermilab-designed QIE module.
+This custom module is synced to Main Injector RF clock and it reads out the Cerenkov
+counter every 18.8 ns clock cycle. The Beam DAQ host then reads out this custom module
+after each spill to provide the integrated beam intensity for the entire spill.
+The Beam DAQ is also linked with the Event DAQ so it can calculate the integrated spill
+during trigger dead time and the 16 buckets before and after the trigger.
+The Beam DAQ will monitor the instantaneous beam intensity and inhibit the trigger if the
+intensity is above a certain threshold. The Beam DAQ will record the integrated intensity
+while inhibit is asserted at trigger logic.
+
+
+\subsection{Slow Control}
+Slow Controls refer to several script, which utilizing the standard Experimental Physics and Industrial Control
+System (EPICS)\cite{dalesio1994}, to synchronize the different DAQ data stream, monitor the various system.
+and to record process variables at a timescale of a spill or longer.
+
+Each DAQ system writes its output to separate files, in order to synchronize the different data streams,
+a script is used to manage a master spill ID and insert the spill ID into the different data streams.
+This allows the decoder to reassemble the data offline. The spill ID is also written to the EPICS server.
+Another slow control program is also connected to the Fermilab accelerator control network (ACNET).
+This allows us to the record the current to the different spectrometer magnets, target position 
+and status of the target cryogenic system. A multi-channel digital meter is also used to record 
+the environmental conditions such as temperature and humidity inside the experimental hall.
+
+\subsection{Decoder and Storage}
+Typically, each run of physical data taking last about an hour. The file size is typically
+several \unit{\giga\byte}. The data files from all the DAQ systems and slow control system
+are stored locally in a disk array located in the SeaQuest control room. The data from DAQ 
+is also backed up on tape storage provided by Fermilab computing sicision.
+
+The Event DAQ and Scaler DAQ write their output in a CODA specific binary format. The Event 
+DAQ file contains the TDC information from each detector of each triggered events. The instantaneous
+beam intensity around the triggering bucket from the BeamDAQ is also attached in the Event DAQ file.
+These raw data files are process by a custom program called ``decoder", which coverts the 
+CODA specific format in a ROOT based format. These information will also be uploaded to a SQL 
+server.
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
 \end{document}
