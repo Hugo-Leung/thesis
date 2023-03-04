@@ -247,7 +247,8 @@ a dimuon.
 
 \pdfcomment{kalment filter}
 
-\subsubsection{Dimuon Kinematic Variables}
+\subsection{Dimuon Kinematic Variables}
+\label{subsec:def_kinematic}
 The dimuon kinematic variable is calculated after vertex finding. The primary output of kTracker
 is the 4 momentum of the two muons as well as the dimuon vertex. The other variables are inferred 
 for these information. While most variables have a consistent definition across literature, the momentum
@@ -282,7 +283,7 @@ Because of our choice of definitions, the mass of the dimuon is not related to t
 \end{equation}
 And $x_F$ is no longer the difference between $x_1$ and $x_2$.
 
-Other definitions of the momentum fractions are listed in \cref{a_ch:kinematic}. These different definitions 
+Other definitions of the momentum fractions are listed in \cref{M-a_ch:kinematic}. These different definitions 
 are consistent when the transverse momentum is zero. Neglecting the small intrinsic momentum of the partons,
 most of the transverse momentum of the virtual photon originates from higher order QCD effect, such as gluon
 emission by the quarks. Therefore, a virtual photon with large transverse momentum would originate
@@ -439,7 +440,7 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 \footnotetext[1]{modified from Ref.~\cite{chuck-2111}}
 \footnotetext[2]{The 0.99 scaling factor is applied to MC}
 \footnotetext[3]{Not applied to MC or Mix background}
-\clearpage
+\FloatBarrier 
 \section{Beam Luminosity Normalization}\pdfmargincomment{might move this section to spectrometer}
 \label{sec:beam_norm}
 At SeaQuest, there are three beam luminosity related quantities.
@@ -668,6 +669,10 @@ will produce more hits in the detector. This is shown in \cref{fig:target_D2}.
 
 
 \section{Absolute \texorpdfstring{$J/\psi$}{J/psi} Cross Section Extraction}
+The charmonium yield is extracted from the data using the mass fit methods. 
+Separate mass fits are done independently for each kinematic bins. After obtaining 
+the yield, various is correction is needed, including the tracking efficiency, target
+contamination correction and acceptance correction.
 \subsection{Target Contamination}
 For a pure target, the cross section can be obtained from the yield using the following
 \begin{equation}
@@ -820,20 +825,63 @@ and is defined as follows
 	\epsilon_{acc.}\left(\Omega\right)=\mathrm{Acceptance}\left(\Omega\right)= \frac{N_{accept}\left(\Omega\right)}{N_{thrown}\left(\Omega\right)},
 \end{equation}
 where $N_{accept}\left(\Omega\right)$ is the number of accepted events in a given kinematic bin $\Omega$
-by analyzing the clean Monte Carlo after passing the analysis procedure as the data, while $N_{thrown}$ is
-the total number of generated Monte Carlo events in the same kinematic bin.
+by analyzing the clean Monte Carlo and passing the analysis procedure, with the same dimuon selection
+as the data, while $N_{thrown}$ is the total number of generated Monte Carlo events in the same kinematic bin. 
+The clean Monte Carlo is used in the acceptance calculation with the explicit intent to separate out the
+rate dependence effect.
 
 The accepted histogram in the numerator is filled using the reconstructed kinematic, whereas
-the thrown histogram in the denominator is filled using the thrown kinematic.
+the thrown histogram in the denominator is filled using the thrown kinematic. This is done to include
+the first order effect of bin migration.
 
 Since our histogram are weighted histogram, the uncertainty is calculated using the following
 \pdfcomment{verify the uncertainty calculation here}
 
+The calculated acceptance for $J/\psi$ and $\psi'$ are shown in \cref{fig:jpsi_acceptance,fig:psip_acceptance}.
+The $\psi'$ acceptance is also larger then the $J/\psi$, this is primary due to the 
+trigger matrix are more optimized for the high mass muons. The acceptance is also larger at forward $x_F$,
+as would be expended from a forward spectrometer.
+At the later runs the trigger requirements has been relaxed to allow for more low mass events.
+This is also reflected in the figures.  
+\begin{figure}[h!]
+	\label{fig:jpsi_acceptance}
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{acceptance/jPsi_acceptance_xF}
+		\caption{$x_F$ acceptance}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{acceptance/jPsi_acceptance_pT}
+		\caption{$p_T$ acceptance}
+	\end{subfigure}
+	\caption{Spectrometer acceptance for the $J/\psi$}
+\end{figure}
+\begin{figure}[h!]
+	\label{fig:psip_acceptance}
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{acceptance/psip_acceptance_xF}
+		\caption{$x_F$ acceptance}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{acceptance/psip_acceptance_pT}
+		\caption{$p_T$ acceptance}
+	\end{subfigure}
+	\caption{Spectrometer acceptance for the $\psi'$}
+\end{figure}
 \section{Comparison of data and Monte Carlo}
 
 \subsection{\texorpdfstring{$P_T$}{P\_T} distribution}
+A first order $P_T$ reweighting is performed in this analysis. The acceptance is first 
+calculated using the original Monte Carlo data. While the $P_T$ is known be incorrect,
+the extracted acceptance as a function for $P_T$ should not depend on the input
+distribution.
 
-
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{pT_reweight/LD2_DY_p1}
+	\caption{The extracted $p1$ as a function $x_F$ fitted to a first order polynomial}
+\end{figure}
 
 \section{Systematic uncertainties}
 For the Drell-Yan cross section ratios studies, the intensity extrapolation method and mass fit
@@ -887,13 +935,14 @@ longer an issue.
 
 \section{Drell-Yan NLO calculation}
 The next-to-leading order (NLO) calculation is done using a parton level Monte
-Carlo program written by the INFN group\cite{catani2009,catani2007}. This program
+Carlo program, named DYNNLO, written by the INFN group\cite{catani2009,catani2007}. This program
 is originally written to compute written to compute cross-section for vector boson
 production from $p+p$ and $p+\bar{p}$ collisions. It was later modified, in
 collaboration with W.C.~Chang and S.~Prasad, to perform $p+n$ calculation
 by utilizing isospin symmetry. The $p+d$ interaction can be computed by summing up
 the $p+p$ and $p+n$ calculation, assuming no nuclear corrections. For heavier nuclear
-targets, nuclear PDFs can also be used.
+targets, nuclear PDFs can also be used. It is also modified to calculate $x_F$, $x_1$ and $x_2$
+using the same definition as SeaQuest as discussed in \cref{\label{fig:DY_scale}}.
 
 \pdfmargincomment{Error calculations}
 The PDF sets used in this study are CT18\cite{hou2021} and NNPDF4.0\cite{ball2021}.
@@ -924,6 +973,30 @@ PDF members $S^k$, the central value and the uncertainty is given by the mean an
 
 It should also be noted that CT18 reports the \SI{90}{\percent} confidence level by default, whereas NNPDF4.0
 would report the \SI{68}{\percent} confidence level.
+
+\pdfcomment{the scale dependence}
+The DYNNLO calculation requires two energy scales, the factorization and renormalization scales,
+as introduced in \cref {M-subsec:scaling_violation}. Sine the DYNNLO code was designed to perform
+calculation at LHC, the original chosen scale is the W boson mass (\SI{80.385}{\GeV}). 
+The SeaQuest data covers the mass of \SI{4.5}{\GeV} to \SI{8.8}{\GeV} for the Drell-Yan
+process. The original chosen scale is certainly too high for fixed target experiments. 
+It is recommended by the author to pick a scale of the order of the dimuon mass. 
+Instead of using a fixed scale, we chose to turn on dynamic scale,
+where both factorization and renormalization scales would be dynamically set to the dimuon mass at
+each iteration.  The difference between using a fixed scale and dynamic scales is shown in \cref{fig:DY_scale}.
+The overall difference is small, as the chosen fixed scale is within the dimuon mass range of interest.
+The effect is more significant when the difference between the chosen fixed scale and the dimuon mass
+becomes larger.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{scale/dy_cs0_d.pdf}
+	\caption{The calculated Drell-Yan cross section using a fixed scale compared with using dynamic scales.
+	}
+	\label{fig:DY_scale}
+\end{figure}
+
+
+
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
 \end{document}
