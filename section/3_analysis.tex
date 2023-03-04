@@ -142,11 +142,6 @@ While we could modify the input $P_T$ distribution in the Monte Carlo event gene
 it is decided to utilize this re-weighting procedure as this would allow for
 more iterations of refinement with less computation overhead.
 
-\section{Background Simulation}
-To obtain the profile of the accidental background, the MATRIX 4 events are used.
-
-
-
 \section{Event Reconstruction}
 The SeaQuest reconstruction is done using kTracker, primarily developed by Kun Liu \cite{kTracker}.
 One of my responsibility is the reconstruction of the run 5 and run 6 data. To reduced the processing
@@ -245,6 +240,59 @@ For Matrix-1 events, all possible combinations of $\mu^+$ and $\mu^-$ are tested
 a dimuon.
 
 \pdfcomment{kalment filter}
+
+\section{Background Simulation}
+\label{sec:mixing}
+To obtain the profile of the accidental background, the MATRIX 4 events are used.
+MATRIX 4 triggers when there is a single track. 
+
+The accidental background template is created by combining a $\mu^+$ track with
+another $\mu^-$ track from a different event. This method is first proposed by 
+J.~Dove \cite{dove2020}. 
+
+The MATRIX 4 events are first process by the same track finding procedure as with 
+the MATRIX 1 dimuon data. 
+
+To reproduce the MATRIX 1 triggers, the MATRIX 4 tracks are then separated in bins
+based on the charge and top/bottom halves of the spectrometer. Since the MATRIX 1
+requires the two opposite tracks to be on different halves on the spectrometer,
+a positive tracks in the top half would only mixed with a negative tracks in the 
+bottom half of the spectrometer, and vice versa. The MATRIX 4 data is also separated
+based on the target position. During the mixing procedure, only the tracks from same
+target would be analysis together.
+The data can also optionally binned in the occupancy to study the intensity dependence
+of the accidental background. 
+
+In order to preserve any change in performance in the spectrometer over time, all the
+MATRIX 4 tracks in each bin is then sorted in time. Tracks are then mixed in chronological order.
+While MATRIX 4 triggers if the trigger system identify only a single tracks, it is also
+possible for the reconstruction software to find multiple tracks in the same MATRIX 4 event.
+In order to prevent tracks from the same events are mixed, a sliding number $d$ can also be introduced.
+With this option enabled, the $i$-th positive track would be mixed with the $i+d$-th negative track.
+Typically, a sliding number of one is chosen.
+
+
+Once the two tracks are selected, the mixed event are ready for vertex finding. As with the 
+real data, the dimuon kinematics variables are calculated. The same dimuon selection will
+also be applied and can be compared with the real data. Sine the probability of observing a
+single track event is much higher than a two track event, the MATRIX 4 trigger is typically
+heavily prescaled to preserve DAQ bandwidth. Typically, a prescale of \num{30000} is used during
+normal data taking run, meaning only \num{1} in \num{30000} single track event is record.
+A minor beneficent is that this method also ensure the result is reproducible.
+Therefore, the amount of available MATRIX 4 data for each target can be limited. The mixed events
+from different target can also be combined to increase statistics. For this study, the \ce{LH_2}
+and \ce{LD_2} mixed events are combined during the mass fitting.
+
+Alternative accidental background generating methods have also been proposed by different group.
+One such method is proposed by K. Liu. In this method, MATRIX 1 events are used. In order to 
+change of the spectrometer performance over time, two tracks from the same 1 hour run are selected 
+randomly. The two tracks are still require to fulfill the opposite charge and top/bottom requirements. 
+The two tracks are also required to have similar occupancy, usually within \SI{10}{\percent}.
+Because of the use of MATRIX 1 data, the mixed sample has larger statistics. Therefore, when
+using MATRIX 1 mixed sample, target specific mixed sample is used.
+
+Both mixing sample is used for the mass fit studies and the difference is quoted as a source systematic
+uncertainty.
 
 \section{Dimuon Selection}
 The event selection that is used in this study is based on the study by C.~Brown
@@ -444,10 +492,15 @@ the beam. It is used for understanding the background originating from interacti
 with the flask wall, beam dump or various upstream instrumentation. The normalization of the
 empty flask contribution is obtained from the ratio of live protons for the liquid target and
 empty flask. The empty flask normalization is then kept fixed during the fitting procedure, while
-other componets are allowed to float.
+other components are allowed to float.
 
 \paragraph{Accidental/Mixed background correction}
+The mixed sample from the MATRIX 4 is typically used. Due to the limited sample size in the raw
+MATRIX 4 data, the statistics of the mixed sample is typically limited. For both \ce{LH_2} and 
+\ce{LD_2} studies, the mixed sample from both \ce{LH_2} and \ce{LD_2} are combined. Then the sample
+template is used for both \ce{LH_2} and \ce{LD_2} analysis. 
 
+Other mixed sample can also be used. This is done to estimate the systematic uncertainty.
 
 
 \subsection{TFractionFitter}
@@ -727,7 +780,9 @@ where $x_i$ is the kinematic average in each bin. The difference between the fit
 as the systematic uncertainty.
 
 \paragraph{Mixed background}
-This is specific to studies using mass fit method.
+This is specific to studies using mass fit method. Different mixing methods have been proposed in SeaQuest.
+The mixed sample from the two methods described in \cref{sec:mixing} are studied. The difference between 
+the two analysis in included in the systematic uncertainty.
 
 \paragraph{Acceptance simulation}
 This is a major systematics in the absolute cross section studies, particularly when using
