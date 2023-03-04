@@ -22,6 +22,7 @@
 \usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{tensor}
 \usepackage{ifdraft}
+\usepackage{appendix}
 
 \ifoptionfinal{
 	\usepackage[disable]{pdfcomment}
@@ -109,9 +110,12 @@
 
 % per Graduate College preference, place the \appendix and the appendices content before the
 % bibliography (here) only if the appendices contain references.
-\backmatter
+%\backmatter
 
 \printbibliography[heading=bibintoc,title={References}]
 
+%\mainmatter
+\appendix
+\subfile{section/appendix}
 
 \end{document}

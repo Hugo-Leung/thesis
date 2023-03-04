@@ -62,7 +62,9 @@ rate dependent effect.
 
 If we are interested in the rate dependent effect, there is an option to embed NIM-3 hits into
 the clean Monte Carlo to create what known as messy Monte Carlo.
-The purpose is to simulate the noise and background hits in the spectrometer.
+The purpose is to simulate the noise and background hits in the spectrometer. By including noise 
+and background hit, we can understand the performance of our reconstruction software at different
+occupancy.
 Since the NIM-3 trigger randomly, the hit distribution in each detector would be identical to
 the background and noise hits caused by the beam. However, as the probability of a dimuon event
 is higher at higher beam intensity, the signal (Matrix 1) events would have a significantly higher
@@ -80,7 +82,7 @@ probability to be used, where as only a small fraction of lower occupancy NIM-3 
 One of the changes made to the Monte Carlo generator during this study
 is the maximum transverse momentum of the virtual photon.
 
-From the conservation of energy, one can deduce the  maximum $P_T$ carried by the virtual photon
+From the conservation of energy, one can deduce the maximum $P_T$ carried by the virtual photon
 and is given by
 \begin{equation}
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2 - P_L^2,
@@ -143,7 +145,7 @@ it is decided to utilize this re-weighting procedure as this would allow for
 more iterations of refinement with less computation overhead.
 
 \section{Event Reconstruction}
-The SeaQuest reconstruction is done using kTracker, primarily developed by Kun Liu \cite{kTracker}.
+The SeaQuest reconstruction is done using kTracker, primarily developed by K.~Liu \cite{kTracker}.
 One of my responsibility is the reconstruction of the run 5 and run 6 data. To reduced the processing
 time, we utilize the Open Science Grid \cite{ruthpordes2007,sfiligoi2009,OSGPool} to run multiple kTracker
 instances and process multiple events in parallel.
@@ -157,6 +159,10 @@ will identify all valid tracks in the events. Finally, kVertex will try all poss
 to identify valid dimuons and reconstruct the dimuon kinematics.
 
 \subsection{Spill-level Cuts}
+During the offline decoding process, several data quality cuts are applied.
+These cut are to ensure the data taking conditions were both normal and accurately recorded.
+During analysis, this is typically done by querying the database
+and requiring the data quality equals to zero in the spill table.
 
 \subsection{Pre-tracking Cuts}
 In order to speed up the reconstruction, varies types of chamber hits are removed, as
@@ -218,7 +224,7 @@ The position of the a pair is taken as the average of the two hits, and is used 
 in the $UU'$ planes to search for corresponding pairs. A window is then selected to locate hit pairs
 on the $VV'$ planes. Once the hits are selected, a straight tracklet can be fitted to the hits.
 To be considered valid, there must be at least 4 hits, with at least one hit per view. The trackelts
-should also be pointing at the target (or beam dump), this is done by requiring the x and y slope to be
+should also be pointing towards the target (or beam dump), this is done by requiring the x and y slope to be
 less than $(0.15,0.1)$.
 
 Once all tracklets are constructed separately in St.~2 and St.~3. We try to connect a tracklet
@@ -227,7 +233,7 @@ St.~2 and St.~3, the slope of the tracklets should be similarly. The partial tra
 identify hits in the St.~4 proportional tubes for muon identification. The multiple scattering of
 muons due to the iron wall between St.~3 and St.~4 is also taken into account.
 
-The St.~2 St.~3 partial track is then projected on to St.~1. The magnetic field of KMag is taken into
+The St.~2-St.~3 partial track is then projected on to St.~1. The magnetic field of KMag is taken into
 account during this step. Since the magnetic field strength is fixed, the sagitta ratio of St.~1 to
 St.~2 is approximately a constant and is determined using Monte Carlo simulation. Using this fact,
 the search window on St.~1 is constrained by this ratio.
@@ -241,22 +247,67 @@ a dimuon.
 
 \pdfcomment{kalment filter}
 
+\subsubsection{Dimuon Kinematic Variables}
+The dimuon kinematic variable is calculated after vertex finding. The primary output of kTracker
+is the 4 momentum of the two muons as well as the dimuon vertex. The other variables are inferred 
+for these information. While most variables have a consistent definition across literature, the momentum
+fraction $x_1$, $x_2$ and the Feynman x ($x_F$) require some attentions as there can be multiple definitions.
+
+Feynman x, or $x_F$ is defined as $P_z/P_z^{max}$, the ratio of longitudinal dimuon momentum
+over the maximum allowed value in the hadron-hadron center of mass frame. In high energy
+experiment, $P_z^{max}$ is often given as $\sqrt{s}/2$, since half of the available energy is
+carried by the recoiled system.
+However, as SeaQuest is at a lower energy, the mass of the virtual photon becomes comparable to its momentum.
+A heavier virtual photon would imply less available energy for the longitudinal momentum,
+therefore we defined $x_F$ as 
+\begin{equation}
+	x_F = \frac{P_z}{\sqrt{s}-M^2/\sqrt{s}},
+\end{equation}
+where $M$ is the dimuon mass.
+
+For the momentum fractions $x_1$, $x_2$, the following definition is chosen following Ref.~\cite{Coester-1286},
+we chose to define $x_1$, $x_2$ as follows
+\begin{equation}
+    \begin{split}
+        x_1 &= \frac{P_{\textrm{target}}\cdot P_{\gamma^*}}{P_{\textrm{target}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})},\\
+        x_2 &= \frac{P_{\textrm{beam}}\cdot P_{\gamma^*}}{P_{\textrm{beam}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})},
+    \end{split}
+\end{equation}
+where $P_{\textrm{beam}}$, $P_{\textrm{target}}$ and $P_{\gamma^*}$ are the four momentum of the 
+beam hadron, target hadron and the virtual photon respectively.
+
+Because of our choice of definitions, the mass of the dimuon is not related to the momentum fractions as
+\begin{equation}
+	M^2= sx_1x_2-P_T^2.
+\end{equation}
+And $x_F$ is no longer the difference between $x_1$ and $x_2$.
+
+Other definitions of the momentum fractions are listed in \cref{a_ch:kinematic}. These different definitions 
+are consistent when the transverse momentum is zero. Neglecting the small intrinsic momentum of the partons,
+most of the transverse momentum of the virtual photon originates from higher order QCD effect, such as gluon
+emission by the quarks. Therefore, a virtual photon with large transverse momentum would originate
+from partons with higher energy than the longitudinal dimuon momentum alone would suggest. The different
+definitions differ on how they attribute the transverse momentum to the partons.
+
 \section{Background Simulation}
 \label{sec:mixing}
-To obtain the profile of the accidental background, the MATRIX 4 events are used.
-MATRIX 4 triggers when there is a single track. 
+To obtain the profile of the accidental background, a track mixing method is adopted.
+We believe the accidental background is coming from the decay of multiple pions within 
+the same event. By combining two uncorrelated muon tracks, we can simulate the profile
+of the accidental background.
 
-The accidental background template is created by combining a $\mu^+$ track with
-another $\mu^-$ track from a different event. This method is first proposed by 
+The chosen method in our group is by mixing tracks from MATRIX 4 events. The MATRIX 4 triggers when
+only one muon track is observed in the spectrometer.
+The accidental background template is then created by combining a $\mu^+$ track with
+another $\mu^-$ track from a different event. This method is first studied by 
 J.~Dove \cite{dove2020}. 
 
 The MATRIX 4 events are first process by the same track finding procedure as with 
 the MATRIX 1 dimuon data. 
-
 To reproduce the MATRIX 1 triggers, the MATRIX 4 tracks are then separated in bins
 based on the charge and top/bottom halves of the spectrometer. Since the MATRIX 1
 requires the two opposite tracks to be on different halves on the spectrometer,
-a positive tracks in the top half would only mixed with a negative tracks in the 
+a positive tracks in the top half would only be mixed with a negative tracks in the 
 bottom half of the spectrometer, and vice versa. The MATRIX 4 data is also separated
 based on the target position. During the mixing procedure, only the tracks from same
 target would be analysis together.
@@ -289,7 +340,13 @@ change of the spectrometer performance over time, two tracks from the same 1 hou
 randomly. The two tracks are still require to fulfill the opposite charge and top/bottom requirements. 
 The two tracks are also required to have similar occupancy, usually within \SI{10}{\percent}.
 Because of the use of MATRIX 1 data, the mixed sample has larger statistics. Therefore, when
-using MATRIX 1 mixed sample, target specific mixed sample is used.
+using MATRIX 1 mixed sample, target specific mixed sample is used. One disadvantage to using MATRIX 1
+was potential contamination from physics sources. For example, near the $J/\psi$ peak, the MATRIX 1
+data is heavily dominated by the charmonium decay, therefore it is possible that both tracks in the same
+mixed event from the $J/\psi$ decay. While it is possible to have multiple $J/\psi$ decays or multiple Drell-Yan
+interactions in the same event, the probability is relatively small. It is more likely to have multiple pions.
+On the contrary, the MATRIX 4 trigger fires when there is only one track, and therefore less
+susceptible to the contamination from physics sources.
 
 Both mixing sample is used for the mass fit studies and the difference is quoted as a source systematic
 uncertainty.
@@ -451,7 +508,7 @@ Cuts are also applied to exclude region close to the boundaries of the acceptanc
 Then the background originated from the interaction with the instruments is estimated by using
 the empty flask data normalized by the integrated beam intensity, and is subtracted from the
 $p+p$ and $p+d$ data. Third, the $(p+d)/2(p+p)$ ratios are formed by empty flask subtracted
-dimuon data, normalized by the beam intensity. The ratio is calculated as a function of the
+dimuon data, normalized by the raw proton ratios. The ratio is calculated as a function of the
 instantaneous beam intensity measured by the BIM. The ratio is then fitted with the following function
 \begin{equation}
 	R_i \left(I\right) = p_{0i} + p_1 I + p_2 I^2,
@@ -462,6 +519,8 @@ the value of the cross section ratio in each $x_T$ bins. Other fit functions are
 to studied the fit function dependence.
 
 \pdfcomment{intensity distribution plots, integrated over kinematics}
+
+\pdfcomment{explain choice of raw proton}
 
 While this method allows for extractions of the Drell-Yan cross section ratio without relying
 heavily on simulation, this method cannot be used in the charmonium studies.
@@ -484,7 +543,8 @@ the relative contribution from each sources.
 
 \paragraph{Physics sources}
 The templates for $J/\psi$, $\psi'$ and Drell-Yan are obtained by analyzing the messy Monte Carlo
-simulation (as described in \cref{subsec:messyMC}).
+simulation (as described in \cref{subsec:messyMC}). The same analysis cuts are applied to both data
+and messy Monte Carlo. 
 
 \paragraph{Empty flask subtraction}
 The empty flask data is taken by placing just the flask (filled with vacuum) in the path of
@@ -492,16 +552,42 @@ the beam. It is used for understanding the background originating from interacti
 with the flask wall, beam dump or various upstream instrumentation. The normalization of the
 empty flask contribution is obtained from the ratio of live protons for the liquid target and
 empty flask. The empty flask normalization is then kept fixed during the fitting procedure, while
-other components are allowed to float.
+other components are allowed to float. The live proton is chosen for the normalization here, in the 
+mass distribution is obtained by integrating over intensity, and rate dependence effect will need
+to be corrected later.
 
 \paragraph{Accidental/Mixed background correction}
 The mixed sample from the MATRIX 4 is typically used. Due to the limited sample size in the raw
 MATRIX 4 data, the statistics of the mixed sample is typically limited. For both \ce{LH_2} and 
 \ce{LD_2} studies, the mixed sample from both \ce{LH_2} and \ce{LD_2} are combined. Then the sample
 template is used for both \ce{LH_2} and \ce{LD_2} analysis. 
-
 Other mixed sample can also be used. This is done to estimate the systematic uncertainty.
 
+The normalization for different components (except for empty flask, which is fixed by relative live proton ratio)
+can then be obtained by fitting to the mass distribution. Once the normalization is obtained, the yield can be 
+obtained. To minimize the impact of the Monte Carlo input to the extracted Drell-Yan yield, the Drell-Yan Monte 
+Carlo in only used during the fitting procedure. And the Drell-Yan yield is defined as follows
+\begin{equation}
+	Y_{DY}= N_{\textrm{data}}-S_{J/\psi} N_{J/\psi}-S_{\psi'} N_{\psi'}-S_{mix bkg.} N_{mix bkg.} - S_{\textrm{flask}} N_{\textrm{flask}},
+\end{equation}
+where the $S$ is the scale factor obtained from the fitting procedure for each component. The scaling 
+factor for empty flask $S_{\textrm{flask}}$ is the ratio of live proton between the target of interest
+and the empty flask. In the case of Monte Carlo, $N=\sum\textrm{weight}$  is the weighted integral of the
+simulated distribution. And $N_{mix bkg.}$ and $N_{\textrm{flask}}$ are the number of events in the mixed 
+sample and empty flask data.
+
+For the charmonium studies, we can utilized the fact that they are resonances and show up as distinct peaks
+in the mass spectrum. A separate mass fit can be performed for each kinematic bin. Since each bin is analyzed
+separately, the input Monte Carlo would have little effect on the extract yield. Therefore the yield is simply
+\begin{equation}
+	Y_{J/\psi}= S_{J/\psi} N_{J/\psi}.
+\end{equation}
+One downside of such approach is that the kinematic bin would need to be sufficiently wide to ensure enough
+data across a wide range of mass for the fitting to be stable.
+
+Unlike the intensity extrapolation method, the extracted yield is integrated over intensity. Therefore, the
+normalization is done with live proton, which exclude the proton on target during deadtime. And the tracking
+efficiency also need to be accounted for.
 
 \subsection{TFractionFitter}
 To account for the statistical uncertainties in both the data and Monte Carlo
@@ -538,14 +624,15 @@ where $w_{ji}$ is the average weight of the MC events in bin $i$ from the source
 \subsection{Tracking Efficiency}
 The tracking efficiency is obtained but studying the messy and clean Monte Carlo.
 As the detector occupancy increases, the is a higher probability for kTracker to
-remove the wrong hit during the EventReducer stage. Therefore, events with higher occupancy
-would failed to be reconstructed at a higher rate than low occupancy events. Since the occupancy
+remove a real physics hit during the EventReducer stage. Therefore, the reconstitution of high occupancy
+events would failed at a higher rate than low occupancy events. Since the occupancy
 is correlated between different tracking stations, we parameterize the tracking efficiency
-as a function of one of chambers. In early studies, it is typically parameterized using St.~1
-occupancy (D1), however, I chose to use the St.~2 occupancy (D2) in this study. This
+as a function of one of chambers. The occupancy is defined as the number of
+in-time hits in the chamber. In early studies, the tracking efficiency is
+typically parameterized using St.~1 occupancy (D1). 
+However, I chose to use the St.~2 occupancy (D2) in this study. This
 is due to the addition of the new chamber at St.~1 in later runs, and using D2 ensures the
-extract efficiency can be compared between datasets. The occupancy is defined as the number of
-in-time hits in the chamber.
+extract efficiency can be compared between datasets. 
 
 The ratio of reconstructed events of messy over clean MC is plotted in \cref{fig:tracking efficiency}.
 \begin{figure}[h!]
@@ -559,10 +646,9 @@ The ratio of reconstructed events of messy over clean MC is plotted in \cref{fig
 	}
 	\label{fig:tracking efficiency}
 \end{figure}
-\pdfcomment{fit to messy/clean}
 
 This tracking efficiency can also depends on the dimuon kinematics. This can be caused
-by the noise hits are more localized in some area of the detector, which can mapped to
+by the noise hits being more localized in some area of the detector, which can mapped to
 different kinematic phase space. To study this effect, we repeat the study with different
 Monte Carlo, and the extract efficiency is shown in
 \pdfcomment{table of efficiency for different target, process and runs}
@@ -579,7 +665,7 @@ will produce more hits in the detector. This is shown in \cref{fig:target_D2}.
 	}
 	\label{fig:target_D2}
 \end{figure}
-\pdfcomment{fig:target D2}
+
 
 \section{Absolute \texorpdfstring{$J/\psi$}{J/psi} Cross Section Extraction}
 \subsection{Target Contamination}
@@ -684,15 +770,16 @@ and the effective interaction length is
 	\end{split}
 \end{equation}
 
-Note that in previous studies and publication, including Ref.~\cite{dove2021}, the ratio of the atomic mass
-is missing in \cref{eq:TDH}. This causes a roughly \SI{2}{\percent} difference in the cross section ratio
+Note that in previous studies and publications, including Ref.~\cite{dove2021,dove2023},
+the ratio of the atomic mass is missing in \cref{eq:TDH}.
+This results in a roughly \SI{2}{\percent} difference in the cross section ratio
 that will be discussed later.
 
-Thus the deuterium cross section is
+Including the contamination correction, the deuterium cross section is
 \begin{equation}
 	\sigma_{pd} = \frac{Y_{\ce{LD_2}} A_D}{T_D^D N_A P_D X_{\mathrm{eff.}} \epsilon_D} - \frac{T^D_H}{T_D^D} \frac{A_D}{A_H} \sigma_{pp},
 \end{equation}
-where
+where the hydrogen cross section is
 \begin{equation}
 	\sigma_{pp} = \frac{Y_{\ce{LH_2}} A_H}{T_H^H N_A P_D X_{H} \epsilon_H}.
 \end{equation}
@@ -781,7 +868,7 @@ as the systematic uncertainty.
 
 \paragraph{Mixed background}
 This is specific to studies using mass fit method. Different mixing methods have been proposed in SeaQuest.
-The mixed sample from the two methods described in \cref{sec:mixing} are studied. The difference between 
+The mixed sample from the two methods described in \cref{sec:mixing} are used. The difference between 
 the two analysis in included in the systematic uncertainty.
 
 \paragraph{Acceptance simulation}
@@ -803,13 +890,13 @@ The next-to-leading order (NLO) calculation is done using a parton level Monte
 Carlo program written by the INFN group\cite{catani2009,catani2007}. This program
 is originally written to compute written to compute cross-section for vector boson
 production from $p+p$ and $p+\bar{p}$ collisions. It was later modified, in
-collaboration with Wen-Chen Chang and Shivangi Prasad, to perform $p+n$ calculation
+collaboration with W.C.~Chang and S.~Prasad, to perform $p+n$ calculation
 by utilizing isospin symmetry. The $p+d$ interaction can be computed by summing up
 the $p+p$ and $p+n$ calculation, assuming no nuclear corrections. For heavier nuclear
 targets, nuclear PDFs can also be used.
 
 \pdfmargincomment{Error calculations}
-The PDF sets used in this study are CT18\cite{hou2019} and NNPDF4.0\cite{ball2021}.
+The PDF sets used in this study are CT18\cite{hou2021} and NNPDF4.0\cite{ball2021}.
 And they are accessed through the LHAPDF library\cite{buckley2015}. It should be noted
 that the CT18 PDF set is published before the SeaQuest result, whereas NNPDF4.0
 incorporate the SeaQuest measurements\cite{dove2021} in the global fit.

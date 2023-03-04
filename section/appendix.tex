@@ -1,0 +1,125 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+
+\chapter{Definition of Kinematic Variables}
+\label{a_ch:kinematic}
+In Drell-Yan measurements, one cannot directly measure the momentum fractions
+$x_1$ and $x_2$ carried by the partons, instead, they are inferred by from the
+four momentum of the dimuons. At leading order, the dimuon pair would have little
+transverse momentum. However, at higher order, the gluon emission from the quarks
+can produce large transverse momentum in the final dimuon. Therefore, different 
+definitions had been proposed to account for this effect.
+
+Define the following variables with components given in the hadron-hadron CM frame
+\begin{table}[h!]
+\centering
+\begin{tabular}{ll}
+variables                                                  & meaning                             \\ \hline
+$P_A = \left(   \sqrt{s}/2, \vec{0}, \sqrt{s}/2 \right)$  & four momentum of beam hadron        \\
+$P_B = \left( \sqrt{s}/2, \vec{0},   -\sqrt{s}/2 \right)$ & four momentum of target hadron      \\
+$P_A+P_B=\left(\sqrt{s},\vec{0},0\right)$                 &                                     \\
+$q = \left(q_0, \vec{q_T}, q_z\right)$                    & four momentum of the dimuon         \\
+$Q^2=q\cdot q=q_0^2-q_T^2-q_z^2$                          & dimuon mass                         \\
+$y=\frac{1}{2}\ln \frac{q_0 +   q_z}{q_0-q_z}$            & rapidity of the dimuon              \\
+$m_T^2 = q_0^2 - q_z^2=Q^2+q_T^2$                         & transverse mass of the dimuon      
+\end{tabular}
+\end{table}
+
+Ignoring the transverse momentum of the virtual momentum, we can define the following
+\begin{equation}
+    \begin{split}
+        x_1-x_2=x_F &= \frac{2q_z}{\sqrt{s}},\\
+        x_1x_2 &= \frac{Q^2}{s}.\\
+    \end{split}
+\end{equation}
+Therefore
+\begin{equation}
+    \begin{split}
+        x_1 &= \sqrt{\frac{x_F^2}{4}+Q^2/s}+\frac{x_F}{2} \\
+            &=\frac{1}{\sqrt{s}}\left(\sqrt{q_z^2+Q^2}+q_z \right),\\
+        x_2 &= \sqrt{\frac{x_F^2}{4}+Q^2/s}-\frac{x_F}{2} \\
+            &=\frac{1}{\sqrt{s}}\left(\sqrt{q_z^2+Q^2}-q_z \right).\\
+    \end{split}
+\end{equation}
+This definition has been used in previous fixed target experiments.
+
+
+Instead of the longitudinal momentum of the virtual photon, one can defined
+the momentum fractions using rapidity of the virtual photon, which has the benefit
+of only using frame independent quantities in the definitions.
+\begin{equation}
+    \begin{split}
+        x_1 &= \frac{Q}{\sqrt{s}} e^{+y}\\
+            &= \frac{Q}{\sqrt{s}} \sqrt{ \frac{q_0+q_z}{q_0-q_z} }\\
+            &= \frac{Q}{\sqrt{s}} \frac{q_0+q_z}{\sqrt{q_0^2-q_z^2}}\\
+            &=\frac{Q}{\sqrt{s}m_T}\left(\sqrt{Q^2+q_z^2+q_T^2}+q_z\right),\\
+        x_2 &= \frac{Q}{\sqrt{s}} e^{-y}\\
+            &= \frac{Q}{\sqrt{s}m_T}\left(\sqrt{Q^2+q_z^2+q_T^2}-q_z\right).\\
+    \end{split}
+\end{equation}
+Therefore
+\begin{equation}
+    \begin{split}
+        x_1x_2 &= \frac{Q^2}{s},\\
+        x_1-x_2 &= \frac{2Qq_z}{\sqrt{s}m_T}.
+    \end{split}
+\end{equation}
+
+Instead of the mass of the virtual photon, one can also use the transverse mass.
+\begin{equation}
+    \begin{split}
+        x_1 &= \frac{m_T}{\sqrt{s}} e^{+y}\\
+            &=\frac{1}{\sqrt{s}}\left(\sqrt{Q^2+q_z^2+q_T^2}+q_z\right),\\
+        x_2 &= \frac{m_T}{\sqrt{s}} e^{-y}\\
+            &= \frac{1}{\sqrt{s}}\left(\sqrt{Q^2+q_z^2+q_T^2}-q_z\right).\\
+    \end{split}
+		\label{a_eq:def3}
+\end{equation}
+Therefore
+\begin{equation}
+    \begin{split}
+        x_1x_2 &= \frac{m_T^2}{s} = \frac{Q^2+q_T^2}{s}.\\
+        x_1-x_2 &= \frac{2q_z}{\sqrt{s}}.
+    \end{split}
+\end{equation}
+\clearpage
+
+At SeaQuest, we defined the momentum fraction based on the ratios of two inner product. 
+\begin{equation}
+    \begin{split}
+        x_1 &= \frac{P_B\cdot q}{P_B\cdot (P_A+P_B)}\\
+            &= \frac{\sqrt{s}(q_0+q_z)/2}{s/2}\\
+            &= \frac{q_0+q_z}{\sqrt{s}}\\
+            &= \frac{1}{\sqrt{s}}\left(\sqrt{Q^2+q_z^2+q_T^2}+q_z\right),\\
+        x_2 &= \frac{P_A\cdot q}{P_A\cdot (P_A+P_B)}\\
+            &= \frac{1}{\sqrt{s}}\left(\sqrt{Q^2+q_z^2+q_T^2}-q_z\right).\\
+    \end{split}
+\end{equation}
+This definition is therefore identical to \cref{a_eq:def3}.
+
+Another definition is
+\begin{equation}
+    \begin{split}
+        x_1 &= \frac{Q^2}{2P_A \cdot q}\\
+            &= \frac{Q^2}{\sqrt{s}(q_0-q_z)}\\
+            &= \frac{1}{\sqrt{s}}\frac{q_0^2 -q_z^2 -q_T^2}{q_0-q_z} \\
+            &= \frac{1}{\sqrt{s}} \left(q_0+q_z -\frac{q_T^2}{q_0-q_z}\right)\\
+            &= \frac{1}{\sqrt{s}}\left(\sqrt{Q^2+q_z^2+q_T^2}+q_z -\frac{q_T^2}{q_0-q_z}\right),\\
+        x_2 &= \frac{Q^2}{2P_B \cdot q}\\
+            &= \frac{1}{\sqrt{s}}\left(\sqrt{Q^2+q_z^2+q_T^2}-q_z -\frac{q_T^2}{q_0+q_z}\right).\\
+    \end{split}
+\end{equation}
+Therefore
+\begin{equation}
+    \begin{split}
+        x_1x_2 &= \frac{Q^4}{s m_T^2}, \\
+        x_1-x_2 &= \frac{2q_z}{\sqrt{s}}.
+    \end{split}
+\end{equation}
+
+These different definitions are consistent when the transverse momentum is zero.
+The difference is in how the higher order correction, and therefore the transverse momentum,
+is being handled. 
+
+\end{document}
