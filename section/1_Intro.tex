@@ -20,7 +20,7 @@ the Drell-Yan process and the kinematic variables are summarized in
 \cref{ch:DY}. The charmonium production and gluon distribution are described
 in \cref{ch:jpsi}. The SeaQuest experiment is described in \cref{M-ch:seaquest}.
 \Cref{M-ch:analysis} covers the procedure for data analysis. The measured $J/\psi$
-cross section and the $(p+d)/2(p+p)$ cross section ratio for bot h$J/\psi$ and Drell-Yan process
+cross section and the $(p+d)/2(p+p)$ cross section ratio for both $J/\psi$ and Drell-Yan process
 are presented in \cref{M-ch:result}, followed by a summary and future prospects
 in \cref{M-ch:conclusion}.
 
@@ -49,10 +49,8 @@ frame can be expressed in the Rosenbluth formula \cite{rosenbluth1950}
 	\frac{\theta}{2} + 2\tau G_M^2 \sin^2 \frac{\theta}{2}\right)
 	\label{eq:ep_cs},
 \end{equation}
-where $\tau$ is given by
-\begin{equation}
-	\tau = \frac{Q^2}{4m_p^2}.
-\end{equation}
+where $\tau = \frac{Q^2}{4m_p^2}$.
+
 And $E$, $E^\prime$ are the initial and final energy of the scattered electron.
 The electric ($G_E\left(Q^2\right)$) and magnetic ($G_M\left(Q^2\right)$) form
 factors are functions of the negative squared of four momentum of the virtual photon. At
@@ -120,7 +118,7 @@ known as Bjorken scaling \cite{bjorken1969}.
 \section{Parton Model}
 \label{sec:parton}
 To explain the scaling behavior, Feynman proposed the parton model \cite{feynman1969}.
-In this model, hadrons are treated as extended objects which are made up of
+In this model, hadrons are treated as extended objects which are made up of point like
 constituents (partons) held together by their mutual interaction. We now know
 these partons are quarks and gluons described by QCD, but this was not known at
 the time. Consider the DIS process, the hadron is Lorentz contracted in the
@@ -138,14 +136,14 @@ calculated using perturbative QCD, whereas the non-perturbative long-range
 interaction within the hadron is encapsulated in the Parton Distribution
 Function (PDF) $f_{a/h}\left(x\right)$, which can be interpreted as the probability
 of finding a parton of species $a$ in hadron $h$ with fraction $x$ of the hadron's momentum.
-And the structure functions and the cross section can be written as a convolution
+And the cross section can be written as a convolution
 of the non-perturbative PDF and the perturbative short range interaction. To Leading
 order, the structure function $F_2\left(x,Q^2\right)$ is given by
 \begin{equation}
 	F_2\left(x,Q^2\right)=x\sum_i e^2_i f_i\left(x,Q^2\right),
 	\label{eq:F2_parton}
 \end{equation}
-where $e_i$ is the charge carried quark and antiquark of flavors $i$. Since, the
+where $e_i$ is the charge carried quark and antiquark of flavors $i$. Since the
 gluon does not carry any charge, it does not enter the cross section at leading
 order. The ability to write the structure function and the cross section as a
 convolution of the non-perturbative PDF and pertubative short range interaction
@@ -153,7 +151,7 @@ is known as the factorization theorem \cite{collins1989}. These PDFs are also
 expected to be universal and independent of the details of the scattering
 process, as they describe the dynamics of the partons in a given hadron.
 
-In the parton model, the structure functions $F_{1,2}$ are clearly related. And
+In the parton model, the structure functions $F_2$ and $F_1$ are clearly related. And
 from \cref{eq:DIS_cs1}, the structure function $F_1$ is
 related to the magnetic form factor $G_M$ in \cref{eq:ep_cs}. If the partons
 are spin 0 particles, one would expect $F_1$ to be zero. In leading order of QCD,
@@ -182,14 +180,14 @@ charged partons is 1/2.
 \section{Sum Rules}
 \label{sec:sum_rules}
 Since hadrons are characterized by their quantum numbers, and these quantum numbers
-are carried by the constituent partons, these quantum numbers serve as constrains
-on these PDFs. For example, using the numbers of valance quarks in the protons,
-one can impose the following constrains
+are carried by the constituent partons, these quantum numbers serve as constraints
+on these PDFs. For example, using the numbers of valence quarks in the protons,
+one can impose the following constraints
 \begin{equation}
 	\begin{split}
 		\int_{0}^{1} \dd{x} \left[f_{u/p} \left(x\right)-f_{\bar{u}/p} \left(x\right)\right]&=2,\\
 		\int_{0}^{1} \dd{x} \left[f_{d/p} \left(x\right)-f_{\bar{d}/p} \left(x\right)\right]&=1,\\
-		\int_{0}^{1} \dd{x} \left[f_{i/p} \left(x\right)-f_{\bar{i}/p} \left(x\right)\right]&=0 \qquad \text{for other quark flavors}.
+		\int_{0}^{1} \dd{x} \left[f_{i/p} \left(x\right)-f_{\bar{i}/p} \left(x\right)\right]&=0 \qquad \text{for other quark flavors } i.
 	\end{split}
 \end{equation}
 And the momentum of the hadron should be distributed among the partons, hence
@@ -210,7 +208,7 @@ distribution would be the same in both proton and neutron.
 Using this relation
 \begin{equation}
 	\begin{split}
-		S_G & = \int_0^1 \frac{\dd{x}}{x}\left(F_2^{p} - F_{2}^{n}\right)\\
+		S_G & = \int_0^1 \frac{\dd{x}}{x}\left(F_2^{p}(x) - F_{2}^{n}(x)\right)\\
 		& = \frac{1}{3} \int_0^1 \dd{x} \left[u\left(x\right) - d\left(x\right)
 			+ \bar{u}\left(x\right) - \bar{d}\left(x\right)\right]\\
 		& = \frac{1}{3} \int_0^1 \dd{x} \left[u\left(x\right) - \bar{u}\left(x\right)\right]
@@ -233,7 +231,7 @@ The measured $F_2^p-F_2^n$ by NMC is shown in \cref{fig:NMC_Gottfried}.
 	\label{fig:NMC_Gottfried}
 \end{figure}
 The measured Gottfried sum is $0.240 \pm 0.016$, which is significantly below
-$1/3$, suggesting an asymmetry in the light sea-quarks.
+$1/3$, suggesting an asymmetry in the light sea-quarks, $\bar{d}(x)\neq \bar{u}(x)$.
 
 \section{Quantum Chromodynamics}
 \label{sec:QCD}
@@ -241,9 +239,9 @@ $1/3$, suggesting an asymmetry in the light sea-quarks.
 Quantum Chromodynamics (QCD) is a theory of the strong interactions. It was
 introduced by Fritzsch and Gell-Mann \cite{fritzsch1972} and Fritzsch, Gell-Mann,
 and Leutwyler \cite{fritzsch1973}. QCD is a non-abelian gauge theory with an
-$SU(3)$ gauge symmetry applied to he color degree of freedom. The $SU(3)$ group
-chosen be to account for (a) meson states made up of $q\bar{q}$ but not $qq$ bound states.
-(b) There must color singlet states. (c) The number of colors for each flavor of
+$SU(3)$ gauge symmetry applied to the color degree of freedom. The $SU(3)$ group
+chosen to account for (a) meson states made up of $q\bar{q}$ but not $qq$ bound states.
+(b) There must color singlet states. (c) The number of colors for each flavor
 must be in agreement with the measured hadronic $e^+ e^-$ cross-section.
 
 
@@ -251,8 +249,8 @@ An important feature of QCD is the asymptotic freedom. Being a renormalizable
 theory, a regularization procedure and a set of renormalization prescription
 need to be specified. In the renormalization process, the renomalized coupling $\alpha$
 is introduced and this coupling would be a function of the renomalization scale $\mu$.
-It is noted that the coupling constant vanishes as $Q/\mu$ tends to infinity.
-Allowing perturbative expansion of QCD at large $Q$.
+It is noted that the coupling constant vanishes as $Q/\mu$ tends to infinity,
+allowing perturbative expansion of QCD at large $Q$.
 
 
 \subsection{QCD Improved Parton Model and Scaling Violation}
@@ -273,7 +271,7 @@ along the path. Similarly, the gluon distribution function is given by
 \begin{equation}
 	f_{g/h}\left(\xi\right) = \frac{1}{2\pi\xi P^+}\int \dd{x} e^{-i\xi P^{+} x^{-}} \mel{P}{\tensor{F_a\left(0,x^-,0_\perp\right)}{^+^\nu}\gamma^{+} \tensor{\mathcal{G}}{_a_b} \tensor{F_b\left(0,0,0_\perp\right)}{_\nu^+}}{P},
 \end{equation}
-where $F^a_{\mu\nu}$ is the field operator and the octet representation of the $SU(3)$
+where $F^a_{\mu\nu}$ is the field operator, and the octet representation of the $SU(3)$
 generating matrices $t_c$ is used in $\mathcal{G}$.
 
 \pdfmargincomment{QCD correction to parton model: Q2 dependence introduce by the
@@ -357,7 +355,7 @@ The Drell-Yan process is related to the DIS process via crossing symmetry.
 	\label{fig:DY}
 \end{figure}
 Similar to DIS, the Drell-Yan cross section can be factorized into the non-perturbative
-PDF and the purtabative parton-parton scattering. And the proof of factorization
+PDF and the perturbative parton-parton scattering. And the proof of factorization
 theorem for Drell-Yan can be found in Ref.~\cite{collins1989}. At leading-order,
 the cross section can be written as
 \begin{equation}
@@ -368,16 +366,17 @@ the cross section can be written as
 	\label{eq:DY_cs}
 \end{equation}
 where $M$ is the mass of the lepton pair, $x_1$ and $x_2$ are the momentum fraction
-of carried by the partons from the two colliding hadrons. To simplify the notation,
+carried by the partons from the two colliding hadrons. To simplify the notation,
 the scale dependence $Q^2$ is omitted here. 
 The mass of the lepton pair and momentum fractions can be related through the following
 \begin{equation}
-	M^2= sx_1x_2
+	M^2= sx_1x_2,
 	\label{eq:mass}
 \end{equation}
+where $s$ is the center mass energy squared.
 Since the underlying mechanism for the Drell-Yan process at leading order involves the annihilation
 of a quark and antiquark, this process is particularly useful in probing the antiquark
-content of the hadron.
+content of the hadron. 
 
 \begin{figure}[htbp!]
 	\centering
@@ -408,22 +407,22 @@ content of the hadron.
 		at NLO.}
 	\label{fig:NLO_DY}
 \end{figure}
-At NLO ($\mathcal{O}\left(\alpha_s\right)$), diagram such as gluon breamstrahlung
+At NLO ($\mathcal{O}\left(\alpha_s\right)$), diagram such as gluon bremsstrahlung
 and Compton scattering begin to contribute, as shown in \cref{fig:NLO_DY}.
 And the NLO expression can be written as a sum of the contribution from $q\bar{q}$
 annihilation process
 \begin{equation}
 	\frac{d^2\sigma_A}{dQ^2dx_{F}} = \frac{4\pi\alpha^2}{9M^2} \sum_i e^2_i \int^1_{x_1} \dd{t_1} \int^1_{x_2} \dd{t_2}
 	\left[ \frac{\hat{\sigma_{DY}}}{dQ^2dx_F}+\frac{\hat{\sigma_{A}}}{dQ^2dx_F} \right]
-	\left[f_{i/A}\left(x_1\right)f_{\bar{i}/B}\left(x_2\right) +
-	f_{\bar{i}/A}\left(x_1\right)f_{i/B}\left(x_2\right)
+	\left[f_{i/A}\left(t_1\right)f_{\bar{i}/B}\left(t_2\right) +
+	f_{\bar{i}/A}\left(t_1\right)f_{i/B}\left(t_2\right)
 	\right]
 \end{equation}
 and Compton scattering process
 \begin{equation}
 	\frac{d^2\sigma_A}{dQ^2dx_{F}} = \frac{4\pi\alpha^2}{9M^2} \sum_i e^2_i \int^1_{x_1} \dd{t_1} \int^1_{x_2} \dd{t_2}
-	\frac{\hat{\sigma_{C}}}{dQ^2dx_F} f_{g/A}\left(x_1\right)
-	\left[f_{i/B}\left(x_2\right) +f_{\bar{i}/B}\left(x_2\right)
+	\frac{\hat{\sigma_{C}}}{dQ^2dx_F} f_{g/A}\left(t_1\right)
+	\left[f_{i/B}\left(t_2\right) +f_{\bar{i}/B}\left(t_2\right)
 	+ 1 \leftrightarrow 2 \right],
 \end{equation}
 where the leading order Drell-Yan term is
@@ -461,18 +460,19 @@ factorization theorem.
 \end{figure}
 One of the advantages of Drell-Yan over DIS is the explicit separation of the quark
 and anti-quark distributions in \cref{eq:DY_cs}. At large $x$, DIS cross section
-is dominated by the valance quark distribution. On the other hand, in the region $x_1 \gg x_2$,
-the valance quark in the Drell-Yan process is more likely to come from the beam
+is dominated by the valence quark distribution. On the other hand, in the region $x_1 \gg x_2$,
+the valence quark in the Drell-Yan process is more likely to come from the beam
 hadron, and the anti-quark is more likely to come from the target hadron. Hence,
 Drell-Yan can be more sensitive to the anti-quark distribution than DIS. In
-particular, for high $x_F$ and using the fact there are two up valance quarks in
-protons, the $(p+d/2(p+p))$ Drell-Yan cross section ratio at leading order
+particular, for high $x_F$ and using the fact there are two up valence quarks in
+protons, the $(p+d)/2(p+p)$ Drell-Yan cross section ratio at leading order
 can be approximated as
 \begin{equation}
 	\frac{\sigma^{p+d}}{2\sigma^{p+p}} \approx \frac{1}{2} \left( 1+ \frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} \right).
 \end{equation}
 Thus the Drell-Yan process has been used in many experiments to probe the sea-quarks
-asymmetry.
+asymmetry, with the goal of measuring the $x$ dependence of the sea-quark asymmetry
+instead of only the integral as with the Gottfired sum rule.
 
 
 \section{E866/NuSea}
@@ -510,7 +510,7 @@ After the result from NMC and other DIS experiments indicating the violation of 
 various models have been proposed to explain the $\bar{d}/\bar{u}$ asymmetry. One of the early proposal
 is by Field and Feynman \cite{field1977}. They suggested that the Pauli blocking effect
 could suppress the production of $u\bar{u}$ pairs relative to  $d\bar{d}$ as due to the presence of two
-valance $u$ quarks in the proton. It was later shown that the effect by Pauli blocking would be small and
+valence $u$ quarks in the proton. It was later shown that the effect by Pauli blocking would be small and
 may actually have an opposite effect \cite{steffens1997}. Since the contribution from gluon splitting to the
 sea quarks is flavor-blind and the mass of $u$ and $d$ quarks are roughly equal, the asymmetry in the
 light sea-quarks must originate from a non-perturbative mechanism. Some of the models will be presented
@@ -518,20 +518,21 @@ in this section.
 
 \subsection{Meson Cloud Model}
 Some of the early models attribute the asymmetry to the existence of a ``pion cloud'' in the proton.
-In the meson cloud model \cite{kumano1998} the proton wave function is written as a sum of meson-baryon state
+In the meson cloud model \cite{kumano1998} the proton wave function is written as a sum of meson-baryon states
 \begin{equation}
-	\ket{p} = \sqrt{Z}\ket{p_0} + \sum_{MB}\int \dd{y} \dd[2]{\vec{k}_\perp} \phi_{BM} \left(y, \vec{k}_\perp\right)\ket{B\left(y, \vec{k}_\perp\right);MB\left(1-y, -\vec{k}_\perp\right)}
+	\ket{p} = \sqrt{Z}\ket{p_0} + \sum_{MB}\int \dd{y} \dd[2]{\vec{k}_\perp} \phi_{BM} \left(y, \vec{k}_\perp\right)\ket{B\left(y, \vec{k}_\perp\right);M\left(1-y, -\vec{k}_\perp\right)}
 \end{equation}
 where $\phi_{BM}$ is the probability amplitude to find a physical nucleon in a state consisting of a virtual
 meson $M$ and virtual baryon $B$ with longitudinal momentum fraction $y$ and $1-y$ and transverse momenta
-$\vec{k}_\perp$ and $-\vec{k}_\perp$.
+$\vec{k}_\perp$ and $-\vec{k}_\perp$ respectively.
 
-The main hypothesis is that the hard photon in the DIS process interact with the virtual meson or the virtual
+The main hypothesis is that the exchanged photon in the DIS process interact with the partons in the 
+virtual meson or the virtual
 baryon. Therefore, the PDF can be related to the PDF of either the stuck meson or stuck baryon.
 \begin{equation}
 	f_{i/N}\left(x\right) = f_{i/N}^{\mathrm{bare}}\left(x\right) +  \int^1_x f_{MB/N}\left(y\right) f_{i/M}\left(\frac{x}{y}\right) \frac{\dd{y}}{y} + \int^1_x f_{BM/N}\left(y\right) f_{i/B}\left(\frac{x}{y}\right) \frac{\dd{y}}{y},
 \end{equation}
-where $f_{MB/N}$ and $f_{BM/N}$ are the splitting function, related to $\phi_{BM}$.
+where $f_{MB/N}$ and $f_{BM/N}$ are the splitting function, related to $\phi_{BM}$, and $f_{MB/N}(y)=f_{BM/N}(1-y)$.
 If we restrict to $\pi N$ and $\pi\Delta$ states, and using isospin symmetry,
 \begin{align}
 	f_{\pi^+n/p}=\frac{2}{3} f_{\pi N}                                       & , ~f_{\pi^0 p/p}=\frac{1}{3} f_{\pi N}                                         \\
@@ -541,11 +542,15 @@ Therefore the light sea-quark distribution in the proton is given by
 \begin{align}
 	\bar{d}(x) & = \left(\frac{5}{6}f_{\pi N} + \frac{1}{3}f_{\pi \Delta}\right)\otimes q^v_\pi + S(x) \\
 	\bar{u}(x) & = \left(\frac{1}{6}f_{\pi N} + \frac{2}{3}f_{\pi \Delta}\right)\otimes q^v_\pi + S(x)
+	\label{eq:pion_dbub}
 \end{align}
-where $f\otimes q\equiv \int^1_x \frac{dy}{y}f(y)q\left(\frac{x}{y}\right)$, and $q^v_\pi$ is the valance
-quark distribution in pions and $S(x)$ is the flavor symmetric contributions.
+where $f\otimes q\equiv \int^1_x \frac{dy}{y}f(y)q\left(\frac{x}{y}\right)$, and $q^v_\pi$ is the valence
+quark distribution in pions and $S(x)$ is the flavor symmetric contributions. If we took the difference 
+between the two distribution, the flavor symmetric contributions $S(x)$ would cancel out.
 The asymmetry in the proton sea arises because of the dominance of the $\pi^+$ among the $\pi N$ states.
-However, the effect is slightly canceled out by the $\pi\Delta$ configurations. \Cref{fig:pion_cloud}
+However, the effect is slightly canceled out by the $\pi\Delta$ configurations. 
+If we took the difference $\bar{d}-\bar{u}$, the flavor symmetric contributions $S(x)$ would cancel out.
+\Cref{fig:pion_cloud}
 shows the predicted $\bar{d}-\bar{u}$ from the meson cloud model, taken from Ref.~\cite{alberg2022}.
 \begin{figure}
 	\centering
@@ -555,9 +560,9 @@ shows the predicted $\bar{d}-\bar{u}$ from the meson cloud model, taken from Ref
 \end{figure}
 
 \subsection{Chiral Quark Model}
-Similar to the meson cloud model, the chiral quark model \cite{li1998} attribute the sea quarks to
-the present of Goldstone boson in the nucleon. However, the Goldstone boson in chiral quark model
-is emitted from the the valance quarks.
+Similar to the meson cloud model, the chiral quark model \cite{li1998} attributes the sea quarks to
+the presence of Goldstone boson in the nucleon. However, the Goldstone boson in chiral quark model
+is emitted from the valence quarks.
 \begin{equation}
 	q_{\pm} \rightarrow GB + q^\prime_\mp \rightarrow \left(q q^\prime\right)_0 q_{\mp}^\prime.
 \end{equation}
@@ -571,11 +576,11 @@ The probability of the transitions is given by the squaring the wavefunction, an
 	Prob\left[ u_+ \rightarrow \pi^+d_-\right] \equiv a,
 \end{equation}
 and using isospin asymmetry to determine the $d$ quark wavefucntion, the number of antiquark after one emission
-by the initial $(2u+d)$ valance quarks in the proton is given by
+by the initial $(2u+d)$ valence quarks in the proton is given by
 \begin{equation}
 	\begin{aligned}
-		\bar{u} & = 2\cross\frac{4}{9}a +a+\frac{1}{9}a = 2a,                         \\
-		\bar{d} & = 2\cross\left(a+\frac{1}{9}a\right) + \frac{4}{9}a = \frac{8}{3}a.
+		\bar{u} \equiv \int^1_0 \dd{x}\bar{u}(x) & = 2\cross\frac{4}{9}a +a+\frac{1}{9}a = 2a,                         \\
+		\bar{d} \equiv \int^1_0 \dd{x}\bar{d}(x)& = 2\cross\left(a+\frac{1}{9}a\right) + \frac{4}{9}a = \frac{8}{3}a.
 	\end{aligned}
 \end{equation}
 Therefore the model predicts a light sea-quark asymmetry $\bar{d}/\bar{u} =\frac{4}{3} $.
@@ -591,8 +596,8 @@ the minus sign for gluons corresponds to a Bose-Einstein distribution. The const
 plays the role of the thermodynamic potential of the parton $p$ and $\bar{x}$ is the universal
 temperature.
 
-In this model, the potential of a quark $q_i^h$ with helicity $h$ is opposite to the potential
-of the corresponding antiquark $q_i^{-h}$ with helicity $-h$
+In this model, the potential of a quark $q_i^h$ with helicity $h$ has a opposite sign to the that of the 
+potential of the corresponding antiquark $q_i^{-h}$ with helicity $-h$
 \begin{equation}
 	X_{0q}^h = -X_{0\bar{q}}^{-h}.
 	\label{eq:stat_potential}
@@ -601,7 +606,7 @@ Since there are more $u$ quarks than $d$ quarks in the proton, one would expect
 \begin{equation}
 	X_{0u}^+ + X_{0u}^- > X_{0d}^+ + X_{0d}^-,
 \end{equation}
-and combing with \cref{eq:stat_potential}, one would expect $\bar{d} > \bar{u}$ in the proton.
+and combining with \cref{eq:stat_potential}, one would expect $\bar{d} > \bar{u}$ in the proton.
 \begin{figure}
 	\centering 
 	\includegraphics[width=0.5\linewidth]{statistical_model}
@@ -628,11 +633,12 @@ has shown the importance of intrinsic charm in the proton.
 
 \subsection{Lattice QCD}
 Lattice QCD calculations of the $\bar{d} - \bar{u}$ based on the Large Momentum Effective
-theory (LaMET) \cite{ji2021,constantinou2021} have become available recently by two different groups ,LP3\cite{chen2018} and ETMC\cite{alexandrou2018}.
+theory (LaMET) \cite{ji2021,constantinou2021} have become available recently by two different groups,
+LP3\cite{chen2018} and ETMC\cite{alexandrou2018}.
 The parton distribution functions described quarks and gluons in hadrons traveling at infinite
 momentum. The principle for LaMET comes from the observation that the structure of the proton is
 approximately independent of its momentum so long as it is much larger than the strong interaction
-scale or its mass. Therefore the patronic structure can be calculated for a proton with
+scale or its mass. Therefore the partonic structure can be calculated for a proton with
 moderately-large momentum and taking the limit of the proton momentum to infinity.
 
 \begin{figure}[h!]
@@ -648,6 +654,8 @@ moderately-large momentum and taking the limit of the proton momentum to infinit
 		The negative $x$ region denote $\bar{d}-\bar{u}$ at $\left|x\right|$.}
 	\label{fig:lamet}
 \end{figure}
+LaMET are typically used to calculate flavor non-singlet quantities such as $u-d$ and $\bar{d}-\bar{u}$,
+as the disconnected diagram would cancel out in the calculation.
 \Cref{fig:lamet} shows the result using LaMET from two different groups and are compared with
 different global PDF extractions. While the result by the LP3 collaboration
 is in good agreement with CT14, the result from the ETMC group differs from the PDFs,
@@ -658,18 +666,18 @@ especially in the antiquark region.
 
 \chapter{Charmonium Production}
 \label{ch:jpsi}
-Yet another process for probing the nucleon structure is via the charmonium production \cite{peng1995,chang2020}.
+Another process for probing the nucleon structure is via the charmonium production \cite{peng1995,chang2020}.
 Unlike DIS and Drell-Yan, the charmonium production involves the strong interaction
 at leading-order. Therefore it can be used to probe the gluon structure, which is
 less sensitive in DIS or Drell-Yan, and the quark anti-quark structure. However,
-because of the non-pertiubative nature of QCD, there are various models for
+because of the non-perturbative nature of QCD, there are various models for
 calculating the charmonium production. The models usually separate the production
-mechanism into two parts, the production of heavy-quark pairs and the subsequent
+mechanism into two parts, the production of heavy-quark pairs and their subsequent
 hadronization into quarkonium states. One of the early approaches is the Color
 Evaporation method (CEM) \cite{einhorn1975,bodwin1995,bodwin1997}. The heavy-quark
 pairs production is expanded in terms of the strong coupling constant $\alpha_s$
 and is calculated with perturbative QCD (pQCD). CEM then assumes a constant
-probability $F$ for the $c\bar{c}$ pairs to hadronize into different charmonium
+probability $F$ for the $c\bar{c}$ pairs to hadronize into a specific charmonium
 state and this probability is independent of the kinematics or the production
 subprocess. The charmonium production cross section in the CEM framework can be
 expressed as
@@ -710,7 +718,7 @@ frame. At large $x_F$, the quark-antiquark annihilation is the dominant subproce
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\linewidth]{pp_norm_cs_NLO_pp}
-	\caption{Calculated cross section for $J/\Psi$ production using CEM model.
+	\caption{Calculated cross section for $J/\Psi$ production using CEM model with CT14NLO PDF.
 		The CEM code is obtained from Ref.~\cite{mangano1993}.}
 	\label{fig:cem_cs}
 \end{figure}

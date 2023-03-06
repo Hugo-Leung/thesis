@@ -11,9 +11,9 @@
 
 \section{Data Sets}
 SeaQuest received its first proton in the beginning of 2012, and began beam
-commission. After a short commissioning run, the Main Injector was shut down for
+commissioning. After a short commissioning run, the Main Injector was shut down for
 upgrade. After the Main Injector restarted in 2013, the data collection began in
-2014. The timeline and some important dates is tabulated in \cref{tab:dataset}.
+2014. The timeline and some important dates are tabulated in \cref{tab:dataset}.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{ c c c }
@@ -36,7 +36,7 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 		\hline
 		4   & Constant adjustments    & 11/13/2015 to 03/06/2016 \\
 		5   & Roadset 78              & 03/06/2016 to 07/29/2016 \\
-		6   & DAQ upgrade             & 01/14/2017 to 07/07/2017 \\
+		6   & DAQ upgrade             & 01/14/2017 to 07/07/2017 \\ \hline
 	\end{tabular}
 	\caption{SeaQuest data sets and apparatus adjustments}
 	\label{tab:dataset}
@@ -44,7 +44,7 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 
 \section{Monte Carlo}
 \label{sec:MC}
-SeaQuest utilize a Geant4 based Monte Carlo simulation (GMC) to simulate the
+SeaQuest utilizes a Geant4 based Monte Carlo simulation (GMC) to simulate the
 performance of the spectrometer and the acceptance. The GMC is based on the
 E866 FastMC, a fortran-based simulation code, and is ported to SeaQuest and
 modified according to SeaQuest’s experimental configurations \cite{kerns2018,prasad2020}.
@@ -53,26 +53,26 @@ modified according to SeaQuest’s experimental configurations \cite{kerns2018,p
 \label{subsec:messyMC}
 The resolution and efficiency of the detectors are included before the reconstruction.
 This step is known as realization.
-From previous studies, the efficiency for the chamber is determined to be \SI{\sim 94}{\percent}
+From previous studies, the efficiency for the chambers is determined to be \SI{\sim 94}{\percent}
 with a resolution of \SI{\sim 0.04}{\cm}. Therefore for all chamber hits, \SI{6}{\percent} of
 hits are dropped randomly, with a Gaussian smearing applied to the drift distance for the remaining
-hits with a width of \SI{0.004}{\cm}. The Monte Carlo is now ready for reconstruction. This is
-labeled as clean Monte Carlo, it is use in acceptance studies where we are not interested in the
-rate dependent effect.
+hits with a width of \SI{0.004}{\cm}. The Monte Carlo data are now ready for track reconstruction and analysis.
+This is labeled as ``clean Monte Carlo'', it is used in acceptance studies without the
+rate dependent effects.
 
-If we are interested in the rate dependent effect, there is an option to embed NIM-3 hits into
-the clean Monte Carlo to create what known as messy Monte Carlo.
+If we are interested in the rate dependent effects, there is an option to embed NIM-3 hits into
+the clean Monte Carlo to create what is known as ``messy Monte Carlo''.
 The purpose is to simulate the noise and background hits in the spectrometer. By including noise 
 and background hit, we can understand the performance of our reconstruction software at different
 occupancy.
-Since the NIM-3 trigger randomly, the hit distribution in each detector would be identical to
+Since the NIM-3 trigger randomly, the hit distribution in each detector would be reflect
 the background and noise hits caused by the beam. However, as the probability of a dimuon event
 is higher at higher beam intensity, the signal (Matrix 1) events would have a significantly higher
-average occupancy then the NIM-3 events. The input occupancy distribution should have little or no
+average occupancy than the NIM-3 events. The input occupancy distribution should have little or no
 effect on the reconstruction efficiency, as we are only interested the fraction of events that was
 successfully reconstructed in each occupancy bin, not the absolute number of events in each bin.
 However, the occupancy profile could have significant effect when using the occupancy integrated
-messy Monte Carlo such as mass fit studies. Therefore, when sampling the NIM-3 events, the ratio
+messy Monte Carlo such as mass fit studies. Therefore, when sampling the NIM-3 events, the occupancy ratio
 of the Matrix 1 and NIM-3 events is used as weights, and high occupancy NIM-3 would have a higher
 probability to be used, where as only a small fraction of lower occupancy NIM-3 events would be used.
 
@@ -83,7 +83,7 @@ One of the changes made to the Monte Carlo generator during this study
 is the maximum transverse momentum of the virtual photon.
 
 From the conservation of energy, one can deduce the maximum $P_T$ carried by the virtual photon
-and is given by
+is given by
 \begin{equation}
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2 - P_L^2,
 \end{equation}
@@ -97,34 +97,34 @@ Earlier versions of the SeaQuest Monte Carlo generators used an inconsistent def
 and $P_T^{\mathrm{max}}$, resulting in an incomplete coverage of the kinematic phase space.
 
 \subsection{\texorpdfstring{$P_T$}{P\_T} re-weighting in Monte Carlo}
-This was first studied by S.~Prasard \cite{prasad2020}.
+This was first studied by S.~Prasad \cite{prasad2020}.
 Because the transverse momentum distribution ($p_T$) cannot be calculated using
 fixed order pQCD, it is typically parameterized using some functional form.
 In the GMC simulation, the input $p_T$ distribution is based on the
 Kaplan functional form \cite{kaplan1978}.
 \begin{equation}
-	f\left(P_T^2\right) \propto \frac{1}{\left(1+ P_T^2/p_1\right)^6},
+	f\left(P_T^2\right) \propto \frac{1}{\left(1+ P_T^2/p_1^2\right)^6},
 	\label{eq:kaplan}
 \end{equation}
 with $p_1$ is set to \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
 decays. The parameter $p_1$ controls the broadness
 of the $P_T$ distribution. In the MC, the $P_T$ of a dimuon is chosen randomly
-according to the \cref{eq:kaplan}. If the chosen $P_T$ is exceed \cref{eq:pTmax}
-and does not satisfy the kinematic constrain, a new $P_T$ will be chosen until
-the constrain is satisfy.
+according to \cref{eq:kaplan}. If the chosen $P_T$ exceeds $P_T^{\mathrm{max}}$ in \cref{eq:pTmax}
+and does not satisfy the kinematic constraint, a new $P_T$ will be chosen until
+the constraint is satisfied.
 
 The chosen value of $p_1$ is taken from experiments conducted at higher
-energy, and may not be suitable to the SeaQuest kinematic. An additional weight is
+energies, and may not be suitable to the SeaQuest kinematic. An additional weight is
 applied to account for the difference between the $P_T$ distribution in the MC input
-and in the real data. In addition, the $P_T$ distribution can also depends on $x_F$.
+and in the real data. In addition, the $P_T$ distribution can also depend on $x_F$.
 The $x_F$ dependence of the $P_T$ distribution has been reported in the pion induced
 Drell-Yan experiment E615 \cite{conway1989}. The $x_F$ and $\sqrt{s}$ dependence in
-proton induced Drell-Yan have also been reported in Ref.~\cite{prasad2020}.
+proton induced Drell-Yan has also been reported in Ref.~\cite{prasad2020}.
 
 In this analysis, a different re-weighting formula is used. Because of the way $p_T$ is chosen
 in the MC, the probability density function is normalized to unity as follows
 \begin{equation}
-	\int^{\left(P_T^{\mathrm{max}}\right)^2}_0 dP_T^2 \frac{N}{\left(1+ P_T^2/p_1\right)^6}=1
+	\int^{\left(P_T^{\mathrm{max}}\right)^2}_0 dP_T^2 \frac{N}{\left(1+ P_T^2/p_1^2\right)^6}=1
 \end{equation}
 where $N$ is the normalization constant and is given by
 \begin{equation}
@@ -136,7 +136,7 @@ Therefore the $p_T$ reweight is given by
 	\frac{\left(1 + \frac{p_T^2}{2.8^2} \right)^6}{\left(1 + \frac{p_T^2}{\left(p_1\left(x_F\right)\right)^2} \right)^6} \frac{2.8^2}{\left(p_1\left(x_F\right)\right)^2}\frac{1-\left[ 1+ \frac{\left(P_T^{\mathrm{max}}\left(m,x_F\right)\right)^2}{2.8^2}\right]^{-5}}{1-\left[ 1+ \frac{\left(P_T^{\mathrm{max}}\left(m,x_F\right)\right)^2}{\left(p_1\left(x_F\right)\right)^2}\right]^{-5}}.
 	\label{eq:pT_reWeight}
 \end{equation}
-The addition of last factor in \cref{eq:pT_reWeight}, as compared to previous studies,
+The addition of the last factor in \cref{eq:pT_reWeight}, as compared to previous studies,
 is to ensure the normalization is preserved and would not affect the other kinematic
 distributions at generator level.
 
@@ -165,8 +165,8 @@ During analysis, this is typically done by querying the database
 and requiring the data quality equals to zero in the spill table.
 
 \subsection{Pre-tracking Cuts}
-In order to speed up the reconstruction, varies types of chamber hits are removed, as
-they are less likely to be part of a muon track.
+In order to speed up the reconstruction, various types of chamber hits are removed, as
+they are less likely to be part of a muon track. This is handled by the EventReducer.
 
 \paragraph{In-time cut}
 During data taking, the TDC time window is deliberately set to be larger than the in-time
@@ -174,19 +174,19 @@ window. This is done to avoid data loss in case of timing drift\cite{daniel-4924
 During the offline processing, only in-time hits will be kept. This cut is applied to
 all detectors.
 
-\paragraph{After pulse cut}
+\paragraph{After-pulse cut}
 Due to the tendency of the wire chamber channels to `ring' after being hit,
 a single charge particle may produce multiple pulses on the same
-wire in quick succession. Therefore, if there are multiple hits on same camber wire
+wire in quick succession. Therefore, if there are multiple TDC hits on same chamber wire
 within a small predefined time window, only the first hit will be kept.
 
 \paragraph{Cluster removal cut}
 There are three types of cluster hits: cell-edge hits, delta-rays and electronic noise.
 
-When a muon pass through the wire plane near the cell edge, it will often cause two adjacent
+When a muon passes through the wire plane near the cell edge, it will often cause two adjacent
 wires to fire. If the drift distance of one hit is more than \SI{90}{\percent} of the cell width,
 while the drift distance of the other hit is less than \SI{40}{\percent} of the cell width, the hit
-with larger drift distance will be discard.
+with larger drift distance will be discarded.
 
 Delta rays are electrons knocked off by the primary radiation particle when passing
 through the chamber. The knocked off electron is capable of producing secondary ionization.
@@ -215,21 +215,21 @@ that fall behind a fired hodoscope paddle, of which is part of a valid trigger r
 
 
 \subsection{Track Finding}
-Following the hit removal stage, the next stage is to find single muon tracks.
-The first step in the single track reconstruction is the build tracklets in St.~2 and St.~3.
+Following the hit removal stage, the next stage is to find single muon tracks, which is done with kFastTracking.
+The first step in the single track reconstruction is to build tracklets in St.~2 and St.~3.
 
 A tracklet is a small track segment inside each drift chamber. Starting with the $X$ and
 $X'$ planes, a hit pairs is formed by locating a hit on each plane within half of a cell spacing.
-The position of the a pair is taken as the average of the two hits, and is used to select a window
+The position of the pair is taken as the average of the two hits, and is used to select a window
 in the $UU'$ planes to search for corresponding pairs. A window is then selected to locate hit pairs
-on the $VV'$ planes. Once the hits are selected, a straight tracklet can be fitted to the hits.
-To be considered valid, there must be at least 4 hits, with at least one hit per view. The trackelts
+on the $VV'$ planes. Once the hits are selected, a straight line can be fitted to the hits.
+To be considered valid, there must be at least 4 hits, with at least one hit per view. The tracklets
 should also be pointing towards the target (or beam dump), this is done by requiring the x and y slope to be
 less than $(0.15,0.1)$.
 
-Once all tracklets are constructed separately in St.~2 and St.~3. We try to connect a tracklet
+Once all tracklets are constructed separately in St.~2 and St.~3, we try to connect a tracklet
 in St.~2 with a tracklet in St.~3 to form a partial track. Since there are no magnet between
-St.~2 and St.~3, the slope of the tracklets should be similarly. The partial track is then used to
+St.~2 and St.~3, the slope of the tracklets should be similar. The partial track is then used to
 identify hits in the St.~4 proportional tubes for muon identification. The multiple scattering of
 muons due to the iron wall between St.~3 and St.~4 is also taken into account.
 
@@ -241,7 +241,7 @@ the search window on St.~1 is constrained by this ratio.
 \pdfcomment{kalment filter}
 
 \subsection{Vertex Finding}
-Once all the tracks are found in each events, the reconstruction of the dimuon vertex can begin.
+Once all the tracks are found in each event, the reconstruction of the dimuon vertex can begin using kVertex.
 For Matrix-1 events, all possible combinations of $\mu^+$ and $\mu^-$ are tested if they can form
 a dimuon.
 
@@ -443,7 +443,7 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 \FloatBarrier 
 \section{Beam Luminosity Normalization}\pdfmargincomment{might move this section to spectrometer}
 \label{sec:beam_norm}
-At SeaQuest, there are three beam luminosity related quantities.
+In SeaQuest, there are three beam luminosity related quantities.
 During data taking, the proton on target is monitored by two sets of instruments, a secondary
 emission monitor located upstream of the SeaQuest experimental hall, and a Cerenkov counter
 (as described in \cref{M-subsec:BIM}). The secondary emission monitor provides the integrated
@@ -461,7 +461,7 @@ The number of protons on targets during DAQ live time can be calculated as follo
 	\mathrm{live\ proton} = \frac{\mathrm{QIEsum}-\mathrm{inhibit\_block\_sum}-\mathrm{trigger\_sum\_no\_inhibit}}{\mathrm{QIEsum}}\cdot \mathrm{G2SEM}
 \end{equation}
 
-The Main DAQ also reads out the beam intensity from Cerenkov counter the of the triggering bucket
+The Main DAQ also reads out the beam intensity from Cerenkov counter for the triggering bucket
 and the $\pm16$ RF buckets before and after the trigger (label as ``RF-16" to ``RF+16", with
 ``RF00'' being the triggering bucket).
 
@@ -470,7 +470,7 @@ The number of proton in the triggering bucket can be calculated as follows:
 	\mathrm{trigger\ intensity} = \frac{\mathrm{RF00}-\mathrm{pedestal}}{\mathrm{QIEsum}-\mathrm{pedestal}\cdot 588\cdot 369000}\cdot \mathrm{G2SEM}
 \end{equation}
 The pedestal comes from the dark rate of the detector, and it is obtained from studying the
-empty spills. This value can change overtime and is summarize in \cref{tabel:pedestal}.
+empty spills. This value can change overtime and is summarized in \cref{tabel:pedestal}.
 This number should be subtracted from the bucket specific QIE value, as well as the spill
 integrated QIEsum. There are a total of $588\cdot 369000$ buckets per spill, hence the
 numerator.
@@ -497,11 +497,11 @@ is first studied by J.~Dove \cite{dove2020} and A.~Tadepalli \cite{tadepalli2019
 and it is used in Ref.~\cite{dove2021}.
 The assumption behind this method is that the accidental background and physics events
 would have different intensity dependence. The number of observed physics
-events, in the absent of any spectrometer effects, should be linearly proportional to the beam
-intensity. On the contrary, the two muons in the accidental background are typical coming from
-two separate interactions, and therefore it is expected proportional to the intensity squared.
+events, in the absence of any spectrometer effects, should be linearly proportional to the beam
+intensity. On the contrary, the two muons in the accidental background are typically coming from
+two separate interactions, and therefore it is expected to be proportional to the intensity squared.
 By taking the ratio of the $(p+p)$ and $(p+d)$ dimuon event rates,
-other rate dependence effect would also be cancel out at zero intensity.
+other rate dependent effects would also be canceled out at zero intensity.
 
 The procedure for this method is summarized here. A mass cut at \SI{4.5}{\GeV} is applied to
 remove the charmonium decays, leaving only the Drell-Yan dimuons and the accidental background.
@@ -515,9 +515,9 @@ instantaneous beam intensity measured by the BIM. The ratio is then fitted with 
 	R_i \left(I\right) = p_{0i} + p_1 I + p_2 I^2,
 	\label{eq:common_pol2}
 \end{equation}
-where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p_{0i}$ give
+where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p_{0i}$ gives
 the value of the cross section ratio in each $x_T$ bins. Other fit functions are also used
-to studied the fit function dependence.
+to study the fit function dependence.
 
 \pdfcomment{intensity distribution plots, integrated over kinematics}
 
@@ -526,20 +526,20 @@ to studied the fit function dependence.
 While this method allows for extractions of the Drell-Yan cross section ratio without relying
 heavily on simulation, this method cannot be used in the charmonium studies.
 Both Drell-Yan process and charmonium production would have the same linear intensity dependence,
-hence this method is not be able to distinguish the different physics proccess, and therefore could
+hence this method is not able to distinguish the different physics processes, and therefore could
 not be use in the charmonium studies. Moreover, only the cross section ratio could be obtained in
 this method, as the absolute yield and value of rate dependency correction will be needed in
-absolute cross section studies, and cannot be obtained from the intensity extrapolation methods.
+absolute cross section studies, and cannot be obtained from the intensity extrapolation method.
 
 \section{Mass Spectrum Fitting}
-With the goal of obtaining the absolute yield for different process, the mass spectrum fitting
+With the goal of obtaining the absolute yield for different processes, the mass spectrum fitting
 procedure is developed. This also forms the bases of our recent publication\cite{dove2023}.
 
 The event distribution can be expressed as a linear combination of different components,
-namely Drell-Yan, chamrmonium decays, accidental background and background from instruments.
+namely Drell-Yan, charmonium decays, accidental background and background from instruments.
 These different contributions would have distinct mass spectra, for example, the $J/\psi$
-and $\psi^\prime$ decays would have sharp distributions centered around their masses and
-can be easily identified. Therefore, the data can be fitted to varies templates to obtain
+and $\psi^\prime$ decays would have sharp distributions centered around their masses.
+Therefore, the data can be fitted to various templates to obtain
 the relative contribution from each sources.
 
 \paragraph{Physics sources}
@@ -548,7 +548,7 @@ simulation (as described in \cref{subsec:messyMC}). The same analysis cuts are a
 and messy Monte Carlo. 
 
 \paragraph{Empty flask subtraction}
-The empty flask data is taken by placing just the flask (filled with vacuum) in the path of
+The empty flask data is taken by placing just the empty flask (without air inside) in the path of
 the beam. It is used for understanding the background originating from interactions of the beam
 with the flask wall, beam dump or various upstream instrumentation. The normalization of the
 empty flask contribution is obtained from the ratio of live protons for the liquid target and
@@ -594,10 +594,10 @@ efficiency also need to be accounted for.
 To account for the statistical uncertainties in both the data and Monte Carlo
 simulation, the TFrationFitter algorithm is used in this analysis \cite{barlow1993}.
 This is achieved by performing a standard likelihood fit using Poisson statistics,
-while the template, generated from MC, are also varied within statistics, leading
+while the templates, generated from MC, are also varied within statistics, leading
 to additional contributions to the overall likelihood.
 
-Let there are $m$ sources. The number of MC events in bin $i$ from source $j$
+Let there be $m$ sources, the number of MC events in bin $i$ from source $j$
 is given by $a_{ji}$. For each source, there is some (unknown) expected distribution
 $A_{ji}$. The expected number of events in each bin is given by
 \begin{equation}
@@ -605,16 +605,16 @@ $A_{ji}$. The expected number of events in each bin is given by
 	\label{eq:TF_f}
 \end{equation}
 From each $A_{ji}$, the number of Monte Carlo events $a_{ji}$ is obtained.
-The total likelihood is the combined probability of the number observed events $\left\{d_i\right\}$
+The total likelihood is the combined probability of the number of observed events $\left\{d_i\right\}$
 and the number of MC events $\left\{a_{ji}\right\}$
 \begin{equation}
-	\ln \mathcal{L} = \sum^n_{i=1} d_i \ln f_i -f_i + \sum^n_{i=1} \sum^m_{j=1} a_{ji} \ln A_{ji} - A_{ji}.
+	\ln \mathcal{L} = \sum^n_{i=1} \left(d_i \ln f_i -f_i\right) + \sum^n_{i=1} \sum^m_{j=1} \left(a_{ji} \ln A_{ji} - A_{ji}\right).
 	\label{eq:TF_likelihood}
 \end{equation}
 The estimates for the strength $p_j$ and the expected distribution $A_{ji}$ are
 found by maximizing this likelihood. One consequence of this approach is the
 $n \cross m$ fit parameters $A_{ji}$. However, the  minimization of these additional
-parameters is done analytically ratter than treating them as formal fit parameters.
+parameters is done analytically rather than treating them as formal fit parameters.
 
 In the case of weighted MC, \cref{eq:TF_f} is modified into
 \begin{equation}
@@ -623,12 +623,12 @@ In the case of weighted MC, \cref{eq:TF_f} is modified into
 where $w_{ji}$ is the average weight of the MC events in bin $i$ from the source $j$.
 
 \subsection{Tracking Efficiency}
-The tracking efficiency is obtained but studying the messy and clean Monte Carlo.
-As the detector occupancy increases, the is a higher probability for kTracker to
+The tracking efficiency is obtained by studying the messy and clean Monte Carlo.
+As the detector occupancy increases, there is a higher probability for kTracker to
 remove a real physics hit during the EventReducer stage. Therefore, the reconstitution of high occupancy
 events would failed at a higher rate than low occupancy events. Since the occupancy
 is correlated between different tracking stations, we parameterize the tracking efficiency
-as a function of one of chambers. The occupancy is defined as the number of
+as a function of one of the chambers. The occupancy is defined as the number of
 in-time hits in the chamber. In early studies, the tracking efficiency is
 typically parameterized using St.~1 occupancy (D1). 
 However, I chose to use the St.~2 occupancy (D2) in this study. This
@@ -648,13 +648,13 @@ The ratio of reconstructed events of messy over clean MC is plotted in \cref{fig
 	\label{fig:tracking efficiency}
 \end{figure}
 
-This tracking efficiency can also depends on the dimuon kinematics. This can be caused
-by the noise hits being more localized in some area of the detector, which can mapped to
+This tracking efficiency can also depend on the dimuon kinematics. This can be caused
+by the noise hits being more localized in some area of the detector, which can map to
 different kinematic phase space. To study this effect, we repeat the study with different
 Monte Carlo, and the extract efficiency is shown in
 \pdfcomment{table of efficiency for different target, process and runs}
 
-Once the tracking efficiency obtained from the Monte Carlo, the efficiency correction ($\epsilon_{recon.Eff}$)
+Once the tracking efficiency is obtained from the Monte Carlo, the efficiency correction ($\epsilon_{recon.Eff}$)
 is calculated, which is defined as the average of the inverse of tracking efficiency in each
 kinematic bin. This correction is calculated separately for each target, as a denser target
 will produce more hits in the detector. This is shown in \cref{fig:target_D2}.
@@ -662,7 +662,7 @@ will produce more hits in the detector. This is shown in \cref{fig:target_D2}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{run5-6_DY_D2}
-	\caption{The St.~2 occupancy profile for \ce{LH_2} and \ce{LD_2} for run 5-6 after event selection. Both histogram are normalized to unit area.
+	\caption{The St.~2 occupancy profile for \ce{LH_2} and \ce{LD_2} for run 5-6 after event selection. Both histograms are normalized to unit area.
 	}
 	\label{fig:target_D2}
 \end{figure}
@@ -714,7 +714,7 @@ pure. On the other hand, the Deuterium used came from two sources:
 \end{table}
 Therefore, care is needed to account for the contribution from the hydrogen contamination in deuterium
 target data. The result of the mass spectroscopy of the deuterium gas \cite{don-4993} is
-summarized in \cref{table:LD2_contamination}. Based this analysis, it is concluded the Fermilab
+summarized in \cref{table:LD2_contamination}. Based on this analysis, it is concluded the Fermilab
 deuterium contains \SI{91.6}{\percent} \ce{D_2} and \SI{8.4}{\percent} \ce{HD} by moles. \pdfcomment{need to check this sentence.}
 
 The yield from the contaminated deuterium can be expressed as
@@ -722,6 +722,7 @@ The yield from the contaminated deuterium can be expressed as
 	Y_{\mathrm{cont.~\ce{LD_2}}} = N_A P_D X_D \epsilon_D \left( T_D^D \sigma_{pd}/A_D + T^D_H \sigma_{pp}/A_H   \right).
 \end{equation}
 Here $T_D^D$ and $T^D_H$ are the thickness of deuterium and hydrogen in the deuterium target.
+$A_H$ and $A_D$ are the atomic mass of hydrogen and deuterium.
 The subscript $D$ denote these deuterium target specific quantities.
 
 In order to extract the $T_D^D$ and $T^D_H$ from the mole fraction listed in \cref{table:LD2_contamination},
@@ -795,7 +796,7 @@ And the cross section ratio is given by
 
 The switch to commercial pure deuterium gas happened during Roadset 67 data taking. Therefore,
 an average contamination, weighted by the proton on target, is used for the entire dataset.
-The average contamination for entire roadset 57 -70 data is determined to be $C=\SI{5.95}{\percent}$
+The average contamination for entire roadset 57 -70 data is determined to be $C=\SI{5.95}{\percent}$.
 Therefore the effective values for target contamination for this dataset are
 \begin{equation}
 	\begin{split}
@@ -830,11 +831,11 @@ as the data, while $N_{thrown}$ is the total number of generated Monte Carlo eve
 The clean Monte Carlo is used in the acceptance calculation with the explicit intent to separate out the
 rate dependence effect.
 
-The accepted histogram in the numerator is filled using the reconstructed kinematic, whereas
-the thrown histogram in the denominator is filled using the thrown kinematic. This is done to include
+The accepted histogram in the numerator is filled using the reconstructed kinematics, whereas
+the thrown histogram in the denominator is filled using the thrown kinematics. This is done to include
 the first order effect of bin migration.
 
-Since our histogram are weighted histogram, the uncertainty is calculated using the following
+Since our histograms are weighted histograms, the uncertainty is calculated using the following
 \pdfcomment{verify the uncertainty calculation here}
 
 The calculated acceptance for $J/\psi$ and $\psi'$ are shown in \cref{fig:jpsi_acceptance,fig:psip_acceptance}.
@@ -869,7 +870,7 @@ This is also reflected in the figures.
 	\end{subfigure}
 	\caption{Spectrometer acceptance for the $\psi'$}
 \end{figure}
-\section{Comparison of data and Monte Carlo}
+\section{Comparison of data with Monte Carlo}
 
 \subsection{\texorpdfstring{$P_T$}{P\_T} distribution}
 A first order $P_T$ reweighting is performed in this analysis. The acceptance is first 
@@ -885,7 +886,7 @@ distribution.
 
 \section{Systematic uncertainties}
 For the Drell-Yan cross section ratios studies, the intensity extrapolation method and mass fit
-method involve different assumption and therefore different sources of systematic uncertainties.
+method involve different assumptions and therefore different sources of systematic uncertainties.
 \paragraph{Proton beam normalization}
 The beam normalization uncertainty is present in all studies presented here.
 As described in \cref{sec:beam_norm}, the number of protons are measured by the BIM, which is
@@ -911,8 +912,8 @@ dependence
 \begin{equation}
 	R_i \left(I\right) = p_{0i} + \left[p_{10}+p_{11}x_i\right] I + \left[p_{20}+p_{21}x_i\right] I^2,
 \end{equation}
-where $x_i$ is the kinematic average in each bin. The difference between the fit functions are used
-as the systematic uncertainty.
+where $x_i$ is the kinematic average in each bin. The difference of the result obtained with different fit
+functions are included the systematic uncertainty.
 
 \paragraph{Mixed background}
 This is specific to studies using mass fit method. Different mixing methods have been proposed in SeaQuest.
@@ -923,8 +924,8 @@ the two analysis in included in the systematic uncertainty.
 This is a major systematics in the absolute cross section studies, particularly when using
 Run 2-3 data.
 During Run 2-3, multiple trigger road sets were used. However, due to the limited statistics in each
-data taking period, it is not possible to analysis each subset separately. Therefore these datasets
-are combined into one. While the difference in trigger road set have little effect on the acceptance
+data taking period, it is not possible to analyze each subset separately. Therefore these datasets
+are combined into one. While the difference in trigger road sets has little effect on the acceptance
 for the high mass Drell-Yan dimuon \cite{jdove-8168}, the impact on the $J/\psi$ acceptance is much
 larger \cite{chleung-9643}.
 
@@ -936,13 +937,13 @@ longer an issue.
 \section{Drell-Yan NLO calculation}
 The next-to-leading order (NLO) calculation is done using a parton level Monte
 Carlo program, named DYNNLO, written by the INFN group\cite{catani2009,catani2007}. This program
-is originally written to compute written to compute cross-section for vector boson
+is originally written to compute cross section for vector boson
 production from $p+p$ and $p+\bar{p}$ collisions. It was later modified, in
 collaboration with W.C.~Chang and S.~Prasad, to perform $p+n$ calculation
 by utilizing isospin symmetry. The $p+d$ interaction can be computed by summing up
 the $p+p$ and $p+n$ calculation, assuming no nuclear corrections. For heavier nuclear
 targets, nuclear PDFs can also be used. It is also modified to calculate $x_F$, $x_1$ and $x_2$
-using the same definition as SeaQuest as discussed in \cref{\label{fig:DY_scale}}.
+using the same definition as SeaQuest as discussed in \cref{subsec:def_kinematic}.
 
 \pdfmargincomment{Error calculations}
 The PDF sets used in this study are CT18\cite{hou2021} and NNPDF4.0\cite{ball2021}.
@@ -963,7 +964,7 @@ on a PDF-dependent quantity are given by:
 \end{equation}
 
 Whereas the uncertainty for NNPDF4.0 is calculated using the replicas method. Given $N_{\mathrm{rep}}$ replica
-PDF members $S^k$, the central value and the uncertainty is given by the mean and standard distribution
+PDF members $S^k$, the central value and the uncertainty is given by the mean and standard deviation
 \begin{equation}
 	\begin{split}
 		F_0&=\expval{F}=\frac{1}{N_{\mathrm{rep}}}\sum_{i=1}^{N_{\mathrm{rep}}}F\left(S^k\right)\\
