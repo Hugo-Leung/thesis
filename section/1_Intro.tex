@@ -30,14 +30,29 @@ The first evidence of nucleons being a composite particles comes form the
 measurement of their magnetic moments. For spin 1/2 elementary particles, the
 magnetic moment can be expressed as
 \begin{equation}
-	\mu = \frac{g}{2}\mu_B ~~~~ \mu_B = \frac{e\hbar}{2m},
+	\mu = \frac{g}{2} \frac{e\hbar}{2m},
 \end{equation}
 with $g$ expected to be \num{2}. Such measurement was first carried out in 1933.
 And the $g$ factor for proton is found to be  significantly greater than \num{2}
 \cite{frisch1933}. Since the neutron is a neutral particle, it was expected that
 to have a zero magnetic moment. The neutron magnetic moment would later be
 measured and found to be non-zero, suggesting that proton and neutron are
-composite particles \cite{rabi1934a}.
+composite particles \cite{rabi1934a}. The modern value of the $g$ factors
+for the charged leptons and nucleons are listed in \cref{tab:g-factor}.
+The deviation from \num{2} for electrons and muons are predicted by QED.
+{
+\sisetup{separate-uncertainty = false}
+\begin{table}[h!]
+\centering
+\caption{$g$ factor for $e$, $\mu$, $p$ and $n$ \cite{ParticleDataGroup:2022pth}.}
+\label{tab:g-factor}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+    & $e$                        & $\mu$                  & $p$                    & $n$                   \\ \hline
+$g$ & \num{2.00231930436256(35)} & \num{2.0023318418(13)} & \num{5.5856946893(16)} & \num{-3.82608545(90)} \\ \hline
+\end{tabular}
+\end{table}
+}
 
 The first insight into the internal structure of the nucleon came from the
 electron proton elastic scattering experiments \cite{hofstadter1956} in the
@@ -50,10 +65,9 @@ frame can be expressed in the Rosenbluth formula \cite{rosenbluth1950}
 	\label{eq:ep_cs},
 \end{equation}
 where $\tau = \frac{Q^2}{4m_p^2}$.
-
 And $E$, $E^\prime$ are the initial and final energy of the scattered electron.
 The electric ($G_E\left(Q^2\right)$) and magnetic ($G_M\left(Q^2\right)$) form
-factors are functions of the negative squared of four momentum of the virtual photon. At
+factors are functions of the negative squared of four momentum $Q^2$ of the virtual photon. At
 low-$Q^2$ limit, these form factors can be interpreted as the Fourier transforms
 of the charge and magnetic moment distribution of the nucleon. \Cref{fig:charge}
 shows recent extraction of the proton and neutron charge density from the electric
@@ -67,6 +81,34 @@ the neutron has a negatively charged center and surrounded by a positive cloud.
 	\label{fig:charge}
 \end{figure}
 These results further demonstrate the internal structure of the nucleon.
+
+In an attempt to understand the growing numbers discovered in the 1940s and 1950s,
+the quark model is proposed independently by Gell-Mann \cite{gell-mann1964} and Zweig  \cite{zweig1964a, zweig1964}.
+In the quark model, the baryons are made up of three quarks and the mesons are made up
+of a quark and an antiquark, and can be organized as shown in \cref{fig:Octet}.
+The magnetic moment of the proton can then be expressed as the sum of the magnetic moment 
+from the individual quarks. The proton consists of $uud$ and the neutron consists of $udd$, 
+and the wavefunction is symmetry in both flavor and spin, the magnetic moments are now given by
+\begin{align}
+	\mu_p &= \frac{4}{3}\mu_u-\frac{1}{3}\mu_d,\\
+	\mu_n &= -\frac{1}{3}\mu_u+\frac{4}{3}\mu_d.
+\end{align}
+If we then also assumed the the $u$ and $d$ quarks share the same mass, the quark model
+then predicts the ratio $\mu_p/\mu_n=-2/3$ which is impressively close to the measured ratio 
+\num{0.6849793(3)}\cite{ParticleDataGroup:2022pth}.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\input{images/quark_model/Baryon_octet}
+		\caption{The Baryon Octet}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\input{images/quark_model/Meson_octet}
+		\caption{The Meson Octet}
+	\end{subfigure}
+	\caption{Baryons and meson organized based on their charge(diagonal) and strangeness(vertical). }
+	\label{fig:Octet}
+\end{figure}
 
 \section{Deep Inelastic Scattering}
 \label{sec:dis}
@@ -320,6 +362,33 @@ power expansions of $H$. As such the $\mu$ dependency in the parton distribution
 functions can be interpreted as a virtual photon with higher $Q$ would probe the
 nucleon with better resolution.
 
+\Cref{fig:DIS_scaling} shows the extracted $F_2$ from DIS measurements and compared
+with the NLO calculation. The $Q^2$ dependency is known as scaling violation and 
+originates from higher order corrections and $Q$ dependency of the PDF.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{DIS_scaling}
+	\caption{
+		Compilation of data on DIS, and compared with NLO calculations.
+		Taken from Ref.~\cite{theh1collaboration2003}
+		The $Q^2$ dependency is known as scaling violation,
+		and originates from higher order corrections and $Q$ dependency of the PDF.
+	}
+	\label{fig:DIS_scaling}
+\end{figure}
+The Gottfired Sum Rule introduced in \cref{sec:sum_rules} would also be modified due to
+QCD effects. At order $\alpha_s^2$, in the limit of a symmetric sea, the Gottfired Sum Rule
+is given by \cite{kataev2003}
+\begin{equation}
+	I_{GSR} = \begin{cases}
+		\frac{1}{3}\left[ 1 + 0.0355\left(\frac{\alpha_s}{\pi}\right)-0.811\left(\frac{\alpha_s}{\pi}\right)^2 \right] & n_f=3,\\
+		\frac{1}{3}\left[ 1 + 0.0384\left(\frac{\alpha_s}{\pi}\right)-0.822\left(\frac{\alpha_s}{\pi}\right)^2 \right] & n_f=4,
+	\end{cases}
+\end{equation}
+where $n_f$ is the active flavor.
+Taking $\alpha_s(Q^2)\approx 0.35$, the numerical value is $\approx 0.3313$. Therefore,
+the light sea-quark asymmetry is still needed to explained the NMC result.
+
 \Cref{fig:CT18_scale} shows the PDF extracted by CTEQ-TEA collaboration in their
 CT18 global analysis \cite{hou2021}. The sea-quarks from the gluon splitting 
 can be seen at low $x$ and is more important at large $Q$. This demonstrate the
@@ -433,7 +502,7 @@ and $\frac{\hat{\sigma_{A}}}{dQ^2dx_F}$ and $\frac{\hat{\sigma_{C}}}{dQ^2dx_F}$
 are the contribution from $\mathcal{O}(\alpha_s)$ annihilation and Compton scattering process respectively.
 The exact expression can be found in Ref.~\cite{sutton1992}.
 
-\Cref{fig:scaling} shows some of the existing data on DIS and Drell-Yan compared with NLO calculation. By
+\Cref{fig:scaling} shows some of the existing data on Drell-Yan compared with NLO calculation. By
 performing a global fit to both DIS and Drell-Yan data, the parton distribution
 functions can be extracted. The ability to fit both DIS and Drell-Yan data using
 the same PDF demonstrate the universality of the PDF and the usefulness of the
@@ -442,21 +511,11 @@ factorization theorem.
 	and DY. May need better plot. Shows some PDF extraction}
 \begin{figure}[htbp!]
 	\centering
-	\begin{subfigure}{0.45\linewidth}
-		\includegraphics[width=\linewidth]{DIS_scaling}
-		\caption{taken from Ref.~\cite{theh1collaboration2003}}
-		\label{subfig:DIS_scaling}
-	\end{subfigure}
-	\begin{subfigure}{0.45\linewidth}
-		\includegraphics[width=\linewidth]{DY_scaling}
-		\caption{taken from Ref.~\cite{mcgaughey1999}}
-		\label{subfig:DY_scaling}
-	\end{subfigure}
-	\caption{Compilation of data on DIS (\subref{subfig:DIS_scaling}) and
-		Drell-Yan (\subref{subfig:DY_scaling}), and compared with NLO calculations.
-		The $Q^2$ dependency in \subref{subfig:DIS_scaling} is known as scaling violation,
-		and originates from higher order corrections and $Q$ dependency of the PDF.}
-	\label{fig:scaling}
+	\includegraphics[width=0.5\linewidth]{DY_scaling}
+	\caption{taken from Ref.~\cite{mcgaughey1999}}
+	\label{fig:DY_scaling}
+	\caption{Compilation of data on Drell-Yan process, and compared with NLO calculations.
+		Taken from Ref.~\cite{mcgaughey1999}}
 \end{figure}
 One of the advantages of Drell-Yan over DIS is the explicit separation of the quark
 and anti-quark distributions in \cref{eq:DY_cs}. At large $x$, DIS cross section
@@ -520,11 +579,12 @@ in this section.
 Some of the early models attribute the asymmetry to the existence of a ``pion cloud'' in the proton.
 In the meson cloud model \cite{kumano1998} the proton wave function is written as a sum of meson-baryon states
 \begin{equation}
-	\ket{p} = \sqrt{Z}\ket{p_0} + \sum_{MB}\int \dd{y} \dd[2]{\vec{k}_\perp} \phi_{BM} \left(y, \vec{k}_\perp\right)\ket{B\left(y, \vec{k}_\perp\right);M\left(1-y, -\vec{k}_\perp\right)}
+	\ket{p} = \sqrt{Z}\ket{p}_{bare} + \sum_{MB}\int \dd{y} \dd[2]{\vec{k}_\perp} \phi_{BM} \left(y, k^2_\perp\right)\ket{B\left(y, \vec{k}_\perp\right);M\left(1-y, -\vec{k}_\perp\right)}
 \end{equation}
 where $\phi_{BM}$ is the probability amplitude to find a physical nucleon in a state consisting of a virtual
 meson $M$ and virtual baryon $B$ with longitudinal momentum fraction $y$ and $1-y$ and transverse momenta
-$\vec{k}_\perp$ and $-\vec{k}_\perp$ respectively.
+$\vec{k}_\perp$ and $-\vec{k}_\perp$ respectively. $Z$ is the standard wave function renormalization factor 
+and can be interpreted as the probability of finding a bare proton, which only contains a symmetric sea.
 
 The main hypothesis is that the exchanged photon in the DIS process interact with the partons in the 
 virtual meson or the virtual
@@ -562,7 +622,8 @@ shows the predicted $\bar{d}-\bar{u}$ from the meson cloud model, taken from Ref
 \subsection{Chiral Quark Model}
 Similar to the meson cloud model, the chiral quark model \cite{li1998} attributes the sea quarks to
 the presence of Goldstone boson in the nucleon. However, the Goldstone boson in chiral quark model
-is emitted from the valence quarks.
+is emitted from the valence quarks. The quark helicity would also be modified by the emission of a 
+spin-zero meson in P-wave, as indicated by the subscripts.
 \begin{equation}
 	q_{\pm} \rightarrow GB + q^\prime_\mp \rightarrow \left(q q^\prime\right)_0 q_{\mp}^\prime.
 \end{equation}

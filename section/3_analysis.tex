@@ -48,6 +48,9 @@ SeaQuest utilizes a Geant4 based Monte Carlo simulation (GMC) to simulate the
 performance of the spectrometer and the acceptance. The GMC is based on the
 E866 FastMC, a fortran-based simulation code, and is ported to SeaQuest and
 modified according to SeaQuest’s experimental configurations \cite{kerns2018,prasad2020}.
+\subsection{Dimuon generation}
+uniform in mass and pt
+weighted by cross section.
 
 \subsection{Messy and Clean Monte Carlo}
 \label{subsec:messyMC}
@@ -460,6 +463,16 @@ The number of protons on targets during DAQ live time can be calculated as follo
 \begin{equation}
 	\mathrm{live\ proton} = \frac{\mathrm{QIEsum}-\mathrm{inhibit\_block\_sum}-\mathrm{trigger\_sum\_no\_inhibit}}{\mathrm{QIEsum}}\cdot \mathrm{G2SEM}
 \end{equation}
+
+The conversion factor from QIE units to number of proton ($\frac{\mathrm{G2SEM}}{\mathrm{QIEsum}}$)
+is also a function of time. This is due to radiation damage to the mirror. The mirror needs to be replaced
+regularly. This factor over time is shown in \cref{fig:potperQIE}.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{run6_LH2_potPerQIE}
+	\caption{The conversion factor from QIE units to number of proton over time.}
+	\label{fig:potperQIE}
+\end{figure}
 
 The Main DAQ also reads out the beam intensity from Cerenkov counter for the triggering bucket
 and the $\pm16$ RF buckets before and after the trigger (label as ``RF-16" to ``RF+16", with

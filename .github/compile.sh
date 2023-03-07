@@ -7,6 +7,8 @@ outName=""
 if [[ "${current_tag}" =~ refs/tags/* ]]
 then
 	outName="thesis_chleung_${current_tag:10}"
+else
+	outName="thesis_chleung_${current_tag}"
 fi
 
 latexmk ${latex_option} -outdir=build ${MAIN}
