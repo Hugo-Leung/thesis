@@ -69,9 +69,21 @@ And $E$, $E^\prime$ are the initial and final energy of the scattered electron.
 The electric ($G_E\left(Q^2\right)$) and magnetic ($G_M\left(Q^2\right)$) form
 factors are functions of the negative squared of four momentum $Q^2$ of the virtual photon. At
 low-$Q^2$ limit, these form factors can be interpreted as the Fourier transforms
-of the charge and magnetic moment distribution of the nucleon. \Cref{fig:charge}
-shows recent extraction of the proton and neutron charge density from the electric
-form factor taken from Ref.~\cite{miller2007}. In particular, it was found that
+of the charge and magnetic moment distribution of the nucleon, and the mean square 
+charge radius can be defined from the first derivative of the electric form factor.
+\begin{equation}
+	-6G^\prime_E(0) \equiv \expval{r^2}.
+\end{equation}
+This interpenetration is however later questioned in Ref.~\cite{miller2007,miller2019},
+where the author argued that in the infinite momentum frame the transverse charge
+density should be given by 
+\begin{equation}
+	\rho(b)=\int^\infty_0 \frac{\dd{Q}Q}{2\pi} J_0(Qb)\frac{G_E^2(Q^2)+\tau G_M^2(Q^2)}{1+\tau},
+\end{equation}
+where $b$ is the impact factor and $J_0$ is a cylindrical Bessel function.
+\Cref{fig:charge}
+shows recent extraction of the proton and neutron transverse charge density from the 
+form factors, taken from Ref.~\cite{miller2007}. In particular, it was found that
 the neutron has a negatively charged center and surrounded by a positive cloud.
 \begin{figure}[htbp!]
 	\centering
@@ -502,7 +514,7 @@ and $\frac{\hat{\sigma_{A}}}{dQ^2dx_F}$ and $\frac{\hat{\sigma_{C}}}{dQ^2dx_F}$
 are the contribution from $\mathcal{O}(\alpha_s)$ annihilation and Compton scattering process respectively.
 The exact expression can be found in Ref.~\cite{sutton1992}.
 
-\Cref{fig:scaling} shows some of the existing data on Drell-Yan compared with NLO calculation. By
+\Cref{fig:DY_scaling} shows some of the existing data on Drell-Yan compared with NLO calculation. By
 performing a global fit to both DIS and Drell-Yan data, the parton distribution
 functions can be extracted. The ability to fit both DIS and Drell-Yan data using
 the same PDF demonstrate the universality of the PDF and the usefulness of the
@@ -512,7 +524,6 @@ factorization theorem.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{DY_scaling}
-	\caption{taken from Ref.~\cite{mcgaughey1999}}
 	\label{fig:DY_scaling}
 	\caption{Compilation of data on Drell-Yan process, and compared with NLO calculations.
 		Taken from Ref.~\cite{mcgaughey1999}}

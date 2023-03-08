@@ -48,9 +48,65 @@ SeaQuest utilizes a Geant4 based Monte Carlo simulation (GMC) to simulate the
 performance of the spectrometer and the acceptance. The GMC is based on the
 E866 FastMC, a fortran-based simulation code, and is ported to SeaQuest and
 modified according to SeaQuest’s experimental configurations \cite{kerns2018,prasad2020}.
+
 \subsection{Dimuon generation}
-uniform in mass and pt
-weighted by cross section.
+As SeaQuest is mostly interested in dimuons with high mass and $x_F$, where the cross section
+falls off rapidly, it is important to accurately determine the acceptance in this region.
+If the generated dimuon distribution in GMC follows the expected cross section, most of the
+generated events would be at the low mass and low $x_F$ region, where the cross section is large.
+To ensure sufficient statistics across the full phase space of interested, the generated dimuon
+distribution is uniform in both mass and $x_F$. The events are then weighted by the cross
+section. This approach approach ensures high statistical precision in determining the acceptance 
+at high mass and $x_F$, while also preserving the expected dimuon kinematic distribution.
+
+For each dimuon, a mass and $x_F$ pair is chosen, the transverse momentum is also chosen. 
+Because the transverse momentum distribution ($p_T$) cannot be calculated using
+fixed order pQCD, it is typically parameterized using some functional form.
+In the GMC simulation, the input $p_T$ distribution is based on the
+Kaplan functional form \cite{kaplan1978}.
+\begin{equation}
+	f\left(P_T^2\right) \propto \frac{1}{\left(1+ P_T^2/p_1^2\right)^6},
+	\label{eq:kaplan}
+\end{equation}
+The parameter $p_1$ controls the broadness of the $P_T$ distribution. And is 
+related to the average $P_T$ as follows
+\begin{align}
+	\expval{P_T} &= \frac{35\pi p_1}{256},\\
+	\expval{P_T^2} &= \frac{p_1^2}{4}.
+\end{align}
+The value of $p_1$ chosen is \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
+decays. These values are inherited from the previous Drell-Yan experiment at Fermilab.
+It was latter decided that these values of $p_1$ are not suitable for SeaQuest due the the lower
+beam energy, and the $P_T$ distribution is adjusted following a re-weighting procedure, which would
+be described in \cref{subsec:pt_reweight}.
+
+The dimuon angular distribution is typically calculated in the dimuon rest frame, known as 
+Collins-Soper frame \cite{collins1977} and shown in \cref{fig:cs_frame}.
+For the Drell-Yan events, the polar angle $\theta$ for the $\mu^-$ follows 
+a $1+\cos^2\theta$ distribution with a uniform azimuthal angular distribution in $\phi$.
+On the other hand, the angular distribution for the $J/\psi$ and $\psi'$ are uniform in
+both $\theta$ and $\phi$.
+
+\subsubsection{Transformation from Collins-Soper frame to Laboratory frame}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{Collins_Soper_frame}
+	\caption{Definition of the Collins–Soper frame and various angles and planes in the rest frame of dimuon
+	Taken from Ref.~\cite{peng2019}}
+	\label{fig:cs_frame}
+\end{figure}
+To transform from the Collins-Soper frame to lab frame, three Lorentz transforms are needed. 
+The first transformation boost along the virtual photon's $-P_T$ direction, a second transformation then
+boost along the $-z$ direction to reach the hadron-hadron center of mass frame. A final transformation
+then boost along the $-z$ direction to reach the lab frame \cite{Don-1926}.
+
+\subsubsection{Cross section weighting}
+Each event is assigned a weight based on the cross section. The cross section is calculated based on
+the kinematics of the generated events. The leading order cross section is calculated using 
+CT14 pdf. The NLO effect is then included using K-Factor.
+
+As for the charmonium decay, the event weight is based on the calculation using color evaporation
+model, with the normalization taken from a particularization by E789 \cite{schub1995}.
 
 \subsection{Messy and Clean Monte Carlo}
 \label{subsec:messyMC}
@@ -82,6 +138,7 @@ probability to be used, where as only a small fraction of lower occupancy NIM-3 
 \pdfcomment{NIM-3 and FPGA1 occupancy profile}
 
 \subsection{Maximum dimuon \texorpdfstring{$P_T$}{P\_T}}
+\label{subsec:max_pt}
 One of the changes made to the Monte Carlo generator during this study
 is the maximum transverse momentum of the virtual photon.
 
@@ -100,19 +157,12 @@ Earlier versions of the SeaQuest Monte Carlo generators used an inconsistent def
 and $P_T^{\mathrm{max}}$, resulting in an incomplete coverage of the kinematic phase space.
 
 \subsection{\texorpdfstring{$P_T$}{P\_T} re-weighting in Monte Carlo}
+\label{subsec:pt_reweight}
 This was first studied by S.~Prasad \cite{prasad2020}.
-Because the transverse momentum distribution ($p_T$) cannot be calculated using
-fixed order pQCD, it is typically parameterized using some functional form.
-In the GMC simulation, the input $p_T$ distribution is based on the
-Kaplan functional form \cite{kaplan1978}.
-\begin{equation}
-	f\left(P_T^2\right) \propto \frac{1}{\left(1+ P_T^2/p_1^2\right)^6},
-	\label{eq:kaplan}
-\end{equation}
+In the GMC, the transverse momentum distribution randomly follows the Kaplan functional form
+\cref{eq:kaplan},
 with $p_1$ is set to \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
-decays. The parameter $p_1$ controls the broadness
-of the $P_T$ distribution. In the MC, the $P_T$ of a dimuon is chosen randomly
-according to \cref{eq:kaplan}. If the chosen $P_T$ exceeds $P_T^{\mathrm{max}}$ in \cref{eq:pTmax}
+decays. If the chosen $P_T$ exceeds $P_T^{\mathrm{max}}$ in \cref{eq:pTmax}
 and does not satisfy the kinematic constraint, a new $P_T$ will be chosen until
 the constraint is satisfied.
 
@@ -990,7 +1040,7 @@ would report the \SI{68}{\percent} confidence level.
 
 \pdfcomment{the scale dependence}
 The DYNNLO calculation requires two energy scales, the factorization and renormalization scales,
-as introduced in \cref {M-subsec:scaling_violation}. Sine the DYNNLO code was designed to perform
+as introduced in \cref{M-subsec:scaling_violation}. Since the DYNNLO code was designed to perform
 calculation at LHC, the original chosen scale is the W boson mass (\SI{80.385}{\GeV}). 
 The SeaQuest data covers the mass of \SI{4.5}{\GeV} to \SI{8.8}{\GeV} for the Drell-Yan
 process. The original chosen scale is certainly too high for fixed target experiments. 
