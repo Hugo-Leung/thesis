@@ -166,7 +166,7 @@ excitation is measured by wrapping a 1-turn coil around the central region of th
 current. The final calibration of the field strength is determined by the reconstructed
 mass of the $J/\psi$ resonance.
 
-The downstream analyzing magent (KMag) is a \SI{3}{\meter} long open aperture magnet 
+The downstream analyzing magent (KMag) is a \SI{3}{\meter} long open aperture magnet
 with a \SI{289}{\cm} wide by \SI{203}{\cm} high central air gap. It was
 originally  constructed by E799/KTeV collaboration.
 The coils are excited to \SI{1600}{\ampere} which produce a magnetic field of \SI{0.4}{\tesla}
@@ -178,10 +178,10 @@ probe and is further calibrated using the reconstructed mass of the $J/\psi$ res
 The SeaQuest spectrometer consists of two magnets and four tracking stations. FMag,
 placed \SI{104}{\cm} downstream the target. It is then followed by
 the first tracking stations. The SeaQuest detector system is separated into four tracking stations.
-Stations 1, 2 and 3 each consists of plastic scintillator hodoscopes and drift chambers. 
+Stations 1, 2 and 3 each consists of plastic scintillator hodoscopes and drift chambers.
 The hodoscopes in each stations provides a fast signal for triggering whereas
 the drift chambers provide good spatial resolution for track precise reconstruction.
-An open air dipole magnet (KMag) is placed between station 1 and station 2. 
+An open air dipole magnet (KMag) is placed between station 1 and station 2.
 The vertical magnetic field from both
 magnets bends the muons horizontally, allowing the measurement of the momentum
 of the muons. Downstream of station 3, there is a 1 m iron wall acting as a
@@ -276,7 +276,7 @@ modules and recorded by the DAQ system.
 		D3m.1   & X     & \num{176}   & \num{1.0}               & $179\times168$                                          & \num{1879}             \\
 		        & U, V  & \num{208}   & \num{1.0}               & $171\times163$                                          & $\pm19$                \\
 		D3m.2   & X     & \num{116}   & \num{2.0}               & $232\times166$                                          & \num{1895}             \\
-		        & U, V  & \num{134}   & \num{2.0}               & $268\times166$                                          & $\pm6$\\ \hline
+		        & U, V  & \num{134}   & \num{2.0}               & $268\times166$                                          & $\pm6$                 \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -334,7 +334,7 @@ trigger decisions.
 		Matrix 2 & TT/BB & $+-/-+$ & None               & Same-side trigger         \\
 		Matrix 3 & TB/BT & $++/--$ & None               & Like-charge trigger       \\
 		Matrix 4 & T/B   & $+/-$   & None               & Single muon trigger       \\
-		Matrix 5 & T/B   & $+/-$   & $p_x>\SI{3}{\GeV}$ & High-$p_T$ single trigger\\ \hline
+		Matrix 5 & T/B   & $+/-$   & $p_x>\SI{3}{\GeV}$ & High-$p_T$ single trigger \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -354,7 +354,7 @@ of the reconstruction. This will be discussed further in \cref{M-sec:MC}.
 
 \section{Data Acquisition, Decoding and Storage}
 The data acquisition for SeaQuest is divided into three separate subsystem, namely
-the ``Event DAQ'', ``Scaler DAQ'' and ``Beam DAQ''. 
+the ``Event DAQ'', ``Scaler DAQ'' and ``Beam DAQ''.
 
 \subsubsection{Event DAQ}
 The Event DAQ records the event-by-event hit information and the trigger timing.
@@ -425,21 +425,21 @@ Each DAQ system writes its output to separate files, in order to synchronize the
 a script is used to manage a master spill ID and insert the spill ID into the different data streams.
 This allows the decoder to reassemble the data offline. The spill ID is also written to the EPICS server.
 Another slow control program is also connected to the Fermilab accelerator control network (ACNET).
-This allows us to record the current to the different spectrometer magnets, target position 
-and status of the target cryogenic system. A multi-channel digital meter is also used to record 
+This allows us to record the current to the different spectrometer magnets, target position
+and status of the target cryogenic system. A multi-channel digital meter is also used to record
 the environmental conditions such as temperature and humidity inside the experimental hall.
 
 \subsection{Decoder and Storage}
 Typically, each run of physical data taking lasts about an hour. The file size is typically
 several \unit{\giga\byte}s. The data files from all the DAQ systems and slow control system
-are stored locally in a disk array located in the SeaQuest control room. The data from DAQ 
+are stored locally in a disk array located in the SeaQuest control room. The data from DAQ
 is also backed up on tape storage provided by Fermilab computing division.
 
-The Event DAQ and Scaler DAQ write their output in a CODA specific binary format. The Event 
+The Event DAQ and Scaler DAQ write their output in a CODA specific binary format. The Event
 DAQ file contains the TDC information from each detector of each triggered events. The instantaneous
 beam intensity around the triggering bucket from the BeamDAQ is also attached in the Event DAQ file.
-These raw data files are processed by a custom program called ``decoder", which coverts the 
-CODA specific format into a ROOT based format. These information will also be uploaded to a SQL 
+These raw data files are processed by a custom program called ``decoder", which coverts the
+CODA specific format into a ROOT based format. These information will also be uploaded to a SQL
 server.
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
