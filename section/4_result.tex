@@ -50,7 +50,7 @@ The massfits in each $x_F$ bins are shown in \cref{fig:massfit_57-70_xF,fig:mass
 and the fit in the $P_T$ bins are shown in \cref{fig:massfit_57-70_pT,fig:massfit_5-6_pT}.
 The two datasets are analysis separately. The data in each bin is well described by the fitting procedure
 and the $J/\psi$ and $\psi'$ yield can be extracted from the massfits.
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.4\linewidth}
 		\includegraphics[width=0.9\linewidth]{massfit/run2-3/LH2/xF/LH2_xFbin0}
@@ -86,7 +86,7 @@ and the $J/\psi$ and $\psi'$ yield can be extracted from the massfits.
 	\label{fig:massfit_57-70_xF}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.4\linewidth}
 		\includegraphics[width=0.9\linewidth]{massfit/run5-6/LH2/xF/LH2_xFbin0}
@@ -122,7 +122,7 @@ and the $J/\psi$ and $\psi'$ yield can be extracted from the massfits.
 	\label{fig:massfit_5-6_xF}	
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.4\linewidth}
 		\includegraphics[width=0.9\linewidth]{massfit/run2-3/LH2/pT/LH2_pTbin0}
@@ -158,7 +158,7 @@ and the $J/\psi$ and $\psi'$ yield can be extracted from the massfits.
 	\label{fig:massfit_57-70_pT}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.4\linewidth}
 		\includegraphics[width=0.9\linewidth]{massfit/run5-6/LH2/pT/LH2_pTbin0}
@@ -197,7 +197,7 @@ and the $J/\psi$ and $\psi'$ yield can be extracted from the massfits.
 With the yields extracted, the cross section can be calculated. 
 The branching ratio is taken from Ref.~\cite{workman2022}.
 
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=0.9\linewidth]{cs/xF/combine_xF_LH2_5-6_5770_psip}
@@ -210,7 +210,17 @@ The branching ratio is taken from Ref.~\cite{workman2022}.
 	and $p+d$(right) from the two datasets,	and compared with the NRQCD predictions}
 	\label{fig:cs_xF_combined}
 \end{figure}
-
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{cs/xF/ratio_xF_LH2_5-6_5770}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{cs/xF/ratio_xF_LD2_5-6_5770}
+	\end{subfigure}
+	\caption{The extracted  $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio as a function of $x_F$ for $p+p$(left)
+	and $p+d$(right) from the two datasets,	and compared with the NRQCD predictions}
+\end{figure}
 
 The extracted cross section for $J/\psi$ and $\psi'$ are shown in \cref{fig:cs_xF_combined}, and
 the result from the two datasets are in very good agreement. While the extracted 
@@ -223,6 +233,7 @@ cross section can be used in further constrain the LDMEs.
 \centering
 \caption{Cross section as a function of $x_F$ for $p+p$ extracted from run 2-3}
 \begin{tabular}{cc|ccc}
+\hline
 \multicolumn{2}{c|}{$J/\psi$}                               & \multicolumn{2}{c}{$\psi^{\prime}$}                                &  \\ \cline{1-4}
 $\expval{x_F}_{J/\psi}$    & $\eval{d\sigma/dx_F}_{J/\psi}$ & $\expval{x_F}_{\psi^\prime}$ & $\eval{d\sigma/dx_F}_{\psi^\prime}$ &  \\ \cline{1-4}
 \multicolumn{1}{c|}{0.527} & $6.070\pm0.333\pm1.465$        & \multicolumn{1}{c|}{0.509}   & $1.6362\pm0.1249\pm0.1692$          &  \\
@@ -236,6 +247,7 @@ $\expval{x_F}_{J/\psi}$    & $\eval{d\sigma/dx_F}_{J/\psi}$ & $\expval{x_F}_{\ps
 \centering
 \caption{Cross section as a function of $x_F$ for $p+d$ extracted from run 2-3}
 \begin{tabular}{cc|ccc}
+\hline
 \multicolumn{2}{c|}{$J/\psi$}                               & \multicolumn{2}{c}{$\psi^{\prime}$}                                &  \\ \cline{1-4}
 $\expval{x_F}_{J/\psi}$    & $\eval{d\sigma/dx_F}_{J/\psi}$ & $\expval{x_F}_{\psi^\prime}$ & $\eval{d\sigma/dx_F}_{\psi^\prime}$ &  \\ \cline{1-4}
 \multicolumn{1}{c|}{0.528} & $6.626\pm0.361\pm1.457$        & \multicolumn{1}{c|}{0.509}   & $1.7513\pm0.1257\pm0.0613$          &  \\
@@ -249,6 +261,7 @@ $\expval{x_F}_{J/\psi}$    & $\eval{d\sigma/dx_F}_{J/\psi}$ & $\expval{x_F}_{\ps
 \centering
 \caption{Cross section as a function of $x_F$ for $p+p$ extracted from run 5-6}
 \begin{tabular}{cc|ccc}
+\hline
 \multicolumn{2}{c|}{$J/\psi$}                               & \multicolumn{2}{c}{$\psi^{\prime}$}                                &  \\ \cline{1-4}
 $\expval{x_F}_{J/\psi}$    & $\eval{d\sigma/dx_F}_{J/\psi}$ & $\expval{x_F}_{\psi^\prime}$ & $\eval{d\sigma/dx_F}_{\psi^\prime}$ &  \\ \cline{1-4}
 \multicolumn{1}{c|}{0.527} & $8.219\pm0.458\pm0.616$        & \multicolumn{1}{c|}{0.509}   & $1.6087\pm0.2052\pm0.2854$          &  \\
@@ -262,6 +275,7 @@ $\expval{x_F}_{J/\psi}$    & $\eval{d\sigma/dx_F}_{J/\psi}$ & $\expval{x_F}_{\ps
 \centering
 \caption{Cross section as a function of $x_F$ for $p+d$ extracted from run 5-6}
 \begin{tabular}{cc|ccc}
+\hline
 \multicolumn{2}{c|}{$J/\psi$}                               & \multicolumn{2}{c}{$\psi^{\prime}$}                                &  \\ \cline{1-4}
 $\expval{x_F}_{J/\psi}$    & $\eval{d\sigma/dx_F}_{J/\psi}$ & $\expval{x_F}_{\psi^\prime}$ & $\eval{d\sigma/dx_F}_{\psi^\prime}$ &  \\ \cline{1-4}
 \multicolumn{1}{c|}{0.527} & $9.184\pm0.378\pm0.579$        & \multicolumn{1}{c|}{0.509}   & $1.9688\pm0.1446\pm0.2002$          &  \\
@@ -272,10 +286,11 @@ $\expval{x_F}_{J/\psi}$    & $\eval{d\sigma/dx_F}_{J/\psi}$ & $\expval{x_F}_{\ps
 \end{tabular}
 \end{table}
 
+
 \pdfmargincomment{how to plot the pT distribution? Do I want to show jpsi and psi' on the same plot, or per roadset?}
 
 The $P_T$ distribution is shown in \cref{fig:pT_57-70,fig:pT_5-6}
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=0.9\linewidth]{cs/pT/57-70_pTsq_LH2}
@@ -287,7 +302,7 @@ The $P_T$ distribution is shown in \cref{fig:pT_57-70,fig:pT_5-6}
 	and $p+d$(right) from the run 2-3 data.}
 	\label{fig:pT_57-70}
 \end{figure}
-\begin{figure}
+\begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=0.9\linewidth]{cs/pT/5-6_pTsq_LH2}
@@ -299,11 +314,22 @@ The $P_T$ distribution is shown in \cref{fig:pT_57-70,fig:pT_5-6}
 	and $p+d$(right) from the run 2-3 data.}
 	\label{fig:pT_5-6}
 \end{figure}
-
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{cs/pT/ratio_pT_LH2_5-6_5770}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{cs/pT/ratio_pT_LD2_5-6_5770}
+	\end{subfigure}
+	\caption{The extracted  $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio as a function of $P_T$ for $p+p$(left)
+	and $p+d$(right) from the two datasets,	and compared with the NRQCD predictions}
+\end{figure}
 \begin{table}[h!]
 \centering
 \caption{$P_T$ distribution for $p+p$ extracted from run 2-3}
 \begin{tabular}{cc|ccc}
+\hline
 \multicolumn{2}{c|}{$J/\psi$}                               & \multicolumn{2}{c}{$\psi^{\prime}$}                                &  \\ \cline{1-4}
 $\expval{p_T}_{J/\psi}$    & $\eval{d\sigma/dp_T}_{J/\psi}$ & $\expval{p_T}_{\psi^\prime}$ & $\eval{d\sigma/dp_T}_{\psi^\prime}$ &  \\ \cline{1-4}
 \multicolumn{1}{c|}{0.193} & $12.65\pm1.07\pm2.40$          & \multicolumn{1}{c|}{0.192}   & $3.17\pm0.24\pm0.27$                &  \\
@@ -317,6 +343,7 @@ $\expval{p_T}_{J/\psi}$    & $\eval{d\sigma/dp_T}_{J/\psi}$ & $\expval{p_T}_{\ps
 \centering
 \caption{$P_T$ distribution for $p+d$ extracted from run 2-3}
 \begin{tabular}{cc|ccc}
+\hline
 \multicolumn{2}{c|}{$J/\psi$}                               & \multicolumn{2}{c}{$\psi^{\prime}$}                                &  \\ \cline{1-4}
 $\expval{p_T}_{J/\psi}$    & $\eval{d\sigma/dp_T}_{J/\psi}$ & $\expval{p_T}_{\psi^\prime}$ & $\eval{d\sigma/dp_T}_{\psi^\prime}$ &  \\ \cline{1-4}
 \multicolumn{1}{c|}{0.193} & $13.69\pm1.17\pm2.01$          & \multicolumn{1}{c|}{0.194}   & $3.23\pm0.24\pm0.10$                &  \\
@@ -330,6 +357,7 @@ $\expval{p_T}_{J/\psi}$    & $\eval{d\sigma/dp_T}_{J/\psi}$ & $\expval{p_T}_{\ps
 \centering
 \caption{$P_T$ distribution for $p+p$ extracted from run 5-6}
 \begin{tabular}{cc|ccc}
+\hline
 \multicolumn{2}{c|}{$J/\psi$}                               & \multicolumn{2}{c}{$\psi^{\prime}$}                                &  \\ \cline{1-4}
 $\expval{p_T}_{J/\psi}$    & $\eval{d\sigma/dp_T}_{J/\psi}$ & $\expval{p_T}_{\psi^\prime}$ & $\eval{d\sigma/dp_T}_{\psi^\prime}$ &  \\ \cline{1-4}
 \multicolumn{1}{c|}{0.195} & $16.01\pm1.19\pm0.72$          & \multicolumn{1}{c|}{0.196}   & $3.32\pm0.28\pm0.08$                &  \\
@@ -343,6 +371,7 @@ $\expval{p_T}_{J/\psi}$    & $\eval{d\sigma/dp_T}_{J/\psi}$ & $\expval{p_T}_{\ps
 \centering
 \caption{$P_T$ distribution for $p+d$ extracted from run 5-6}
 \begin{tabular}{cc|ccc}
+\hline
 \multicolumn{2}{c|}{$J/\psi$}                               & \multicolumn{2}{c}{$\psi^{\prime}$}                                &  \\ \cline{1-4}
 $\expval{p_T}_{J/\psi}$    & $\eval{d\sigma/dp_T}_{J/\psi}$ & $\expval{p_T}_{\psi^\prime}$ & $\eval{d\sigma/dp_T}_{\psi^\prime}$ &  \\ \cline{1-4}
 \multicolumn{1}{c|}{0.194} & $17.16\pm1.27\pm0.57$          & \multicolumn{1}{c|}{0.194}   & $3.67\pm0.29\pm0.07$                &  \\
@@ -353,8 +382,28 @@ $\expval{p_T}_{J/\psi}$    & $\eval{d\sigma/dp_T}_{J/\psi}$ & $\expval{p_T}_{\ps
 \end{tabular}
 \end{table}
 
-\Cref{fig:pT_s} shows the comparison of the extracted $J/\psi$ $\expval{P_T^2}$ from SeaQuest with different
-experiments. The data points only contains the statistical uncertainty. The data points are also fitted to the following form, taken from 
+The transverse momentum distributions are fitted to the Kaplan form \cref{M-eq:kaplan}, and the extracted 
+$\expval{P_T}$ and $\expval{P^2_T}$ is listed in \cref{tab:kaplan_result}.
+\begin{table}[h!]
+\centering
+\caption{extracted $\expval{P_T}$ and $\expval{P^2_T}$.}
+\label{tab:kaplan_result}
+\begin{tabular}{cc|c|c|c|c}
+\hline
+                                               &                        & run & $p_1$                   & $\expval{P_T}$          & $\expval{P^2_T}$        \\ \hline
+\multicolumn{1}{c|}{\multirow{4}{*}{$J/\psi$}} & \multirow{2}{*}{$p+p$} & 2-3 & $1.729\pm0.053\pm0.055$ & $0.743\pm0.023\pm0.024$ & $0.747\pm0.046\pm0.048$ \\ \cline{3-6} 
+\multicolumn{1}{c|}{}                          &                        & 5-6 & $1.663\pm0.042\pm0.018$ & $0.714\pm0.018\pm0.008$ & $0.692\pm0.035\pm0.015$ \\ \cline{2-6} 
+\multicolumn{1}{c|}{}                          & \multirow{2}{*}{$p+d$} & 2-3 & $1.719\pm0.055\pm0.138$ & $0.739\pm0.024\pm0.059$ & $0.739\pm0.047\pm0.119$ \\ \cline{3-6} 
+\multicolumn{1}{c|}{}                          &                        & 5-6 & $1.670\pm0.045\pm0.030$ & $0.717\pm0.019\pm0.013$ & $0.697\pm0.037\pm0.025$ \\ \hline
+\multicolumn{1}{c|}{\multirow{4}{*}{$\psi'$}}  & \multirow{2}{*}{$p+p$} & 2-3 & $1.587\pm0.051\pm0.193$ & $0.681\pm0.022\pm0.083$ & $0.629\pm0.041\pm0.153$ \\ \cline{3-6} 
+\multicolumn{1}{c|}{}                          &                        & 5-6 & $1.675\pm0.055\pm0.074$ & $0.720\pm0.024\pm0.032$ & $0.702\pm0.046\pm0.062$ \\ \cline{2-6} 
+\multicolumn{1}{c|}{}                          & \multirow{2}{*}{$p+d$} & 2-3 & $1.593\pm0.058\pm0.205$ & $0.684\pm0.025\pm0.088$ & $0.634\pm0.046\pm0.164$ \\ \cline{3-6} 
+\multicolumn{1}{c|}{}                          &                        & 5-6 & $1.597\pm0.055\pm0.110$ & $0.686\pm0.024\pm0.047$ & $0.637\pm0.044\pm0.088$ \\ \hline
+\end{tabular}
+\end{table}
+
+\Cref{fig:pT_s} shows the comparison of the extracted $\expval{P_T^2}$ for $p+p\rightarrow J/\psi$ from SeaQuest 
+with different experiments. The statistical and systematic uncertainties are summed together for each data point. The data points are also fitted to the following form, taken from \pdfcomment{citation!!!!!}
 \begin{equation}
 	\expval{P_T^2}=a\ln{\left( \frac{\sqrt{s}}{b} \right)}.
 \end{equation}
@@ -362,7 +411,7 @@ experiments. The data points only contains the statistical uncertainty. The data
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{cs/pT/pT_s_release}
-	\caption{The extract $\expval{P_T^2}$ for $J/\psi$ from SeaQuest compared with different experiments}
+	\caption{The extracted $\expval{P_T^2}$ for $p+p\rightarrow J/\psi$ from SeaQuest compared with different experiments}
 	\label{fig:pT_s}
 \end{figure}
 
