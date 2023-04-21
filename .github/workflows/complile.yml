@@ -13,13 +13,14 @@ jobs:
         uses: actions/checkout@v3
         with: 
           fetch-depth: 0
+      - run: git config --system --add safe.directory /__w/thesis/thesis
       - name: Get previous tag name
         id: previous_tag
         env:
           ref: ${{ github.ref }}
         run: |
           output=$(python3 .github/git_tag.py ${ref}) 
-          echo "::set-output name=TAGNAME::$output"
+          echo "TAGNAME=$output" >> $GITHUB_OUTPUT
       - name: compile
         env:
           tag: ${{ steps.previous_tag.outputs.TAGNAME }}
