@@ -72,10 +72,13 @@ Kaplan functional form \cite{kaplan1978}.
 \end{equation}
 The parameter $p_1$ controls the broadness of the $P_T$ distribution. And is
 related to the average $P_T$ as follows
-\begin{align}
+\begin{equation}
+\begin{split}
 	\expval{P_T}   & = \frac{35\pi p_1}{256}, \\
 	\expval{P_T^2} & = \frac{p_1^2}{4}.
-\end{align}
+	\label{eq:kaplan_mean}
+\end{split}
+\end{equation}
 The value of $p_1$ chosen is \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
 decays. These values are inherited from the previous \SI{800}{\GeV} Drell-Yan experiment at Fermilab.
 It was later decided that these values of $p_1$ are not suitable for SeaQuest due the the lower
@@ -162,7 +165,7 @@ From previous studies, the efficiency for the chambers is determined to be \SI{\
 with a resolution of \SI{\sim 0.04}{\cm}. Therefore for all chamber hits, \SI{6}{\percent} of
 hits are dropped randomly, with a Gaussian smearing applied to the drift distance for the remaining
 hits with a width of \SI{0.004}{\cm}. The Monte Carlo data are now ready for track reconstruction and analysis.
-This is labeled as ``clean Monte Carlo'', it is used in acceptance studies without the
+This is labeled as ``clean Monte Carlo'', and is used in acceptance studies without the
 rate dependent effects.
 
 If we are interested in the rate dependent effects, there is an option to embed NIM-3 hits into
@@ -272,6 +275,9 @@ During the offline decoding process, several data quality cuts are applied.
 These cut are to ensure the data taking conditions were both normal and accurately recorded.
 During analysis, this is typically done by querying the database
 and requiring the data quality equals to zero in the spill table.
+These cuts are tabulated in \cref{tab:spillQA}.
+\input{section/QA.tex}
+
 
 \subsection{Pre-tracking Cuts}
 In order to speed up the reconstruction, various types of chamber hits are removed, as
@@ -366,7 +372,7 @@ fractions $x_1$, $x_2$ and the Feynman x ($x_F$) require some attentions as ther
 Feynman x, or $x_F$, is defined as $P_z/P_z^{max}$, the ratio of longitudinal dimuon momentum
 over the maximum allowed value in the hadron-hadron center of mass frame. In high energy
 experiment, $P_z^{max}$ is often given as $\sqrt{s}/2$, since half of the available energy is
-carried by the recoiled system.
+carried away by the recoiled system.
 However, as SeaQuest is at a lower energy, the mass of the virtual photon becomes comparable to its momentum.
 A heavier virtual photon would imply less available energy for the longitudinal momentum,
 therefore we defined $x_F$ as

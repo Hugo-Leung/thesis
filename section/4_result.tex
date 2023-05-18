@@ -46,10 +46,10 @@ their PDF extraction\cite{ball2021} and their result is shown in Fig.\
 	jpsi as a function of root s}
 
 
-The massfits in each $x_F$ bins are shown in \cref{fig:massfit_57-70_xF,fig:massfit_5-6_xF},
-and the fit in the $P_T$ bins are shown in \cref{fig:massfit_57-70_pT,fig:massfit_5-6_pT}.
+The massfits in all $x_F$ bins are shown in \cref{fig:massfit_57-70_xF,fig:massfit_5-6_xF},
+and the fits in the $P_T$ bins are shown in \cref{fig:massfit_57-70_pT,fig:massfit_5-6_pT}.
 The two datasets are analyzed separately. The data in each bin is very well described by the fitting procedure
-and the $J/\psi$ and $\psi'$ yield can be extracted from the massfits.
+and the $J/\psi$ and $\psi'$ yields can be extracted from the massfits.
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.4\linewidth}
@@ -195,8 +195,8 @@ and the $J/\psi$ and $\psi'$ yield can be extracted from the massfits.
 \end{figure}
 
 With the yields extracted, the cross section can be calculated.
-The branching ratios, $B\left(J/\psi\rightarrow\mu^+\mu-\right)$
-and $B\left(\psi'\rightarrow\mu^+\mu-\right)$, are taken from Ref.~\cite{workman2022}.
+The branching ratios, $B\left(J/\psi\to\mu^+\mu-\right)$
+and $B\left(\psi'\to\mu^+\mu-\right)$, are taken from Ref.~\cite{workman2022}.
 
 \begin{figure}[h!]
 	\centering
@@ -221,16 +221,23 @@ and $B\left(\psi'\rightarrow\mu^+\mu-\right)$, are taken from Ref.~\cite{workman
 	\end{subfigure}
 	\caption{The extracted  $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio as a function of $x_F$ for $p+p$(left)
 		and $p+d$(right) from the two datasets,	and compared with the NRQCD predictions}
+	\label{fig:cs_xF_ratio}
 \end{figure}
 
 The extracted cross section for $J/\psi$ and $\psi'$ are shown in \cref{fig:cs_xF_combined}, and
-the result from the two datasets are in very good agreement. While the extracted
+the results from the two datasets are in very good agreement. While the extracted
 $J/\psi$ cross section is in very good agreement with the NRQCD calculation, the extracted $\psi'$
-cross section disagree with the prediction, particular at large $x_F$. It is possible the LDMEs used
-in for the $\psi'$ cross section calculation is not fully optimized. This new result on the $\psi'$
-cross section can be used in further constrain the LDMEs. In the NRQCD framework, the difference in the
-$x_F$ distributions between $J/\psi$ and $\psi'$ is mostly originated from the relative weighting between
-the different production subprocess. In the CEM framework, the hadronization probability only depends on
+cross section disagree with the prediction, particular at large $x_F$. At large $x_F$ the NRQCD
+calculation suggests the $\psi'$ should be dominated by the $q\bar{q}$ annihilation.
+It is possible that the LDMEs used  for the $\psi'$ cross section calculation are not fully optimized,
+and the $q\bar{q}$ annihilation is more important than suggested. This new result on the $\psi'$
+cross section can be used in further constrain the LDMEs. 
+
+The ratio of $\sigma_{\psi'}/\sigma_{J/\psi}$ as a function of $x_F$ is shown in \cref{fig:cs_xF_ratio}.
+This ratio shows a clear $x_F$ dependence and increases at large $x_F$. In the NRQCD framework,
+ the difference in the $x_F$ distributions between $J/\psi$ and $\psi'$ is mostly originated 
+from the relative weighting between the different production subprocess. 
+In the CEM framework, the hadronization probability only depends on
 the final charmonium state, but not the underlying subprocess. Therefore, the CEM framework would predict
 the $x_F$ distributions for $J/\psi$ and $\psi'$ to have very shape, with a smaller total cross section
 for $\psi'$ production.
@@ -390,7 +397,11 @@ The $P_T$ distribution is shown in \cref{fig:pT_57-70,fig:pT_5-6}
 \end{table}
 
 The transverse momentum distributions are fitted to the Kaplan form, \cref{M-eq:kaplan}, and the extracted
-$\expval{P_T}$ and $\expval{P^2_T}$ is listed in \cref{tab:kaplan_result}.
+$\expval{P_T}$ and $\expval{P^2_T}$ are calculated using \cref{M-eq:kaplan_mean},
+and are listed in \cref{tab:kaplan_result}. This result suggests the
+$\expval{P_T}$ is larger for the $J/\psi$ production, however the systematic uncertainties are too 
+large to make a conclusive statement.
+
 \begin{table}[h!]
 	\centering
 	\caption{extracted $\expval{P_T}$ and $\expval{P^2_T}$.}
@@ -409,7 +420,7 @@ $\expval{P_T}$ and $\expval{P^2_T}$ is listed in \cref{tab:kaplan_result}.
 	\end{tabular}
 \end{table}
 
-\Cref{fig:pT_s} shows the extracted $\expval{P_T^2}$ for $p+p\rightarrow J/\psi$ as a function
+\Cref{fig:pT_s} shows the extracted $\expval{P_T^2}$ for $p+p\to J/\psi$ as a function
 of $\sqrt{s}$ from SeaQuest compared with different experiments
 \cite{badier1983,clark1978,drapier1998,acharya2020}. The $\expval{P_T^2}$ follows an
 increasing pattern versus $\sqrt{s}$ over a wide range of energies.
