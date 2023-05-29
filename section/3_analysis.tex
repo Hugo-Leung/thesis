@@ -155,7 +155,7 @@ calculation using color evaporation model, with the normalization taken from a p
 where $A=\SI{1464}{\nano\barn}$, $B=16.66$, $C=0.2398$, and $\tau=m^2_{J/\psi}/s$.
 The branching ration $B\left(J/\psi\rightarrow \mu^+ \mu^-\right)=0.0594$ is also included.
 The $\psi'$ cross section is based to $J/\psi$ cross section, with an additional factor
-$\left[B\left(\psi'\rightarrow \mu^+ \mu^-\right)\cross\sigma_{\psi'}\right]/\left[B\left(J/\psi\rightarrow \mu^+ \mu^-\right)\cross\sigma_{J\psi}\right]=0.019$.
+$\left[B\left(\psi'\rightarrow \mu^+ \mu^-\right)\cross\sigma_{\psi'}\right]/\left[B\left(J/\psi\rightarrow \mu^+ \mu^-\right)\cross\sigma_{J/\psi}\right]=0.019$.
 
 \subsection{Messy and Clean Monte Carlo}
 \label{subsec:messyMC}
@@ -354,13 +354,47 @@ St.~2 is approximately a constant and is determined using Monte Carlo simulation
 the search window on St.~1 is constrained by this ratio.
 
 \pdfcomment{kalment filter}
+Once the hits are identified, the Kalman track fitting can begin \cite{kalman1960}. The Kalman filter
+parametrize a track based on the five parameters (the momentum, x-, y-slope, x- and y-position),
+as well as the current $z$ value being evaluated. 
+The Kalman filter then imperatively refines the these parameters by comparing the the measured hit location
+to the prediction. At each iteration, the Kalman filter preform three steps: predict, filter, and smoothing.
+
+During the predict and filter steps, the Kalman filter loops over each of the hits and calculate the
+predicted hit position using the current estimate of the track parameters. 
+
+The smoothing step propagates the changes in each node to the adjacent nodes. 
+
+These steps are then repeated until convergence is reached, or number of iterations exceed a predefined
+maximum. 
+
+Once the track has been refined using Kalman filter, the track is then extrapolate upstream to the target
+region. The energy loss and multiple scattering in the FMag are taken into account during this step.
+
+\begin{figure}
+	\centering
+	\input{images/kalman}
+	\caption{Flow chart of Kalman filter algorithm for track fitting.}
+	\label{fig:kalman_flowchart}
+\end{figure}
 
 \subsection{Vertex Finding}
 Once all the tracks are found in each event, the reconstruction of the dimuon vertex can begin using kVertex.
 For Matrix-1 events, all possible combinations of $\mu^+$ and $\mu^-$ are tested if they can form
-a dimuon.
+a dimuon. 
 
-\pdfcomment{kalment filter}
+\pdfcomment{kalment filter, refitting if it the pair originate from target to account for multiple scattering }
+
+To account for multiple scattering of the muons while traversing the FMag, dimuon pairs that are 
+determined to be likely originating from the target, are refitted by requiring the dimuon vertex to
+fall within the target. Due to the length of the target and the acceptance of the spectrometer,
+the most probable z-vertex is found to depend on the mass of the dimuon, and is calculated from the
+following empirical formula
+\begin{equation}
+	z\left(m\right) = -199.332 + 27.9488 m - 3.66186 m^2 + 0.175479 m^3.
+\end{equation}
+The refitting procedure is repeated until the new z-vertex reaches convergence.
+
 
 \subsection{Dimuon Kinematic Variables}
 \label{subsec:def_kinematic}
@@ -1008,19 +1042,33 @@ the extracted acceptance as a function for $P_T$ should not depend on the input
 distribution. The $P_T$ distribution from the empty flask subtracted data
 is plotted in 3 $x_F$ bins. A \SI{4.5}{\GeV} mass cut is applied to remove contribution for the 
 resonances. The acceptance corrected distributions are fitted to \cref{eq:kaplan} to
-extract the $p1$ parameter in each bin. The extracted $p1$ is shown in \cref{fig:pq_xF_LD2_DY},
+extract the $p1$ parameter in each bin. The extracted $p1$ is shown in \cref{fig:p1_xF_DY},
 and it is also fitted to a first order polynomial. The $p1(x_F)$ extracted is used in calculating
-the $P_T$-reweighting.
+the $P_T$-reweighting. And the $p_1\left(x_F\right)$ is given by
+\begin{equation}
+	\begin{split}
+		p_1 = 2.411 - 0.7658 \abs{x_F} \quad \text{for \ce{LH_2}}\\
+		p_1 = 2.394 - 0.7576 \abs{x_F} \quad \text{for \ce{LD_2}}
+	\end{split}
+\end{equation}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\linewidth]{pT_reweight/LD2_DY_p1}
-	\caption{The extracted $p1$ as a function $x_F$ fitted to a first order polynomial}
-	\label{fig:pq_xF_LD2_DY}
+	\begin{subfigure}{0.45\linewidth}
+	\includegraphics[width=\linewidth]{pT_reweight/LH2_DY_p1}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+	\includegraphics[width=\linewidth]{pT_reweight/LD2_DY_p1}
+	\end{subfigure}
+	\caption{The extracted $p1$ from \ce{LH_2}(right) and \ce{LD_2} data as a function
+	 	$x_F$ and fitted to a first order polynomial.}
+	\label{fig:p1_xF_DY}
 \end{figure}
 
+
 For the charmonium decays, the $P_T$ distribution is extracted in a iterative process, and the $p1$
-parmeters are taken from the extracted $P_T$ distribution in \pdfcomment{which section}
+parmeters used $1.735$ for $J/\psi$ and $1.620$ for $\psi'$, and are consistent with the result in
+\cref{M-tab:kaplan_result}.
 
 \section{Systematic uncertainties}
 For the Drell-Yan cross section ratios studies, the intensity extrapolation method and mass fit
