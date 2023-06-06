@@ -73,11 +73,11 @@ Kaplan functional form \cite{kaplan1978}.
 The parameter $p_1$ controls the broadness of the $P_T$ distribution. And is
 related to the average $P_T$ as follows
 \begin{equation}
-\begin{split}
-	\expval{P_T}   & = \frac{35\pi p_1}{256}, \\
-	\expval{P_T^2} & = \frac{p_1^2}{4}.
-	\label{eq:kaplan_mean}
-\end{split}
+	\begin{split}
+		\expval{P_T}   & = \frac{35\pi p_1}{256}, \\
+		\expval{P_T^2} & = \frac{p_1^2}{4}.
+		\label{eq:kaplan_mean}
+	\end{split}
 \end{equation}
 The value of $p_1$ chosen is \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
 decays. These values are inherited from the previous \SI{800}{\GeV} Drell-Yan experiment at Fermilab.
@@ -353,23 +353,26 @@ account during this step. Since the magnetic field strength is fixed, the sagitt
 St.~2 is approximately a constant and is determined using Monte Carlo simulation. Using this fact,
 the search window on St.~1 is constrained by this ratio.
 
-\pdfcomment{kalment filter}
-Once the hits are identified, the Kalman track fitting can begin \cite{kalman1960}. The Kalman filter
-parametrize a track based on the five parameters (the momentum, x-, y-slope, x- and y-position),
-as well as the current $z$ value being evaluated. 
+\pdfmargincomment{kalment filter}
+Once the hits are identified, the Kalman track fitting can begin \cite{kalman1960}. A list of nodes are created
+from the hits. Each node corresponds to a hit and also contain the drift distance of the particular hit.
+The Kalman filter parametrize a track based on the five parameters (the momentum, x-, y-slope, x- and y-position)
+at each of the nodes.
 The Kalman filter then imperatively refines the these parameters by comparing the the measured hit location
 to the prediction. At each iteration, the Kalman filter preform three steps: predict, filter, and smoothing.
+At each iteration, the Kalman filter loops over all the nodes. Using the current estimate of the track parameters
+from the previous node, the expected hit location location is calculated using Geant4. This predicted location
+is then compared with measured location. During the filter step, the track parameters at the current node is
+then adjusted based on the difference in the predicted and measured hit location in order to minimized
+the $\chi^2$. Kalman filter will then move on to the next node.
 
-During the predict and filter steps, the Kalman filter loops over each of the hits and calculate the
-predicted hit position using the current estimate of the track parameters. 
-
-The smoothing step propagates the changes in each node to the adjacent nodes. 
+Once all the nodes have been predicted and filtered, the smoothing step can begin. This step propagates
+the changes to the track parameters in each node to the adjacent nodes.
 
 These steps are then repeated until convergence is reached, or number of iterations exceed a predefined
-maximum. 
-
+maximum.
 Once the track has been refined using Kalman filter, the track is then extrapolate upstream to the target
-region. The energy loss and multiple scattering in the FMag are taken into account during this step.
+region. The energy loss and transverse momentum kick in FMag are taken into account during this step.
 
 \begin{figure}
 	\centering
@@ -378,18 +381,27 @@ region. The energy loss and multiple scattering in the FMag are taken into accou
 	\label{fig:kalman_flowchart}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{kalman_node}
+	\caption{Schematic representation of Kalman filter workflow. The predicted and measured hit location
+		are denoted as $\tilde{x}^i_j$ and $m_j$ respectively. The estimated location on the $j$-th plane
+		are calculated on the state variables from the $i$-th detector plane. The combined estimate of the
+		state variable $\tilde{x}_j$ are then calculated by comparing the $\tilde{x}^i_j$ and $m_j$.}
+	\label{fig:kalman_node}
+\end{figure}
+
 \subsection{Vertex Finding}
 Once all the tracks are found in each event, the reconstruction of the dimuon vertex can begin using kVertex.
 For Matrix-1 events, all possible combinations of $\mu^+$ and $\mu^-$ are tested if they can form
-a dimuon. 
+a dimuon.
 
-\pdfcomment{kalment filter, refitting if it the pair originate from target to account for multiple scattering }
-
-To account for multiple scattering of the muons while traversing the FMag, dimuon pairs that are 
+\pdfmargincomment{kalment filter, refitting if it the pair originate from target to account for multiple scattering }
+To account for multiple scattering of the muons while traversing the FMag, dimuon pairs that are
 determined to be likely originating from the target, are refitted by requiring the dimuon vertex to
 fall within the target. Due to the length of the target and the acceptance of the spectrometer,
 the most probable z-vertex is found to depend on the mass of the dimuon, and is calculated from the
-following empirical formula
+following empirical formula \cite{kun-1283}
 \begin{equation}
 	z\left(m\right) = -199.332 + 27.9488 m - 3.66186 m^2 + 0.175479 m^3.
 \end{equation}
@@ -1041,7 +1053,7 @@ A first order $P_T$ reweighting for the Drell-Yan MC is performed in this analys
 calculated using the original Monte Carlo data. While the $P_T$ is known be incorrect,
 the extracted acceptance as a function for $P_T$ should not depend on the input
 distribution. The $P_T$ distribution from the empty flask subtracted data
-is plotted in 3 $x_F$ bins. A \SI{4.5}{\GeV} mass cut is applied to remove contribution for the 
+is plotted in 3 $x_F$ bins. A \SI{4.5}{\GeV} mass cut is applied to remove contribution for the
 resonances. The acceptance corrected distributions are fitted to \cref{eq:kaplan} to
 extract the $p1$ parameter in each bin. The extracted $p1$ is shown in \cref{fig:p1_xF_DY},
 and it is also fitted to a first order polynomial. The $p1(x_F)$ extracted is used in calculating
@@ -1056,13 +1068,13 @@ the $P_T$-reweighting. And the $p_1\left(x_F\right)$ is given by
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
-	\includegraphics[width=\linewidth]{pT_reweight/LH2_DY_p1}
+		\includegraphics[width=\linewidth]{pT_reweight/LH2_DY_p1}
 	\end{subfigure}
 	\begin{subfigure}{0.45\linewidth}
-	\includegraphics[width=\linewidth]{pT_reweight/LD2_DY_p1}
+		\includegraphics[width=\linewidth]{pT_reweight/LD2_DY_p1}
 	\end{subfigure}
 	\caption{The extracted $p1$ from \ce{LH_2}(right) and \ce{LD_2} data as a function
-	 	$x_F$ and fitted to a first order polynomial.}
+		$x_F$ and fitted to a first order polynomial.}
 	\label{fig:p1_xF_DY}
 \end{figure}
 
