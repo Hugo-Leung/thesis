@@ -358,7 +358,7 @@ Once the hits are identified, the Kalman track fitting can begin \cite{kalman196
 from the hits. Each node corresponds to a hit and also contain the drift distance of the particular hit.
 The Kalman filter parametrize a track based on the five parameters (the momentum, x-, y-slope, x- and y-position)
 at each of the nodes.
-The Kalman filter then imperatively refines the these parameters by comparing the the measured hit location
+The Kalman filter then iteratively refines the these parameters by comparing the the measured hit location
 to the prediction. At each iteration, the Kalman filter preform three steps: predict, filter, and smoothing.
 At each iteration, the Kalman filter loops over all the nodes. Using the current estimate of the track parameters
 from the previous node, the expected hit location location is calculated using Geant4. This predicted location
@@ -366,7 +366,7 @@ is then compared with measured location. During the filter step, the track param
 then adjusted based on the difference in the predicted and measured hit location in order to minimized
 the $\chi^2$. Kalman filter will then move on to the next node.
 
-Once all the nodes have been predicted and filtered, the smoothing step can begin. This step propagates
+Once all the nodes have been predicted and filtered, the smoothing step can begin. The smoothing step propagates
 the changes to the track parameters in each node to the adjacent nodes.
 
 These steps are then repeated until convergence is reached, or number of iterations exceed a predefined

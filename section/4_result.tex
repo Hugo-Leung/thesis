@@ -9,10 +9,10 @@
 \chapter{Results}
 \label{ch:result}
 \section{Drell-Yan Cross Section Ratio}
-\subsection{Effect of the updated target contaimination correction}
+\subsection{Effect of the updated target contamination correction}
 As discussed in \cref{M-subsec:contamination}, an incorrect target contamination was used
 in previous publication and the effect is shown in \cref{fig:contaimination_CSR}.
-The overall effect is a roughtly \SI{2}{\percent} shift in the ratio.
+The overall effect is a roughly \SI{2}{\percent} shift in the ratio.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{placeholder}
@@ -20,6 +20,17 @@ The overall effect is a roughtly \SI{2}{\percent} shift in the ratio.
 		cross section. The overall effect is a roughly \SI{2}{\percent} shift in the ratio. }
 	\label{fig:contaimination_CSR}
 \end{figure}
+
+\subsection{Choice of fit function in intensity extrapolation}
+It is important to understand the systematic uncertainties originated from the choice of fit 
+function in intensity extrapolation method. We have studied two fit functions
+\begin{align}
+	R_i\left(I\right) &= p_{0i} + p_{1}I + p_{2}I^2,\\
+	R_i\left(I\right) &= p_{0i} + \left[p_{10}+p_{11}x_i\right]I + \left[p_{20}+p_{21}x_i\right]I^2.
+\end{align}
+
+
+\pdfcomment{comment on the fact that both, produce similar chisq,similar result for x2, but very different result in xF}
 
 \subsection{Comparison of massfit and extrapolation}
 As shown in Ref.~\cite{dove2023} the Drell-Yan cross section extracted from the two methods
@@ -31,6 +42,7 @@ are consistent with each other.
 		and intensity extrapolation method.}
 	\label{fig:CSR_Run2-3}
 \end{figure}
+\pdfcomment{we should also show all the variables}
 
 \subsection{Results from Run 5-6 data}
 \pdfmargincomment{run 5-6 compared with 2-3 and full data set}
@@ -41,7 +53,7 @@ underestimated
 
 \subsection{Extraction of \texorpdfstring{$\bar{d}/\bar{u}$}{dbar/ubar}}
 The $\sigma_{pd}/2\sigma_{pp}$ ratio is used by the NNPDF collaboration in
-their PDF extraction\cite{ball2021} and their result is shown in Fig.\
+their PDF extraction\cite{ball2022a} and their result is shown in Fig.\
 \ref{fig:nnpdf_e906}.
 
 \begin{figure}[htbp!]
@@ -56,7 +68,7 @@ their PDF extraction\cite{ball2021} and their result is shown in Fig.\
 		\caption{Extracted $\bar{d/}\bar{u}$ ratio.}
 		\label{subfig:nnpdf_e906_x2}
 	\end{subfigure}
-	\caption{Comparison of NNPDF4.0\cite{ball2021} with the SeaQuest
+	\caption{Comparison of NNPDF4.0\cite{ball2022a} with the SeaQuest
 		result\cite{dove2021}.}
 	\label{fig:nnpdf_e906}
 	\pdfmargincomment{Should be compared with the new result from run5-6 and full
@@ -64,8 +76,6 @@ their PDF extraction\cite{ball2021} and their result is shown in Fig.\
 \end{figure}
 
 \section{Charmonium Cross Section}
-\pdfmargincomment{absolute cross section and cross section ratios; mean pT for
-	jpsi as a function of root s}
 
 \subsection{Massfit results}
 The massfits in all $x_F$ bins are shown in \cref{fig:massfit_57-70_xF,fig:massfit_5-6_xF},
@@ -345,18 +355,28 @@ Drell-Yan process, $J/\psi$ and $\psi'$ production, as measured from the SeaQues
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{cs/full_data/pdpp_CSR_full.pdf}
-	\caption{The $\sigma_{pd}/2\sigma{pp}$ ratios for the Drell-Yan process, $J/\psi$ and $\psi'$ production
+	\caption{The $\sigma_{pd}/2\sigma_{pp}$ ratios for the Drell-Yan process, $J/\psi$ and $\psi'$ production
 		as measured from the SeaQuest experiment.
 	}
 	\label{fig:csr_all_process}
 \end{figure}
+The charmonium ratios are closer to unity as compared to the Drell-Yan cross section ratio. This 
+is partly due to the contribution from the gluon fusion process in charmonium production. Assuming 
+isospin symmetry, the gluon distribution in proton and neutron should be identical, and therefore
+if the production is dominated by the gluon fusion process, the charmonium ratios should be identical
+to unity. The deviation from one originates from the quark-antiquark annhilation diagrams, where they
+can be sensitive to the light sea-quark flavor asymmetry, like the Drell-Yan process. However, the charmonium
+production proceed via the strong interaction and is insensitive to the charge of the quarks, and therefore
+larger contribution from the valance quark ratio, $d(x)/u(x)$, as compared to the Drell-Yan process. Therefore,
+the charmonium ratio is not as sensitive to the sea-quark asymmetry as the Drell-Yan ratio.
 
 
 \FloatBarrier
 \subsection{$P_T$ distributions}
 \pdfmargincomment{how to plot the pT distribution? Do I want to show jpsi and psi' on the same plot, or per roadset?}
-The $P_T$ distribution extracted from the two datasets separately are shown in \cref{fig:pT_distribution}
-and the $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio are shown in \cref{fig:pT_ratio}.
+Following a similar procedure, the $P_T$ distribution are extracted from the two datasets,
+and separately are shown in \cref{fig:pT_distribution}. 
+The $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio are also shown in \cref{fig:pT_ratio}.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}

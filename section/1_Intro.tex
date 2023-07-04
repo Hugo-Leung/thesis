@@ -27,7 +27,7 @@ the antiquark structures in the proton.
 The $J/\Psi$ ($\Psi^\prime$) production is further be sensitive to the gluon structure in the proton.
 
 This thesis is organized as follows. After reviewing the early studies
-on the nucleon structure and the Deep inelastic scattering in this chapter,
+on the nucleon structure and the Deep-Inelastic Scattering in this chapter,
 the Drell-Yan process and the kinematic variables are summarized in
 \cref{ch:DY}. The charmonium production and gluon distribution are described
 in \cref{ch:jpsi}. The SeaQuest experiment is described in \cref{M-ch:seaquest}.
@@ -536,12 +536,12 @@ annihilation process
 	\right],
 \end{equation}
 and Compton scattering process
-\begin{equation}
-	\frac{d^2\sigma_A}{dQ^2dx_{F}} = \frac{4\pi\alpha^2}{9M^2} \sum_i e^2_i \int^1_{x_1} \dd{t_1} \int^1_{x_2} \dd{t_2}
-	\frac{\hat{\sigma_{C}}}{dQ^2dx_F} f_{g/A}\left(t_1\right)
-	\left[f_{i/B}\left(t_2\right) +f_{\bar{i}/B}\left(t_2\right)
-	+ 1 \leftrightarrow 2 \right],
-\end{equation}
+\begin{multline}
+	\frac{d^2\sigma_C}{dQ^2dx_{F}} = \frac{4\pi\alpha^2}{9M^2} \sum_i e^2_i \int^1_{x_1} \dd{t_1} \int^1_{x_2} \dd{t_2}
+	\frac{\hat{\sigma_{C}}}{dQ^2dx_F}\left[ f_{g/A}\left(t_1\right)
+	\left[f_{i/B}\left(t_2\right) +f_{\bar{i}/B}\left(t_2\right) \right]\right.
+	\\\left.+\left[f_{i/A}\left(t_1\right) +f_{\bar{i}/A}\left(t_1\right) \right] f_{g/B}\left(t_2\right)\right],
+\end{multline}
 where the leading order Drell-Yan term is
 \begin{equation}
 	\frac{\hat{\sigma_{DY}}}{dQ^2dx_F} = \frac{1}{x_1 x_2} \delta(t_1 - x_1)\delta(t_2 - x_2),
@@ -750,7 +750,15 @@ In the 1980s, Brodsky, Hoyer, Peterson and Sakai (BHPS) \cite{brodsky1980}, prop
 the possible existence of a significant $\ket{uudc\bar{c}}$ five-quark Fock state component
 in the proton in order to explain the larger than expected charmed hadrons production rate.
 
-\pdfcomment{need more description on intrinsic sea and how is it difference from extrinsic}
+For a $\ket{uudQ\bar{Q}}$ proton Fock state, the probability for quark $i$ to carry a momentum
+fraction $x_i$ is given by
+\begin{equation}
+	P\left(x_1,\cdots,x_2\right)=N_5 \delta\left(1-\sum^5_{i=1}x_i\right)\left[m_p^2-\sum^5_{i=1}\frac{m_i^2}{x_i}\right]^{-2},
+\end{equation}
+where the delta function ensures momentum conservation. $N_5$ is the normalization factor,
+and $m_i$ is the mass of quark $i$.
+
+\pdfmargincomment{this model can at most predict the x dependence of dbar -ubar, but not the magnitude. It is worth keeping?}
 
 Since the BHPS model also predicts the probability for the $\ket{uudQ\bar{Q}}$ configuration to
 be inversely proportional to the mass of the quark $Q$, the intrinsic sea can have important
