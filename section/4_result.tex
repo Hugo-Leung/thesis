@@ -9,17 +9,30 @@
 \chapter{Results}
 \label{ch:result}
 \section{Drell-Yan Cross Section Ratio}
-\subsection{Effect of the updated target contaimination correction}
+\subsection{Effect of the updated target contamination correction}
 As discussed in \cref{M-subsec:contamination}, an incorrect target contamination was used
 in previous publication and the effect is shown in \cref{fig:contaimination_CSR}.
-The overall effect is a roughtly \SI{2}{\percent} shift in the ratio.
+The overall effect is a roughly \SI{2}{\percent} shift in the ratio.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{placeholder}
+	\includegraphics[width=0.6\linewidth]{DY-csr/Compare_targetCorr}
 	\caption{The effect of the updated target contamination correction on the Drell-Y.an
-		cross section. The overall effect is a roughly \SI{2}{\percent} shift in the ratio. }
+		cross section. The extracted cross section ratio using the revised target contamination
+		is shown as red sold triangle, and the previous published version is shown as blue open
+		circle. The overall effect is a roughly \SI{2}{\percent} shift in the ratio. }
 	\label{fig:contaimination_CSR}
 \end{figure}
+
+\subsection{Choice of fit function in intensity extrapolation}
+To understand the systematic uncertainties in the intensity extrapolation method due to the choice of 
+fit function, the following functions are used.
+\begin{align}
+	R_i\left(I\right) &= p_{0i} + p_{1} I + p_{2} I^2\\
+	R_i\left(I\right) &= p_{0i} + \left[p_{10} + p_{11}x_i\right] I + \left[p_{20} + p_{21}x_i\right]I^2\\
+	R_i\left(I\right) &= p_{0i}
+\end{align}
+
+\pdfcomment{how the chisq compares between different fit functions and what does the result looks like}
 
 \subsection{Comparison of massfit and extrapolation}
 As shown in Ref.~\cite{dove2023} the Drell-Yan cross section extracted from the two methods
@@ -71,7 +84,7 @@ their PDF extraction\cite{ball2021} and their result is shown in Fig.\
 The massfits in all $x_F$ bins are shown in \cref{fig:massfit_57-70_xF,fig:massfit_5-6_xF},
 and the fits in the $P_T$ bins are shown in \cref{fig:massfit_57-70_pT,fig:massfit_5-6_pT}.
 The two datasets are analyzed separately. The data in each bin is very well described by the fitting procedure
-and the $J/\psi$ and $\psi'$ yields can be extracted from the massfits.
+and the $J/\psi$ and $\psi'$ yields can be extracted from the fits directly.
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.4\linewidth}
@@ -350,11 +363,16 @@ Drell-Yan process, $J/\psi$ and $\psi'$ production, as measured from the SeaQues
 	}
 	\label{fig:csr_all_process}
 \end{figure}
-
+The charmonium ratios are closer to one as compared to the Drell-Yan cross section ratio. This is partly 
+due to the contribution from gluon fusion process in the charmonium production. Assuming isospin symmetry,
+the gluon distribution in the proton and neutron should be identical and therefore bring the charmonium ratio
+closer to unity. While the quark-antiquark annihilation process in the charmonium production can be sensitive
+to the light sea-quark asymmetry, similar to the Drell-Yan process, the charmonium production is insensitive
+to the charge of the quarks and therefore larger contribution from the valence quark ratio, $d(x)/u(x)$.
+The overall trends for the three process are in agreement with theoretical expectation. 
 
 \FloatBarrier
 \subsection{$P_T$ distributions}
-\pdfmargincomment{how to plot the pT distribution? Do I want to show jpsi and psi' on the same plot, or per roadset?}
 The $P_T$ distribution extracted from the two datasets separately are shown in \cref{fig:pT_distribution}
 and the $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio are shown in \cref{fig:pT_ratio}.
 \begin{figure}[h!]
@@ -417,7 +435,7 @@ and the $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio are shown in \cref{fig:pT_ratio}.
 	\input{table/pT_5-6_LD2.tex}
 \end{table}
 
-The result from the combined analysis are shown in
+The result from the combined analysis are shown in \cref{fig:pT_combined} and tabulated in \cref{tab:pT_full_LH2,tab:pT_full_LD2}.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
@@ -444,6 +462,7 @@ The result from the combined analysis are shown in
 		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the combined analysis, with
 		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
 	\input{table/pT_full_LH2.tex}
+	\label{tab:pT_full_LH2}
 \end{table}
 \begin{table}[h!]
 	\centering
@@ -451,13 +470,14 @@ The result from the combined analysis are shown in
 		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the combined analysis, with
 		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
 	\input{table/pT_full_LD2.tex}
+	\label{tab:pT_full_LD2}
 \end{table}
 
 The transverse momentum distributions are fitted to the Kaplan form, \cref{M-eq:kaplan}, and the extracted
 $\expval{P_T}$ and $\expval{P^2_T}$ are calculated using \cref{M-eq:kaplan_mean},
 and are listed in \cref{tab:kaplan_result}. This result suggests the
 $\expval{P_T}$ is larger for the $J/\psi$ production, however the systematic uncertainties are too
-large to make a conclusive statement.
+large to for a conclusive statement.
 
 \begin{table}[h!]
 	\centering
@@ -481,11 +501,13 @@ large to make a conclusive statement.
 of $\sqrt{s}$ from SeaQuest compared with different experiments
 \cite{badier1983,clark1978,drapier1998,acharya2020}. The $\expval{P_T^2}$ follows an
 increasing pattern versus $\sqrt{s}$ over a wide range of energies.
-The data points are also fitted to the following form, taken from \cite{acharya2020}.
+A linear fit versus the log of the center of mass energy\cite{acharya2020}.
 \begin{equation}
 	\expval{P_T^2}=a\ln{\left( \frac{\sqrt{s}}{b} \right)},
 \end{equation}
-with $a=1.221\pm0.038$ and $b=7.59\pm0.31$.
+describe the general trend, but some variation is expected due to the differing
+rapidity range of the measurements.
+The fitted parameters are $a=1.221\pm0.038$ and $b=7.59\pm0.31$. 
 \pdfmargincomment{pT vs s}
 \begin{figure}
 	\centering
@@ -496,10 +518,8 @@ with $a=1.221\pm0.038$ and $b=7.59\pm0.31$.
 		the SeaQuest results and for other experiments when available.   }
 	\label{fig:pT_s}
 \end{figure}
-\FloatBarrier
 
-%\subsection{Nuclear Dependence}
-%\pdfmargincomment{nothing here!!!!!}
+\FloatBarrier
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
 
