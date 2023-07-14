@@ -25,6 +25,7 @@
 .pdf
 build/
 diff/ 
+backup/
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
