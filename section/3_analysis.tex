@@ -825,8 +825,26 @@ The ratio of reconstructed events of messy over clean MC is plotted in \cref{fig
 This tracking efficiency can also depend on the dimuon kinematics. This can be caused
 by the noise hits being more localized in some area of the detector, which can map to
 different kinematic phase space. To study this effect, we repeat the study with different
-Monte Carlo, and the extract efficiency is shown in
-\pdfcomment{table of efficiency for different target, process and runs}
+Monte Carlo, and the extract efficiency is tabulated in \cref{tab:track_eff_DY,tab:track_eff_jpsi,tab:track_eff_psip}
+
+\begin{table}
+\centering
+\caption{The extracted tracking efficiency from Drell-Yan Monte Carlo}
+\label{tab:track_eff_DY}
+\input{table/tracking_eff_DY.tex}
+\end{table}
+\begin{table}
+\centering
+\caption{The extracted tracking efficiency from $J/\psi$  Monte Carlo}
+\label{tab:track_eff_jpsi}
+\input{table/tracking_eff_jpsi.tex}
+\end{table}
+\begin{table}
+\centering
+\caption{The extracted tracking efficiency from $\psi'$ Monte Carlo}
+\label{tab:track_eff_psip}
+\input{table/tracking_eff_psip.tex}
+\end{table}
 
 Once the tracking efficiency is obtained from the Monte Carlo, the efficiency correction ($\epsilon_{recon.Eff}$)
 is calculated, which is defined as the average of the inverse of tracking efficiency in each

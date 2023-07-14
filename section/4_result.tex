@@ -9,7 +9,8 @@
 \chapter{Results}
 \label{ch:result}
 \section{Drell-Yan Cross Section Ratio}
-\subsection{Effect of the updated target contamination correction}
+\subsection{Results from Run 2-3 data}
+\subsubsection{Effect of the updated target contamination correction}
 As discussed in \cref{M-subsec:contamination}, an incorrect target contamination was used
 in previous publication and the effect is shown in \cref{fig:contaimination_CSR}.
 The overall effect is a roughly \SI{2}{\percent} shift in the ratio.
@@ -23,40 +24,101 @@ The overall effect is a roughly \SI{2}{\percent} shift in the ratio.
 	\label{fig:contaimination_CSR}
 \end{figure}
 
-\subsection{Choice of fit function in intensity extrapolation}
-To understand the systematic uncertainties in the intensity extrapolation method due to the choice of 
-fit function, the following functions are used.
+\subsubsection{Choice of fit function in intensity extrapolation}
+To understand the systematic uncertainties in the intensity extrapolation method due to the
+choice of fit function, the following functions are used.
 \begin{align}
-	R_i\left(I\right) &= p_{0i} + p_{1} I + p_{2} I^2\\
-	R_i\left(I\right) &= p_{0i} + \left[p_{10} + p_{11}x_i\right] I + \left[p_{20} + p_{21}x_i\right]I^2\\
-	R_i\left(I\right) &= p_{0i}
+	R_i\left(I\right) &= p_{0i} + p_{1} I + p_{2} I^2 \quad\text{(FIT 1)}\\
+	R_i\left(I\right) &= p_{0i} + \left[p_{10} + p_{11}x_i\right] I + \left[p_{20} + p_{21}x_i\right]I^2 \quad \text{(FIT 2)}
 \end{align}
-
 \pdfcomment{how the chisq compares between different fit functions and what does the result looks like}
 
-\subsection{Comparison of massfit and extrapolation}
-As shown in Ref.~\cite{dove2023} the Drell-Yan cross section extracted from the two methods
-are consistent with each other.
+\Cref{fig:CSR_Run2-3} shows the extracted cross section ratio as a function of $x_B$
+from the Run 2-3 data using the different fit functions. The result using different fit 
+functions are very different. In particular, the result using FIT 2 shows a negative slope.
+This is particularly difficult to explain theoretically. Theoretical calculations suggest the
+ratio should increases as $x_B$ increases then flatten off at large $x_B$. The result from
+FIT 2 is opposite from this theoretical expectation.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{placeholder}
-	\caption{Comparison of the extracted Drell-Yan cross section from the Run 2-3 data using the massfit
-		and intensity extrapolation method.}
+	\begin{subfigure}{0.6\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run23-xT_all}
+	\end{subfigure}\\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run23-xB_all}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run23-xF_all}
+	\end{subfigure}
+	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_T$(top),x
+		$x_B$(left) and $x_F$(right) using the different fit function from the Run 2-3
+		 data.}
 	\label{fig:CSR_Run2-3}
 \end{figure}
-\pdfcomment{we should also show all the variables}
+
+\begin{table}
+\centering
+\caption{The reduced $\chi^2$ for the different fits used in the intensity extrapolation method. }
+\input{table/extrapolate/run23.tex}
+\end{table}
+
+
+\subsubsection{Comparison of massfit and extrapolation}
+As reported in Ref.~\cite{dove2023} the Drell-Yan cross section ratio as a function of $x_T$ extracted from
+the two methods are in very good agreement, this is also shown in \cref{fig:CSR_Run2-3}
+
+However, the comparison in the other variables, such as $x_B$ and $x_F$ are complicated by the large
+systematical uncertainties originated from the fit function used in the intensity extrapolation.
+\Cref{fig:CSR_Run2-3} shows the extracted ratios as a function of $x_B$ and $x_F$ using different methods.
+While the massfit results agree with the extrapolation result if FIT 1 is used, the 
+extrapolation results using FIT 2 are different from the other two.
+
 
 \subsection{Results from Run 5-6 data}
-\pdfmargincomment{run 5-6 compared with 2-3 and full data set}
+\pdfmargincomment{run 5-6 compared with 2-3 and full data set, only show massfit results?}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{DY-csr/run56-xT_all}
+	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_T$ from the 
+		Run 5-6 data using the massfit and intensity extrapolation method.}
+	\label{fig:CSR_Run5-6}
+\end{figure}
+
+The difference in the extracted cross section ratio between dataset may partly be due to
+the difference in the acceptance. \pdfmargincomment{show how the acceptance is different}
+
+
 \subsubsection{Potential cause of difference between massfit and intensity extrapolation}
 It is possible the systematic uncertainties for the intensity extrapolation was
-underestimated
-\pdfcomment{chisq from multiple fit}
+underestimated. While the different fit functions studied in the intensity extrapolation
+method yield consistent result for the ratio as a function of $x_T$,
+the extracted ratio for other variables shows large discrepancies. This shows the potential 
+large uncontrolled systematical uncertainties in the intensity extrapolation. As such this
+thesis would focus on the result from the massfit method.
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run56-xB_all}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run56-xF_all}
+	\end{subfigure}
+	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_B$(left) 
+	and $x_F$(right) from the Run 5-6 data using the massfit and intensity extrapolation method.}
+	\label{fig:CSR_Run5-6_xBxF}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{The reduced $\chi^2$ for the different fits used in the intensity extrapolation method. }
+\input{table/extrapolate/run56.tex}
+\end{table}
 
 \subsection{Extraction of \texorpdfstring{$\bar{d}/\bar{u}$}{dbar/ubar}}
 The $\sigma_{pd}/2\sigma_{pp}$ ratio is used by the NNPDF collaboration in
-their PDF extraction\cite{ball2022a} and their result is shown in Fig.\
-\ref{fig:nnpdf_e906}.
+their PDF extraction\cite{ball2022a} and their result is shown in \cref{fig:nnpdf_e906}.
 
 \begin{figure}[htbp!]
 	\centering
