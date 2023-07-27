@@ -81,7 +81,7 @@ related to the average $P_T$ as follows
 \end{equation}
 The value of $p_1$ chosen is \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
 decays. These values are inherited from the previous \SI{800}{\GeV} Drell-Yan experiment at Fermilab.
-It was later decided that these values of $p_1$ are not suitable for SeaQuest due the the lower
+It was later determined that these values of $p_1$ are not suitable for SeaQuest due the the lower
 beam energy of \SI{120}{\GeV}, and the $P_T$ distribution is adjusted following a re-weighting procedure, which
 would be described in \cref{subsec:pt_reweight}.
 
@@ -141,7 +141,7 @@ $z$-axis to the lab frame is given by
 \end{equation}
 
 \subsubsection{Cross section weighting}
-Each event is assigned a weight based on the cross section. The cross section is calculated based on
+Each event is assigned a weight based on the cross section. The Drell-Yan cross section is calculated based on
 the kinematics of the generated events. The leading order cross section is calculated with the
 CT14 pdf. The NLO effect is then included using 2-dimensional K-Factor \cite{shivangi-1747},
 calculated using DYNNLO (see \cref{sec:DYNNLO}).
@@ -159,12 +159,12 @@ $\left[B\left(\psi'\rightarrow \mu^+ \mu^-\right)\cross\sigma_{\psi'}\right]/\le
 
 \subsection{Messy and Clean Monte Carlo}
 \label{subsec:messyMC}
-The resolution and efficiency of the detectors are included before the reconstruction.
+Before reconstruction, the resolution and efficiency of the detectors needs to be included.
 This step is known as realization.
 From previous studies, the efficiency for the chambers is determined to be \SI{\sim 94}{\percent}
 with a resolution of \SI{\sim 0.04}{\cm}. Therefore for all chamber hits, \SI{6}{\percent} of
 hits are dropped randomly, with a Gaussian smearing applied to the drift distance for the remaining
-hits with a width of \SI{0.004}{\cm}. The Monte Carlo data are now ready for track reconstruction and analysis.
+hits with a width of \SI{0.04}{\cm}. The Monte Carlo data are now ready for track reconstruction and analysis.
 This is labeled as ``clean Monte Carlo'', and is used in acceptance studies without the
 rate dependent effects.
 
@@ -198,7 +198,7 @@ probability to be used, where as only a small fraction of lower occupancy NIM-3 
 
 \subsection{Maximum dimuon \texorpdfstring{$P_T$}{P\_T}}
 \label{subsec:max_pt}
-One of the changes made to the Monte Carlo generator during this study
+One of the changes I made to the Monte Carlo generator during this study
 is the maximum transverse momentum of the virtual photon.
 
 From the conservation of energy, one can deduce the maximum $P_T$ carried by the virtual photon
@@ -207,7 +207,7 @@ is given by
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2 - P_L^2,
 \end{equation}
 where $P_L$ is the longitudinal momentum of the virtual photon.
-Substituting $x_F = \frac{P_L}{\sqrt{s}\left[1-M^2_\gamma\right]}$,
+At SeaQuest, we defined $x_F = \frac{P_L}{\sqrt{s}\left[1-M^2_\gamma\right]}$, therefore 
 \begin{equation}
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2\left[1-x_F^2\right].
 	\label{eq:pTmax}
@@ -360,8 +360,8 @@ The Kalman filter parametrize a track based on the five parameters (the momentum
 at each of the nodes.
 The Kalman filter then iteratively refines the these parameters by comparing the the measured hit location
 to the prediction. At each iteration, the Kalman filter preform three steps: predict, filter, and smoothing.
-At each iteration, the Kalman filter loops over all the nodes. Using the current estimate of the track parameters
-from the previous node, the expected hit location location is calculated using Geant4. This predicted location
+The Kalman filter loops over all the nodes, using the current estimate of the track parameters
+from the previous node and calculate the expected hit location using Geant4. This predicted location
 is then compared with measured location. During the filter step, the track parameters at the current node is
 then adjusted based on the difference in the predicted and measured hit location in order to minimized
 the $\chi^2$. Kalman filter will then move on to the next node.
@@ -412,7 +412,7 @@ The refitting procedure is repeated until the new z-vertex reaches convergence.
 \label{subsec:def_kinematic}
 The dimuon kinematic variable is calculated after vertex finding. The primary outputs of kTracker
 are the four-momenta of the two muons as well as the dimuon vertex. The other variables are inferred
-for these information. While most variables have consistent definitions across literature, the momentum
+from these information. While most variables have consistent definitions across literature, the momentum
 fractions $x_1$, $x_2$ and the Feynman x ($x_F$) require some attentions as there can be multiple definitions.
 
 Feynman x, or $x_F$, is defined as $P_z/P_z^{max}$, the ratio of longitudinal dimuon momentum
@@ -484,7 +484,8 @@ possible for the reconstruction software to find multiple tracks in a given MATR
 In order to prevent tracks from the same event to be mixed, a sliding number $d$ can also be introduced.
 With this option enabled, the $i$-th positive track would be mixed with the $i+d$-th negative track.
 Typically, a sliding number of one is chosen.
-
+A minor beneficent is that this method also ensures the result to be reproducible as compared to random
+mixing.
 
 Once the two tracks are selected, the mixed events are ready for vertex finding. As with the
 real data, the dimuon kinematics variables are calculated. The same dimuon selection will
@@ -492,7 +493,6 @@ also be applied and can be compared with the real data. Sine the probability of 
 single track event is much higher than a two track event, the MATRIX 4 trigger is typically
 heavily prescaled to preserve DAQ bandwidth. Typically, a prescale factor of \num{30000} is used during
 normal data taking run, meaning only \num{1} in \num{30000} single track event is recorded.
-A minor beneficent is that this method also ensures the result to be reproducible.
 Therefore, the amount of available MATRIX 4 data for each target can be limited. The mixed events
 from different target can also be combined to increase statistics. For this study, the \ce{LH_2}
 and \ce{LD_2} mixed events are combined during the mass fitting.
@@ -503,7 +503,7 @@ change of the spectrometer performance over time, two tracks from the same 1 hou
 randomly. The two tracks are still required to fulfill the opposite charge and top/bottom requirements.
 The two tracks are also required to have similar occupancy, usually within \SI{10}{\percent}.
 Because of the use of MATRIX 1 data, the mixed sample has larger statistics. Therefore, when
-using MATRIX 1 mixed sample, target specific mixed sample is used. One disadvantage to using MATRIX 1
+using MATRIX 1 mixed sample, target specific mixed sample is typically used. One disadvantage to using MATRIX 1
 was potential contamination from physics sources. For example, near the $J/\psi$ peak, the MATRIX 1
 data is heavily dominated by the charmonium decay, therefore it is possible that both tracks in the same
 mixed event are from the $J/\psi$ decay. While it is possible to have multiple $J/\psi$ decays or
@@ -973,7 +973,7 @@ and the effective interaction length is
 Note that in previous studies and publications, including Ref.~\cite{dove2021,dove2023},
 the ratio of the atomic mass is missing in \cref{eq:TDH}.
 This results in a roughly \SI{2}{\percent} difference in the cross section ratio
-that will be discussed later.
+that will be discussed in \cref{M-subsubsec:contamination_result}.
 
 Including the contamination correction, the deuterium cross section is
 \begin{equation}

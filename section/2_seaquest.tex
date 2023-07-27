@@ -21,19 +21,7 @@ Injector is used instead of the \SI{800}{\GeV} beam from the Tevatron used durin
 Since the Drell-Yan cross section is inversely proportional to the center-mass energy
 squared, the lower beam energy allows for better statistics as large values of $x$.
 
-\begin{figure}[htbp!]
-	\centering
-	\includegraphics[width=0.6\linewidth]{SeaQuestSpectrometer}
-	\caption{schematics of the SeaQuest spectrometer. Taken from Ref.~\cite{aidala2019}}
-	\label{fig:spectrometer}
-\end{figure}
-
-
 \section{Beam}
-\pdfmargincomment{A brief description of the beam structure, how the beam intensity
-	is monitor. And finally says that the varying instantaneous beam intensity
-	allows us to do intensity extrapolation which will be discussed in next
-	chapter}
 The layout of the Fermilab accelerator complex is shown in \cref{fig:complex},
 taken from Ref.~\cite{concept-book}.
 SeaQuest received its \SI{120}{\GeV} proton beam from the Fermilab Main Injector.
@@ -52,7 +40,8 @@ Injector RF frequency, dividing the beam into ``RF buckets'' that are less than
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{Fermilab-complex}
-	\caption{Layout of the Fermilab accelerator complex. Taken from Ref.~\cite{concept-book}}
+	\caption{Layout of the Fermilab accelerator complex, taken from Ref.~\cite{concept-book}. The
+		SeaQuest Experimental hall is located on the Neutrino-Muon beamline.}
 	\label{fig:complex}
 \end{figure}
 However the number of protons in each bucket can vary greatly during the spill, as
@@ -67,7 +56,10 @@ is shown in \cref{fig:intensity}.
 
 \subsection{Beam Intensity Monitor}
 \label{subsec:BIM}
-The beam intensity is monitored using a Cerenkov counter, shown in \cref{fig:BIM}.
+The integrated beam intensity is monitor by Fermilab Accelerator Division using a 
+secondary emission monitor located upstream of the SeaQuest experimental hall.
+To better understand the bucket-to-bucket variation in the beam intensity a Cerenkov counter,
+shown in \cref{fig:BIM}, was added during the Main Injector upgrade.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.4\linewidth]{BIMCerenkov}
@@ -75,6 +67,7 @@ The beam intensity is monitored using a Cerenkov counter, shown in \cref{fig:BIM
 		\cite{aidala2019}.}
 	\label{fig:BIM}
 \end{figure}
+This Cerenkov counter is located upstream of the target.
 An aluminized Kapton mirror reflects the Cerenkov light, produced when the proton beam
 pass through the radiator, into a single photomultiplier tube. The signal is then
 sent to a custom ``QIE'' (Charge Integrator and Encoder) module. This custom module
@@ -86,8 +79,7 @@ integrated beam intensity for entire spill; (b) the integrated beam while inhibi
 asserted at trigger logic; (c) the integrated intensity during dead time; (d) a snapshot
 of the beam intensity close in time to the trigger; and (e) a complete record of the
 bucket-bucket intensity for the entire spill. The beam intensity monitor is calibrated
-against a secondary emission monitor, which provides the integrated beam luminosity
-integrated over the entire beam spill, located upstream of the SeaQuest experimental hall.
+against a secondary emission monitor.
 
 The ability to record the numbers of proton in each bucket allows us to obtain the
 yields as a function of the instantaneous intensity, which will be discussed
@@ -95,8 +87,6 @@ further in \cref{M-sec:extrapolation}
 
 
 \section{Target}
-\pdfmargincomment{list the properties of the targets. Some past thesis quoted the
-	wrong number. Check PDG}
 The SeaQuest target is placed between the Beam Intensity Monitor and the front face
 of spectrometer. The target system consists of two liquid targets, hydrogen and deuterium,
 and three solid targets, iron, carbon and tungsten. Each solid target is divided
@@ -107,9 +97,8 @@ there are also two calibration targets, an empty vacuum filled flask, known as
 empty flask, and the solid target holder, known as no-target. The different targets
 are mounted on a motorized table, shown in \cref{fig:target}, which allows the
 targets to be interchanged between spills to minimized systematic effect due to
-spectrometer performance. The properties of the targets and the spills per cycle
+changes in spectrometer performance over time. The properties of the targets and the spills per cycle
 of each target positions are listed in \cref{table:target}.
-\pdfmargincomment{schematics of target system}
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.4\linewidth]{target-tableLayout}
@@ -135,11 +124,31 @@ of each target positions are listed in \cref{table:target}.
 	\end{tabular}
 \end{table}
 
-\section{Magnets}
+\section{Spectrometer and Tracking Station}
+The SeaQuest spectrometer consists of two magnets and four tracking stations. FMag,
+placed \SI{104}{\cm} downstream the target. It is then followed by
+the first tracking stations. The SeaQuest detector system is separated into four tracking stations.
+Stations 1, 2 and 3 each consists of plastic scintillator hodoscopes and drift chambers.
+The hodoscopes in each stations provides a fast signal for triggering whereas
+the drift chambers provide good spatial resolution for track precise reconstruction.
+An open air dipole magnet (KMag) is placed between station 1 and station 2.
+Downstream of station 3, there is a 1 m iron wall acting as a
+hadron absorber. Station 4 is located behind the hadron absorber and acts as a
+muon identifier. Station 4 consists of a hodoscope array and 4 layers of
+proportional tube planes.
+
+\begin{figure}[htbp!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{SeaQuestSpectrometer}
+	\caption{schematics of the SeaQuest spectrometer. Taken from Ref.~\cite{aidala2019}}
+	\label{fig:spectrometer}
+\end{figure}
+
+\subsection{Magnets}
 There are two dipole magnets used in the SeaQuest spectrometer, namely the focusing
 magnet (FMag) and analyzing magnet (KMag). The magnetic field of both magnets point
 in the same direction vertically ($\pm y$), which bend the muons horizontally along
-the $x$ direction. The polarity of the magnets were flipped during Run 3.
+the $x-z$ plane. The polarity of the magnets were flipped during Run 3.
 
 The upstream focusing magnet (FMag) is a solid iron magnet. It measures at \SI{503}{\cm}
 by \SI{302.4}{\cm} tall by \SI{160}{\cm} wide.
@@ -163,8 +172,12 @@ separation. This also reduces the radiation within the target cave, which facili
 access to the target area for maintenance.
 The magnetic field distribution is modeled using a magnetostatic modeling program. The
 excitation is measured by wrapping a 1-turn coil around the central region of the magnet to measure the induced
-current. The final calibration of the field strength is determined by the reconstructed
+current. Final calibration of the field strength is determined by the reconstructed
 mass of the $J/\psi$ resonance.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{FMAG}
+\end{figure}
 
 The downstream analyzing magent (KMag) is a \SI{3}{\meter} long open aperture magnet
 with a \SI{289}{\cm} wide by \SI{203}{\cm} high central air gap. It was
@@ -174,30 +187,15 @@ corresponding to a \SI{0.41}{\GeV} transverse momentum kick. The primary purpose
 KMag is to determine the momentum of the muons. The magnetic field is measured using a Hall
 probe and is further calibrated using the reconstructed mass of the $J/\psi$ resonance.
 
-\section{Spectrometer and Tracking Station}
-The SeaQuest spectrometer consists of two magnets and four tracking stations. FMag,
-placed \SI{104}{\cm} downstream the target. It is then followed by
-the first tracking stations. The SeaQuest detector system is separated into four tracking stations.
-Stations 1, 2 and 3 each consists of plastic scintillator hodoscopes and drift chambers.
-The hodoscopes in each stations provides a fast signal for triggering whereas
-the drift chambers provide good spatial resolution for track precise reconstruction.
-An open air dipole magnet (KMag) is placed between station 1 and station 2.
-The vertical magnetic field from both
-magnets bends the muons horizontally, allowing the measurement of the momentum
-of the muons. Downstream of station 3, there is a 1 m iron wall acting as a
-hadron absorber. Station 4 is located behind the hadron absorber and acts as a
-muon identifier. Station 4 consists of a hodoscope array and 4 layers of
-proportional tube planes.
-
-
 
 \subsection{Hodoscope}
-A hodoscope is place on upstream end of each tracking stations. Each of the hodoscope planes
-is composed of overlapping panels of scintillators viewed by PMTs at the end.
+A hodoscope is placed on upstream end of each tracking stations. Each of the hodoscope planes
+is composed of overlapping panels of scintillators viewed by photomultiplier tubes (PMTs) at the end.
 When a charged particle pass through the scintillator, the molecules would be excited and
-release photons. These photons are then collected at the PMT, the amplified signals are
-then read out by the Time-to-Digital Converter (TDC).
-The primary purpose of the scintillator hodoscopes is to provide fast signal for
+release photons. These photons are then collected at the PMTs, the amplified signals are
+then send through discriminators. The signal is then recorded by the Data Acquisition (DAQ) System 
+using Time-to-Digital converters (TDCs).
+The primary purpose of the scintillator hodoscopes is to provide fast signal for the
 trigger system. It is also used during reconstruction to reduce the number of chamber hits.
 The x-planes are placed vertically to measure the bend plane position.
 And the y-planes are arranged horizontally to measure the non-bend plane position.
@@ -233,13 +231,17 @@ The configuration of the hodoscope is summarized in \cref{table:hodo}. \pdfmargi
 \end{table}
 
 \subsection{Drift Chambers}
-The primary purpose of the drift chambers is to provide better position resolution of the muons
-at each station. Each drift chamber consist of six planes of sense wires. The wires in two planes,
+The resolution of the hodoscope is limited by the physical size of the scintillator bars.
+Drift chamber are used to provide a better position resolution of the muons at each station.
+A drift chamber measures the position by recording the drift time of the electrons created 
+by the ionization of the gas mixture when charged particles pass through the chamber. 
+Each drift chamber consist of six planes of sense wires. The wires in two planes,
 denoted as X and X$'$, are aligned vertically. Two planes are tilted by \ang[retain-explicit-plus]{+14},
-denoted as U and U$'$, and two planes, V and V$'$, are tilted by \ang[retain-explicit-plus]{-14}. The wires
-in the primed planes are offset by half a drift cell relative to the unprimed planes to resolve left-right ambiguity of the
-drift direction. Station 1 and 2 each have one chamber referred as D1 and D2. The chamber at station
-3 is separated into top and bottom halves, D3p and D3m.
+denoted as U and U$'$, and two planes, V and V$'$, are tilted by \ang[retain-explicit-plus]{-14}. 
+The wires in the primed planes are offset by half a drift cell relative to the
+unprimed planes to resolve left-right ambiguity of the drift direction.
+Station 1 and 2 each have one chamber referred as D1 and D2. The chamber at station
+3 is separated into top and bottom halves, denoted as D3p and D3m.
 
 In data sets 1-3, a smaller chamber, D1.1, was used. It was later replaced by a newly constructed
 chamber, D1.2, with better expected high rate capacity in data set 4-6. However, D1.1 would be
@@ -248,7 +250,6 @@ was later replaced by D3m.2 for the later data sets.
 
 The D1.1, D2 and D3m.1 chambers were recycled from previous Fermilab experiments, E605 (D2 and D3m.1)
 and E866 (D1.1). The other chambers were designed and constructed for the SeaQuest experiment.
-\pdfmargincomment{why do we have separate top and bottom chamber for D3 }
 Specifications of each chamber are listed in \cref{table:chamber}.
 
 The signals from the sense wires are fed to ASDQ (Amplification, Shaper, Discriminator and Charger integrator)
@@ -259,8 +260,9 @@ modules and recorded by the DAQ system.
 \begin{table}[h!]
 	\centering
 	\caption{SeaQuest drift chamber configuration. The primed planes are almost the same as the unprimed
-		planes. The position of the X planes is defined to be the distance between the chamber and the
-		upstream face of FMag, while the position for U and V denote the offset relative to the X plane.}
+		planes. The positions of the X planes are defined to be the distance between the chamber and the
+		upstream face of FMag, while the positions for U and V denote the offset relative to the corresponding
+		X plane.}
 	\label{table:chamber}
 	\begin{tabular}{cccccc}
 		\hline
@@ -288,8 +290,6 @@ is made of eight proportional tube modules, with 16 proportional tubes per modul
 in each module further divided into two sub-layers, with the second layers shifted by half a tube width to
 resolve the left-right ambiguity, as in the case of drift chambers. The proportional tubes oriented horizontally
 (vertically) are in the first and fourth (second and third) planes as shown in \cref{fig:prop}
-
-
 \begin{figure}[ht!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
@@ -301,9 +301,13 @@ resolve the left-right ambiguity, as in the case of drift chambers. The proporti
 	\caption{XZ (left) and YZ (left) view of the proportional tube at station 4.}
 	\label{fig:prop}
 \end{figure}
+A typical high energy muons would traverse two proportional tubes in each planes.
+For muon identification, 8 hits from 4 planes are required, and the hits 
+should also be pointing back at the target.
+
 \section{Trigger System}
 The SeaQuest trigger uses discriminated signals from the hodoscope counters.
-Two kinds of trigger systems are used in SeaQuest, NIM-based and FPGA-based.
+Two separate trigger systems are used in SeaQuest, NIM-based and FPGA-based.
 The FPGA trigger system is the main trigger system. It utilizes 9 CAEN
 v1495 VME modules, Altera EP1C20F400C6 FPGA (Field Programmable Gate Array)
 modules. The 9 modules are separated into three levels from level 0 to level
@@ -313,7 +317,11 @@ Four FPGA modules form the level 0, with one module for each hodoscope
 lower nonbend plane). During data taking, level 0 simply passes the input signal
 to level 1. The level 0 can also act as a pulser for diagnostic purpose.
 At level 1, four FPGA modules are used to search for four-hit track
-candidates in each quadrant. The level 2 consists of a single module, and forms
+candidates in each quadrant and compared with a preselected list of hit
+patterns, known as trigger roads. The list of trigger roads (known as roadset) 
+are generated by studying the path of muons from Monte Carlo simulations, with 
+the goal of persevering signal rates while suppressing backgrounds.
+The level 2 consists of a single module, and forms
 a trigger decision based on types of track candidates found at level 1. During
 SeaQuest data taking, there are five output triggers, as listed in \cref{tab:FPGA}.
 During SeaQuest, only x-measuring (bend plane) hodoscopes are used in making
@@ -321,7 +329,7 @@ trigger decisions.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{trigger_schematic}
-	\caption{The schematic of the trigger hardware}
+	\caption{The schematic of the FPGA trigger hardware}
 	\label{fig:trigger}
 \end{figure}
 \begin{table}[h!]
@@ -339,18 +347,18 @@ trigger decisions.
 \end{table}
 
 The NIM trigger utilizes Nuclear Instrumentation Modules (NIM) to form the trigger
-logic. During data taking, two types of NIM trigger are used, known as NIM-1
+logic. This system is mostly used for debugging and monitoring purpose.
+During data taking, two types of NIM trigger are used, known as NIM-1
 and NIM-3. The NIM-1 trigger is a coincidence of the y-measuring hodoscope hits
 from all 4 stations. This trigger is mainly used for studying the efficiency
 of the x-measuring hodoscope, which is important for understanding the performance
 of the FPGA trigger system. The second NIM trigger, NIM-3, is also known as a
 pulser trigger. It triggers on the coincidence of two clocks, a \SI{7.5}{\kHz}
-clock generated by a gate generator and the \SI{53.1}{\MHz}
+clock generated by a gate generator and the \SI{53.1}{\MHz} Main Injector
 RF clock. The NIM-3 trigger is used to understand the intensity profile of the
 beam and the background hits in the spectrometer. The hits from NIM-3 trigger
 are also used in the Monte Carlo simulation to understand the rate dependence
 of the reconstruction. This will be discussed further in \cref{M-sec:MC}.
-\pdfmargincomment{the charge is determined from the px kick}
 
 \section{Data Acquisition, Decoding and Storage}
 The data acquisition for SeaQuest is divided into three separate subsystem, namely
@@ -370,7 +378,7 @@ and the next 3 bits are used by the NIM trigger (NIM-1 to NIM-3). The last 3 bit
 are used by BOS (Beginning of Spill), EOS (End of Spill) and flush events.
 The trigger supervisor can also prescale the first 8 triggers, such that the high rate triggers can be suppressed.
 
-When the trigger supervisor receives a trigger, it generates a common stop signal, which is fan out
+When the trigger supervisor receives a trigger, it generates a common stop signal, which is fanned out
 to the trigger interface in each VME crate. The trigger interface then instructs the processor to readout the TDCs
 and send the hit information back to the DAQ host over gigabit Ethernet. The trigger interface then
 reports back the to trigger supervisor once the crate has completed the readout. The trigger supervisor can process
@@ -379,7 +387,7 @@ which allows it to record beam intensity of the 16 RF buckets before and after t
 
 The deadtime of this system is approximately \SI{150}{\micro\second}. This is primary
 dominated by the time required to readout all the TDCs in a single crate. Even though
-each detector channel is readout in parallel, the TDCs are readout sequentially
+each detector channel is readout in parallel, the TDCs are read out sequentially
 and each hit would take \SI{\sim 4}{\micro\second} to readout. Therefore, high occupancy
 events would cause a longer deadtime.
 
@@ -401,17 +409,19 @@ It is designed to monitor the spectrometer and trigger,
 providing fast diagnostic data while the experiment is running. Like the Event DAQ,
 it utilizes the ``CODA'' system. It consist of a single VME crate with four scaler
 cards. The Scaler DAQ is triggered by a \SI{7.5}{\kilo\hertz} clock and the beam
-spill signal.
+spill signal. It uses 3 VME scale 32 modules to record data such as number of triggers
+and hodoscope rates. The Scaler DAQ data are processed in real time and displayed
+on a monitor in the SeaQuest Control room.
 
 \subsection{Beam DAQ}
-The Beam DAQ aims to provide the instantaneous beam intensity with a Cerenkov counter.
+The Beam DAQ aims to provide the instantaneous beam intensity with the Cerenkov counter.
 The signal from the Cerenkov counter is sent to a Fermilab-designed QIE module.
 This custom module is synced to Main Injector RF clock and it reads out the Cerenkov
 counter every 18.8 ns clock cycle. The Beam DAQ host then reads out this custom module
 after each spill to provide the integrated beam intensity for the entire spill.
 The Beam DAQ is also linked with the Event DAQ so it can calculate the integrated spill
-during trigger dead time and the 16 buckets before and after the trigger.
-The Beam DAQ will monitor the instantaneous beam intensity and inhibit the trigger if the
+during trigger dead time and the 16 buckets before and after each trigger.
+The Beam DAQ will also monitor the instantaneous beam intensity and inhibit the trigger if the
 intensity is above a certain threshold. The Beam DAQ will record the integrated intensity
 while inhibit is asserted at trigger logic.
 
@@ -440,7 +450,7 @@ DAQ file contains the TDC information from each detector of each triggered event
 beam intensity around the triggering bucket from the BeamDAQ is also attached in the Event DAQ file.
 These raw data files are processed by a custom program called ``decoder", which coverts the
 CODA specific format into a ROOT based format. These information will also be uploaded to a SQL
-server.
+server. 
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
 \end{document}
