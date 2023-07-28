@@ -70,7 +70,7 @@ Kaplan functional form \cite{kaplan1978}.
 	f\left(P_T^2\right) \propto \frac{1}{\left(1+ P_T^2/p_1^2\right)^6},
 	\label{eq:kaplan}
 \end{equation}
-The parameter $p_1$ controls the broadness of the $P_T$ distribution. And is
+The parameter $p_1$ controls the broadness of the $P_T$ distribution, and is
 related to the average $P_T$ as follows
 \begin{equation}
 	\begin{split}
@@ -143,9 +143,12 @@ $z$-axis to the lab frame is given by
 \subsubsection{Cross section weighting}
 Each event is assigned a weight based on the cross section. The Drell-Yan cross section is calculated based on
 the kinematics of the generated events. The leading order cross section is calculated with the
-CT14 pdf. The NLO effect is then included using 2-dimensional K-Factor \cite{shivangi-1747},
+CT14 pdf. The NLO effect is then included using 2-dimensional K-Factor \cite{shivangi-1747}, which
+is defined as the ratio of the NLO cross section over LO cross section and is 
 calculated using DYNNLO (see \cref{sec:DYNNLO}).
-The proton on deuterium cross section is calculated using the charge symmetry, and assuming negligible nuclear correction.
+The proton on deuterium cross section is calculated using the charge symmetry. 
+Assuming negligible nuclear correction, the proton on deuterium cross section are calculated 
+as the sum of $p+p$ and $p+n$ cross section. 
 
 The cross section for the $J/\psi$ is parameterized by a Gaussian in $x_F$ and fitted to the
 calculation using color evaporation model, with the normalization taken from a particularization by E789 \cite{schub1995}.
@@ -394,7 +397,7 @@ region. The energy loss and transverse momentum kick in FMag are taken into acco
 \subsection{Vertex Finding}
 Once all the tracks are found in each event, the reconstruction of the dimuon vertex can begin using kVertex.
 For Matrix-1 events, all possible combinations of $\mu^+$ and $\mu^-$ are tested if they can form
-a dimuon.
+a dimuon. The vertex is determined using the same Kalment filter with the tracks acting as measurements.
 
 \pdfmargincomment{kalment filter, refitting if it the pair originate from target to account for multiple scattering }
 To account for multiple scattering of the muons while traversing the FMag, dimuon pairs that are
@@ -508,7 +511,9 @@ was potential contamination from physics sources. For example, near the $J/\psi$
 data is heavily dominated by the charmonium decay, therefore it is possible that both tracks in the same
 mixed event are from the $J/\psi$ decay. While it is possible to have multiple $J/\psi$ decays or
 multiple Drell-Yan interactions in the same RF bucket,
-the probability is relatively small. It is more likely to have multiple pions.
+the probability is relatively small. It is more likely to have multiple pion produced in the same RF
+buckets by multiple interactions, which then decay into high energy muons, forming a high-mass
+dimuon background.
 On the contrary, the MATRIX 4 trigger fires when there is only one track, and therefore less
 susceptible to the contamination from physics sources.
 
@@ -1029,7 +1034,7 @@ The histogram in the numerator is filled using the reconstructed kinematics, whe
 the thrown histogram in the denominator is filled using the thrown kinematics. This accounts for
 the first order effect of bin migration, caused by the spectrometer resolution.
 
-Since our histograms are weighted histograms, the uncertainty is calculated using the following
+%Since our histograms are weighted histograms, the uncertainty is calculated using the following
 \pdfcomment{verify the uncertainty calculation here}
 
 The calculated acceptance for $J/\psi$ and $\psi'$ are shown in \cref{fig:jpsi_acceptance,fig:psip_acceptance}.
@@ -1095,10 +1100,14 @@ the $P_T$-reweighting. And the $p_1\left(x_F\right)$ is given by
 		$x_F$ and fitted to a first order polynomial.}
 	\label{fig:p1_xF_DY}
 \end{figure}
-
+As seen in \cref{fig:p1_xF_DY}, the $p_1$ (and therefore $\expval{P_T}$) decreases as $x_F$ increases.
+As $x_F$ increases, more of the available energy are taken by the dimuon longitudinal momentum,
+therefore the $P_T$ distribution should be narrower.
+This is also consistent to previous studies in Ref.~\cite{prasad2020} and the maximum $P_T$ discussed in
+\cref{subsec:messyMC}. 
 
 For the charmonium decays, the $P_T$ distribution is extracted in a iterative process, and the $p1$
-parmeters used $1.735$ for $J/\psi$ and $1.620$ for $\psi'$, and are consistent with the result in
+parameters used are $1.735$ for $J/\psi$ and $1.620$ for $\psi'$, and are consistent with the result in
 \cref{M-tab:kaplan_result}.
 
 \section{Systematic uncertainties}
@@ -1197,7 +1206,7 @@ as introduced in \cref{M-subsec:scaling_violation}. Since the DYNNLO code was de
 calculation at LHC, the original chosen scale is the W boson mass (\SI{80.385}{\GeV}).
 The SeaQuest data covers the mass of \SI{4.5}{\GeV} to \SI{8.8}{\GeV} for the Drell-Yan
 process. The original chosen scale is certainly too high for fixed target experiments.
-It is recommended by the author to pick a scale of the order of the dimuon mass.
+It is recommended by the authors to pick a scale of the order of the dimuon mass.
 Instead of using a fixed scale, we chose to turn on dynamic scale,
 where both factorization and renormalization scales would be dynamically set to the dimuon mass at
 each iteration.  The difference between using a fixed scale and dynamic scales is shown in \cref{fig:DY_scale}.
