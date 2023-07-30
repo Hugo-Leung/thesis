@@ -34,6 +34,10 @@ choice of fit function, the following functions are used.
 	R_i\left(I\right) &= p_{0i} + p_{1} I + p_{2} I^2 \quad\text{(FIT 1)}\\
 	R_i\left(I\right) &= p_{0i} + \left[p_{10} + p_{11}x_i\right] I + \left[p_{20} + p_{21}x_i\right]I^2 \quad \text{(FIT 2)}
 \end{align}
+The fit to data using the two fits are shown in \cref{fig:run2-3_FIT1_xT,fig:run2-3_FIT2_xT}
+and $\chi^2$ for the fits are tabulated in \cref{tab:chi_run23}.
+\input{section/extrapolation_xT_23_1.tex}
+\input{section/extrapolation_xT_23_2.tex}
 
 \Cref{fig:CSR_Run2-3} shows the extracted cross section ratio as a function of $x_T$, $x_B$ and $x_F$.
 While the two fit functions produce similar results for $x_T$, the differences are larger in 
@@ -59,21 +63,24 @@ the other variables.
 \begin{table}
 \centering
 \caption{The reduced $\chi^2$ for the different fits used in the intensity extrapolation method. }
+\label{tab:chi_run23}
 \input{table/extrapolate/run23.tex}
 \end{table}
-\pdfcomment{show the individual fits}
+
 
 \subsubsection{Comparison of massfit and extrapolation}
 \begin{figure}
 	\begin{subfigure}{0.45\linewidth}
-		\includegraphics[width=\linewidth]{placeholder}
+		\includegraphics[width=\linewidth]{massfit/run2-3/57_70_LH2}
 	\end{subfigure}
 	\begin{subfigure}{0.45\linewidth}
-	\includegraphics[width=\linewidth]{placeholder}
+	\includegraphics[width=\linewidth]{massfit/run2-3/57_70_LD2}
 	\end{subfigure}	
-	\caption{The mass spectrum for \ce{LH_2} and \ce{LD_2} targets data for Run 2-3}
+	\caption{The mass spectrum for \ce{LH_2}(left) and \ce{LD_2}(right) targets data for Run 2-3}
 	\label{fig:massfit_integrated_run23}
 \end{figure}
+
+
 
 As reported in Ref.~\cite{dove2023} the Drell-Yan cross section ratio as a function of $x_T$ extracted from
 the two methods are in very good agreement, this is also shown in \cref{fig:CSR_Run2-3}
@@ -84,8 +91,23 @@ systematical uncertainties originated from the fit function used in the intensit
 While the massfit results agree with the extrapolation result if FIT 1 is used, the 
 extrapolation results using FIT 2 are different from the other two.
 
+\FloatBarrier
 
 \subsection{Results from Run 5-6 data}
+\begin{figure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run5-6/5_6_LH2}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run5-6/5_6_LD2}
+	\end{subfigure}	
+	\caption{The mass spectrum for \ce{LH_2}(left) and \ce{LD_2}(right) targets data for Run 5-6}
+	\label{fig:massfit_integrated_run56}
+\end{figure}
+
+\input{section/extrapolation_xT_56_1.tex}
+\input{section/extrapolation_xT_56_2.tex}
+
 \pdfmargincomment{run 5-6 compared with 2-3 and full data set, only show massfit results?}
 \Cref{fig:CSR_Run5-6} shows the extracted cross section ratio as a function from the
 second half of our data using various methods. While the different fit functions used in the 
@@ -135,8 +157,10 @@ consistent with prediction from various models, including meson cloud and statis
 
 The importance of the SeaQuest data can be seen in the NNPDF 4.0, where at large $x_T$,
 uncertainties bands is consistent with the uncertainties of our measurements, as the SeaQuest
-results is the only available data sensitive to the light sea-quark asymmetry at large $x$. 
+results is the only available data sensitive to the light sea-quark asymmetry at large $x$.
 
+ 
+\FloatBarrier
 \section{Charmonium Cross Section}
 
 \subsection{Massfit results}
