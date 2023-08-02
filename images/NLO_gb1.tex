@@ -1,18 +1,18 @@
 \begin{tikzpicture}
-\tikzstyle{every node}=[font=\large]
-    \begin{feynman}
-    \vertex  (a1){$q$};
-    \vertex [right= 4cm of a1] (a2) {$\gamma^*$};
-    \vertex [below= 4cm of a1] (b1) {$\bar{q}$};
-    \vertex[below= 4cm of a2] (b2) {$g$};
-    \vertex  at ($(a1) + (2cm , -1cm)$) [dot] (d);
-    \vertex [below= 2 cm of d] (d1);
-     \diagram*{
-     (a1) --[fermion](d),
-     (d1) --[fermion](b1),
-     (d) --[fermion] (d1),
-     (d1) --[gluon](b2),
-     (d) --[photon](a2);
-     };
-    \end{feynman}
+	\tikzstyle{every node}=[font=\large]
+	\begin{feynman}
+		\vertex  (a1){$q$};
+		\vertex [right= 4cm of a1] (a2) {$\gamma^*$};
+		\vertex [below= 4cm of a1] (b1) {$\bar{q}$};
+		\vertex[below= 4cm of a2] (b2) {$g$};
+		\vertex  at ($(a1) + (2cm , -1cm)$) [dot] (d);
+		\vertex [below= 2 cm of d] (d1);
+		\diagram*{
+		(a1) --[fermion](d),
+		(d1) --[fermion](b1),
+		(d) --[fermion] (d1),
+		(d1) --[gluon](b2),
+		(d) --[photon](a2);
+		};
+	\end{feynman}
 \end{tikzpicture}

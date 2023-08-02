@@ -144,11 +144,11 @@ $z$-axis to the lab frame is given by
 Each event is assigned a weight based on the cross section. The Drell-Yan cross section is calculated based on
 the kinematics of the generated events. The leading order cross section is calculated with the
 CT14 pdf. The NLO effect is then included using 2-dimensional K-Factor \cite{shivangi-1747}, which
-is defined as the ratio of the NLO cross section over LO cross section and is 
+is defined as the ratio of the NLO cross section over LO cross section and is
 calculated using DYNNLO (see \cref{sec:DYNNLO}).
-The proton on deuterium cross section is calculated using the charge symmetry. 
-Assuming negligible nuclear correction, the proton on deuterium cross section are calculated 
-as the sum of $p+p$ and $p+n$ cross section. 
+The proton on deuterium cross section is calculated using the charge symmetry.
+Assuming negligible nuclear correction, the proton on deuterium cross section are calculated
+as the sum of $p+p$ and $p+n$ cross section.
 
 The cross section for the $J/\psi$ is parameterized by a Gaussian in $x_F$ and fitted to the
 calculation using color evaporation model, with the normalization taken from a particularization by E789 \cite{schub1995}.
@@ -210,7 +210,7 @@ is given by
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2 - P_L^2,
 \end{equation}
 where $P_L$ is the longitudinal momentum of the virtual photon.
-At SeaQuest, we defined $x_F = \frac{P_L}{\sqrt{s}\left[1-M^2_\gamma\right]}$, therefore 
+At SeaQuest, we defined $x_F = \frac{P_L}{\sqrt{s}\left[1-M^2_\gamma\right]}$, therefore
 \begin{equation}
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2\left[1-x_F^2\right].
 	\label{eq:pTmax}
@@ -532,25 +532,25 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 	\label{table:trackCut}
 	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
 		\hline
-		Variable                                                                                                                                                                                 & Description                                                                          & Cut                          \\ \hline
-		$\chi^2_{\mathrm{target}}$                                                                                                                                                               & $\chi^2$ when tack is   forced to pass through center of target ($z=\SI{-129}{\cm}$) & $< 15$                       \\ \hline
-		$pz_1$                                                                                                                                                                                   & z momentum at station 1                                                              & (\SI{9}{\GeV},\SI{75}{\GeV}) \\ \hline
-		nHits                                                                                                                                                                                    & total number of hits on wire chambers by each   muon track                           & $> 13$                       \\ \hline
-		$x_T^2 +(y_T - \mathrm{beamOffset})^2$                                                                                                                                                   & radial distance of track from   beam line at the center of target                    & $< \SI{320}{\cm\squared}$    \\ \hline
-		$x_D^2 +(y_D - \mathrm{beamOffset})^2$                                                                                                                                                   &
-		radial distance of track from   beam line at the center of beam dump ($z=\SI{42}{\cm}$)                                                                                                  &
-		(\SI{8}{\cm\squared},\SI{1100}{\cm\squared})   \footnotemark[1]                                                                                                                                                                                                                                                \\ \hline
+		Variable                                                                                                                                                                                     & Description                                                                          & Cut                          \\ \hline
+		$\chi^2_{\mathrm{target}}$                                                                                                                                                                   & $\chi^2$ when tack is   forced to pass through center of target ($z=\SI{-129}{\cm}$) & $< 15$                       \\ \hline
+		$pz_1$                                                                                                                                                                                       & z momentum at station 1                                                              & (\SI{9}{\GeV},\SI{75}{\GeV}) \\ \hline
+		nHits                                                                                                                                                                                        & total number of hits on wire chambers by each   muon track                           & $> 13$                       \\ \hline
+		$x_T^2 +(y_T - \mathrm{beamOffset})^2$                                                                                                                                                       & radial distance of track from   beam line at the center of target                    & $< \SI{320}{\cm\squared}$    \\ \hline
+		$x_D^2 +(y_D - \mathrm{beamOffset})^2$                                                                                                                                                       &
+		radial distance of track from   beam line at the center of beam dump ($z=\SI{42}{\cm}$)                                                                                                      &
+		(\SI{8}{\cm\squared},\SI{1100}{\cm\squared})   \footnotemark[1]                                                                                                                                                                                                                                                    \\ \hline
 		\begin{tabular}[c]{@{}c@{}}$\chi^2_{\mathrm{target}}<1.5\chi^2_{\mathrm{upstream}}$\\      $\chi^2_{\mathrm{target}}<1.5\chi^2_{\mathrm{dump}}$\end{tabular} &
-		$\chi^2$ when tack is   forced to pass through $z=\SI{-490}{\cm}$(upstream), $z=\SI{-129}{\cm}$(traget) and   $z=\SI{42}{\cm}$(dump)                                                     &
+		$\chi^2$ when tack is   forced to pass through $z=\SI{-490}{\cm}$(upstream), $z=\SI{-129}{\cm}$(traget) and   $z=\SI{42}{\cm}$(dump)                                                         &
 		\\ \hline
-		$z_0$                                                                                                                                                                                    & z position of track's closest approach to beam   line                                & (\SI{320}{\cm},\SI{-5}{\cm}) \\ \hline
-		$\chi^2/(\mathrm{nHits}-5)$                                                                                                                                                              & $\chi^2/\mathrm{ndf}$                                                                & $<12$                        \\ \hline
-		$y_1/y_3$                                                                                                                                                                                & y position of track ast St.~1   and St.~3                                            & $<1$                         \\ \hline
-		$y_1\times y_3$                                                                                                                                                                          &                                                                                      & $>0$                         \\ \hline
-		$| |px_1 - px_3| -0.416|$                                                                                                                                                                & difference in x momentum at St.~1 and St.~3 accounting for the Kmag kick             & $<\SI{0.008}{\GeV}$          \\ \hline
-		$|py_1 - py_3|$                                                                                                                                                                          & difference in y momentum at St.~1 and St.~3                                          & $<\SI{0.008}{\GeV}$          \\ \hline
-		$|pz_1 - pz_3|$                                                                                                                                                                          & difference in z momentum at St.~1 and St.~3                                          & $<\SI{0.08}{\GeV}$           \\ \hline
-		$|py_1 |$                                                                                                                                                                                & absolute value of the y momentum   at St.~1                                          & $>\SI{0.02}{\GeV}$           \\ \hline
+		$z_0$                                                                                                                                                                                        & z position of track's closest approach to beam   line                                & (\SI{320}{\cm},\SI{-5}{\cm}) \\ \hline
+		$\chi^2/(\mathrm{nHits}-5)$                                                                                                                                                                  & $\chi^2/\mathrm{ndf}$                                                                & $<12$                        \\ \hline
+		$y_1/y_3$                                                                                                                                                                                    & y position of track ast St.~1   and St.~3                                            & $<1$                         \\ \hline
+		$y_1\times y_3$                                                                                                                                                                              &                                                                                      & $>0$                         \\ \hline
+		$| |px_1 - px_3| -0.416|$                                                                                                                                                                    & difference in x momentum at St.~1 and St.~3 accounting for the Kmag kick             & $<\SI{0.008}{\GeV}$          \\ \hline
+		$|py_1 - py_3|$                                                                                                                                                                              & difference in y momentum at St.~1 and St.~3                                          & $<\SI{0.008}{\GeV}$          \\ \hline
+		$|pz_1 - pz_3|$                                                                                                                                                                              & difference in z momentum at St.~1 and St.~3                                          & $<\SI{0.08}{\GeV}$           \\ \hline
+		$|py_1 |$                                                                                                                                                                                    & absolute value of the y momentum   at St.~1                                          & $>\SI{0.02}{\GeV}$           \\ \hline
 	\end{tabular}
 \end{table}
 \begin{table}[ht!]
@@ -833,22 +833,22 @@ different kinematic phase space. To study this effect, we repeat the study with 
 Monte Carlo, and the extract efficiency is tabulated in \cref{tab:track_eff_DY,tab:track_eff_jpsi,tab:track_eff_psip}
 
 \begin{table}
-\centering
-\caption{The extracted tracking efficiency from Drell-Yan Monte Carlo}
-\label{tab:track_eff_DY}
-\input{table/tracking_eff_DY.tex}
+	\centering
+	\caption{The extracted tracking efficiency from Drell-Yan Monte Carlo}
+	\label{tab:track_eff_DY}
+	\input{table/tracking_eff_DY.tex}
 \end{table}
 \begin{table}
-\centering
-\caption{The extracted tracking efficiency from $J/\psi$  Monte Carlo}
-\label{tab:track_eff_jpsi}
-\input{table/tracking_eff_jpsi.tex}
+	\centering
+	\caption{The extracted tracking efficiency from $J/\psi$  Monte Carlo}
+	\label{tab:track_eff_jpsi}
+	\input{table/tracking_eff_jpsi.tex}
 \end{table}
 \begin{table}
-\centering
-\caption{The extracted tracking efficiency from $\psi'$ Monte Carlo}
-\label{tab:track_eff_psip}
-\input{table/tracking_eff_psip.tex}
+	\centering
+	\caption{The extracted tracking efficiency from $\psi'$ Monte Carlo}
+	\label{tab:track_eff_psip}
+	\input{table/tracking_eff_psip.tex}
 \end{table}
 
 Once the tracking efficiency is obtained from the Monte Carlo, the efficiency correction ($\epsilon_{recon.Eff}$)
@@ -1104,7 +1104,7 @@ As seen in \cref{fig:p1_xF_DY}, the $p_1$ (and therefore $\expval{P_T}$) decreas
 As $x_F$ increases, more of the available energy are taken by the dimuon longitudinal momentum,
 therefore the $P_T$ distribution should be narrower.
 This is also consistent to previous studies in Ref.~\cite{prasad2020} and the maximum $P_T$ discussed in
-\cref{subsec:messyMC}. 
+\cref{subsec:messyMC}.
 
 For the charmonium decays, the $P_T$ distribution is extracted in a iterative process, and the $p1$
 parameters used are $1.735$ for $J/\psi$ and $1.620$ for $\psi'$, and are consistent with the result in
