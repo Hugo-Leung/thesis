@@ -1,0 +1,27 @@
+\begin{table}[h!]
+	\centering
+	\caption{ physics cuts}
+	\label{table:physCut}
+	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
+		\hline
+		Variable              & Description                          & Cut                                                            \\ \hline
+		mass                  & dimuon mass                          & (\SI{2}{\GeV},\SI{8.8}{\GeV}) \footnotemark[1]\footnotemark[2] \\ \hline
+		$x_F$                 & Feynman $x$                          & (-0.1,0.95)                                                    \\ \hline
+		$x_{\mathrm{target}}$ & Bjorken $x$ of target                & (0.005,0.55)  \footnotemark[1]                                 \\ \hline
+		$|\cos(\theta)|$      & polar angle in Collins-Soper   frame & $<0.5$                                                         \\ \hline
+	\end{tabular}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{occupancy cuts}
+	\label{table:occCut}
+	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
+		\hline
+		Variable                          & Description                                & Cut      \\ \hline
+		D1                                & total hits on St.~1 Chamber                & $<400$   \\ \hline
+		D2                                & total hits on St.~2 Chamber                & $<400$   \\ \hline
+		D3                                & total hits on St.~3 Chamber                & $<400$   \\ \hline
+		$D1+D2+D3$                        & total numbers of hits in all wire Chambers & $<1000$  \\ \hline
+		Trigger intensity\footnotemark[3] & numbers of proton in the triggering bucket & $<80000$ \\ \hline
+	\end{tabular}
+\end{table}

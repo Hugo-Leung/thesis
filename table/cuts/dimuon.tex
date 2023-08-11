@@ -1,0 +1,24 @@
+\begin{table}[ht!]
+	\centering
+	\caption{dimuon level cuts.}
+	\label{table:dimuonCut}
+	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
+		\hline
+		Variable                                                                                                                          & Description                                                                              & Cut                            \\ \hline
+		$|dx|$                                                                                                                            & x position of dimuon vertex                                                              & $<\SI{0.25}{\cm}$              \\ \hline
+		$|dy-\mathrm{beamOffset}|$                                                                                                        & y position of dimuon vertex                                                              & $<\SI{0.22}{\cm}$              \\ \hline
+		$dz$                                                                                                                              & z position of dimuon vertex                                                              & (\SI{-280}{\cm},\SI{-5}{\cm})  \\ \hline
+		$dx^2+(dy-\mathrm{beamOffset})^2$                                                                                                 & radial distance of the dimuon vertex from beam line                                      & $<\SI{0.06}{\cm\squared}$      \\ \hline
+		$|dpx|$                                                                                                                           & absolute value of dimuon x   momentum                                                    & $<\SI{1.8}{\GeV}$              \\ \hline
+		$|dpy|$                                                                                                                           & absolute value of dimuon y   momentum                                                    & $<\SI{2}{\GeV}$                \\ \hline
+		$dpx^2+dpy^2$                                                                                                                     & transverse momentum squared of   dimuon                                                  & $<\SI{5}{\GeV}$                \\ \hline
+		dpz                                                                                                                               & dimuon z momentum                                                                        & (\SI{38}{\GeV},\SI{116}{\GeV}) \\ \hline
+		$|\mathrm{tackSeparation}|$                                                                                                       & distance in z between points   of  closest approach between $\mu^+$   and $\mu^-$ track  & $<\SI{270}{\cm}$               \\ \hline
+		$\chi^2_{\mathrm{dimuon}}$                                                                                                        & $\chi^2$ when both $\mu^+$ and   $\mu^-$ tracks are forced to pass through dimuon vertex & $<18$                          \\ \hline
+		$\begin{aligned} |\chi^2_{\mathrm{target}}(\mu^+) &+ \chi^2_{\mathrm{target}}(\mu^-)\\& -\chi^2_{\mathrm{dimuon}}| \end{aligned}$ &                                                                                          & $<2$                           \\ \hline
+		$y_3(\mu^+) \times y_3(\mu^-)$                                                                                                    & y position at St.~3 for both tracks                                                      & $<0$                           \\ \hline
+		$\mathrm{nHists}(\mu^+)+\mathrm{nHists}(\mu^-)$                                                                                   & sum of the total number if hits on wire chamber by $\mu^+$ and $\mu^-$ track             & $>29$                          \\ \hline
+		$\mathrm{nHists}_1(\mu^+)+\mathrm{nHists}_1(\mu^-)$                                                                               & sum of the total number if hits on St.~1 wire chamber by $\mu^+$ and $\mu^-$ track       & $>8$                           \\ \hline
+		$|x_1(\mu^+) + x_1(\mu^-)|$                                                                                                       & sum off x position of of tracks   at St.~1                                               & $>\SI{42}{\cm}$                \\ \hline
+	\end{tabular}
+\end{table}

@@ -430,7 +430,7 @@ therefore we defined $x_F$ as
 \end{equation}
 where $M$ is the dimuon mass.
 
-For the momentum fractions $x_1$, $x_2$, the following definition is chosen following Ref.~\cite{Coester-1286}
+For the momentum fractions $x_1$, $x_2$, the following definition, taken from Ref.~\cite{Coester-1286} is chosen
 \begin{equation}
 	\begin{split}
 		x_1 &= \frac{P_{\textrm{target}}\cdot P_{\gamma^*}}{P_{\textrm{target}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})},\\
@@ -525,85 +525,9 @@ The event selection that is used in this study is based on the study by C.~Brown
 \cite{chuck-2111} with some modification to increase acceptance at low mass. These cuts
 are categorized into different groups and are tabulated in \cref{table:trackCut,table:dimuonCut,table:physCut,table:occCut}.
 
-
-\begin{table}[ht!]
-	\centering
-	\caption{Track level cuts.}
-	\label{table:trackCut}
-	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
-		\hline
-		Variable                                                                                                                                                                                     & Description                                                                          & Cut                          \\ \hline
-		$\chi^2_{\mathrm{target}}$                                                                                                                                                                   & $\chi^2$ when tack is   forced to pass through center of target ($z=\SI{-129}{\cm}$) & $< 15$                       \\ \hline
-		$pz_1$                                                                                                                                                                                       & z momentum at station 1                                                              & (\SI{9}{\GeV},\SI{75}{\GeV}) \\ \hline
-		nHits                                                                                                                                                                                        & total number of hits on wire chambers by each   muon track                           & $> 13$                       \\ \hline
-		$x_T^2 +(y_T - \mathrm{beamOffset})^2$                                                                                                                                                       & radial distance of track from   beam line at the center of target                    & $< \SI{320}{\cm\squared}$    \\ \hline
-		$x_D^2 +(y_D - \mathrm{beamOffset})^2$                                                                                                                                                       &
-		radial distance of track from   beam line at the center of beam dump ($z=\SI{42}{\cm}$)                                                                                                      &
-		(\SI{8}{\cm\squared},\SI{1100}{\cm\squared})   \footnotemark[1]                                                                                                                                                                                                                                                    \\ \hline
-		\begin{tabular}[c]{@{}c@{}}$\chi^2_{\mathrm{target}}<1.5\chi^2_{\mathrm{upstream}}$\\      $\chi^2_{\mathrm{target}}<1.5\chi^2_{\mathrm{dump}}$\end{tabular} &
-		$\chi^2$ when tack is   forced to pass through $z=\SI{-490}{\cm}$(upstream), $z=\SI{-129}{\cm}$(traget) and   $z=\SI{42}{\cm}$(dump)                                                         &
-		\\ \hline
-		$z_0$                                                                                                                                                                                        & z position of track's closest approach to beam   line                                & (\SI{320}{\cm},\SI{-5}{\cm}) \\ \hline
-		$\chi^2/(\mathrm{nHits}-5)$                                                                                                                                                                  & $\chi^2/\mathrm{ndf}$                                                                & $<12$                        \\ \hline
-		$y_1/y_3$                                                                                                                                                                                    & y position of track ast St.~1   and St.~3                                            & $<1$                         \\ \hline
-		$y_1\times y_3$                                                                                                                                                                              &                                                                                      & $>0$                         \\ \hline
-		$| |px_1 - px_3| -0.416|$                                                                                                                                                                    & difference in x momentum at St.~1 and St.~3 accounting for the Kmag kick             & $<\SI{0.008}{\GeV}$          \\ \hline
-		$|py_1 - py_3|$                                                                                                                                                                              & difference in y momentum at St.~1 and St.~3                                          & $<\SI{0.008}{\GeV}$          \\ \hline
-		$|pz_1 - pz_3|$                                                                                                                                                                              & difference in z momentum at St.~1 and St.~3                                          & $<\SI{0.08}{\GeV}$           \\ \hline
-		$|py_1 |$                                                                                                                                                                                    & absolute value of the y momentum   at St.~1                                          & $>\SI{0.02}{\GeV}$           \\ \hline
-	\end{tabular}
-\end{table}
-\begin{table}[ht!]
-	\centering
-	\caption{dimuon level cuts.}
-	\label{table:dimuonCut}
-	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
-		\hline
-		Variable                                                                                                                          & Description                                                                              & Cut                            \\ \hline
-		$|dx|$                                                                                                                            & x position of dimuon vertex                                                              & $<\SI{0.25}{\cm}$              \\ \hline
-		$|dy-\mathrm{beamOffset}|$                                                                                                        & y position of dimuon vertex                                                              & $<\SI{0.22}{\cm}$              \\ \hline
-		$dz$                                                                                                                              & z position of dimuon vertex                                                              & (\SI{-280}{\cm},\SI{-5}{\cm})  \\ \hline
-		$dx^2+(dy-\mathrm{beamOffset})^2$                                                                                                 & radial distance of the dimuon vertex from beam line                                      & $<\SI{0.06}{\cm\squared}$      \\ \hline
-		$|dpx|$                                                                                                                           & absolute value of dimuon x   momentum                                                    & $<\SI{1.8}{\GeV}$              \\ \hline
-		$|dpy|$                                                                                                                           & absolute value of dimuon y   momentum                                                    & $<\SI{2}{\GeV}$                \\ \hline
-		$dpx^2+dpy^2$                                                                                                                     & transverse momentum squared of   dimuon                                                  & $<\SI{5}{\GeV}$                \\ \hline
-		dpz                                                                                                                               & dimuon z momentum                                                                        & (\SI{38}{\GeV},\SI{116}{\GeV}) \\ \hline
-		$|\mathrm{tackSeparation}|$                                                                                                       & distance in z between points   of  closest approach between $\mu^+$   and $\mu^-$ track  & $<\SI{270}{\cm}$               \\ \hline
-		$\chi^2_{\mathrm{dimuon}}$                                                                                                        & $\chi^2$ when both $\mu^+$ and   $\mu^-$ tracks are forced to pass through dimuon vertex & $<18$                          \\ \hline
-		$\begin{aligned} |\chi^2_{\mathrm{target}}(\mu^+) &+ \chi^2_{\mathrm{target}}(\mu^-)\\& -\chi^2_{\mathrm{dimuon}}| \end{aligned}$ &                                                                                          & $<2$                           \\ \hline
-		$y_3(\mu^+) \times y_3(\mu^-)$                                                                                                    & y position at St.~3 for both tracks                                                      & $<0$                           \\ \hline
-		$\mathrm{nHists}(\mu^+)+\mathrm{nHists}(\mu^-)$                                                                                   & sum of the total number if hits on wire chamber by $\mu^+$ and $\mu^-$ track             & $>29$                          \\ \hline
-		$\mathrm{nHists}_1(\mu^+)+\mathrm{nHists}_1(\mu^-)$                                                                               & sum of the total number if hits on St.~1 wire chamber by $\mu^+$ and $\mu^-$ track       & $>8$                           \\ \hline
-		$|x_1(\mu^+) + x_1(\mu^-)|$                                                                                                       & sum off x position of of tracks   at St.~1                                               & $>\SI{42}{\cm}$                \\ \hline
-	\end{tabular}
-\end{table}
-\begin{table}[h!]
-	\centering
-	\caption{ physics cuts}
-	\label{table:physCut}
-	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
-		\hline
-		Variable              & Description                          & Cut                                                            \\ \hline
-		mass                  & dimuon mass                          & (\SI{2}{\GeV},\SI{8.8}{\GeV}) \footnotemark[1]\footnotemark[2] \\ \hline
-		$x_F$                 & Feynman $x$                          & (-0.1,0.95)                                                    \\ \hline
-		$x_{\mathrm{target}}$ & Bjorken $x$ of target                & (0.005,0.55)  \footnotemark[1]                                 \\ \hline
-		$|\cos(\theta)|$      & polar angle in Collins-Soper   frame & $<0.5$                                                         \\ \hline
-	\end{tabular}
-\end{table}
-\begin{table}[h!]
-	\centering
-	\caption{occupancy cuts}
-	\label{table:occCut}
-	\begin{tabular}{|m{4.5cm}|m{7cm}|m{3cm}|}
-		\hline
-		Variable                          & Description                                & Cut      \\ \hline
-		D1                                & total hits on St.~1 Chamber                & $<400$   \\ \hline
-		D2                                & total hits on St.~2 Chamber                & $<400$   \\ \hline
-		D3                                & total hits on St.~3 Chamber                & $<400$   \\ \hline
-		$D1+D2+D3$                        & total numbers of hits in all wire Chambers & $<1000$  \\ \hline
-		Trigger intensity\footnotemark[3] & numbers of proton in the triggering bucket & $<80000$ \\ \hline
-	\end{tabular}
-\end{table}
+\input{table/cuts/track.tex}
+\input{table/cuts/dimuon.tex}
+\input{table/cuts/physics_occ.tex}
 
 \footnotetext[1]{modified from Ref.~\cite{chuck-2111}}
 \footnotetext[2]{The 0.99 scaling factor is applied to MC}
@@ -742,33 +666,6 @@ MATRIX 4 data, the statistics of the mixed sample is typically limited. For both
 template is used for both \ce{LH_2} and \ce{LD_2} analysis.
 Other mixed sample can also be used. This is done to estimate the systematic uncertainty.
 
-The normalization for different components (except for empty flask, which is fixed by relative live proton ratio)
-can then be obtained by fitting to the mass distribution. Once the normalization is obtained, the yield can be
-obtained. To minimize the impact of the Monte Carlo input to the extracted Drell-Yan yield, the Drell-Yan Monte
-Carlo is only used during the fitting procedure. And the Drell-Yan yield is defined as follows
-\begin{equation}
-	Y_{DY}= N_{\textrm{data}}-S_{J/\psi} N_{J/\psi}-S_{\psi'} N_{\psi'}-S_{mix bkg.} N_{mix bkg.} - S_{\textrm{flask}} N_{\textrm{flask}},
-\end{equation}
-where the $S_a$ is the scale factor for each component $a$. $S_{\textrm{flask}}$ is obtained from the
-ratio of live proton between the target of interest and the empty flask,
-whereas the scale factor for the other components are obtained from the fitting procedure.
-In the case of Monte Carlo, $N=\sum\textrm{weight}$  is the weighted integral of the
-simulated distribution. And $N_{mix bkg.}$ and $N_{\textrm{flask}}$ are the number of events in the mixed
-sample and empty flask data.
-
-For the charmonium studies, we can utilized the fact that they are resonances and show up as distinct peaks
-in the mass spectrum. A separate mass fit can be performed for each kinematic bin. Since each bin is analyzed
-separately, the input Monte Carlo would have little effect on the extract yield. Therefore the yield is simply
-\begin{equation}
-	Y_{J/\psi}= S_{J/\psi} N_{J/\psi}.
-\end{equation}
-One downside of such approach is that the kinematic bin would need to be sufficiently wide to ensure enough
-data across a wide range of mass for the fitting to be stable.
-
-Unlike the intensity extrapolation method, the extracted yield is integrated over intensity. Therefore, the
-normalization is done with live proton, which exclude the proton on target during deadtime. And the tracking
-efficiency also need to be accounted for.
-
 \subsection{TFractionFitter}
 To account for the statistical uncertainties in both the data and Monte Carlo
 simulation, the TFrationFitter algorithm is used in this analysis \cite{barlow1993}.
@@ -800,6 +697,33 @@ In the case of weighted MC, \cref{eq:TF_f} is modified into
 	f_i = \sum^m_{j=1} p_j w_{ji}A_{ji},
 \end{equation}
 where $w_{ji}$ is the average weight of the MC events in bin $i$ from the source $j$.
+
+The normalization for different components (except for empty flask, which is fixed by relative live proton ratio)
+can then be obtained by fitting to the mass distribution. Once the normalization is obtained, the yield can be
+obtained. To minimize the impact of the Monte Carlo input to the extracted Drell-Yan yield, the Drell-Yan Monte
+Carlo is only used during the fitting procedure. And the Drell-Yan yield is defined as follows
+\begin{equation}
+	Y_{DY}= N_{\textrm{data}}-p_{J/\psi} N_{J/\psi}-S_{\psi'} N_{\psi'}-S_{mix bkg.} N_{mix bkg.} - S_{\textrm{flask}} N_{\textrm{flask}},
+\end{equation}
+where the $p_a$ is the scale factor for each component $a$. $p_{\textrm{flask}}$ is obtained from the
+ratio of live proton between the target of interest and the empty flask,
+whereas the scale factor for the other components are obtained from the fitting procedure.
+In the case of Monte Carlo, $N=\sum\textrm{weight}$  is the weighted integral of the
+simulated distribution. And $N_{mix bkg.}$ and $N_{\textrm{flask}}$ are the number of events in the mixed
+sample and empty flask data.
+
+For the charmonium studies, we can utilized the fact that they are resonances and show up as distinct peaks
+in the mass spectrum. A separate mass fit can be performed for each kinematic bin. Since each bin is analyzed
+separately, the input Monte Carlo would have little effect on the extract yield. Therefore the yield is simply
+\begin{equation}
+	Y_{J/\psi}= p_{J/\psi} N_{J/\psi}.
+\end{equation}
+One downside of such approach is that the kinematic bin would need to be sufficiently wide to ensure enough
+data across a wide range of mass for the fitting to be stable.
+
+Unlike the intensity extrapolation method, the extracted yield is integrated over intensity. Therefore, the
+normalization is done with live proton, which exclude the proton on target during deadtime. And the tracking
+efficiency also need to be accounted for.
 
 \subsection{Tracking Efficiency}
 The tracking efficiency is obtained by studying the messy and clean Monte Carlo.
@@ -933,8 +857,8 @@ molecule. Therefore the effective volume of molecules in the target is
 		&=V_{D_2} f,
 	\end{split}
 \end{equation}
-where $C=N_{\ce{HD}}/N_{\ce{D_2}}$ and $f=\left[ C \frac{V_{\ce{HD}}}{V_{\ce{D_2}}} + (1-C) \right]$ with the
-volume ratio $\frac{V_{\ce{HD}}}{V_{\ce{D_2}}}=1.094$.
+where $C=N_{\ce{HD}}/N_{\ce{D_2}}$ and $f=\left[ C V_{\ce{HD}}/V_{\ce{D_2}} + (1-C) \right]$ with the
+volume ratio $V_{\ce{HD}}V_{\ce{D_2}}=1.094$.
 The total number of molecules per area is
 \begin{equation}
 	\begin{split}
@@ -976,7 +900,7 @@ and the effective interaction length is
 \end{equation}
 
 Note that in previous studies and publications, including Ref.~\cite{dove2021,dove2023},
-the ratio of the atomic mass is missing in \cref{eq:TDH}.
+the ratio of atomic mass is missing in \cref{eq:TDH}.
 This results in a roughly \SI{2}{\percent} difference in the cross section ratio
 that will be discussed in \cref{M-subsubsec:contamination_result}.
 
