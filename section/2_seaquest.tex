@@ -150,8 +150,8 @@ magnet (FMag) and analyzing magnet (KMag). The magnetic field of both magnets po
 in the same direction vertically ($\pm y$), which bend the muons horizontally along
 the $x-z$ plane. The polarity of the magnets were flipped during Run 3.
 
-The upstream focusing magnet (FMag) is a solid iron magnet. It measures at \SI{503}{\cm}
-by \SI{302.4}{\cm} tall by \SI{160}{\cm} wide.
+The upstream focusing magnet (FMag) is a solid iron magnet, shown in \cref{fig:fmag}.
+It measures at \SI{503}{\cm} by \SI{302.4}{\cm} tall by \SI{160}{\cm} wide.
 The magnet consists of a stack of high purity iron, recovered from
 the Columbia University Nevis Laboratory Cyclotron, and the aluminium coils from the E866
 SM3 magnet. The coils are excited to \SI{2000}{\ampere} and generate an \SI{1.9}{\tesla}
@@ -177,11 +177,14 @@ mass of the $J/\psi$ resonance.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{FMAG}
+	\caption{Perspective drawing of FMag showing the arrangement of the iron slabs.
+		Taken from Ref.~\cite{aidala2019}.}
+	\label{fig:fmag}
 \end{figure}
 
 The downstream analyzing magent (KMag) is a \SI{3}{\meter} long open aperture magnet
 with a \SI{289}{\cm} wide by \SI{203}{\cm} high central air gap. It was
-originally  constructed by E799/KTeV collaboration.
+originally  constructed by E799/KTeV collaboration\cite{alavi-harati2003}.
 The coils are excited to \SI{1600}{\ampere} which produce a magnetic field of \SI{0.4}{\tesla},
 corresponding to a \SI{0.41}{\GeV} transverse momentum kick. The primary purpose for
 KMag is to determine the momentum of the muons. The magnetic field is measured using a Hall
@@ -204,7 +207,7 @@ for the x-planes, or Left and Right for the y-planes.
 
 Station~1 and 2 each have single x-y planes. Station~3 has a single x plane, and station
 4 has two y planes and one x plane. The scintillator bars used in St~.1 and 2 are recycled
-from HERMES experiment, whereas new Eljen EJ-200 scintillator material
+from HERMES experiment\cite{ackerstaff1998a}, whereas new Eljen EJ-200 scintillator material
 is used for St.~3 and 4. Because of the physical size of the sintillatior bars in St.~4, the station~4
 hodoscopes have PMTs on both ends of the sintillator bars. Each of the PMT base has a
 ``clip line'' attached at the output to reduce the output pulse from $20-25$\unit{\ns}
@@ -248,8 +251,8 @@ chamber, D1.2, with better expected high rate capacity in data set 4-6. However,
 reinstalled later for data set 5-6. D3m.1 was used during the commissioning run, data set 1, and
 was later replaced by D3m.2 for the later data sets.
 
-The D1.1, D2 and D3m.1 chambers were recycled from previous Fermilab experiments, E605 (D2 and D3m.1)
-and E866 (D1.1). The other chambers were designed and constructed for the SeaQuest experiment.
+The D1.1, D2 and D3m.1 chambers were recycled from previous Fermilab experiments, E605 (D2 and D3m.1)\cite{moreno1991}
+and E866 (D1.1)\cite{hawker1998}. The other chambers were designed and constructed for the SeaQuest experiment.
 Specifications of each chamber are listed in \cref{table:chamber}.
 
 The signals from the sense wires are fed to ASDQ (Amplification, Shaper, Discriminator and Charger integrator)
@@ -392,7 +395,7 @@ and each hit would take \SI{\sim 4}{\micro\second} to readout. Therefore, high o
 events would cause a longer deadtime.
 
 Between Run 5 and Run 6, an upgrade was preformed to the Event DAQ \cite{Kun-1724}.
-Taking advantage of the beam structure, the beam is only on for \SI{4}{\s} every minute,
+Taking advantage of the beam structure, where the beam is only on for \SI{4}{\s} every minute,
 the hit information can be buffered in the VME during beam-on and only sent to the Event
 DAQ host during beam-off. When a hit occurred on a detector,
 the timing information is stored on a ring buffer.

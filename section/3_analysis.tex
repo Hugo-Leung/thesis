@@ -67,7 +67,7 @@ fixed order pQCD, it is typically parameterized using some functional form.
 In the GMC simulation, the input $p_T$ distribution is based on the
 Kaplan functional form \cite{kaplan1978}.
 \begin{equation}
-	f\left(P_T^2\right) \propto \frac{1}{\left(1+ P_T^2/p_1^2\right)^6},
+	f\left(P_T^2\right) \propto \left(1+ P_T^2/p_1^2\right)^{-6},
 	\label{eq:kaplan}
 \end{equation}
 The parameter $p_1$ controls the broadness of the $P_T$ distribution, and is
@@ -621,7 +621,13 @@ where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p
 the value of the cross section ratio in each $x_T$ bins. Other fit functions are also used
 to study the fit function dependence.
 
-\pdfcomment{intensity distribution plots, integrated over kinematics}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\linewidth]{run5-6_DY_tInt}
+	\caption{The intensity distribution of the reconstructed from Run 5-6 after applying the event selection.
+		The distributions are normalized to unit area.}
+	\label{fig:tInt_distribution}
+\end{figure}
 
 \pdfcomment{explain choice of raw proton}
 
@@ -743,7 +749,7 @@ The ratio of reconstructed events of messy over clean MC is plotted in \cref{fig
 	\centering
 	\includegraphics[width=0.5\linewidth]{run5-6_Drell-Yan_LD2}
 	\caption{The reconstruction efficiency plotted as a function of station 2 occupancy, calculated using
-		Run 5 \ce{LD_2} Drell-Yan MCs.
+		Run~5 \ce{LD_2} Drell-Yan MCs.
 		The efficiency is calculated by taking the ratio of messy MC events over clean MC events in each
 		occupancy bin. Standard cuts were applied to both numerator and denominator
 		(except the occupancy cut on clean MC).
