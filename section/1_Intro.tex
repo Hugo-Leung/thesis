@@ -469,16 +469,16 @@ PDF and the perturbative parton-parton scattering. And the proof of factorizatio
 theorem for Drell-Yan can be found in Ref.~\cite{collins1989}. At leading-order,
 the cross section can be written as
 \begin{equation}
-	\frac{d^2\sigma_{DY}}{dx_{1}dx_{2}} = \frac{4\pi\alpha^2}{9M^2}\sum_i e^2_i
-	\left[f_{i/A}\left(x_1\right)f_{\bar{i}/B}\left(x_2\right) +
-	f_{\bar{i}/A}\left(x_1\right)f_{i/B}\left(x_2\right)
+	\frac{d^2\sigma_{DY}}{dx_{1}dx_{2}} = \frac{4\pi\alpha^2}{9M^2}\sum_q e^2_q
+	\left[f_{q/A}\left(x_1\right)f_{\bar{q}/B}\left(x_2\right) +
+	f_{\bar{q}/A}\left(x_1\right)f_{q/B}\left(x_2\right)
 	\right],
 	\label{eq:DY_cs}
 \end{equation}
 where $M$ is the mass of the lepton pair, $x_1$ and $x_2$ are the momentum fraction
 carried by the partons from the two colliding hadrons. To simplify the notation,
 the scale dependence $Q^2$ of the PDF is omitted here. In fixed target environments,
-the scale $Q^2$ is typically chosen to the dilepton mass squared.
+the scale $Q^2$ is typically chosen to the dilepton mass squared $M^2$.
 The mass of the lepton pair and momentum fractions can be related through the following
 \begin{equation}
 	M^2= sx_1x_2,
@@ -532,29 +532,8 @@ QCD correction is included.
 \end{figure}
 At NLO ($\mathcal{O}\left(\alpha_s\right)$), diagram such as gluon bremsstrahlung
 and Compton scattering begin to contribute, as shown in \cref{fig:NLO_DY}.
-And the NLO expression can be written as a sum of the contribution from $q\bar{q}$
-annihilation process
-\begin{equation}
-	\frac{d^2\sigma_A}{dQ^2dx_{F}} = \frac{4\pi\alpha^2}{9M^2} \sum_i e^2_i \int^1_{x_1} \dd{t_1} \int^1_{x_2} \dd{t_2}
-	\left[ \frac{\hat{\sigma_{DY}}}{dQ^2dx_F}+\frac{\hat{\sigma_{A}}}{dQ^2dx_F} \right]
-	\left[f_{i/A}\left(t_1\right)f_{\bar{i}/B}\left(t_2\right) +
-	f_{\bar{i}/A}\left(t_1\right)f_{i/B}\left(t_2\right)
-	\right],
-\end{equation}
-and Compton scattering process
-\begin{multline}
-	\frac{d^2\sigma_C}{dQ^2dx_{F}} = \frac{4\pi\alpha^2}{9M^2} \sum_i e^2_i \int^1_{x_1} \dd{t_1} \int^1_{x_2} \dd{t_2}
-	\frac{\hat{\sigma_{C}}}{dQ^2dx_F}\left[ f_{g/A}\left(t_1\right)
-	\left[f_{i/B}\left(t_2\right) +f_{\bar{i}/B}\left(t_2\right) \right]\right.
-	\\\left.+\left[f_{i/A}\left(t_1\right) +f_{\bar{i}/A}\left(t_1\right) \right] f_{g/B}\left(t_2\right)\right],
-\end{multline}
-where the leading order Drell-Yan term is
-\begin{equation}
-	\frac{\hat{\sigma_{DY}}}{dQ^2dx_F} = \frac{1}{x_1 x_2} \delta(t_1 - x_1)\delta(t_2 - x_2),
-\end{equation}
-and $\frac{\hat{\sigma_{A}}}{dQ^2dx_F}$ and $\frac{\hat{\sigma_{C}}}{dQ^2dx_F}$
-are the contribution from $\mathcal{O}(\alpha_s)$ annihilation and Compton scattering process respectively.
-The exact expression can be found in Ref.~\cite{sutton1992}.
+
+\input{section/DY_NLO}
 
 Including higher-order QCD corrections, the angular distribution for the Drell-Yan dilepton would
 be modified as follows:
