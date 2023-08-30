@@ -7,11 +7,17 @@ the NLO correction \cite{kubar1980}
 	f_{\bar{q}/A}\left(t_1\right)f_{q/B}\left(t_2\right)
 	\right].
 \end{equation}
+Where Feynman-$x$ ($x_F$) is typically given by the difference of $x_1$ and $x_2$ and is related to the
+longitudinal momentum of the dimuon pair.
+\begin{equation}
+	x_F = x_1 - x_2 = \frac{2P_L}{\sqrt{s}}.
+\end{equation}
 The LO Drell-Yan term is given by
 \begin{equation}
 	\frac{ d^2\hat{\sigma}^{DY} }{dQ^2 dx_F} = \frac{4\pi\alpha^2}{9Q^2 s} \frac{1}{x_1+x_2}\delta\left(t_1-x_1\right)\delta\left(t_2-x_2\right).
 \end{equation}
-The vertex correction and bremsstrahlung correction at NLO for the annihilation process is given by
+The NLO correction to the annihilation process, from \cref{subfig:DY_gb,subfig:DY_interfer},
+is given by
 \begin{equation}
 \begin{split}
 	\frac{d^2\hat{\sigma}^{A}}{dQ^2dx_F} =& \frac{1}{2}A \frac{\delta\left(t_1-x_1\right)\delta\left(t_2-x_2\right)}{\left(x_1+x_2\right)} \left[ 1+\frac{5}{3}\pi^2 - \frac{3}{2}\ln\frac{x_1x_2}{\left(1-x_1\right)\left(1-x_2\right)} + 2\ln\frac{x_1}{1-x_1}\ln\frac{x_2}{1-x_2}\right]\\
@@ -29,13 +35,13 @@ And
 	A=\frac{16\alpha^2\alpha_s}{27Q^2s}, \quad \tau=x_1x_2.
 \end{equation}
 
-Similarly, the cross section for the Compton scattering process is given by 
-\begin{multline}
+Similarly, the cross section for the Compton scattering process (\cref{subfig:DY_gc}) is given by 
+\begin{equation}
 	\frac{d^2\sigma^C}{dQ^2dx_{F}} = \sum_q e^2_q \int^1_{x_1} \dd{t_1} \int^1_{x_2} \dd{t_2}
 	\frac{d^2\hat{\sigma}^{C}}{dQ^2dx_F} f_{g/A}\left(t_1\right)
 	\left[f_{q/B}\left(t_2\right) +f_{\bar{q}/B}\left(t_2\right) \right] + \left(1,A\leftrightarrow 2,B\right),
 	\label{eq:compton_full}
-\end{multline}
+\end{equation}
 where the partonic cross section is given by
 \begin{equation}
 	\begin{split}
@@ -49,4 +55,5 @@ and
 	H^C\left(t_1,t_2\right) &= \frac{1}{\left(t_1t_2\right)^2\left(t_1+t_2\right)^2}\left[t_1\left(t_2+x_1\right)\left(t_2-x_2\right)+2\tau\left(t_1+t_2\right)\right].
 \end{align}
 Note that in the second term of \cref{eq:compton_full}, the indices 1 and 2 must also be exchange in
-the expression of $\flatfrac{d^2\hat{\sigma}^{C}}{dQ^2dx_F}$
+the expression of $\flatfrac{d^2\hat{\sigma}^{C}}{dQ^2dx_F}$.
+

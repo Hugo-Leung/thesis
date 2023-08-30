@@ -42,7 +42,7 @@ And the fit for other variables are listed in \cref{M-a_ch:extrapolation}.
 
 
 \Cref{fig:CSR_Run2-3} shows the extracted cross section ratio as a function of $x_T$, $x_B$ and $x_F$.
-While the two fit functions produce similar results for $x_T$, the differences are larger in
+While the two fit functions produce similar results for $x_T$, the differences are slightly larger in
 the other variables.
 
 \begin{figure}[h!]
@@ -98,6 +98,8 @@ extrapolation results using FIT 2 are different from the other two.
 \FloatBarrier
 
 \subsection{Results from Run 5-6 data}
+\Cref{fig:massfit_integrated_run56} shows the fit to the mass distributions for Run 5-6 data,
+and the data is very well described by the fitting procedure. 
 \begin{figure}[h!]
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{massfit/run5-6/5_6_LH2}
@@ -108,9 +110,16 @@ extrapolation results using FIT 2 are different from the other two.
 	\caption{The mass spectrum for \ce{LH_2}(left) and \ce{LD_2}(right) targets data for Run 5-6}
 	\label{fig:massfit_integrated_run56}
 \end{figure}
+The Drell-Yan yield for $p+p$ and $p+d$ can then be extracted and the cross section ratio
+is shown in \cref{fig:CSR_Run5-6}.
 
+To extract the cross section ratio using the intensity extrapolation method, yield ratio 
+calculated as function of $x_T$ and intensity and the fits are shown in \cref{fig:run5-6_FIT1_xT}
+(FIT 1) and \cref{fig:run5-6_FIT2_xT} (FIT 2), with the fits for other variables listed in
+\cref{M-a_ch:extrapolation}. And the reduced $\chi^2$ is tabulated in \cref{tab:chi_run56}.
 \input{section/extrapolation_xT_56_1.tex}
 \input{section/extrapolation_xT_56_2.tex}
+From the fits, the cross section ratio can be extracted.
 
 \pdfmargincomment{run 5-6 compared with 2-3 and full data set, only show massfit results?}
 \Cref{fig:CSR_Run5-6} shows the extracted cross section ratio as a function from the
@@ -177,8 +186,8 @@ and the $J/\psi$ and $\psi'$ yields can be extracted from the fits directly.
 
 \subsection{\texorpdfstring{$x_F$}{x\_F} distributions}
 With the yields extracted, the cross section can be calculated.
-The branching ratios, $B\left(J/\psi\to\mu^+\mu-\right)$
-and $B\left(\psi'\to\mu^+\mu-\right)$, are taken from Ref.~\cite{workman2022}.
+The branching ratios, $B\left(J/\psi\to\mu^+\mu-\right)=5.961\times 10^{-2}$
+and $B\left(\psi'\to\mu^+\mu-\right)=8\times 10^{-3}$, are taken from Ref.~\cite{workman2022}.
 
 \begin{figure}[h!]
 	\centering
@@ -202,7 +211,7 @@ and $B\left(\psi'\to\mu^+\mu-\right)$, are taken from Ref.~\cite{workman2022}.
 	\label{fig:cs_xF}
 \end{figure}
 
-The extracted cross section for $J/\psi$ and $\psi'$ are shown in \cref{fig:cs_xF}, and are
+The extracted cross section for $J/\psi$ and $\psi'$ from the two datasets are shown in \cref{fig:cs_xF}, and are
 tabulated in \cref{tab:xF_57-70_LH2,tab:xF_57-70_LD2,tab:xF_5-6_LH2,tab:xF_5-6_LD2}.
 The results from the two datasets are in very good agreement.
 
@@ -240,26 +249,10 @@ The results from the two datasets are in very good agreement.
 \end{table}
 \FloatBarrier
 
-The results from the two datasets are combined by taking the weighted average, with the weight being
+The results from the two datasets are combined by taking the average, weighted by
 the inverse of the statistical uncertainties.
 The results from combined analysis are shown in \cref{fig:cs_xF_full} and are tabulated in
 \cref{tab:xF_full_LH2,tab:xF_full_LD2}.
-\begin{table}[h!]
-	\centering
-	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
-		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the combined analysis, with
-		their statistical and systematic uncertainties and the average $x_F$ in each bin.}
-	\input{table/xF_full_LH2.tex}
-	\label{tab:xF_full_LH2}
-\end{table}
-\begin{table}[h!]
-	\centering
-	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
-		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the combined analysis, with
-		their statistical and systematic uncertainties and the average $x_F$ in each bin.}
-	\input{table/xF_full_LD2.tex}
-	\label{tab:xF_full_LD2}
-\end{table}
 \begin{figure}
 	\centering
 	\begin{subfigure}{0.45\linewidth}
@@ -279,7 +272,22 @@ The results from combined analysis are shown in \cref{fig:cs_xF_full} and are ta
 		the combined analysis, and compared with the NRQCD predictions}
 	\label{fig:cs_xF_full}
 \end{figure}
-
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the combined analysis, with
+		their statistical and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_full_LH2.tex}
+	\label{tab:xF_full_LH2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the combined analysis, with
+		their statistical and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_full_LD2.tex}
+	\label{tab:xF_full_LD2}
+\end{table}
 While the extracted $J/\psi$ cross section is in very good agreement with the NRQCD calculation,
 the extracted $\psi'$
 cross section disagree with the prediction, particular at large $x_F$. At large $x_F$ the NRQCD
@@ -424,33 +432,21 @@ The result from the combined analysis are shown in \cref{fig:pT_combined} and ta
 
 The transverse momentum distributions are fitted to the Kaplan form, \cref{M-eq:kaplan}, and the extracted
 $\expval{P_T}$ and $\expval{P^2_T}$ are calculated using \cref{M-eq:kaplan_mean},
-and are listed in \cref{tab:kaplan_result}. This result suggests the
-$\expval{P_T}$ is larger for the $J/\psi$ production, however the systematic uncertainties are too
-large to for a conclusive statement.
+and are listed in \cref{tab:kaplan_result}, showing similar vaules for $p+p$ and $p+d$,
+as well as $J/\psi$ and $\psi'$.
 
 \begin{table}[h!]
 	\centering
 	\caption{extracted $\expval{P_T}$ and $\expval{P^2_T}$.}
 	\label{tab:kaplan_result}
-	\begin{tabular}{cc|c|c|c|c}
-		\hline
-		                                               &                        & run & $p_1$                   & $\expval{P_T} (\unit{\GeV})$ & $\expval{P^2_T} (\unit{\square\GeV})$ \\ \hline
-		\multicolumn{1}{c|}{\multirow{4}{*}{$J/\psi$}} & \multirow{2}{*}{$p+p$} & 2-3 & $1.729\pm0.053\pm0.055$ & $0.743\pm0.023\pm0.024$      & $0.747\pm0.046\pm0.048$               \\ \cline{3-6}
-		\multicolumn{1}{c|}{}                          &                        & 5-6 & $1.663\pm0.042\pm0.018$ & $0.714\pm0.018\pm0.008$      & $0.692\pm0.035\pm0.015$               \\ \cline{2-6}
-		\multicolumn{1}{c|}{}                          & \multirow{2}{*}{$p+d$} & 2-3 & $1.719\pm0.055\pm0.138$ & $0.739\pm0.024\pm0.059$      & $0.739\pm0.047\pm0.119$               \\ \cline{3-6}
-		\multicolumn{1}{c|}{}                          &                        & 5-6 & $1.670\pm0.045\pm0.030$ & $0.717\pm0.019\pm0.013$      & $0.697\pm0.037\pm0.025$               \\ \hline
-		\multicolumn{1}{c|}{\multirow{4}{*}{$\psi'$}}  & \multirow{2}{*}{$p+p$} & 2-3 & $1.587\pm0.051\pm0.193$ & $0.681\pm0.022\pm0.083$      & $0.629\pm0.041\pm0.153$               \\ \cline{3-6}
-		\multicolumn{1}{c|}{}                          &                        & 5-6 & $1.675\pm0.055\pm0.074$ & $0.720\pm0.024\pm0.032$      & $0.702\pm0.046\pm0.062$               \\ \cline{2-6}
-		\multicolumn{1}{c|}{}                          & \multirow{2}{*}{$p+d$} & 2-3 & $1.593\pm0.058\pm0.205$ & $0.684\pm0.025\pm0.088$      & $0.634\pm0.046\pm0.164$               \\ \cline{3-6}
-		\multicolumn{1}{c|}{}                          &                        & 5-6 & $1.597\pm0.055\pm0.110$ & $0.686\pm0.024\pm0.047$      & $0.637\pm0.044\pm0.088$               \\ \hline
-	\end{tabular}
+	\input{table/kaplan}
 \end{table}
 
 \Cref{fig:pT_s} shows the extracted $\expval{P_T^2}$ for $p+p\to J/\psi$ as a function
 of $\sqrt{s}$ from SeaQuest compared with different experiments
 \cite{badier1983,clark1978,drapier1998,acharya2020}. The $\expval{P_T^2}$ follows an
 increasing pattern versus $\sqrt{s}$ over a wide range of energies.
-A linear fit versus the log of the center of mass energy\cite{acharya2020}.
+A linear fit versus the log of the center of mass energy\cite{acharya2020},
 \begin{equation}
 	\expval{P_T^2}=a\ln{\left( \frac{\sqrt{s}}{b} \right)},
 \end{equation}
