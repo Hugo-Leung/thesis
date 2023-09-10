@@ -48,13 +48,13 @@ the other variables.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.6\linewidth}
-		\includegraphics*[width=\linewidth]{DY-csr/run23-xT_all}
+		\includegraphics*[width=\linewidth]{DY-csr/run23_xT}
 	\end{subfigure}\\
 	\begin{subfigure}{0.45\linewidth}
-		\includegraphics*[width=\linewidth]{DY-csr/run23-xB_all}
+		\includegraphics*[width=\linewidth]{DY-csr/run23_xB}
 	\end{subfigure}
 	\begin{subfigure}{0.45\linewidth}
-		\includegraphics*[width=\linewidth]{DY-csr/run23-xF_all}
+		\includegraphics*[width=\linewidth]{DY-csr/run23_xF}
 	\end{subfigure}
 	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_T$(top),
 		$x_B$(left) and $x_F$(right) using the different methods from the Run 2-3
@@ -125,17 +125,18 @@ From the fits, the cross section ratio can be extracted.
 \Cref{fig:CSR_Run5-6} shows the extracted cross section ratio as a function from the
 second half of our data using various methods. While the different fit functions used in the
 intensity extrapolation produce very similar results, the massfit result is significantly larger
-than the intensity extrapolation results.
+than the intensity extrapolation results. This difference is included in the systematic uncertainties
+for the final Drell-Yan cross section ratio from Run 5-6.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.6\linewidth}
-		\includegraphics*[width=\linewidth]{DY-csr/run56-xT_all}
+		\includegraphics*[width=\linewidth]{DY-csr/run56_xT}
 	\end{subfigure}
 	\begin{subfigure}{0.45\linewidth}
-		\includegraphics*[width=\linewidth]{DY-csr/run56-xB_all}
+		\includegraphics*[width=\linewidth]{DY-csr/run56_xB}
 	\end{subfigure}
 	\begin{subfigure}{0.45\linewidth}
-		\includegraphics*[width=\linewidth]{DY-csr/run56-xF_all}
+		\includegraphics*[width=\linewidth]{DY-csr/run56_xF}
 	\end{subfigure}
 	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_T$(top),  $x_B$(left)
 		and $x_F$(right) from the Run 5-6 data using the massfit and intensity extrapolation method.}
@@ -158,6 +159,26 @@ and rate dependence. With less high intensity data, there are less constraints o
 intensity dependence, causing the two method to disagree.
 
 \pdfcomment{Intensity range cannot explain the discrepancy }
+\Cref{fig:CSR_combined} shows the final results from the two datasets. The two datasets
+are consistent with each other, partly due to the large systematic uncertainties in the 
+Run 5-6 results, which is dominated by the differences between the massfit and intensity
+extrapolation methods.
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.6\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/combined_xT}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{DY-csr/combined_xB}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{DY-csr/combined_xF}
+	\end{subfigure}
+	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_T$(top),  $x_B$(left)
+		and $x_F$(right) from the two datasets.}
+	\label{fig:CSR_combined}
+\end{figure}
+
 
 \subsection{Comparison with global PDF analysis}
 \pdfmargincomment{modified to impact of SeaQuest result?}

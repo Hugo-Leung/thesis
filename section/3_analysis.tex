@@ -47,7 +47,7 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 SeaQuest utilizes a Geant4 based Monte Carlo simulation (GMC) to simulate the
 performance of the spectrometer and the acceptance. The GMC is based on the
 E866 FastMC, a fortran-based simulation code, and is ported to SeaQuest and
-modified according to SeaQuest’s experimental configurations \cite{kerns2018,prasad2020}.
+modified according to SeaQuest’s experimental configurations~\cite{kerns2018,prasad2020}.
 
 \subsection{Dimuon generation}
 As SeaQuest is mostly interested in dimuons with high mass and $x_F$, where the cross section
@@ -65,7 +65,7 @@ resonance.
 Because the transverse momentum distribution ($p_T$) cannot be calculated using
 fixed order pQCD, it is typically parameterized using some functional form.
 In the GMC simulation, the input $p_T$ distribution is based on the
-Kaplan functional form \cite{kaplan1978}.
+Kaplan functional form~\cite{kaplan1978}.
 \begin{equation}
 	f\left(P_T^2\right) \propto \left(1+ P_T^2/p_1^2\right)^{-6},
 	\label{eq:kaplan}
@@ -86,7 +86,7 @@ beam energy of \SI{120}{\GeV}, and the $P_T$ distribution is adjusted following 
 would be described in \cref{subsec:pt_reweight}.
 
 The dimuon angular distribution is typically calculated in the dimuon rest frame, known as
-Collins-Soper frame \cite{collins1977} and shown in \cref{fig:cs_frame}.
+Collins-Soper frame~\cite{collins1977} and shown in \cref{fig:cs_frame}.
 For the Drell-Yan events, the polar angle $\theta$ for the $\mu^-$ follows
 a $1+\cos^2\theta$ distribution with a uniform azimuthal angular distribution $\phi$ in the Collins-Soper frame.
 On the other hand, the angular distribution for the $J/\psi$ and $\psi'$ are uniform in
@@ -103,14 +103,14 @@ both $\theta$ and $\phi$.
 To transform from the Collins-Soper frame to lab frame, three Lorentz transforms are needed.
 The first transformation boost along the virtual photon's $-P_T$ direction, a second transformation then
 boost along the $-z$ direction to reach the hadron-hadron center of mass frame. A final transformation
-then boost along the $-z$ direction to reach the lab frame \cite{Don-1926}.
+then boost along the $-z$ direction to reach the lab frame~\cite{Don-1926}.
 
 In Collins-Soper frame, the hadron plane is formed by the momentum vector of the two interacting hadron
 ($\vec{P}_B$ and $\vec{P}_T$). The $\hat{x}$ and $\hat{z}$ are chosen to be on the hadron plane, with
 $\hat{z}$ bisecting the $\vec{P}_B$ and $-\vec{P}_T$ vectors and $\hat{x}$ is along the dilepton transverse
 momentum. The outgoing leptons $l^+$ and $l^-$ are
 emitted back-to-back, forming the lepton plane, with polar angle $\theta$ and azimuthal angle $\phi$.
-The annihilating quark and antiquark would also form the quark plane, which can be offsetted from the
+The annihilating quark and antiquark would also form the quark plane, which can be offset from the
 hadron plane.
 
 The first transform from the Collins-Soper frame is along the $\hat{x}$ direction (or along the dilepton $-p_T$). The $\gamma$ and $\beta$ for this boost are given as
@@ -143,7 +143,7 @@ $z$-axis to the lab frame is given by
 \subsubsection{Cross section weighting}
 Each event is assigned a weight based on the cross section. The Drell-Yan cross section is calculated based on
 the kinematics of the generated events. The leading order cross section is calculated with the
-CT14 pdf. The NLO effect is then included using 2-dimensional K-Factor \cite{shivangi-1747}, which
+CT14 pdf. The NLO effect is then included using 2-dimensional K-Factor~\cite{shivangi-1747}, which
 is defined as the ratio of the NLO cross section over LO cross section and is
 calculated using DYNNLO (see \cref{sec:DYNNLO}).
 The proton on deuterium cross section is calculated using the charge symmetry.
@@ -151,7 +151,7 @@ Assuming negligible nuclear correction, the proton on deuterium cross section ar
 as the sum of $p+p$ and $p+n$ cross section.
 
 The cross section for the $J/\psi$ is parameterized by a Gaussian in $x_F$ and fitted to the
-calculation using color evaporation model, with the normalization taken from a particularization by E789 \cite{schub1995}.
+calculation using color evaporation model, with the normalization taken from a particularization by E789~\cite{schub1995}.
 \begin{equation}
 	\dv{\sigma_{J/\psi}}{x_F} = Ae^{-B\sqrt{\tau}} \left[ \frac{e^{-x^2_F/2C^2}}{\sqrt{2\pi}C} \right],
 \end{equation}
@@ -220,7 +220,7 @@ and $P_T^{\mathrm{max}}$, resulting in an incomplete coverage of the kinematic p
 
 \subsection{\texorpdfstring{$P_T$}{P\_T} re-weighting in Monte Carlo}
 \label{subsec:pt_reweight}
-This was first studied by S.~Prasad \cite{prasad2020}.
+This was first studied by S.~Prasad~\cite{prasad2020}.
 In the GMC, the transverse momentum distribution randomly follows the Kaplan functional form
 \cref{eq:kaplan},
 with $p_1$ is set to \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
@@ -233,7 +233,7 @@ energies, and may not be suitable to the SeaQuest kinematic. An additional weigh
 applied to account for the difference between the $P_T$ distribution in the MC input
 and in the real data. In addition, the $P_T$ distribution can also depend on $x_F$.
 The $x_F$ dependence of the $P_T$ distribution has been reported in the pion induced
-Drell-Yan experiment E615 \cite{conway1989}. The $x_F$ and $\sqrt{s}$ dependence in
+Drell-Yan experiment E615~\cite{conway1989}. The $x_F$ and $\sqrt{s}$ dependence in
 proton induced Drell-Yan has also been reported in Ref.~\cite{prasad2020}.
 
 In this analysis, a different re-weighting formula is used. Because of the way $P_T$ is chosen
@@ -260,11 +260,11 @@ it is decided to utilize this re-weighting procedure as this would allow for
 more iterations of refinement with less computation overhead.
 
 \section{Event Reconstruction}
-The SeaQuest reconstruction is done using kTracker, primarily developed by K.~Liu \cite{kTracker}.
+The SeaQuest reconstruction is done using kTracker, primarily developed by K.~Liu~\cite{kTracker}.
 One of my responsibility is the reconstruction of the run 5 and run 6 data. In order to reduce the processing
-time, we utilize the Open Science Grid \cite{pordes2007,sfiligoi2009,osg2006} to run multiple kTracker
+time, we utilize the Open Science Grid~\cite{pordes2007,sfiligoi2009,osg2006} to run multiple kTracker
 instances and process multiple events in parallel.
-We also utilize Apptainer (formerly Singularity)\cite{kurtzer2021} to maintain better control of the
+We also utilize Apptainer (formerly known as Singularity)~\cite{kurtzer2021} to maintain better control of the
 runtime environment.
 
 The reconstruction is divided into three parts: EventReducer, kFastTracking, and kVertex.
@@ -288,7 +288,7 @@ they are less likely to be part of a muon track. This is handled by the EventRed
 
 \paragraph{In-time cut}
 During data taking, the TDC time window is deliberately set to be larger than the in-time
-window. This is done to avoid data loss in case of timing drift\cite{daniel-4924}.
+window. This is done to avoid data loss in case of timing drift~\cite{daniel-4924}.
 During the offline processing, only in-time hits will be kept. This cut is applied to
 all detectors.
 
@@ -357,7 +357,7 @@ St.~2 is approximately a constant and is determined using Monte Carlo simulation
 the search window on St.~1 is constrained by this ratio.
 
 \pdfmargincomment{kalment filter}
-Once the hits are identified, the Kalman track fitting can begin \cite{kalman1960}. A list of nodes are created
+Once the hits are identified, the Kalman track fitting can begin~\cite{kalman1960}. A list of nodes are created
 from the hits. Each node corresponds to a hit and also contain the drift distance of the particular hit.
 The Kalman filter parametrize a track based on the five parameters (the momentum, x-, y-slope, x- and y-position)
 at each of the nodes.
@@ -404,7 +404,7 @@ To account for multiple scattering of the muons while traversing the FMag, dimuo
 determined to be likely originating from the target, are refitted by requiring the dimuon vertex to
 fall within the target. Due to the length of the target and the acceptance of the spectrometer,
 the most probable z-vertex is found to depend on the mass of the dimuon, and is calculated from the
-following empirical formula \cite{kun-1283}
+following empirical formula~\cite{kun-1283}
 \begin{equation}
 	z\left(m\right) = -199.332 + 27.9488 m - 3.66186 m^2 + 0.175479 m^3.
 \end{equation}
@@ -466,7 +466,7 @@ The chosen method in our group is by mixing tracks from MATRIX 4 events. The MAT
 only one muon track is observed in the spectrometer.
 The accidental background template is then created by combining a $\mu^+$ track with
 another $\mu^-$ track from a different event. This method is first studied by
-J.~Dove \cite{dove2020}.
+J.~Dove~\cite{dove2020}.
 
 The MATRIX 4 events are first processed by the same track finding procedure as with
 the MATRIX 1 dimuon data.
@@ -595,7 +595,7 @@ numerator.
 \section{Intensity Extrapolation}
 \label{sec:extrapolation}
 Extracting the Drell-Yan cross section ratio using the intensity extrapolation method
-is first studied by J.~Dove \cite{dove2020} and A.~Tadepalli \cite{tadepalli2019},
+is first studied by J.~Dove~\cite{dove2020} and A.~Tadepalli~\cite{tadepalli2019},
 and it is used in Ref.~\cite{dove2021}.
 The assumption behind this method is that the accidental background and physics events
 would have different intensity dependence. The number of observed physics
@@ -641,7 +641,7 @@ absolute cross section studies, and cannot be obtained from the intensity extrap
 
 \section{Mass Spectrum Fitting}
 With the goal of obtaining the absolute yield for different processes, the mass spectrum fitting
-procedure is developed. This also forms the bases of our recent publication\cite{dove2023}.
+procedure is developed. This also forms the bases of our recent publication~\cite{dove2023}.
 
 The event distribution can be expressed as a linear combination of different components,
 namely Drell-Yan, charmonium decays, accidental background and background from instruments.
@@ -674,7 +674,7 @@ Other mixed sample can also be used. This is done to estimate the systematic unc
 
 \subsection{TFractionFitter}
 To account for the statistical uncertainties in both the data and Monte Carlo
-simulation, the TFrationFitter algorithm is used in this analysis \cite{barlow1993}.
+simulation, the TFrationFitter algorithm is used in this analysis~\cite{barlow1993}.
 This is achieved by performing a standard likelihood fit using Poisson statistics,
 while the templates, generated from MC, are also varied within statistics, leading
 to additional contributions to the overall likelihood.
@@ -763,7 +763,7 @@ This tracking efficiency can also depend on the dimuon kinematics. This can be c
 by the noise hits being more localized in some area of the detector, which can map to
 different kinematic phase space. To study this effect, we repeat the study with different
 Monte Carlo, and the extract efficiency is tabulated in \cref{tab:track_eff_DY,tab:track_eff_jpsi,tab:track_eff_psip}. The extracted efficiency
-are consistent with each other with in uncertainties.
+are consistent with each other within uncertainties.
 
 \begin{table}
 	\centering
@@ -1096,7 +1096,7 @@ longer an issue.
 \section{Drell-Yan NLO calculation}
 \label{sec:DYNNLO}
 The next-to-leading order (NLO) calculation is done using a parton level Monte
-Carlo program, named DYNNLO, written by the INFN group\cite{catani2009,catani2007}. This program
+Carlo program, named DYNNLO, written by the INFN group~\cite{catani2009,catani2007}. This program
 is originally written to compute cross section for vector boson
 production from $p+p$ and $p+\bar{p}$ collisions. It was later modified, in
 collaboration with W.C.~Chang and S.~Prasad, to perform $p+n$ calculation
@@ -1105,10 +1105,10 @@ the $p+p$ and $p+n$ calculation, assuming no nuclear corrections. For heavier nu
 targets, nuclear PDFs can also be used. It is also modified to calculate $x_F$, $x_1$ and $x_2$
 using the same definition as SeaQuest as discussed in \cref{subsec:def_kinematic}.
 
-The PDF sets used in this study are CT18\cite{hou2021} and NNPDF4.0\cite{ball2022a}.
-And they are accessed through the LHAPDF library\cite{buckley2015}. It should be noted
+The PDF sets used in this study are CT18~\cite{hou2021} and NNPDF4.0~\cite{ball2022a}.
+And they are accessed through the LHAPDF library~\cite{buckley2015}. It should be noted
 that the CT18 PDF set is published before the SeaQuest result, whereas NNPDF4.0
-incorporate the SeaQuest measurements\cite{dove2021} in the global fit.
+incorporate the SeaQuest measurements~\cite{dove2021} in the global fit.
 
 The uncertainty band for calculations using CT18 PDFs are calculated using the hessian methods.
 Given a central PDF member $S_0$ and $2N_{\mathrm{par}}$ eigenvector PDF member $S^\pm_i$ ($i=1,\dots,N_{\mathrm{par}}$),
