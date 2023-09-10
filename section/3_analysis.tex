@@ -704,8 +704,9 @@ In the case of weighted MC, \cref{eq:TF_f} is modified into
 \end{equation}
 where $w_{ji}$ is the average weight of the MC events in bin $i$ from the source $j$.
 
+\subsection{Yield Extraction}
 The normalization for different components (except for empty flask, which is fixed by relative live proton ratio)
-can then be obtained by fitting to the mass distribution. Once the normalization is obtained, the yield can be
+can obtained by fitting to the mass distribution. Once the normalization is obtained, the yield can be
 obtained. To minimize the impact of the Monte Carlo input to the extracted Drell-Yan yield, the Drell-Yan Monte
 Carlo is only used during the fitting procedure. And the Drell-Yan yield is defined as follows
 \begin{equation}
@@ -732,11 +733,12 @@ normalization is done with live proton, which exclude the proton on target durin
 efficiency also need to be accounted for.
 
 \subsection{Tracking Efficiency}
-The tracking efficiency is obtained by studying the messy and clean Monte Carlo.
 As the detector occupancy increases, there is a higher probability for kTracker to
 remove a real physics hit during the EventReducer stage. Therefore, the reconstruction of high occupancy
-events would fail at a higher rate than low occupancy events. Since the occupancy
-is correlated between different tracking stations, we parameterize the tracking efficiency
+events would fail at a higher rate than low occupancy events. 
+The tracking efficiency correction is obtained by studying the messy and clean Monte Carlo.
+Since the occupancy
+is correlated between different tracking stations, we can parameterize the tracking efficiency
 as a function of one of the chambers. The occupancy is defined as the number of
 in-time hits in the chamber. In early studies, the tracking efficiency is
 typically parameterized using St.~1 occupancy (D1).
@@ -760,7 +762,8 @@ The ratio of reconstructed events of messy over clean MC is plotted in \cref{fig
 This tracking efficiency can also depend on the dimuon kinematics. This can be caused
 by the noise hits being more localized in some area of the detector, which can map to
 different kinematic phase space. To study this effect, we repeat the study with different
-Monte Carlo, and the extract efficiency is tabulated in \cref{tab:track_eff_DY,tab:track_eff_jpsi,tab:track_eff_psip}
+Monte Carlo, and the extract efficiency is tabulated in \cref{tab:track_eff_DY,tab:track_eff_jpsi,tab:track_eff_psip}. The extracted efficiency
+are consistent with each other with in uncertainties.
 
 \begin{table}
 	\centering
