@@ -14,7 +14,7 @@ is contained in factorization theorems~\cite{collins1989}. QCD factorization sep
 hadronic collisions into long- and short-distance effects. While perturbative expansion
 of QCD has successfully described the short-distance hard scattering, the long-distance
 effects, such as the internal structure of hadrons,
-could not be calculated with perturbative QCD, and has to be determined experimentally.
+could not be calculated with perturbative QCD, and have to be determined experimentally.
 
 This thesis presents results from the SeaQuest, a fixed-target experiment at Fermilab.
 The primary goal of the experiment is to investigate the antiquark structures
@@ -223,7 +223,7 @@ And the cross section can be written as a convolution
 of the non-perturbative PDF and the perturbative short range interaction. To leading
 order, the structure function $F_2\left(x,Q^2\right)$ is given by
 \begin{equation}
-	F_2\left(x,Q^2\right)=x\sum_i e^2_i f_i\left(x,Q^2\right),
+	F_2\left(x,Q^2\right)=x\sum_i e^2_i f_i/h\left(x,Q^2\right),
 	\label{eq:F2_parton}
 \end{equation}
 where $e_i$ is the charge carried quark and antiquark of flavors $i$. Since the
@@ -570,13 +570,14 @@ is dominated by the valence quark distribution. On the other hand, in the region
 the valence quark in the Drell-Yan process is more likely to come from the beam
 hadron, and the anti-quark is more likely to come from the target hadron. Hence,
 Drell-Yan can be more sensitive to the anti-quark distribution than DIS. In
-particular, for high $x_F$ and using the fact there are two up valence quarks in
-protons, the $(p+d)/2(p+p)$ Drell-Yan cross section ratio at leading order
+particular, the $(p+d)/2(p+p)$ Drell-Yan cross section ratio at leading order
 can be approximated as
 \begin{equation}
-	\frac{\sigma^{p+d}}{2\sigma^{p+p}} \approx \frac{1}{2} \left( 1+ \frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} \right).
+	\left.\frac{\sigma^{p+d}}{2\sigma^{p+p}}\right|_{x_1\gg x_2} \approx \frac{1}{2} \left( 1+ \frac{\frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} + \frac{d\left(x_1\right)}{4u\left(x_1\right)} }{1+\frac{d\left(x_1\right)}{4u\left(x_1\right)} \frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} }\right).
 \end{equation}
-Thus the Drell-Yan process has been used in many experiments to probe the sea-quarks
+In the limit $x_1$ is sufficiently large, $d\left(x_1\right)/u\left(x_1\right)$ is expected
+to be small, and thus this ratio can be directly related to the light sea-quark
+asymmetry. The Drell-Yan process has been used in many experiments to probe the sea-quarks
 asymmetry, with the goal of measuring the $x$ dependence of the sea-quark asymmetry
 instead of only the integral as with the Gottfried sum rule.
 

@@ -33,7 +33,7 @@ to remove the electrons. The resulting proton beam then circulates in the Booste
 accelerator and accelerates to \SI{8}{\GeV}. The \SI{8}{\GeV} proton beam is
 further accelerated by the Main Injector to \SI{120}{\GeV}. The proton beam is
 extracted from the Main Injector using a process known as resonant extraction to
-provide a lower intensity beam over a 5 second, with one spill per minute. The extracted beam, which
+provide a lower intensity beam over a 5-second spill, with one spill per minute. The extracted beam, which
 is sent to SeaQuest, retains the \SI{53.1}{\MHz} structure of the Main
 Injector RF frequency, dividing the beam into ``RF buckets'' that are less than
 \SI{2}{\ns} long and occur every \SI{18.8}{\ns}.
@@ -44,7 +44,8 @@ Injector RF frequency, dividing the beam into ``RF buckets'' that are less than
 		SeaQuest Experimental hall is located on the Neutrino-Muon beamline.}
 	\label{fig:complex}
 \end{figure}
-However the number of protons in each bucket can vary greatly during the spill, as
+Even though the integrated intensity from each spill is very stable,
+the number of protons in each bucket can vary greatly during the spill, as
 is shown in \cref{fig:intensity}.
 \begin{figure}[htpb!]
 	\centering
@@ -58,8 +59,8 @@ is shown in \cref{fig:intensity}.
 \label{subsec:BIM}
 The integrated beam intensity is monitor by Fermilab Accelerator Division using a
 secondary emission monitor located upstream of the SeaQuest experimental hall.
-To better understand the bucket-to-bucket variation in the beam intensity a Cerenkov counter,
-shown in \cref{fig:BIM}, was added during the Main Injector upgrade.
+To better understand the bucket-to-bucket variation in the beam intensity, a Cerenkov counter,
+shown in \cref{fig:BIM}, was added upstream of the target during the Main Injector upgrade.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.4\linewidth]{BIMCerenkov}
@@ -67,24 +68,20 @@ shown in \cref{fig:BIM}, was added during the Main Injector upgrade.
 		\cite{aidala2019}.}
 	\label{fig:BIM}
 \end{figure}
-This Cerenkov counter is located upstream of the target.
+
 An aluminized Kapton mirror reflects the Cerenkov light, produced when the proton beam
 pass through the radiator, into a single photomultiplier tube. The signal is then
 sent to a custom ``QIE'' (Charge Integrator and Encoder) module. This custom module
 is clocked with the Main Injector RF, and is capable of recording the beam intensity
 of each RF bucket for the entire spill. The QIE module is linked to the trigger
 system, and would raise a trigger inhibit when the beam intensity is above a
-threshold. The module is also read out by the Beam DAQ, which provides (a) the
-integrated beam intensity for entire spill; (b) the integrated beam while inhibit is
-asserted at trigger logic; (c) the integrated intensity during dead time; (d) a snapshot
-of the beam intensity close in time to the trigger; and (e) a complete record of the
-bucket-bucket intensity for the entire spill. The beam intensity monitor is calibrated
-against a secondary emission monitor.
+threshold. The module is also read out by the Beam DAQ, which will be discussed
+in \cref{subsec:beamDAQ}. 
+The beam intensity monitor is calibrated against a secondary emission monitor.
 
 The ability to record the numbers of proton in each bucket allows us to obtain the
 yields as a function of the instantaneous intensity, which will be discussed
-further in \cref{M-sec:extrapolation}
-
+further in \cref{M-sec:extrapolation}.
 
 \section{Target}
 The SeaQuest target is placed between the Beam Intensity Monitor and the front face
@@ -126,7 +123,7 @@ of each target positions are listed in \cref{table:target}.
 
 \section{Spectrometer and Tracking Station}
 The SeaQuest spectrometer consists of two magnets and four tracking stations. A solid iron magnet,
-Mag, is placed \SI{104}{\cm} downstream the target. It is then followed by
+FMag, is placed \SI{104}{\cm} downstream the target. It is then followed by
 the first tracking stations. The SeaQuest detector system is separated into four tracking stations.
 Stations 1, 2 and 3 each consists of plastic scintillator hodoscopes and drift chambers.
 The hodoscopes in each stations provides a fast signal for triggering whereas
@@ -148,7 +145,8 @@ proportional tube planes.
 There are two dipole magnets used in the SeaQuest spectrometer, namely the focusing
 magnet (FMag) and analyzing magnet (KMag). The magnetic field of both magnets point
 in the same direction vertically ($\pm y$), which bend the muons horizontally along
-the $x-z$ plane. The polarity of the magnets were flipped during Run 3.
+the $x-z$ plane. The polarity of the magnets were flipped during Run 3, partly to reduce
+radiation damage to electronics located in the hall.
 
 The upstream focusing magnet (FMag) is a solid iron magnet, shown in \cref{fig:fmag}.
 It measures at \SI{503}{\cm} by \SI{302.4}{\cm} tall by \SI{160}{\cm} wide.
@@ -417,6 +415,7 @@ and hodoscope rates. The Scaler DAQ data are processed in real time and displaye
 on a monitor in the SeaQuest Control room.
 
 \subsection{Beam DAQ}
+\label{subsec:beamDAQ}
 The Beam DAQ aims to provide the instantaneous beam intensity with the Cerenkov counter.
 The signal from the Cerenkov counter is sent to a Fermilab-designed QIE module.
 This custom module is synced to Main Injector RF clock and it reads out the Cerenkov
@@ -427,6 +426,8 @@ during trigger dead time and the 16 buckets before and after each trigger.
 The Beam DAQ will also monitor the instantaneous beam intensity and inhibit the trigger if the
 intensity is above a certain threshold. The Beam DAQ will record the integrated intensity
 while inhibit is asserted at trigger logic.
+
+
 
 
 \subsection{Slow Controls}
