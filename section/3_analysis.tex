@@ -807,7 +807,7 @@ contamination correction and acceptance correction.
 \label{subsec:contamination}
 For a pure target, the cross section can be obtained from the yield using the following
 \begin{equation}
-	\sigma = \frac{Y A}{T N_A P X \epsilon},
+	B\sigma = \frac{Y A}{T N_A P X \epsilon},
 \end{equation}
 where $Y$ is the extracted yield, $A$ is the atomic mass of the target,
 $T$ is the thickness of the target, $N_A$ is the Avogadro’s number,
@@ -817,7 +817,11 @@ and $X$ is the beam attenuation factor given by
 	X=\frac{\lambda}{L\rho} \left[1-\exp\left(-\frac{L\rho}{\lambda}\right)\right],
 \end{equation}
 where $\lambda$ is the interaction length, $L$ and $\rho$ are the length and density
-of the target.
+of the target. And $B$ is the branching ratio for decaying into a dimuon pair, which is need
+ to obtain the production cross section. The branching ratios used are taken from Ref.~\cite{workman2022}.
+\begin{equation}
+	B\left(J/\psi\to\mu^+\mu-\right)=5.961\times 10^{-2},\quad B\left(\psi'\to\mu^+\mu-\right)=8\times 10^{-3}.
+\end{equation}
 
 The liquid targets are held in a flask \SI{50.8}{\cm} long and \SI{7.62}{\cm} in diameter
 and can contain \SI{2.2}{\l} of liquid. The liquid Hydrogen used is \SI{99.999}{\percent}

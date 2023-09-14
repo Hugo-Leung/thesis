@@ -573,8 +573,10 @@ Drell-Yan can be more sensitive to the anti-quark distribution than DIS. In
 particular, the $(p+d)/2(p+p)$ Drell-Yan cross section ratio at leading order
 can be approximated as
 \begin{equation}
-	\left.\frac{\sigma^{p+d}}{2\sigma^{p+p}}\right|_{x_1\gg x_2} \approx \frac{1}{2} \left( 1+ \frac{\frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} + \frac{d\left(x_1\right)}{4u\left(x_1\right)} }{1+\frac{d\left(x_1\right)}{4u\left(x_1\right)} \frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} }\right).
+	\frac{\sigma^{p+d}}{2\sigma^{p+p}}\approx \frac{\sigma^{p+p}+\sigma^{p+n}}{2\sigma^{p+p}}
+	\stackrel{x_1\gg x_2}{\approx} \frac{1}{2} \left( 1+ \frac{\frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} + \frac{d\left(x_1\right)}{4u\left(x_1\right)} }{1+\frac{d\left(x_1\right)}{4u\left(x_1\right)} \frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} }\right).
 \end{equation}
+The first approximation sign indicate that nuclear correction in deuteron is assumed to be negligible.
 In the limit $x_1$ is sufficiently large, $d\left(x_1\right)/u\left(x_1\right)$ is expected
 to be small, and thus this ratio can be directly related to the light sea-quark
 asymmetry. The Drell-Yan process has been used in many experiments to probe the sea-quarks
@@ -746,17 +748,31 @@ fraction $x_i$ is given by
 \end{equation}
 where the delta function ensures momentum conservation. $N_5$ is the normalization factor,
 and $m_i$ is the mass of quark $i$.
-
 \pdfmargincomment{this model can at most predict the x dependence of dbar -ubar, but not the magnitude. It is worth keeping?}
 
 Since the BHPS model also predicts the probability for the $\ket{uudQ\bar{Q}}$ configuration to
 be inversely proportional to the mass of the quark $Q$, the intrinsic sea can have important
 contribution to the light sea-quarks. In Ref.~\cite{chang2011,chang2011a}, the BHPS model
-was extend to the light quark sector and is compared with experimental measurements.
+was extend to the light quark sector. In this model, the $\bar{u}$ and $\bar{d}$ are predicted
+to  have the same $x$ dependence if one assumes $m_u=m_d$. The only source of asymmetry
+are the probabilities of the $\ket{uudd\bar{d}}$ and $\ket{uudu\bar{u}}$ configurations,
+which are not known from the BHPS model, and remain to be determined from experiments.
+Nevertheless, the $x$ dependence of the $\bar{d}-\bar{u}$ asymmetry can be obtained from the model.
+\Cref{fig:five_quark} shows the comparison of the $\bar{d}-\bar{u}$ data from E866 with calculation
+based on BHPS model, with normalization fixed by the measured asymmetry.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\linewidth]{fig_dbarubar}
+	\caption{Comparison of the $\bar{d}-\bar{u}$ data with calculation based on BHPS model.
+		The dashed curve corresponds the distribution at initial scale, and the solid and dotted
+		curve are obtained by evolving to $Q^2=\SI{54}{\GeV\squared}$ assuming different initial scale $\mu$. }
+	\label{fig:five_quark}
+\end{figure}
+
 Recent global analysis from NNPDF~\cite{ball2022} and measurement from the LHCb~\cite{aaij2022}
-has shown the importance of intrinsic charm in the proton.
-
-
+have shown the evidence of intrinsic charm in the proton. This has lead to many recent theory
+development in understand the nonperturbative charm in the proton~\cite{guzzi2023}. There are
+also suggestion that SeaQuest kinematic could be ideal for testing limits on intrinsic charm~\cite{vogt2021}.
 
 \subsection{Lattice QCD}
 Lattice QCD calculations of the $\bar{d} - \bar{u}$ based on the Large Momentum Effective
@@ -777,7 +793,7 @@ moderately-large momentum and taking the limit of the proton momentum to infinit
 		\includegraphics[width=0.9\linewidth]{alexandrou2018}
 	\end{subfigure}
 	\caption{The calculated isovector PDF from the LP3 collaboration (left)~\cite{chen2018}
-	 	and ETMC (right)~\cite{alexandrou2018}.
+		and ETMC (right)~\cite{alexandrou2018}.
 		The negative $x$ region denote $\bar{d}-\bar{u}$ at $\left|x\right|$.}
 	\label{fig:lamet}
 \end{figure}
