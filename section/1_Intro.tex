@@ -804,16 +804,38 @@ different global PDF extractions. While the result by the LP3 collaboration
 is in good agreement with CT14, the result from the ETMC group differs from the PDFs,
 especially in the antiquark region.
 
-
-
-
 \chapter{Charmonium Production}
 \label{ch:jpsi}
 Another process for probing the nucleon structure is via the charmonium production~\cite{peng1995,chang2020}.
 Unlike DIS and Drell-Yan, the charmonium production involves the strong interaction
 at leading-order. Therefore it can be used to probe the gluon structure, which is
-less sensitive in DIS or Drell-Yan, and the quark anti-quark structure. However,
-because of the non-perturbative nature of QCD, there are various models for
+less sensitive in DIS or Drell-Yan, and the quark anti-quark structure. 
+At leading order, charmonium production involves two sub-processes, gluon fusion and 
+quark-antiquark annihilation, as illustrated in \cref{fig:charmonium}.
+
+The simultaneous measurement of charmonium production and Drell-Yan process, two very different
+processes, can provides complementary information on the partonic structures of the nucleon. 
+In particular, the $\sigma_{pd}/2\sigma_{pp}$ ratio for charmonium 
+production is expected to be sensitive to the ratio of the gluon distributions in the proton 
+and neutron, as well as the $\bar{d}/\bar{u}$ ratio in the proton.
+
+If quark-antiquark annihilation is the dominant process for charmonium
+production, the $\sigma_{pd}/2\sigma_{pp}$ ratio would provide an
+independent measurement of the $\bar{d}/ \bar{u}$ flavor asymmetry in the
+proton~\cite{peng1995}, complementary to the Drell-Yan process.
+On the other hand, if gluon-gluon fusion is the dominant process, the
+$\sigma_{pd}/2\sigma_{pp}$ ratio could probe the relative gluon content
+in the proton and neutron, providing a test of the charge symmetry at the partonic level. 
+Violation of charge symmetry is predicted at both the hadronic~\cite{stephenson2003,opper2003} 
+and the partonic levels~\cite{londergan2010}. Since gluon is an iso-scalar particle,
+charge symmetry requires that the gluon distributions in the proton and neutron
+are identical. A measurement of the gluon contents in proton and neutron could test charge symmetry at
+the partonic level~\cite{piller1996,zhu2008,lansberg2012}.
+\pdfmargincomment{Charge symmetry or isospin symmetry? I used isospin in the rest of the thesis}
+
+As $J/\psi$ and $\psi'$ are resonances, they tend to show up as peaks in th mass spectrum,
+and the cross section is significantly larger than the Drell-Yan cross section.
+However, because of the non-perturbative nature of QCD, there are various models for
 calculating the charmonium production. The models usually separate the production
 mechanism into two parts, the production of heavy-quark pairs and their subsequent
 hadronization into quarkonium states. One of the early approaches is the Color
@@ -830,9 +852,7 @@ expressed as
 		&\cross f_{i/A}\left(x_1,\mu_F\right)f_{j/B}\left(x_2,\mu_F\right)\sigma\left[ij\rightarrow c\bar{c}X\right]\left(x_1P_A,x_2P_B,\mu_F,\mu_R \right),
 	\end{split}
 \end{equation}
-where $i$,$j$ denote the type of interacting partons. At leading-order, the
-$c\bar{c}$ pairs are produced via two subprocesses, gluon fusion and
-quark-antiquark annihilation, as illustrated in \cref{fig:charmonium}.
+where $i$,$j$ denote the type of interacting partons. 
 \begin{figure}[htpb!]
 	\centering
 	\begin{subfigure}{0.4\linewidth}
@@ -852,12 +872,15 @@ quark-antiquark annihilation, as illustrated in \cref{fig:charmonium}.
 	\caption{The Feynman diagram for $c\bar{c}$ pair production}
 	\label{fig:charmonium}
 \end{figure}
-The calculated cross section for $J/\Psi$ production in $p+p$ at 120 GeV using
-CEM is shown in \cref{fig:cem_cs}. The relative importance of gluon fusion
-and quark-antiquark annihilation is a strong function of $x_F=2P_L/\sqrt{s}$,
-where $P_L$ is the longitudinal momentum of the $J/\Psi$ meson in the
-hadron-hadron center-of-mass frame and $\sqrt{s}$ is the total energy in this
-frame. At large $x_F$, the quark-antiquark annihilation is the dominant subprocess.
+While proon induced $J/\psi$ production is often dominated by gluo fusion
+process~\cite{vogt1999}, The relative importance of gluon fusion
+and quark-antiquark annihilation is a strong function of hadron-hadron center-of-mass energy $\sqrt{s}$
+and $x_F=2P_L/\sqrt{s}$, where $P_L$ is the longitudinal momentum of the $J/\Psi$ meson in the
+hadron-hadron center-of-mass frame. 
+The calculated cross section for $J/\Psi$ production in $p+p$ at \SI{120}{\GeV} using
+CEM is shown in \cref{fig:cem_cs}. 
+At our beam energy, the quark-antiquark annihilation bcomes the dominant subprocess at large $x_F$, where
+the SeaQuest experiment is more sensitive.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\linewidth]{pp_norm_cs_NLO_pp}

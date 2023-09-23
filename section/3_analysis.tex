@@ -485,7 +485,7 @@ MATRIX 4 tracks in each bin are then sorted in time. Tracks are then mixed in ch
 While MATRIX 4 triggers on a single track, it is also
 possible for the reconstruction software to find multiple tracks in a given MATRIX 4 event.
 In order to prevent tracks from the same event to be mixed, a sliding number $d$ can also be introduced.
-With this option enabled, the $i$-th positive track would be mixed with the $i+d$-th negative track.
+With this option enabled, the $i$-th positive track would be mixed with the $\left(i+d\right)$-th negative track.
 Typically, a sliding number of one is chosen.
 A minor beneficent is that this method also ensures the result to be reproducible as compared to random
 mixing.
@@ -710,13 +710,13 @@ can obtained by fitting to the mass distribution. Once the normalization is obta
 obtained. To minimize the impact of the Monte Carlo input to the extracted Drell-Yan yield, the Drell-Yan Monte
 Carlo is only used during the fitting procedure. And the Drell-Yan yield is defined as follows
 \begin{equation}
-	Y_{DY}= N_{\textrm{data}}-p_{J/\psi} N_{J/\psi}-S_{\psi'} N_{\psi'}-S_{mix bkg.} N_{mix bkg.} - S_{\textrm{flask}} N_{\textrm{flask}},
+	Y_{DY}= N_{\textrm{data}}-p_{J/\psi} N_{J/\psi}-p_{\psi'} N_{\psi'}-p_{mix bkg.} N_{mix bkg.} - p_{\textrm{flask}} N_{\textrm{flask}},
 \end{equation}
 where the $p_a$ is the scale factor for each component $a$. $p_{\textrm{flask}}$ is obtained from the
 ratio of live proton between the target of interest and the empty flask,
 whereas the scale factor for the other components are obtained from the fitting procedure.
-In the case of Monte Carlo, $N=\sum\textrm{weight}$  is the weighted integral of the
-simulated distribution. And $N_{mix bkg.}$ and $N_{\textrm{flask}}$ are the number of events in the mixed
+In the case of Monte Carlo, $N=\sum weight$ is the weighted integral of the
+simulated distribution, whereas $N_{mix bkg.}$ and $N_{\textrm{flask}}$ are the number of events in the mixed
 sample and empty flask data.
 
 For the charmonium studies, we can utilized the fact that they are resonances and show up as distinct peaks
