@@ -21,10 +21,10 @@ The primary goal of the experiment is to investigate the antiquark structures
 in the proton from the detection of $\mu^+\mu^-$ pairs produced in
 the interaction of a \SI{120}{\GeV} proton beam on various targets, including \ce{^1H} and \ce{^2H}.
 The $\mu^+\mu^-$ data consist of multiple components, notably the Drell-Yan continuum
-and the  $J/\Psi$ and $\Psi^\prime$ resonances.
-Both the Drell-Yan and the $J/\Psi$ ($\Psi^\prime$) data can be used to probe
+and the  $J/\psi$ and $\psi^\prime$ resonances.
+Both the Drell-Yan and the $J/\psi$ ($\psi^\prime$) data can be used to probe
 the antiquark structures in the proton.
-The $J/\Psi$ ($\Psi^\prime$) production is further be sensitive to the gluon structure in the proton.
+The $J/\psi$ ($\psi^\prime$) production is further sensitive to the gluon structure in the proton.
 
 This thesis is organized as follows. After reviewing the early studies
 on the nucleon structure and the Deep-Inelastic Scattering in this chapter,
@@ -48,7 +48,7 @@ And the $g$ factor for proton is found to be  significantly greater than \num{2}
 Since the neutron is a neutral particle, it was expected that
 to have a zero magnetic moment. The neutron magnetic moment would later be
 measured and found to be non-zero, suggesting that proton and neutron are
-both composite particles~\cite{rabi1934}. The modern value of the $g$ factors
+both composite particles~\cite{rabi1934}. The current values of the $g$ factors
 for the charged leptons and nucleons are listed in \cref{tab:g-factor}.
 The deviation from \num{2} for electrons and muons are predicted by QED,
 and have been studied extensively~\cite{fan2023,abi2021}.
@@ -86,9 +86,11 @@ charge radius can be obtained from the first derivative of the electric form fac
 \begin{equation}
 	\expval{r^2}=-6G^\prime_E(0).
 \end{equation}
-This interpretation is however later questioned in Ref.~\cite{miller2007,miller2019},
-where the author argued that in the infinite momentum frame the transverse charge
-density should be given by
+This interpretation is however later questioned in Ref.~\cite{miller2007,miller2019}.
+The author argued that a three-dimensional charge density, in the strict sense of a
+probability interpretation, cannot be defined for a nucleon (as a relativistic system of quarks and gluons)
+because the initial and final state proton wave functions are different. Instead,
+a two-dimensional charge density can be defined in the infinite momentum frame as 
 \begin{equation}
 	\rho(b)=\int^\infty_0 \frac{\dd{Q}Q}{2\pi} J_0(Qb)\frac{G_E^2(Q^2)+\tau G_M^2(Q^2)}{1+\tau},
 \end{equation}
@@ -112,7 +114,7 @@ In the quark model, the baryons are made up of three quarks and the mesons are m
 of a quark and an antiquark, and can be organized as shown in \cref{fig:Octet}.
 The magnetic moment of the proton can then be expressed as the sum of the magnetic moment
 from the individual quarks. The proton consists of $uud$ and the neutron consists of $udd$,
-requiring the wavefunction is symmetric in both flavor and spin, the wavefunction of a proton with
+requiring the wavefunction is symmetric in both flavor and spin, the flavor-spin wavefunction of a proton with
 spin up is given by
 \begin{equation}
 	\begin{split}
@@ -148,10 +150,10 @@ no experimental evidence for a free quarks, the quark model was not considered a
 \label{sec:dis}
 Evidence of the point-like constituents in the nucleon would later come from the deep
 inelastic scattering (DIS) experiments~\cite{breidenbach1969}, where a high
-energy lepton ($l$) is inelastically scattered off a nucleon ($N$), as
+energy lepton ($l$) is inelastically scattered off a hadron ($h$), as
 illustrated in \cref{fig:DIS}
 \begin{equation}
-	l + N \rightarrow l^\prime + X.
+	l + h \rightarrow l^\prime + X.
 \end{equation}
 \begin{figure}[htbp!]
 	\centering
@@ -327,13 +329,13 @@ introduced by Fritzsch and Gell-Mann~\cite{fritzsch1972} and Fritzsch, Gell-Mann
 and Leutwyler~\cite{fritzsch1973}. QCD is a non-abelian gauge theory with an
 $SU(3)$ gauge symmetry applied to the color degree of freedom. The $SU(3)$ group
 chosen to account for (a) meson states made up of $q\bar{q}$ but not $qq$ bound states.
-(b) There must color singlet states. (c) The number of colors for each flavor
+(b) There must be color singlet states. (c) The number of colors for each flavor
 must be in agreement with the measured hadronic $e^+ e^-$ cross-section.
 
 
 An important feature of QCD is the asymptotic freedom. Being a renormalizable
 theory, a regularization procedure and a set of renormalization prescription
-need to be specified. In the renormalization process, the renomalized coupling $\alpha$
+need to be specified. In the renormalization process, the renomalized coupling $\alpha(\mu)$
 is introduced and this coupling would be a function of the renomalization scale $\mu$.
 It is noted that the coupling constant vanishes as $Q/\mu$ tends to infinity,
 allowing perturbative expansion of QCD at large $Q$.
@@ -576,7 +578,7 @@ can be approximated as
 	\frac{\sigma^{p+d}}{2\sigma^{p+p}}\approx \frac{\sigma^{p+p}+\sigma^{p+n}}{2\sigma^{p+p}}
 	\stackrel{x_1\gg x_2}{\approx} \frac{1}{2} \left( 1+ \frac{\frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} + \frac{d\left(x_1\right)}{4u\left(x_1\right)} }{1+\frac{d\left(x_1\right)}{4u\left(x_1\right)} \frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} }\right).
 \end{equation}
-The first approximation sign indicate that nuclear correction in deuteron is assumed to be negligible.
+The first approximation sign indicate that nuclear correction in deuteron is assumed to be negligible~\cite{ehlers2014}.
 In the limit $x_1$ is sufficiently large, $d\left(x_1\right)/u\left(x_1\right)$ is expected
 to be small, and thus this ratio can be directly related to the light sea-quark
 asymmetry. The Drell-Yan process has been used in many experiments to probe the sea-quarks
@@ -698,7 +700,7 @@ by the initial $(2u+d)$ valence quarks in the proton is given by
 \end{equation}
 Therefore the model predicts a light sea-quark asymmetry $\bar{d}/\bar{u} =\frac{4}{3} $.
 Unlike the meson cloud model, the Goldstone boson in the chiral quark model are emitted
-by the valance quarks, which only carry a fraction of the total hadron model.
+by the valance quarks, which only carry a fraction of the total hadron's momentum.
 Therefore the boson in the chiral quark model would necessarily carry a smaller momentum than
 it would in the meson cloud model, and the sea-quark distributions would peak at a lower value of $x$ \cite{szczurek1996,peng1998}.
 
@@ -850,7 +852,7 @@ subprocess. The charmonium production cross section in the CEM framework can be
 expressed as
 \begin{equation}
 	\begin{split}
-		\left.\frac{d\sigma}{dx_F}\right|_{J/\Psi} &= F \sum_{i,j = q,\bar{q},G}\int^{2m_D}_{2m_c} dM_{c\bar{c}}  \frac{2M_{c\bar{c}}}{s\sqrt{x_F^2+4M_{c\bar{c}}^2/s}}\\
+		\left.\frac{d\sigma}{dx_F}\right|_{J/\psi} &= F \sum_{i,j = q,\bar{q},G}\int^{2m_D}_{2m_c} dM_{c\bar{c}}  \frac{2M_{c\bar{c}}}{s\sqrt{x_F^2+4M_{c\bar{c}}^2/s}}\\
 		&\cross f_{i/A}\left(x_1,\mu_F\right)f_{j/B}\left(x_2,\mu_F\right)\sigma\left[ij\rightarrow c\bar{c}X\right]\left(x_1P_A,x_2P_B,\mu_F,\mu_R \right),
 	\end{split}
 \end{equation}
@@ -877,20 +879,20 @@ where $i$,$j$ denote the type of interacting partons.
 While proon induced $J/\psi$ production is often dominated by gluo fusion
 process~\cite{vogt1999}, The relative importance of gluon fusion
 and quark-antiquark annihilation is a strong function of hadron-hadron center-of-mass energy $\sqrt{s}$
-and $x_F=2P_L/\sqrt{s}$, where $P_L$ is the longitudinal momentum of the $J/\Psi$ meson in the
+and $x_F=2P_L/\sqrt{s}$, where $P_L$ is the longitudinal momentum of the $J/\psi$ meson in the
 hadron-hadron center-of-mass frame.
 The NA51 collaboration reproted a measurement of the $p+p$ and $p+d$ cross sections
 for the charmonium at \SI{450}{\GeV} at signle value of rapidity ($x_F\sim 0$)~\cite{abreu1998}.
 The SeaQuest measurement cover a braoder kinematic range of $0.4<x_F<0.95$ at a lower beam energy
 of \SI{120}{\GeV}.
-The calculated cross section for $J/\Psi$ production in $p+p$ at \SI{120}{\GeV} using
+The calculated cross section for $J/\psi$ production in $p+p$ at \SI{120}{\GeV} using
 CEM is shown in \cref{fig:cem_cs}.  
-At our beam energy, the quark-antiquark annihilation bcomes the dominant subprocess at large $x_F$, where
+At our beam energy, the quark-antiquark annihilation would be more important the gluon fusion at large $x_F$, where
 the SeaQuest experiment is more sensitive.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\linewidth]{pp_norm_cs_NLO_pp}
-	\caption{Calculated cross section for $J/\Psi$ production using CEM model with CT14NLO PDF.
+	\caption{Calculated cross section for $J/\psi$ production using CEM model with CT14NLO PDF.
 		The CEM code is obtained from Ref.~\cite{mangano1993}.}
 	\label{fig:cem_cs}
 \end{figure}
@@ -916,23 +918,61 @@ with specific color-spin state and is calculated perturbatively in powers of
 $\alpha_s$ using pQCD. The LDME $\expval{O^H_n \left[^{2S+1}L_J\right]}$ accounts
 for the hardronization probability for a specfic $c\bar{c}$ state into the
 charmonium state $H$. These LDMEs are obtained by fitting to data and assumed to
-be universal, independent of beam or target hadrons and the energy scale. The
-calculated cross sections for $J/\Psi$ and $\Psi'$ production using NRQCD for
+be universal, independent of beam or target hadrons and the energy scale. Some 
+existing LDMEs are tabulated in \cref{tab:LDMEs}. The values of LDMEs from
+different groups are very different, in some case, even the sign is different.
+This is partly due to the choice of data sets used in their global fits. The
+SeaQuest experiment can provide additonal constraints on these LDMEs. Some
+existing data is shown in \cref{fig:charm_cs}.
+Unlike most previous fixed target charmonium target, which utilized nuclear
+targets, SeaQuest have both hydrogen and deuterium targets. 
+Studying the charmonium production in $p+p$ and $p+d$, would allow the extraction
+of the LDMEs with little to no model dependence from nuclear effects. 
+
+\begin{table}[ht!]
+	\centering
+	\caption{The NRQCD LDMEs for $J/\psi$ and $\psi'$ from different groups.}
+	\label{tab:LDMEs}
+	\scalebox{0.82}{
+		\input{table/jpsi_LDME.tex}
+	}
+\end{table}
+
+\begin{figure}[ht!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/sigma0}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/sigmaTotal}
+	\end{subfigure}
+	\caption{The differential production cross sections at $y=0$ (left) and total 
+		cross section (right) in proton-proton ($pp$) and proton-nucleus ($pA$) interactions
+		as a function of $\sqrt{s}$, adapted from Ref.~\cite{maltoni2006}.}
+	\label{fig:charm_cs}
+\end{figure}
+
+
+
+
+
+
+The calculated cross sections for $J/\psi$ and $\psi'$ production using NRQCD for
 $p+p$ at 120 GeV are shown in \cref{fig:NRQCD_cs}. In this model, quark-antiquark
 annihilation is more important than suggested by CEM. This model also suggests
 that the relative importance of the two subprocess depends on the charmonium state.
 In particular, \cref{fig:NRQCD_cs} shows that the quark-antiquark annihilation
-is the dominant process for $\Psi^\prime$ production.
+is the dominant process for $\psi^\prime$ production.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{jpsi_cs_pp}
-		\caption{$J/\Psi$ production}
+		\caption{$J/\psi$ production}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{psip_cs_pp}
-		\caption{$\Psi'$ production}
+		\caption{$\psi'$ production}
 	\end{subfigure}
 	\caption{Calculated cross section for charmonium production using NRQCD model
 		\cite{chang2021}. CT14nlo is used as the proton PDF. The LDMEs used are
@@ -940,6 +980,7 @@ is the dominant process for $\Psi^\prime$ production.
 		global fit to fixed-target charmonium production data. }
 	\label{fig:NRQCD_cs}
 \end{figure}
+
 
 
 \ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
