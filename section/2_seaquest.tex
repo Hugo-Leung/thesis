@@ -11,7 +11,7 @@
 
 \section{Introduction}
 Following the E866 results~\cite{towell2001}, there were great interest in improving
-the determination of the light sea-quark asymmetry at large $x$ and to understand
+the determination of the light sea-quark asymmetry at large $x$ and to understand and verify
 the drop in $\bar{d}/\bar{u}$ at $x>0.25$.
 The E906 SeaQuest experiment was proposed as a follow-up to the E866 measurement \cite{isenhower2001}.
 The main objective of the experiment is to probe the light sea-quark asymmetry at
@@ -50,7 +50,7 @@ is shown in \cref{fig:intensity}.
 \begin{figure}[htpb!]
 	\centering
 	\includegraphics[width =0.8\linewidth]{beam_intensity_v2}
-	\caption{The beam intensity measured by the Beam DAQ Cerenkov counter every
+	\caption{The beam intensity measured by the Beam DAQ Cherenkov counter every
 		bucket. Taken from Ref.~\cite{aidala2019}}
 	\label{fig:intensity}
 \end{figure}
@@ -59,25 +59,25 @@ is shown in \cref{fig:intensity}.
 \label{subsec:BIM}
 The integrated beam intensity is monitor by Fermilab Accelerator Division using a
 secondary emission monitor located upstream of the SeaQuest experimental hall.
-To better understand the bucket-to-bucket variation in the beam intensity, a Cerenkov counter,
+To better understand the bucket-to-bucket variation in the beam intensity, a Cherenkov  counter,
 shown in \cref{fig:BIM}, was added upstream of the target during the Main Injector upgrade.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.4\linewidth]{BIMCerenkov}
-	\caption{The Beam Intensity Monitor (BIM) Cerenkov counter. Taken from Ref.\
+	\caption{The Beam Intensity Monitor (BIM) Cherenkov  counter. Taken from Ref.\
 		\cite{aidala2019}.}
 	\label{fig:BIM}
 \end{figure}
 
-An aluminized Kapton mirror reflects the Cerenkov light, produced when the proton beam
+An aluminized Kapton mirror reflects the Cherenkov  light, produced when the proton beam
 pass through the radiator, into a single photomultiplier tube. The signal is then
 sent to a custom ``QIE'' (Charge Integrator and Encoder) module. This custom module
 is clocked with the Main Injector RF, and is capable of recording the beam intensity
 of each RF bucket for the entire spill. The QIE module is linked to the trigger
 system, and would raise a trigger inhibit when the beam intensity is above a
 threshold. The module is also read out by the Beam DAQ, which will be discussed
-in \cref{subsec:beamDAQ}. 
-The beam intensity monitor is calibrated against a secondary emission monitor.
+in \cref{subsec:beamDAQ}.
+The beam intensity monitor is calibrated against the upstream secondary emission monitor.
 
 The ability to record the numbers of proton in each bucket allows us to obtain the
 yields as a function of the instantaneous intensity, which will be discussed
@@ -122,22 +122,23 @@ of each target positions are listed in \cref{table:target}.
 \end{table}
 
 \section{Spectrometer and Tracking Station}
-The SeaQuest spectrometer consists of two magnets and four tracking stations. A solid iron magnet,
+The SeaQuest spectrometer, shown in \cref{fig:spectrometer}, consists of two magnets and four tracking stations.
+A solid iron magnet,
 FMag, is placed \SI{104}{\cm} downstream the target. It is then followed by
-the first tracking stations. The SeaQuest detector system is separated into four tracking stations.
+the first tracking station. The SeaQuest detector system is separated into four tracking stations.
 Stations 1, 2 and 3 each consists of plastic scintillator hodoscopes and drift chambers.
 The hodoscopes in each stations provides a fast signal for triggering whereas
 the drift chambers provide good spatial resolution for track precise reconstruction.
 An open air dipole magnet (KMag) is placed between station 1 and station 2.
-Downstream of station 3, there is a 1 m iron wall acting as a
-hadron absorber. Station 4 is located behind the hadron absorber and acts as a
+Downstream of station 3, there is an \SI{1}{\meter} iron wall acting as a
+absorber. Station 4 is located behind the  absorber and acts as a
 muon identifier. Station 4 consists of a hodoscope array and 4 layers of
 proportional tube planes.
 
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{SeaQuestSpectrometer}
-	\caption{schematics of the SeaQuest spectrometer. Taken from Ref.~\cite{aidala2019}}
+	\caption{Schematics of the SeaQuest spectrometer. Taken from Ref.~\cite{aidala2019}}
 	\label{fig:spectrometer}
 \end{figure}
 
@@ -157,7 +158,7 @@ magnetic field within the iron block. This corresponds to a transverse momentum 
 \SI{3.07}{\GeV}. FMag serves three main purposes: focusing high mass muon pairs, beam
 dump and hadron absorber. As a focusing magnet, FMag would focus dimuons with high $p_T$
 or high mass into the spectrometer acceptance. This is particularly important as SeaQuest
-aims to probe the partonic structure at high $x$, which would correspond to high mass.
+aims to probe the partonic structure at high $x$, which would correspond to high mass dimuons.
 Additionally, it would also defocus the low momentum muons, hence reducing the background.
 Due to the high beam intensity, FMag also serves as beam dump. Typically, only $\sim 10\%$
 of the proton beam would interact with target material. The remaining protons would interact
@@ -166,7 +167,7 @@ while allowing muons into the spectrometer.
 A \SI{5}{\cm} diameter by \SI{25}{\cm} deep hole is drilled into the upstream
 end of FMag along the beam axis. This is done to move the initial interaction points
 of the beam with the beam dump further away from the targets, allowing for better target/dump
-separation. This also reduces the radiation within the target cave, which facilitate the
+separation. This also reduces the radiation within the target cave, which facilitate 
 access to the target area for maintenance.
 The magnetic field distribution is modeled using a magnetostatic modeling program. The
 excitation is measured by wrapping a 1-turn coil around the central region of the magnet to measure the induced
@@ -192,21 +193,21 @@ probe and is further calibrated using the reconstructed mass of the $J/\psi$ res
 \subsection{Hodoscope}
 A hodoscope is placed on upstream end of each tracking stations. Each of the hodoscope planes
 is composed of overlapping panels of scintillators viewed by photomultiplier tubes (PMTs) at the end.
-When a charged particle pass through the scintillator, the molecules would be excited and
-release photons. These photons are then collected at the PMTs, the amplified signals are
+When a charged particle passes through the scintillator, the molecules would be excited and
+release photons. These photons are then collected by the PMTs, the amplified signals are
 then send through discriminators. The signal is then recorded by the Data Acquisition (DAQ) System
 using Time-to-Digital converters (TDCs).
 The primary purpose of the scintillator hodoscopes is to provide fast signal for the
 trigger system. It is also used during reconstruction to reduce the number of chamber hits.
 The x-planes are placed vertically to measure the bend plane position.
 And the y-planes are arranged horizontally to measure the non-bend plane position.
-The scintillator bars in each plane is also split in the middle, denoted as Top and Bottom
+The scintillator bars in each plane are also split in the middle, denoted as Top and Bottom
 for the x-planes, or Left and Right for the y-planes.
 
 Station~1 and 2 each have single x-y planes. Station~3 has a single x plane, and station
 4 has two y planes and one x plane. The scintillator bars used in St~.1 and 2 are recycled
 from HERMES experiment~\cite{ackerstaff1998a}, whereas new Eljen EJ-200 scintillator material
-is used for St.~3 and 4. Because of the physical size of the sintillatior bars in St.~4, the station~4
+is used for St.~3 and 4. Because of the physical size of the sintillatior bars in St.~4, the St.~4
 hodoscopes have PMTs on both ends of the sintillator bars. Each of the PMT base has a
 ``clip line'' attached at the output to reduce the output pulse from $20-25$\unit{\ns}
 down to $10-15$\unit{\ns} full width.
@@ -245,8 +246,8 @@ Station 1 and 2 each have one chamber referred as D1 and D2. The chamber at stat
 3 is separated into top and bottom halves, denoted as D3p and D3m.
 
 In data sets 1-3, a smaller chamber, D1.1, was used. It was later replaced by a newly constructed
-chamber, D1.2, with better expected high rate capacity in data set 4-6. However, D1.1 would be
-reinstalled later for data set 5-6. D3m.1 was used during the commissioning run, data set 1, and
+chamber, D1.2, with better expected high rate capacity in data set 4-6. However, D1.1 would later be
+reinstalled for data set 5-6. D3m.1 was used during the commissioning run, data set 1, and
 was later replaced by D3m.2 for the later data sets.
 
 The D1.1, D2 and D3m.1 chambers were recycled from previous Fermilab experiments, E605 (D2 and D3m.1)~\cite{moreno1991}
@@ -288,7 +289,7 @@ The muon identification is accomplished with the proportional tube at station 4.
 iron wall separate station 3 and 4, which acts as an absorber to stop hadrons and electrons from reaching
 station 4. For precise track reconstruction, there are four layers of proportional tubes planes. Each plane
 is made of eight proportional tube modules, with 16 proportional tubes per module. The 16 proportional tubes
-in each module further divided into two sub-layers, with the second layers shifted by half a tube width to
+in each module are further divided into two sub-layers, with the second layers shifted by half a tube width to
 resolve the left-right ambiguity, as in the case of drift chambers. The proportional tubes oriented horizontally
 (vertically) are in the first and fourth (second and third) planes as shown in \cref{fig:prop}
 \begin{figure}[ht!]
@@ -416,9 +417,9 @@ on a monitor in the SeaQuest Control room.
 
 \subsection{Beam DAQ}
 \label{subsec:beamDAQ}
-The Beam DAQ aims to provide the instantaneous beam intensity with the Cerenkov counter.
-The signal from the Cerenkov counter is sent to a Fermilab-designed QIE module.
-This custom module is synced to Main Injector RF clock and it reads out the Cerenkov
+The Beam DAQ aims to provide the instantaneous beam intensity with the Cherenkov  counter.
+The signal from the Cherenkov  counter is sent to a Fermilab-designed QIE module.
+This custom module is synced to Main Injector RF clock and it reads out the Cherenkov
 counter every 18.8 ns clock cycle. The Beam DAQ host then reads out this custom module
 after each spill to provide the integrated beam intensity for the entire spill.
 The Beam DAQ is also linked with the Event DAQ so it can calculate the integrated spill
