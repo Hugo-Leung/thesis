@@ -13,7 +13,7 @@
 Following the E866 results~\cite{towell2001}, there were great interest in improving
 the determination of the light sea-quark asymmetry at large $x$ and to understand and verify
 the drop in $\bar{d}/\bar{u}$ at $x>0.25$.
-The E906 SeaQuest experiment was proposed as a follow-up to the E866 measurement \cite{isenhower2001}.
+The E906 SeaQuest experiment was proposed as a follow-up to the E866 measurement~\cite{isenhower2001}.
 The main objective of the experiment is to probe the light sea-quark asymmetry at
 large $x$ with better accuracy than previous measurement through the use of the Drell-Yan
 process. To gain better statistics at large $x$, the \SI{120}{\GeV} proton beam from the Main
@@ -41,7 +41,7 @@ Injector RF frequency, dividing the beam into ``RF buckets'' that are less than
 	\centering
 	\includegraphics[width=0.6\linewidth]{Fermilab-complex}
 	\caption{Layout of the Fermilab accelerator complex, taken from Ref.~\cite{concept-book}. The
-		SeaQuest Experimental hall is located on the Neutrino-Muon beamline.}
+		SeaQuest experimental hall is located on the Neutrino-Muon beamline.}
 	\label{fig:complex}
 \end{figure}
 Even though the integrated intensity from each spill is very stable,
@@ -51,21 +51,22 @@ is shown in \cref{fig:intensity}.
 	\centering
 	\includegraphics[width =0.8\linewidth]{beam_intensity_v2}
 	\caption{The beam intensity measured by the Beam DAQ Cherenkov counter every
-		bucket. Taken from Ref.~\cite{aidala2019}}
+		bucket, taken from Ref.~\cite{aidala2019}. The horizontal line in each plot
+		indicate the threshold above which the trigger is inhibited.}
 	\label{fig:intensity}
 \end{figure}
 
 \subsection{Beam Intensity Monitor}
 \label{subsec:BIM}
 The integrated beam intensity is monitor by Fermilab Accelerator Division using a
-secondary emission monitor located upstream of the SeaQuest experimental hall.
+secondary emission monitor located upstream of the SeaQuest experimental hall, which
+is read out once per spill.
 To better understand the bucket-to-bucket variation in the beam intensity, a Cherenkov  counter,
 shown in \cref{fig:BIM}, was added upstream of the target during the Main Injector upgrade.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.4\linewidth]{BIMCerenkov}
-	\caption{The Beam Intensity Monitor (BIM) Cherenkov  counter. Taken from Ref.\
-		\cite{aidala2019}.}
+	\caption{The Beam Intensity Monitor (BIM) Cherenkov counter, taken from Ref.~\cite{aidala2019}.}
 	\label{fig:BIM}
 \end{figure}
 
@@ -86,7 +87,11 @@ further in \cref{M-sec:extrapolation}.
 \section{Target}
 The SeaQuest target is placed between the Beam Intensity Monitor and the front face
 of spectrometer. The target system consists of two liquid targets, hydrogen and deuterium,
-and three solid targets, iron, carbon and tungsten. Each solid target is divided
+and three solid targets, iron, carbon and tungsten. The liquid target material is held
+in a \SI{50.8}{\cm} cylindrical vacuum vessel, with a diameter of \SI{3.81}{\cm}.
+In the case of liquid targets, the proton beam would also traverse through two
+\SI{140}{\um} thick windows on both ends of the vacuum vessel and the \SI{51}{\mu} end caps.
+Each solid target is divided
 into \num{3} discs of equal length, and are spatially separated along the beam
 direction to minimize variation in acceptance between liquid and solid targets.
 To account for background originating from the interaction with the instruments,
@@ -99,20 +104,20 @@ of each target positions are listed in \cref{table:target}.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.4\linewidth]{target-tableLayout}
-	\caption{The schematic of the movable target table}
+	\caption{Top view of schematic layout of movable target table showing the seven target positions, taken from Ref.~\cite{aidala2019}.}
 	\label{fig:target}
 \end{figure}
 
 \begin{table}[h!]
 	\centering
-	\caption{SeaQuest target configuration}
+	\caption{Density and thickness of the target material and number of spills per target-rotation cycle for the SeaQuest targets.}
 	\label{table:target}
 	\begin{tabular}{cccccc}
 		\hline
 		Target      & Position & Density (\unit{\g\per\cm\cubed}) & length (\unit{\cm}) & interaction length   (\unit{\g\per\cm\squared}) & spill/cycle \\ \hline
-		\ce{LH_2}   & 1        & \num{0.071}                      & \num{50.8}          & \num{52.0}                                      & 10          \\
+		\ce{H_2}   & 1        & \num{0.071}                      & \num{50.8}          & \num{52.0}                                      & 10          \\
 		Empty Flask & 2        & -                                & -                   & -                                               & 2           \\
-		\ce{LD_2}   & 3        & \num{0.1634}                     & \num{50.8}          & \num{71.8}                                      & 5           \\
+		\ce{D_2}   & 3        & \num{0.1634}                     & \num{50.8}          & \num{71.8}                                      & 5           \\
 		No target   & 4        & -                                & -                   & -                                               & 2           \\
 		Iron        & 5        & \num{7.87}                       & \num{1.905}         & \num{132.1}                                     & 1           \\
 		Carbon      & 6        & \num{1.80}                       & \num{3.322}         & \num{85.8}                                      & 2           \\
@@ -138,7 +143,7 @@ proportional tube planes.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{SeaQuestSpectrometer}
-	\caption{Schematics of the SeaQuest spectrometer. Taken from Ref.~\cite{aidala2019}}
+	\caption{Schematics of the SeaQuest spectrometer, taken from Ref.~\cite{aidala2019}.}
 	\label{fig:spectrometer}
 \end{figure}
 
@@ -167,7 +172,7 @@ while allowing muons into the spectrometer.
 A \SI{5}{\cm} diameter by \SI{25}{\cm} deep hole is drilled into the upstream
 end of FMag along the beam axis. This is done to move the initial interaction points
 of the beam with the beam dump further away from the targets, allowing for better target/dump
-separation. This also reduces the radiation within the target cave, which facilitate 
+separation. This also reduces the radiation within the target cave, which facilitates 
 access to the target area for maintenance.
 The magnetic field distribution is modeled using a magnetostatic modeling program. The
 excitation is measured by wrapping a 1-turn coil around the central region of the magnet to measure the induced
@@ -176,8 +181,8 @@ mass of the $J/\psi$ resonance.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{FMAG}
-	\caption{Perspective drawing of FMag showing the arrangement of the iron slabs.
-		Taken from Ref.~\cite{aidala2019}.}
+	\caption{Perspective drawing of FMag showing the arrangement of the iron slabs,
+		taken from Ref.~\cite{aidala2019}.}
 	\label{fig:fmag}
 \end{figure}
 
@@ -207,17 +212,17 @@ for the x-planes, or Left and Right for the y-planes.
 Station~1 and 2 each have single x-y planes. Station~3 has a single x plane, and station
 4 has two y planes and one x plane. The scintillator bars used in St~.1 and 2 are recycled
 from HERMES experiment~\cite{ackerstaff1998a}, whereas new Eljen EJ-200 scintillator material
-is used for St.~3 and 4. Because of the physical size of the sintillatior bars in St.~4, the St.~4
-hodoscopes have PMTs on both ends of the sintillator bars. Each of the PMT base has a
+is used for St.~3 and 4. Because of the physical size of the scintillator bars in St.~4, the
+hodoscopes have PMTs on both ends of the scintillator bars. Each of the PMT base has a
 ``clip line'' attached at the output to reduce the output pulse from $20-25$\unit{\ns}
 down to $10-15$\unit{\ns} full width.
 
 The configuration of the hodoscope is summarized in \cref{table:hodo}. \pdfmargincomment{why are there 2 y hodo in St4? Lower rate at St4? Shivangi's thesis is correct NIM paper is wrong}
 \begin{table}[h!]
 	\centering
-	\caption{SeaQuest hodoscope configuration}
+	\caption{SeaQuest hodoscope configuration.}
 	\label{table:hodo}
-	\begin{tabular}{lllllll}
+	\begin{tabular}{ccccccc}
 		\hline
 		Plane & Number      & Length (\unit{\cm}) & Width (\unit{\cm}) & Thickness (\unit{\cm}) & Array Width (\unit{\cm}) & Location (\unit{\cm})                                                 \\ \hline
 		1Y    & $20\times2$ & \num{78.7}          & \num{7.32}         & \num{0.64}             & \num{140}                & \num{667}                                                             \\
@@ -291,7 +296,7 @@ station 4. For precise track reconstruction, there are four layers of proportion
 is made of eight proportional tube modules, with 16 proportional tubes per module. The 16 proportional tubes
 in each module are further divided into two sub-layers, with the second layers shifted by half a tube width to
 resolve the left-right ambiguity, as in the case of drift chambers. The proportional tubes oriented horizontally
-(vertically) are in the first and fourth (second and third) planes as shown in \cref{fig:prop}
+(vertically) are in the first and fourth (second and third) planes as shown in \cref{fig:prop}.
 \begin{figure}[ht!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
@@ -300,7 +305,7 @@ resolve the left-right ambiguity, as in the case of drift chambers. The proporti
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=0.9\linewidth]{proptubeview_yz}
 	\end{subfigure}
-	\caption{XZ (left) and YZ (left) view of the proportional tube at station 4.}
+	\caption{XZ (left) and YZ (left) view of the proportional tube at station 4, taken from Ref.~\cite{aidala2019}.}
 	\label{fig:prop}
 \end{figure}
 A typical high energy muons would traverse two proportional tubes in each planes.
@@ -331,7 +336,7 @@ trigger decisions.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{trigger_schematic}
-	\caption{The schematic of the FPGA trigger hardware}
+	\caption{The schematic of the FPGA trigger hardware, taken from Ref.~\cite{aidala2019}.}
 	\label{fig:trigger}
 \end{figure}
 \begin{table}[h!]
@@ -393,7 +398,7 @@ each detector channel is readout in parallel, the TDCs are read out sequentially
 and each hit would take \SI{\sim 4}{\micro\second} to readout. Therefore, high occupancy
 events would cause a longer deadtime.
 
-Between Run 5 and Run 6, an upgrade was preformed to the Event DAQ \cite{Kun-1724}.
+Between Run 5 and Run 6, an upgrade was preformed to the Event DAQ~\cite{Kun-1724}.
 Taking advantage of the beam structure, where the beam is only on for \SI{4}{\s} every minute,
 the hit information can be buffered in the VME during beam-on and only sent to the Event
 DAQ host during beam-off. When a hit occurred on a detector,
@@ -411,7 +416,9 @@ It is designed to monitor the spectrometer and trigger,
 providing fast diagnostic data while the experiment is running. Like the Event DAQ,
 it utilizes the ``CODA'' system. It consist of a single VME crate with four scaler
 cards. The Scaler DAQ is triggered by a \SI{7.5}{\kilo\hertz} clock and the beam
-spill signal. It uses 3 VME scale 32 modules to record data such as number of triggers
+spill signal. It uses 3 VME scale 32 modules,
+a 32 bit per channel 140 MHz scaler by IPN Orsay for the G0 Experiment at JLab~\cite{Scale32},
+to record data such as number of triggers
 and hodoscope rates. The Scaler DAQ data are processed in real time and displayed
 on a monitor in the SeaQuest Control room.
 
@@ -427,9 +434,6 @@ during trigger dead time and the 16 buckets before and after each trigger.
 The Beam DAQ will also monitor the instantaneous beam intensity and inhibit the trigger if the
 intensity is above a certain threshold. The Beam DAQ will record the integrated intensity
 while inhibit is asserted at trigger logic.
-
-
-
 
 \subsection{Slow Controls}
 Slow Controls refer to several script, which utilizing the standard Experimental Physics and Industrial Control
