@@ -44,7 +44,8 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 
 \section{Monte Carlo}
 \label{sec:MC}
-SeaQuest utilizes a Geant4 based Monte Carlo simulation (GMC) to simulate the
+SeaQuest utilizes a GEANT4~\cite{agostinelli2003,allison2006,allison2016}
+based Monte Carlo simulation (GMC) to simulate the
 performance of the spectrometer and the acceptance. The GMC is based on the
 E866 FastMC, a fortran-based simulation code, and is ported to SeaQuest and
 modified according to SeaQuest’s experimental configurations~\cite{kerns2018,prasad2020}.
@@ -209,7 +210,7 @@ is given by
 \begin{equation}
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2 - P_L^2,
 \end{equation}
-where $P_L$ is the longitudinal momentum of the virtual photon.
+where $P_L$ is the longitudinal momentum of the virtual photon in the hadron-hadron center of mass frame.
 At SeaQuest, we defined $x_F = \frac{2P_L}{\sqrt{s}\left[1-M^2_\gamma/s\right]}$, therefore
 \begin{equation}
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2\left[1-x_F^2\right].

@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+	\tikzstyle{every node}=[font=\large]
+	\begin{feynman}
+		\vertex  (a1);
+		\vertex [right= of a1, blob] (a2) {};
+		\vertex [right= 2cm of a2] (a3) ;
+		\vertex [below= 3cm of a1] (b1);
+		\vertex [below= 3cm of a2,blob] (b2) {};
+		\vertex[below= 3cm of a3] (b3);
+		\vertex  at ($(b2) + (1cm , +1.5cm)$) [dot] (d);
+		\vertex [right= 2cm of d] (d1);
+		\vertex at ($(d1) + (1cm , +1.2cm)$) (c1) {$c$};
+		\vertex at ($(d1) + (1cm , -1.2cm)$) (c2) {$\bar{c}$};
+		\diagram*{
+		(a1) --[fermion](a2),
+		(a2) --[double distance=4pt, thick](a3),
+		(b1) --[fermion](b2),
+		(b2) --[double distance=4pt, thick](b3),
+		(b2) --[anti fermion, edge label'=$\bar{q}$] (d),
+		(a2) --[fermion, edge label=$q$](d),
+		(d) --[gluon](d1),
+		(c2) --[fermion] (d1);
+		(d1) --[fermion] (c1);
+		};
+	\end{feynman}
+\end{tikzpicture}

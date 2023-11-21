@@ -6,8 +6,8 @@
 \chapter{Introduction}
 \label{ch:intro}
 The first direct evidence for point-like constituents in the nucleon came
-from the Deep-Inelastic Scattering experiments at SLAC~\cite{breidenbach1969},
-which lead to the introduction of Quantum Chromodynamics (QCD)~\cite{fritzsch1972,fritzsch1973}.
+from the deep-inelastic scattering (DIS) experiments at SLAC~\cite{breidenbach1969},
+which led to the introduction of quantum chromodynamics (QCD)~\cite{fritzsch1972,fritzsch1973}.
 According to QCD, nucleons are composed of quarks and gluons (collectively known as partons),
 bound together through the exchange of gluons. Much of the predictive power of QCD
 is contained in factorization theorems~\cite{collins1989}. QCD factorization separate
@@ -16,10 +16,10 @@ of QCD has successfully described the short-distance hard scattering, the long-d
 effects, such as the internal structure of hadrons,
 could not be calculated with perturbative QCD, and have to be determined experimentally.
 
-This thesis presents results from the SeaQuest, a fixed-target experiment at Fermilab.
-The primary goal of the experiment is to investigate the antiquark structures
-in the proton from the detection of $\mu^+\mu^-$ pairs produced in
-the interaction of a \SI{120}{\GeV} proton beam on various targets, including \ce{^1H} and \ce{^2H}.
+This thesis presents results from SeaQuest, a fixed-target experiment at Fermilab.
+The primary goal of SeaQuest is to investigate the antiquark structures
+in the proton from the detection of high mass $\mu^+\mu^-$ pairs produced in
+the interaction of a \SI{120}{\GeV} proton beam with various targets, including liquid \ce{^1H} and \ce{^2H}.
 The $\mu^+\mu^-$ data consist of multiple components, notably the Drell-Yan continuum
 and the  $J/\psi$ and $\psi^\prime$ resonances.
 Both the Drell-Yan and the $J/\psi$ ($\psi^\prime$) data can be used to probe
@@ -27,30 +27,30 @@ the antiquark structures in the proton.
 The $J/\psi$ ($\psi^\prime$) production is further sensitive to the gluon structure in the proton.
 
 This thesis is organized as follows. After reviewing the early studies
-on the nucleon structure and the Deep-Inelastic Scattering in this chapter,
+on the nucleon structure and the DIS in this chapter,
 the Drell-Yan process and the kinematic variables are summarized in
-\cref{ch:DY}. The charmonium production and gluon distribution are described
+\cref{ch:DY}. The charmonium production and gluon distribution are discussed
 in \cref{ch:jpsi}. The SeaQuest experiment is described in \cref{M-ch:seaquest}.
-\Cref{M-ch:analysis} covers the procedure for data analysis. The measured $J/\psi$
-cross section and the $(p+d)/2(p+p)$ cross section ratio for both $J/\psi$ and Drell-Yan process
-are presented in \cref{M-ch:result}, followed by a summary and future prospects
+\Cref{M-ch:analysis} covers the procedure for data analysis. The measured $J/\psi$ ($\psi'$)
+cross sections and the $(p+d)/2(p+p)$ cross section ratio for both $J/\psi$ and Drell-Yan process
+are presented in \cref{M-ch:result}, followed by a summary and a discussion of future prospects
 in \cref{M-ch:conclusion}.
 
 \section{Early Evidence of the Internal Structure of Nucleon}
-The first evidence of nucleons being a composite particles comes form the
-measurement of their magnetic moments. For spin 1/2 elementary particles, the
+The first evidence of nucleons being composite particles came from the
+measurements of their magnetic moments. For spin 1/2 elementary particles, the
 magnetic moment can be expressed as
 \begin{equation}
 	\mu = \frac{g}{2} \frac{e\hbar}{2m},
 \end{equation}
 with $g$ expected to be \num{2}. Such measurement was first carried out in 1933.
 And the $g$ factor for proton is found to be  significantly greater than \num{2}~\cite{frisch1933}.
-Since the neutron is a neutral particle, it was expected that
-to have a zero magnetic moment. The neutron magnetic moment would later be
-measured and found to be non-zero, suggesting that proton and neutron are
+Since neutron is a neutral particle, it was expected
+to have a zero magnetic moment. The neutron magnetic moment was later measured
+to be non-zero, suggesting that proton and neutron are
 both composite particles~\cite{rabi1934}. The current values of the $g$ factors
 for the charged leptons and nucleons are listed in \cref{tab:g-factor}.
-The deviation from \num{2} for electrons and muons are predicted by QED,
+The deviation from \num{2} for electrons and muons are expected from higher-order corrections,
 and have been studied extensively~\cite{fan2023,abi2021}.
 {
 \sisetup{separate-uncertainty = false}
@@ -68,7 +68,7 @@ and have been studied extensively~\cite{fan2023,abi2021}.
 
 The first insight into the internal structure of the nucleon came from the
 electron proton elastic scattering experiments~\cite{hofstadter1956} in the
-1950s. The electron-proton elastic scattering cross section in the laboratory
+1950s. The electron-proton elastic scattering cross section at angle $\theta$ in the laboratory
 frame can be expressed in the Rosenbluth formula~\cite{rosenbluth1950}
 \begin{equation}
 	\dv{\sigma}{\Omega} = \frac{\alpha^2}{4E^2 \sin^2\left(\theta/2\right)}
@@ -84,7 +84,7 @@ low-$Q^2$ limit, these form factors can be interpreted as the Fourier transforms
 of the charge and magnetic moment distribution of the nucleon, and the mean squared
 charge radius can be obtained from the first derivative of the electric form factor.
 \begin{equation}
-	\expval{r^2}=-6G^\prime_E(0).
+	\expval{r^2}=-6\eval{\dv{G_E\left(Q^2\right)}{Q^2}}_{Q^2=0}.
 \end{equation}
 This interpretation is however later questioned in Ref.~\cite{miller2007,miller2019}.
 The author argued that a three-dimensional charge density, in the strict sense of a
@@ -94,7 +94,7 @@ a two-dimensional charge density can be defined in the infinite momentum frame a
 \begin{equation}
 	\rho(b)=\int^\infty_0 \frac{\dd{Q}Q}{2\pi} J_0(Qb)\frac{G_E^2(Q^2)+\tau G_M^2(Q^2)}{1+\tau},
 \end{equation}
-where $b$ is the impact factor and $J_0$ is a cylindrical Bessel function.
+where $b$ is the impact parameter and $J_0$ is a cylindrical Bessel function.
 \Cref{fig:charge}
 shows a recent extraction of the proton and neutron transverse charge density from the
 form factors, taken from Ref.~\cite{miller2007}. In particular, it was found that
@@ -106,20 +106,20 @@ the neutron has a negatively charged center and surrounded by a positive cloud.
 		(right panel), taken from Ref.~\cite{miller2007}.}
 	\label{fig:charge}
 \end{figure}
-These results further demonstrate the internal structure of the nucleon.
+These results further illustrate the internal structure of the nucleon.
 
-In the 1960s, the quark model is proposed independently by Gell-Mann~\cite{gell-mann1964} and Zweig ~\cite{zweig1964a, zweig1964}
-to understand the growing number of new particles discovered through out the 1940s and 1950s.
+In the 1960s, the quark model was proposed independently by Gell-Mann~\cite{gell-mann1964} and Zweig ~\cite{zweig1964a, zweig1964}
+to understand the growing number of new particles discovered throughout the 1940s and 1950s.
 In the quark model, the baryons are made up of three quarks and the mesons are made up
-of a quark and an antiquark, and can be organized as shown in \cref{fig:Octet}.
+of a quark and an antiquark. They can be organized as shown in \cref{fig:Octet}.
 The magnetic moment of the proton can then be expressed as the sum of the magnetic moment
 from the individual quarks. The proton consists of $uud$ and the neutron consists of $udd$,
-requiring the wavefunction is symmetric in both flavor and spin, the flavor-spin wavefunction of a proton with
+requiring the wavefunction to be symmetric in both flavor and spin, and the flavor-spin wavefunction of a proton with
 spin up is given by
 \begin{equation}
 	\begin{split}
-		\ket{p:\frac{1}{2} \frac{1}{2}}=&  \Bigl\{\frac{1}{2}(\uparrow\downarrow\uparrow-\downarrow\uparrow\uparrow)(udu-duu) + \frac{1}{2}(\uparrow\uparrow\downarrow-\uparrow\downarrow\uparrow)(uud-udu)\\
-		&+\frac{1}{2}(\uparrow\uparrow\downarrow-\downarrow\uparrow\uparrow)(uud-duu)\Bigl\} \frac{\sqrt{2}}{3}.
+		\ket{p,\uparrow}=&  \Bigl\{\frac{1}{2}\ket{\uparrow\downarrow\uparrow-\downarrow\uparrow\uparrow}\ket{udu-duu} + \frac{1}{2}\ket{\uparrow\uparrow\downarrow-\uparrow\downarrow\uparrow}\ket{uud-udu}\\
+		&+\frac{1}{2}\ket{\uparrow\uparrow\downarrow-\downarrow\uparrow\uparrow}\ket{uud-duu}\Bigl\} \frac{\sqrt{2}}{3}.
 	\end{split}
 \end{equation}
 And the magnetic moments are now given by
@@ -127,38 +127,40 @@ And the magnetic moments are now given by
 	\mu_p & = \frac{4}{3}\mu_u-\frac{1}{3}\mu_d,  \\
 	\mu_n & = -\frac{1}{3}\mu_u+\frac{4}{3}\mu_d.
 \end{align}
-If we then also assumed the the $u$ and $d$ quarks share the same mass, the quark model
-then predicts the ratio $\mu_p/\mu_n=-2/3$ which is impressively close to the measured ratio
+If we also assumed that $u$ and $d$ quarks share the same mass, the quark model
+then predicts the ratio $\mu_p/\mu_n=-2/3$ which is impressively close to the measured ratio of
 \num{0.6849793(3)}~\cite{workman2022}.
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
 		\input{images/quark_model/Baryon_octet}
-		\caption{The Baryon Octet.}
+		\caption{The Baryon spin 1/2 Octet.}
 	\end{subfigure}
 	\begin{subfigure}{0.45\linewidth}
 		\input{images/quark_model/Meson_octet}
-		\caption{The Meson Octet.}
+		\caption{The Meson spin 0 Octet.}
 	\end{subfigure}
-	\caption{Baryons and meson organized based on their charge(diagonal), strangeness(vertical) and isospin $I_3$(horizontal). }
+	%\caption{Baryon and meson organized based on their charge(diagonal), strangeness(vertical) and isospin $I_3$(horizontal). }
+	\caption{Baryon and meson octets in the quark model.}
 	\label{fig:Octet}
 \end{figure}
 These quarks would also carry a fractional charge ($+2/3$ for $u$, $s$ quarks and $-1/3$ for $d$ quarks) to
-explain the charge of the baryons. Since a fractional charged particles were never observed, and there were
-no experimental evidence for a free quarks, the quark model was not considered as physical, but only a mathematical construct at the time.
+explain the charge of the baryons. Since fractional charged particles were never observed, and there was
+no experimental evidence for free quarks, the quark model was not considered as physical, but merely a mathematical construct at the time.
 
 \section{Deep Inelastic Scattering}
 \label{sec:dis}
-Evidence of the point-like constituents in the nucleon would later come from the deep
-inelastic scattering (DIS) experiments~\cite{breidenbach1969}, where a high
+Direct evidence for the point-like constituents in the nucleon would come later from DIS
+experiments~\cite{breidenbach1969}, where a high
 energy lepton ($l$) is inelastically scattered off a hadron ($h$), as
-illustrated in \cref{fig:DIS}
+illustrated in \cref{fig:DIS}.
 \begin{equation}
 	l + h \rightarrow l^\prime + X.
 \end{equation}
 \begin{figure}[htbp!]
 	\centering
-	\includegraphics[width=0.3\linewidth]{DIS}
+	%\includegraphics[width=0.3\linewidth]{DIS}
+	\input{images/feynamn/DIS.tex}
 	\caption{The Feynman diagram for DIS.}
 	\label{fig:DIS}
 \end{figure}
@@ -191,15 +193,15 @@ known as Bjorken scaling \cite{bjorken1969}.
 \begin{figure}[htpb!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{nu_W2}
-	\caption{Early measurement structure function $F_2=\nu W_2$ from
-		fixed-target electron-proton inelastic scattering at SLAC for
+	\caption{Early measurement of the structure function $F_2=\nu W_2$ from
+		fixed-target electron-proton deep inelastic scattering at SLAC for
 		$x=1/\omega=0.25$, taken from Ref.~\cite{friedman1972}. The observation
 		that $F_2(x,Q^2)$ is independent of $Q^2$ is known as Bjorken scaling. }
 	\label{fig:w2}
 \end{figure}
 Taking the interpretation that the structure function are related to the form factors in elastic scattering,
 and therefore the Fourier transform of the charge distribution, the Bjorken scaling would suggest
-the existence of point-like particles in the proton
+the existence of point-like particles in the proton.
 
 \section{Parton Model}
 \label{sec:parton}
@@ -211,11 +213,11 @@ the time. Consider the DIS process, the hadron is Lorentz contracted in the
 direction of the collision in the center-of-mass frame, and the internal
 interaction are time dilated. As the center-of-mass energy increases, the
 lifetime of the virtual partonic state is lengthened, and the time for the
-electron to pass trough the hadron is shortened. If the lifetime of the virtual
+electron to pass through the hadron is shortened. If the lifetime of the virtual
 partonic states is longer than the duration of the electron-hadron interaction,
 the partons are essentially frozen and the parton-parton interactions are
-neglectable. The hadrons can be considered as a collection of ``free'' partons,
-and each parton may be thought of as carrying a definite fraction $x$ of the
+negligible. The hadrons can be considered as a collection of ``free'' partons,
+and each parton may be thought of as carrying a certain fraction $x$ of the
 hadron's momentum. The high energy lepton in DIS can be treated as scattering
 off these partons elastically. The electron-parton elastic scattering can be
 calculated using perturbative QCD, whereas the non-perturbative long-range
@@ -229,7 +231,7 @@ order, the structure function $F_2\left(x,Q^2\right)$ is given by
 	F_2\left(x,Q^2\right)=x\sum_i e^2_i f_{i/h}\left(x,Q^2\right),
 	\label{eq:F2_parton}
 \end{equation}
-where $e_i$ is the charge carried by the quarks and antiquarks of flavors $i$. Since the
+where $e_i$ is the charge carried by the quark and antiquark of flavor $i$. Since the
 gluon does not carry any charge, it does not enter the cross section at leading
 order. The ability to write the structure function and the cross section as a
 convolution of the non-perturbative PDF and pertubative short range interaction
@@ -242,13 +244,13 @@ from \cref{eq:DIS_cs1}, the structure function $F_1$ is
 related to the magnetic form factor $G_M$ in \cref{eq:ep_cs}. If the partons
 are spin 0 particles, one would expect $F_1$ to be zero. In leading order of QCD,
 only the quarks and antiquarks contribute to the cross section. Since quarks and
-antiquarks are spin 1/2 particles, this relation is given by the Callan-Gross
+antiquarks are spin 1/2 particles, $F_1$ and $F_2$ are expected to satisfy the Callan-Gross
 relation~\cite{callan1968,callan1969}
 \begin{equation}
-	F_2\left(x\right) = 2x F_1\left(x\right).
+	F_2\left(x,Q^2\right) = 2x F_1\left(x,Q^2\right).
 	\label{eq:CS_relation}
 \end{equation}
-The measured deviation of the Callan-Gross relation, defined as
+The measured deviation from the Callan-Gross relation, defined as
 \begin{equation}
 	K_0 = \frac{F_2}{2xF_1}-1,
 \end{equation}
@@ -268,9 +270,9 @@ the gluons.
 
 \section{Sum Rules}
 \label{sec:sum_rules}
-Since hadrons are characterized by their quantum numbers, and these quantum numbers
-are carried by the constituent partons, these quantum numbers serve as constraints
-on these PDFs. For example, using the numbers of valence quarks in the protons,
+Since hadrons are characterized by their quantum numbers, hadrons consist of partons,
+these quantum numbers serve as constraints on these PDFs.
+For example, from the number of valence quarks in the protons,
 one can impose the following constraints
 \begin{equation}
 	\begin{split}
@@ -279,22 +281,23 @@ one can impose the following constraints
 		\int_{0}^{1} \dd{x} \left[f_{i/p} \left(x\right)-f_{\bar{i}/p} \left(x\right)\right]&=0 \qquad \text{for other quark flavors } i.
 	\end{split}
 \end{equation}
-And the momentum of the hadron should be distributed among the partons, hence
+And the momentum of the hadron should be shared among the partons, hence
 \begin{equation}
-	\sum_{i=q,\bar{q},g}\int_{0}^{1} \dd{x} xf_{i/h}\left(x\right)=1.
+	\sum_{i=u,d,s,\cdots} \int_{0}^{1}\dd{x}\left[x f_{i/p}\left(x\right) +x f_{\bar{i}/p}\left(x\right) \right] + \int_{0}^{1}\dd{x} x f_{g/p}\left(x\right)=1
 \end{equation}
 An important sum rule is the Gottfried sum rule~\cite{gottfried1967}. It can be obtained
-by using the charge symmetry to relate the neutron distributions to those of
-the proton, namely the (anti) up quark in the neutron would have the same distribution
-as (anti) down quark in proton, and vice-versa; the other quarks flavors and gluon
-distribution would be the same in both proton and neutron.
+by using the charge symmetry,
+which is the invariance under $u\leftrightarrow d$ and $\bar{u}\leftrightarrow \bar{d}$ interchange,
+to relate the neutron distributions to those of
+the proton, namely 
 \begin{equation}
 	\begin{split}
-		\bar{u}(x) &\equiv f_{\bar{u}/p}(x) = f_{\bar{d}/n}(x),\text{ and }\\
-		\bar{d}(x) &\equiv f_{\bar{d}/p}(x) = f_{\bar{u}/n}(x).
+		\bar{u}(x) \equiv f_{\bar{u}/p}(x) = f_{\bar{d}/n}(x);&\quad u(x) \equiv f_{u/p}(x) = f_{d/n}(x);\\
+		\bar{d}(x) \equiv f_{\bar{d}/p}(x) = f_{\bar{u}/n}(x);&\quad d(x) \equiv f_{d/p}(x) = f_{u/n}(x).
 	\end{split}
 \end{equation}
-Using this relation
+The other quarks flavors and gluon distribution would be the same in both proton and neutron.
+Using these relations and \cref{eq:F2_parton}, one obtains
 \begin{equation}
 	\begin{split}
 		S_G & = \int_0^1 \frac{\dd{x}}{x}\left(F_2^{p}(x) - F_{2}^{n}(x)\right)\\
@@ -306,10 +309,10 @@ Using this relation
 		& = \frac{1}{3} + \frac{2}{3} \int_0^1 \dd{x} \left[\bar{u}\left(x\right)-\bar{d}\left(x\right)\right].
 	\end{split}
 \end{equation}
-If one made the naive assumption that $\bar{u}\left(x\right)= \bar{d}\left(x\right)$,
-then $S_G$ would be expected to be $1/3$. And this assumption can be tested using DIS.
+If one assumes that $\bar{u}\left(x\right)= \bar{d}\left(x\right)$,
+then $S_G$ would be $1/3$. This assumption can be tested using DIS.
 One of the early measurements is from the New Muon Collaboration (NMC)~\cite{amaudruz1991}.
-The measured $F_2^p-F_2^n$ by NMC is shown in \cref{fig:NMC_Gottfried}.
+The $F_2^p-F_2^n$ measured by NMC is shown in \cref{fig:NMC_Gottfried}.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Gottfried}
@@ -319,26 +322,26 @@ The measured $F_2^p-F_2^n$ by NMC is shown in \cref{fig:NMC_Gottfried}.
 		to $x_{min}=0$ is indicated by the bar on the left vertical axis.}
 	\label{fig:NMC_Gottfried}
 \end{figure}
-The measured Gottfried sum is $0.240 \pm 0.016$, which is significantly below
+The extracted Gottfried sum is $0.240 \pm 0.016$, which is significantly below
 $1/3$, suggesting an asymmetry in the light sea-quarks, $\bar{d}(x)\neq \bar{u}(x)$.
 
 \section{Quantum Chromodynamics}
 \label{sec:QCD}
 \pdfmargincomment{General QCD}
-Quantum Chromodynamics (QCD) is a theory of the strong interactions. It was
+Quantum Chromodynamics (QCD) is a theory of the strong interaction. It was
 introduced by Fritzsch and Gell-Mann~\cite{fritzsch1972} and Fritzsch, Gell-Mann,
 and Leutwyler~\cite{fritzsch1973}. QCD is a non-abelian gauge theory with an
 $SU(3)$ gauge symmetry applied to the color degree of freedom. The $SU(3)$ group
 chosen to account for (a) meson states made up of $q\bar{q}$ but not $qq$ bound states.
 (b) There must be color singlet states. (c) The number of colors for each flavor
-must be in agreement with the measured hadronic $e^+ e^-$ cross-section.
+must be in agreement with the measured hadronic cross-section in $e^+ e^-$ collision.
 
 
 An important feature of QCD is the asymptotic freedom. Being a renormalizable
 theory, a regularization procedure and a set of renormalization prescription
-need to be specified. In the renormalization process, the renomalized coupling $\alpha(\mu)$
-is introduced and this coupling would be a function of the renomalization scale $\mu$.
-It is noted that the coupling constant vanishes as $Q/\mu$ tends to infinity,
+need to be specified. In the renormalization process, the renormalized coupling $\alpha(\mu)$
+is introduced and this coupling would be a function of the renormalization scale $\mu$.
+It is noted that the coupling constant vanishes as $Q/\mu$ tends to infinity~\cite{gross1973,politzer1973},
 allowing perturbative expansion of QCD at large $Q$.
 
 
@@ -346,7 +349,7 @@ allowing perturbative expansion of QCD at large $Q$.
 \label{subsec:scaling_violation}
 In QCD, the parton distribution functions can be defined as matrix elements of
 operators acting on the hadron state. These operators act to count the number of
-quarks and gluon carrying a fraction $\xi$ of the hadron's momentum. For quarks,
+quarks and gluons carrying a fraction $\xi$ of the hadron's momentum. For quarks,
 the distribution is given by~\cite{collins1989}
 \begin{equation}
 	f_{q/h}\left(\xi\right) = \frac{1}{4\pi}\int \dd{x} e^{-i\xi P^{+} x^{-}} \mel{P}{\bar{\psi}\left(0,x^-,0_\perp\right)\gamma^+ \mathcal{G} \psi\left(0,0,0_\perp\right)}{P},
@@ -355,23 +358,23 @@ where $\mathcal{G}$ is the gauge link operator
 \begin{equation}
 	\mathcal{G}=\mathcal{P} \exp \left\{ ig\int_0^{x^-}\dd{y^-} A_c^+ \left(0,y^-,0_\perp\right)t_c\right\},
 \end{equation}
-where $\mathcal{P}$ denoted the path ordering of the gluon field operators $A_a^+$
+where $\mathcal{P}$ denoted the path ordering of the gluon field operators $A_c^+$
 along the path. Similarly, the gluon distribution function is given by
 \begin{equation}
-	f_{g/h}\left(\xi\right) = \frac{1}{2\pi\xi P^+}\int \dd{x} e^{-i\xi P^{+} x^{-}} \mel{P}{\tensor{F_a\left(0,x^-,0_\perp\right)}{^+^\nu}\gamma^{+} \tensor{\mathcal{G}}{_a_b} \tensor{F_b\left(0,0,0_\perp\right)}{_\nu^+}}{P},
+	f_{g/h}\left(\xi\right) = \frac{1}{2\pi\xi P^+}\int \dd{x} e^{-i\xi P^{+} x^{-}} \mel{P}{\tensor{F_a\left(0,x^-,0_\perp\right)}{^+^\nu} \tensor{\mathcal{G}}{_a_b} \tensor{F_b\left(0,0,0_\perp\right)}{_\nu^+}}{P},
 \end{equation}
-where $F^a_{\mu\nu}$ is the field operator, and the octet representation of the $SU(3)$
+where $F^a_{\mu\nu}$ is the field tensor operator, and the octet representation of the $SU(3)$
 generating matrices $t_c$ is used in $\mathcal{G}$.
 
-The QCD generalization of \cref{eq:F2_parton} is given
+The QCD generalization of \cref{eq:F2_parton} is
 \begin{equation}
 	\frac{1}{x}F_2\left(x,Q^2\right) = \sum_a \int_x^1 \frac{\dd{\xi}}{x}f_{a/h}\left(\xi,\mu\right)\frac{\xi}{x}H_{2a}\left( \frac{x}{\xi}, \frac{Q}{\mu}, \alpha_s\left(\mu\right)\right)
 	+ \text{Remainder}
 \end{equation}
-The hard scattering coefficient $H_{2a}$ would be power series in $\alpha_s$. It
-can be shown the remainder is suppress by powers of $Q$. Here the parton
+The hard scattering coefficient $H_{2a}$ is expanded as power series in $\alpha_s$. It
+can be shown that the remainder is suppressed by powers of $Q$. Here the parton
 distribution also depends on the renormalization scale $\mu$. This scale
-dependency is introduced by the renomalization procedure. By requiring the cross
+dependency is introduced by the renormalization procedure. By requiring the cross
 section and the structure functions to be independent of the scale $\mu$,
 one can show that the renormalization group equation for the distribution
 functions is
@@ -384,7 +387,7 @@ At order $\alpha_s$, the $F_2$ structure function is given by~\cite{collins1989}
 \begin{equation}
 	\frac{1}{x} F_2\left(x,Q^2\right) = \sum_j e^2_j f_{j/h}\left(x,\mu\right) + \sum_{j,b} e^2_j \int^1_x \frac{\dd{\xi}}{\xi} f_{b/h}\left(x,\mu\right) \frac{\alpha_s}{\pi} C_{jb}\left(\frac{x}{\xi}, \frac{Q}{\mu}\right) + \mathcal{O}(\alpha_s^2).
 \end{equation}
-The sums over $j$ runs over the quarks and antiquarks flavors. While the gluons
+The sum over $j$ runs over the quark and antiquark flavors. While the gluons
 did not contribute at leading order, they contribute at order $\alpha_s$ through
 virtual quark-antiquark pairs. The hard scattering coefficients $C_{jb}$ are
 given by
@@ -392,7 +395,7 @@ given by
 	C_{jk}(z,1) & = \delta_{jk} \frac{4}{3} \left[ -\frac{1}{2}\frac{1+z^2}{1-z} \ln\left(\frac{z}{1-z}\right) + \frac{3}{4} \frac{1}{1-z} -\frac{3}{2} -z\right]_+ \\
 	C_{jg}(z,1) & = -\frac{1}{2} \left\{ \frac{1}{2}\left[z^2+(1-z)^2\right] \left[\ln\left(\frac{z}{1-z}\right)+1\right] -3z(1-z)\right\},
 \end{align}
-where the plus sign denote the subtraction that regulate the $z\rightarrow1$
+where the plus subscript denotes the subtraction that regulates the $z\rightarrow1$
 singularity,
 \begin{equation}
 	\begin{split}
@@ -406,7 +409,7 @@ power expansions of $H$. As such the $\mu$ dependency in the parton distribution
 functions can be interpreted as a virtual photon with higher $Q$ would probe the
 nucleon with better resolution.
 
-\Cref{fig:DIS_scaling} shows the extracted $F_2$ from DIS measurements and compared
+\Cref{fig:DIS_scaling} shows the extracted $F_2$ from DIS measurements compared
 with the NLO calculation. The $Q^2$ dependency is known as scaling violation and
 originates from higher order corrections and $Q$ dependency of the PDF.
 \begin{figure}[h!]
@@ -430,8 +433,8 @@ is given by~\cite{kataev2003}
 	\end{cases}
 \end{equation}
 where $n_f$ is the active flavor.
-Taking $\alpha_s(Q^2)\approx 0.35$, the numerical value is $\approx 0.3313$. Therefore,
-the light sea-quark asymmetry is still needed to explained the NMC result.
+Taking $\alpha_s(Q^2=4\unit{\GeV^2})\approx 0.35$, the numerical value is $\approx 0.3313$. Therefore,
+the light sea-quark asymmetry is still needed to explain the NMC result.
 
 \Cref{fig:CT18_scale} shows the PDF extracted by CTEQ-TEA collaboration in their
 CT18 global analysis~\cite{hou2021}. The sea-quarks from the gluon splitting
@@ -446,24 +449,25 @@ QCD evolution of the PDF.
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{CT18NLO_100}
 	\end{subfigure}
-	\caption{The parton distribution function from CT18~\cite{hou2021} global analysis at two different scale.
-		The gluon distribution is scale down by a factor of 5.}
+	\caption{The parton distribution functions from CT18~\cite{hou2021} global analysis at two different scales.
+		The gluon distribution is scaled down by a factor of 5.}
 	\label{fig:CT18_scale}
 \end{figure}
 
 
 \chapter{Drell-Yan Process}
 \label{ch:DY}
-Another process for probing the hadron structure is the Drell-Yan process~\cite{drell1970}.
+In addition to DIS, another process for probing the hadron structure is the Drell-Yan process~\cite{drell1970}.
 As illustrated in \cref{fig:DY}, this process involves two partons from the
-two colliding hadrons to annihilate and form a lepton pair.
+two colliding hadrons to annihilate and form a lepton pair:
 \begin{equation}
 	h_A + h_B \rightarrow l + \bar{l} + X.
 \end{equation}
 The Drell-Yan process is related to the DIS process via crossing symmetry.
 \begin{figure}[htbp!]
 	\centering
-	\includegraphics[width=0.5\linewidth]{Drell-Yan}
+	%\includegraphics[width=0.5\linewidth]{Drell-Yan}
+	\input{images/feynamn/DY.tex}
 	\caption{The leading order Feynman diagram for the Drell-Yan process.}
 	\label{fig:DY}
 \end{figure}
@@ -478,18 +482,18 @@ the cross section can be written as
 	\right],
 	\label{eq:DY_cs}
 \end{equation}
-where $M$ is the mass of the lepton pair, $x_1$ and $x_2$ are the momentum fraction
+where $M$ is the mass of the lepton pair, $x_1$ and $x_2$ are the momentum fractions
 carried by the partons from the two colliding hadrons. To simplify the notation,
-the scale dependence $Q^2$ of the PDF is omitted here. In fixed target environments,
+the $Q^2$ scale dependence of the PDF is omitted here. In fixed target environments,
 the scale $Q^2$ is typically chosen to the dilepton mass squared $M^2$.
-The mass of the lepton pair and momentum fractions can be related through the following
+The mass of the lepton pair and momentum fractions are related through
 \begin{equation}
 	M^2= sx_1x_2,
 	\label{eq:mass}
 \end{equation}
-where $s$ is the hadron-hadron center mass energy squared.
+where $s$ is the hadron-hadron center-of-mass energy squared.
 Since the underlying mechanism for the Drell-Yan process at leading order involves the annihilation
-of a quark and antiquark, this process is particularly useful in probing the antiquark
+of a quark and an antiquark, this process is particularly useful in probing the antiquark
 content of the hadron.
 In the parton model, the angular distribution of the Drell-Yan dilepton would have the following
 distribution from the decay of the transversely polarized virtual photon,
@@ -536,7 +540,7 @@ QCD correction is included.
 		at NLO.}
 	\label{fig:NLO_DY}
 \end{figure}
-At NLO ($\mathcal{O}\left(\alpha_s\right)$), diagram such as gluon bremsstrahlung
+At NLO ($\mathcal{O}\left(\alpha_s\right)$), diagrams such as gluon bremsstrahlung
 and Compton scattering begin to contribute, as shown in \cref{fig:NLO_DY}.
 
 \input{section/DY_NLO}
@@ -551,13 +555,13 @@ following relation~\cite{lam1980}
 \begin{equation}
 	1-\lambda-2\nu=0.
 \end{equation}
-This relation, known as the Lam-Tong relation, is analogous to the Callon-Cross relation in DIS
+This relation, known as the Lam-Tung relation, is analogous to the Callan-Gross relation in DIS
 (\cref{eq:CS_relation}).
 
 \Cref{fig:DY_scaling} shows some of the existing data on Drell-Yan compared with NLO calculation. By
 performing a global fit to both DIS and Drell-Yan data, the parton distribution
 functions can be extracted. The ability to fit both DIS and Drell-Yan data using
-the same PDF demonstrate the universality of the PDF and the usefulness of the
+the same PDF demonstrate the universality of the PDF and the validity of the
 factorization theorem.
 \begin{figure}[htbp!]
 	\centering
@@ -579,10 +583,10 @@ can be approximated as
 	\frac{\sigma^{p+d}}{2\sigma^{p+p}}\approx \frac{\sigma^{p+p}+\sigma^{p+n}}{2\sigma^{p+p}}
 	\stackrel{x_1\gg x_2}{\approx} \frac{1}{2} \left( 1+ \frac{\frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} + \frac{d\left(x_1\right)}{4u\left(x_1\right)} }{1+\frac{d\left(x_1\right)}{4u\left(x_1\right)} \frac{\bar{d}\left(x_2\right)}{\bar{u}\left(x_2\right)} }\right).
 \end{equation}
-The first approximation sign indicate that nuclear correction in deuteron is assumed to be negligible~\cite{ehlers2014}.
+The first approximation sign indicates that nuclear correction in deuteron is assumed to be negligible~\cite{ehlers2014}.
 In the limit $x_1$ is sufficiently large, $d\left(x_1\right)/u\left(x_1\right)$ is expected
 to be small, and thus this ratio can be directly related to the light sea-quark
-asymmetry. The Drell-Yan process has been used in many experiments to probe the sea-quarks
+asymmetry. The Drell-Yan process has been used in several experiments to probe the sea-quarks
 asymmetry, with the goal of measuring the $x$ dependence of the sea-quark asymmetry
 instead of only the integral as with the Gottfried sum rule.
 
@@ -593,12 +597,12 @@ Utilizing the sensitivity of the Drell-Yan process to the sea-quark asymmetry,
 the E866/NuSea experiment~\cite{towell2001} was designed to measure the $(p+d)/2(p+p)$
 Drell-Yan cross section ratio over a broad range of $x$. The
 experiment utilized the \SI{800}{\GeV} proton beam from the Tevatron on liquid
-hydrogen and deuterium targets. The measured deuteriuym over hydrogen cross section
+hydrogen and deuterium targets. The measured deuterium over hydrogen cross section
 ratio from E866/NuSea is shown in \cref{fig:e866_result}. At low $x$, the ratio is consistent
 with a symmetric sea, and the asymmetry becomes larger as $x$ increases, as expected from
-the model predictions. However, at $x_2>0.25$ the cross section ratio
-drop off below unity, suggesting the $\bar{d}/\bar{u}$
-ratio drop off below 1, which could not be explained by models at the time.
+the model predictions. However, at $x_2>0.25$ the cross section ratios
+drop below unity, suggesting that the $\bar{d}/\bar{u}$
+ratio drop below 1, which could not be explained by models at the time.
 Due to the large uncertainty on the data points at large $x_2$, a new
 experiment was needed to explore sea quark asymmetry the high $x$ region with better
 accuracy.
@@ -623,7 +627,8 @@ After the result from NMC and other DIS experiments indicating the violation of 
 various models have been proposed to explain the $\bar{d}/\bar{u}$ asymmetry. One of the early proposal
 is by Field and Feynman~\cite{field1977}. They suggested that the Pauli blocking effect
 could suppress the production of $u\bar{u}$ pairs relative to  $d\bar{d}$ due to the presence of two
-valence $u$ quarks in the proton. It was later shown that the effect by Pauli blocking would be small and
+valence $u$ quarks and only one valence $d$ quark in the proton.
+It was later shown that the effect by Pauli blocking would be small and
 may actually have an opposite effect~\cite{steffens1997}. Since the contribution from gluon splitting to the
 sea quarks is flavor-blind and the mass of $u$ and $d$ quarks are roughly equal, the asymmetry in the
 light sea-quarks must originate from a non-perturbative mechanism. Some of the models will be presented
@@ -635,24 +640,24 @@ In the meson cloud model~\cite{kumano1998,speth2002} the proton wave function is
 \begin{equation}
 	\ket{p} = \sqrt{Z}\ket{p}_{bare} + \sum_{MB}\int \dd{y} \dd[2]{\vec{k}_\perp} \phi_{BM} \left(y, k^2_\perp\right)\ket{M\left(y, \vec{k}_\perp\right);B\left(1-y, -\vec{k}_\perp\right)}
 \end{equation}
-where $\phi_{BM}$ is the probability amplitude to find a physical nucleon in a state consisting of a virtual
-meson $M$ and virtual baryon $B$ with longitudinal momentum fraction $y$ and $1-y$ and transverse momenta
+where $\phi_{BM}$ is the amplitude to find a physical nucleon in a state consisting of a virtual
+meson $M$ and virtual baryon $B$ with longitudinal momentum fractions $y$ and $1-y$ and transverse momenta
 $\vec{k}_\perp$ and $-\vec{k}_\perp$ respectively. $Z$ is the standard wave function normalization factor
 and can be interpreted as the probability of finding a bare proton, which only contains a symmetric sea.
 
 The main hypothesis is that the exchanged photon in the DIS process can interact with the partons in the
 virtual meson or the virtual
-baryon. Therefore, the PDF can be related to the PDF of either the stuck meson or stuck baryon.
+baryon. Therefore, the PDF can be related to the PDFs of either the stuck meson or stuck baryon.
 \begin{equation}
 	f_{i/N}\left(x\right) = f_{i/N}^{\mathrm{bare}}\left(x\right) +  \int^1_x f_{MB/N}\left(y\right) f_{i/M}\left(\frac{x}{y}\right) \frac{\dd{y}}{y} + \int^1_x f_{BM/N}\left(y\right) f_{i/B}\left(\frac{x}{y}\right) \frac{\dd{y}}{y},
 \end{equation}
 where $f_{MB/N}$ and $f_{BM/N}$ are the splitting function, related to $\phi_{BM}$, and $f_{MB/N}(y)=f_{BM/N}(1-y)$.
-If we restrict to $\pi N$ and $\pi\Delta$ states, and using charge symmetry,
+If we restrict to $\pi N$ and $\pi\Delta$ states, and using isospin symmetry,
 \begin{align}
 	f_{\pi^+n/p}=\frac{2}{3} f_{\pi N}                                       & , ~f_{\pi^0 p/p}=\frac{1}{3} f_{\pi N},                                         \\
 	f_{\pi^-\Delta^{++}/p}=\frac{1}{2} f_{\pi \Delta}, ~f_{\pi^0 \Delta^+/p} & =\frac{1}{3} f_{\pi \Delta},  ~f_{\pi^+ \Delta^0/p}=\frac{1}{6} f_{\pi \Delta}.
 \end{align}
-The light sea-quark distribution in the proton is given by
+The light sea-quark distributions in the proton are given by
 \begin{align}
 	\bar{d}(x) & = \left(\frac{5}{6}f_{\pi N} + \frac{1}{3}f_{\pi \Delta}\right)\otimes q^v_\pi + S(x) \\
 	\bar{u}(x) & = \left(\frac{1}{6}f_{\pi N} + \frac{2}{3}f_{\pi \Delta}\right)\otimes q^v_\pi + S(x)
@@ -664,7 +669,7 @@ The asymmetry in the proton sea arises because of the dominance of the $\pi^+$ a
 However, the effect is slightly reduced by the $\pi\Delta$ configurations, which favors $\bar{u}$ over $\bar{d}$.
 As the $\Delta$ baryon is heavier than the proton, the $\pi\Delta$ configurations should be less important than
 the $\pi N$ configurations.
-If we took the difference $\bar{d}-\bar{u}$, the flavor symmetric contributions $S(x)$ would cancel out.
+If we took the difference $\bar{d}-\bar{u}$, the flavor symmetric contribution $S(x)$ would cancel out.
 \Cref{fig:pion_cloud}
 shows the predicted $\bar{d}-\bar{u}$ from the meson cloud model, taken from Ref.~\cite{alberg2022}.
 \begin{figure}
@@ -687,7 +692,7 @@ For example, after one emission, the $u$ quark wavefuction would have the follow
 	\Psi\left(u\right) \sim \left[d\pi^+ + s K^+ + u \left(\frac{\pi^0}{\sqrt{2}} + \frac{\eta}{\sqrt{6}}\right)\right],
 \end{equation}
 which can be expressed in terms of the quark contents by using $\pi^+ = u\bar{d}$ and $K^+ = u\bar{s}$. etc.
-The probability of the transitions is given by the squaring the wavefunction, and if
+The probability of the transitions is given by squaring the wavefunction, and if
 \begin{equation}
 	Prob\left[ u_+ \rightarrow \pi^+d_-\right] \equiv a,
 \end{equation}
@@ -740,7 +745,7 @@ And this is shown in \cref{fig:stat_dbub}.
 
 
 \subsection{Five-quark Intrinsic Sea Model}
-In the 1980s, Brodsky, Hoyer, Peterson and Sakai (BHPS)~\cite{brodsky1980}, proposed
+In the 1980s, Brodsky, Hoyer, Peterson and Sakai (BHPS)~\cite{brodsky1980} proposed
 the possible existence of a significant $\ket{uudc\bar{c}}$ five-quark Fock state component
 in the proton in order to explain the larger than expected charmed hadrons production rate.
 
@@ -756,7 +761,7 @@ and $m_i$ is the mass of quark $i$.
 Since the BHPS model also predicts the probability for the $\ket{uudQ\bar{Q}}$ configuration to
 be inversely proportional to the mass of the quark $Q$, the intrinsic sea can have important
 contribution to the light sea-quarks. In Ref.~\cite{chang2011,chang2011a}, the BHPS model
-was extend to the light quark sector. In this model, the $\bar{u}$ and $\bar{d}$ are predicted
+was extended to the light quark sector. In this model, the $\bar{u}$ and $\bar{d}$ are predicted
 to  have the same $x$ dependence if one assumes $m_u=m_d$. The only source of asymmetry
 are the probabilities of the $\ket{uudd\bar{d}}$ and $\ket{uudu\bar{u}}$ configurations,
 which are not known from the BHPS model, and remain to be determined from experiments.
@@ -776,9 +781,9 @@ contribution at higher scale.
 \end{figure}
 
 Recent global analysis from NNPDF~\cite{ball2022} and measurement from the LHCb~\cite{aaij2022}
-have shown the evidence of intrinsic charm in the proton. This has lead to many recent theory
+have suggested evidence of intrinsic charm in the proton. This has led to many recent theory
 development in understanding the nonperturbative charm in the proton~\cite{guzzi2023}. There are
-also suggestion that SeaQuest kinematic would be ideal for testing limits on intrinsic charm~\cite{vogt2021}.
+also suggestions that SeaQuest kinematic would be ideal for testing limits on intrinsic charm~\cite{vogt2021}.
 
 \subsection{Lattice QCD}
 Lattice QCD calculations of the $\bar{d} - \bar{u}$ based on the Large Momentum Effective
@@ -805,7 +810,7 @@ moderately-large momentum and taking the limit of the proton momentum to infinit
 \end{figure}
 LaMET are typically used to calculate flavor non-singlet quantities such as $u-d$ and $\bar{d}-\bar{u}$,
 as the disconnected diagram would cancel out in the calculation.
-\Cref{fig:lamet} shows the result using LaMET from two different groups and are compared with
+\Cref{fig:lamet} shows the results using LaMET from two different groups and are compared with
 different global PDF extractions. While the result by the LP3 collaboration
 is in good agreement with CT14, the result from the ETMC group differs from the PDFs,
 especially in the antiquark region.
@@ -860,18 +865,18 @@ expressed as
 where $i$,$j$ denote the type of interacting partons. 
 \begin{figure}[htpb!]
 	\centering
-	\begin{subfigure}{0.4\linewidth}
-		\begin{subfigure}{\linewidth}
-			\input{images/gg1}
+	\begin{subfigure}[c]{0.4\linewidth}
+		\begin{subfigure}[c]{\linewidth}
+			\input{images/feynamn/gg1}
 		\end{subfigure}
-		\begin{subfigure}{\linewidth}
-			\input{images/gg2}
+		\begin{subfigure}[c]{\linewidth}
+			\input{images/feynamn/gg2}
 		\end{subfigure}
 		\caption{Gluon fusion\label{subfig:gluon}.}
 	\end{subfigure}
 	\quad
-	\begin{subfigure}{0.4\linewidth}
-		\input{images/qq}
+	\begin{subfigure}[c]{0.4\linewidth}
+		\input{images/feynamn/qq}
 		\caption{Quark-antiquark annihilation.\label{subfig:qqbar}}
 	\end{subfigure}
 	\caption{The Feynman diagram for $c\bar{c}$ pair production.}

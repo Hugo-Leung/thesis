@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+	\tikzstyle{every node}=[font=\large]
+	\begin{feynman}
+		\vertex  (a1) {$l$};
+		\vertex [right= 4cm of a1] (a2) {$l'$};
+
+		\vertex [below= 4cm of a1,blob] (b2) {};
+		\vertex [left= 1.2cm of b2] (b1) {$h$};
+		\vertex[right= 2cm of b2] (b3){$X$};
+
+		\vertex  at ($(a1) + (2cm , -1cm)$) [dot] (d);
+		\vertex [below= 2 cm of d] (d1);
+
+		\vertex at ($(d1) + (2cm, -1cm)$) (c1) {$q'$};
+		
+		\diagram*{
+		(a1) --[fermion](d),
+		(d)  --[fermion](a2),
+		(b1) --[fermion](b2),
+		(b2) --[fermion, edge label=$q$](d1),
+		(d1) --[fermion](c1),
+		(b2) --[double distance=4pt, thick](b3),
+		(d) --[photon, edge label=$\gamma^*$](d1);
+		};
+	\end{feynman}
+\end{tikzpicture}
