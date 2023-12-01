@@ -48,7 +48,7 @@ SeaQuest utilizes a GEANT4~\cite{agostinelli2003,allison2006,allison2016}
 based Monte Carlo simulation (GMC) to simulate the
 performance of the spectrometer and the acceptance. The GMC is based on the
 E866 FastMC, a fortran-based simulation code, and is ported to SeaQuest and
-modified according to SeaQuest’s experimental configurations~\cite{kerns2018,prasad2020}.
+modified according to SeaQuest's experimental configurations~\cite{kerns2018,prasad2020}.
 
 \subsection{Dimuon generation}
 As SeaQuest is mostly interested in dimuons with high mass and $x_F$, where the cross section
@@ -96,55 +96,64 @@ both $\theta$ and $\phi$.
 \subsubsection{Transformation from Collins-Soper frame to Laboratory frame}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{Collins_Soper_frame}
-	\caption{Definition of the Collins–Soper frame and various angles and planes in the rest frame of dimuon
-		Taken from Ref.~\cite{peng2019}}
+	%\includegraphics[width=0.6\linewidth]{Collins_Soper_frame}
+	\input{images/Collins_Soper_frame.tex}
+	\caption{Definition of the Collins–Soper frame and various angles and planes in the rest frame of the dimuon.
+		The hadron plane is formed by $\vec{P}_A$ and $\vec{P}_B$, the momentum vectors of the colliding hadrons.
+		The $\hat{x}$ and $\hat{z}$ axes both lie on the hadron plane, with $\hat{z}$ bisecting $\vec{P}_A$ And
+		$\vec{P}_B$. Adapted from Ref.~\cite{peng2019}}
 	\label{fig:cs_frame}
 \end{figure}
-To transform from the Collins-Soper frame to lab frame, three Lorentz transforms are needed.
-The first transformation boost along the virtual photon's $-P_T$ direction, a second transformation then
-boost along the $-z$ direction to reach the hadron-hadron center of mass frame. A final transformation
-then boost along the $-z$ direction to reach the lab frame~\cite{Don-1926}.
-
-In Collins-Soper frame, the hadron plane is formed by the momentum vector of the two interacting hadron
-($\vec{P}_B$ and $\vec{P}_T$). The $\hat{x}$ and $\hat{z}$ are chosen to be on the hadron plane, with
-$\hat{z}$ bisecting the $\vec{P}_B$ and $-\vec{P}_T$ vectors and $\hat{x}$ is along the dilepton transverse
-momentum. The outgoing leptons $l^+$ and $l^-$ are
-emitted back-to-back, forming the lepton plane, with polar angle $\theta$ and azimuthal angle $\phi$.
-The annihilating quark and antiquark would also form the quark plane, which can be offset from the
+The Collins-Soper frame is defined in the rest frame of the dimuon.
+The hadron plane is formed by the momentum vectors of the two interacting hadrons
+($\vec{P}_A$ and $\vec{P}_B$). The $\hat{x}$ and $\hat{z}$ axes are chosen to be on the hadron plane.
+The Collins-Soper frame is defined such that the $\hat{z}$ axis bisecting the $\vec{P}_A$ and $-\vec{P}_B$
+vectors and $\hat{x}$ is along the dilepton transverse momentum. 
+The outgoing leptons $l^+$ and $l^-$ are emitted back-to-back, forming the lepton plane, 
+with polar angle $\theta$ and azimuthal angle $\phi$ for $l^-$.
+The annihilating quark and antiquark annihilate collinearly with equal momenta along $\hat{z}'$.
+The quark momentum vector $\hat{z}'$ and $\hat{z}$ axis forms the quark plane, which can be offset from the
 hadron plane.
 
-The first transform from the Collins-Soper frame is along the $\hat{x}$ direction (or along the dilepton $-p_T$). The $\gamma$ and $\beta$ for this boost are given as
+To transform from the Collins-Soper frame to lab frame, three Lorentz transforms are applied.
+The first transformation boosts along the virtual photon's $-P_T$ direction, a second transformation then
+boosts along the $-z$ direction to reach the hadron-hadron center of mass frame. A final transformation
+then boosts along the $-z$ direction to reach the lab frame~\cite{Don-1926}.
+
+The first transform from the Collins-Soper frame is along the $\hat{x}$ direction (or along the dilepton $-p_T$).
+The $\gamma$ and $\beta$ for this boost are given as
 \begin{equation}
 	\begin{split}
 		\gamma_1 & = \frac{\sqrt{p_T^2 + M^2}}{M},\\
 		\beta_1 & = \frac{M}{\sqrt{p_T^2 + M^2}}.
 	\end{split}
 \end{equation}
-The $x$-$y$ axis is then rotated along $z$ direction by $\phi_\gamma$, as the dilepton $p_T$
+The $x$-$y$ axes are then rotated along $z$ direction by $\phi_\gamma$, as the dilepton $P_T$
 does not necessarily lie on the $x$-axis in the lab frame.
 This angle $\phi_\gamma$ is randomly selected from a uniform distribution.
 
 The next transform is along the $z$-axis to reach the hadron-hadron center of mass frame.
 \begin{equation}
 	\begin{split}
-		\gamma_2 &= \frac{\sqrt{p_L^2 + M^2}}{M},\\
+		\gamma_2 &= \frac{\sqrt{P_L^2 + M^2}}{M},\\
 		\beta_2 & = \frac{M}{\sqrt{p_L^2 + M^2}},
 	\end{split}
 \end{equation}
-where $p_L$ is the longitudinal momentum of the virtual photon. The final transform along the
-$z$-axis to the lab frame is given by
+where $P_L$ and $M$ are the longitudinal momentum and mass of the virtual photon respectively.
+The final transform along the $z$-axis to the lab frame is given by
 \begin{equation}
 	\begin{split}
 		\gamma_3 &= \frac{E_{\mathrm{beam}}+m_{\mathrm{proton}}}{\sqrt{s}},\\
-		\beta_3 & = \frac{p_{\mathrm{proton}}}{E_{\mathrm{beam}}+m_{\mathrm{proton}}}.
+		\beta_3 & = \frac{P_{\mathrm{proton}}}{E_{\mathrm{beam}}+m_{\mathrm{proton}}}.
 	\end{split}
 \end{equation}
 
 \subsubsection{Cross section weighting}
-Each event is assigned a weight based on the cross section. The Drell-Yan cross section is calculated based on
-the kinematics of the generated events. The leading order cross section is calculated with the
-CT14 pdf. The NLO effect is then included using 2-dimensional K-Factor~\cite{shivangi-1747}, which
+To recover the expected kinematics distributions, 
+each event is assigned a weight based on the cross section.
+The Drell-Yan cross section is calculated based on the kinematics of the generated events. 
+The leading order cross section is calculated with the CT14 pdf.
+The NLO effect is then included using 2-dimensional K-Factor~\cite{shivangi-1747}, which
 is defined as the ratio of the NLO cross section over LO cross section and is
 calculated using DYNNLO (see \cref{sec:DYNNLO}).
 The proton on deuterium cross section is calculated using the charge symmetry.
@@ -238,7 +247,7 @@ Drell-Yan experiment E615~\cite{conway1989}. The $x_F$ and $\sqrt{s}$ dependence
 proton induced Drell-Yan has also been reported in Ref.~\cite{prasad2020}.
 
 In this analysis, a different re-weighting formula is used. Because of the way $P_T$ is chosen
-in the MC, the probability density function is normalized to unity as follows
+in the event generator, the probability density function is normalized to unity as follows
 \begin{equation}
 	\int^{\left(P_T^{\mathrm{max}}\right)^2}_0 dP_T^2 \frac{N}{\left(1+ P_T^2/p_1^2\right)^6}=1
 \end{equation}
@@ -265,7 +274,7 @@ The SeaQuest reconstruction is done using kTracker, primarily developed by K.~Li
 One of my responsibility is the reconstruction of the run 5 and run 6 data. In order to reduce the processing
 time, we utilize the Open Science Grid~\cite{pordes2007,sfiligoi2009,osg2006} to run multiple kTracker
 instances and process multiple events in parallel.
-We also utilize Apptainer (formerly known as Singularity)~\cite{kurtzer2021} to maintain better control of the
+I have also utilized Apptainer (formerly known as Singularity)~\cite{kurtzer2021} to maintain better control of the
 runtime environment.
 
 The reconstruction is divided into three parts: EventReducer, kFastTracking, and kVertex.
@@ -327,10 +336,10 @@ hits less than \SI{10}{\ns}, all these hits are considered electronic noise and 
 \paragraph{Trigger Hodoscope masking}
 As the hodoscopes have a shorter time resolution compared to the chamber drift time and
 the RF bucket periodicity, the hodoscopes are used for triggering. The hodoscope hits
-are recorded by both the FPGA trigger modules as well as the TW-TDC. The in-time hodoscope
+are recorded by both the FPGA trigger modules as well as the TDC modules. The in-time hodoscope
 hits from all 4 stations are combined to form all possible combinations, called road. These
 combinations are checked against the active trigger road set used. Only the chamber hits
-that fall behind a fired hodoscope paddle, of which is part of a valid trigger road, will be retained.
+that fall behind a fired hodoscope paddle, that forms part of a valid trigger road, will be retained.
 
 
 \subsection{Track Finding}
@@ -367,7 +376,7 @@ to the prediction. At each iteration, the Kalman filter preform three steps: pre
 The Kalman filter loops over all the nodes, using the current estimate of the track parameters
 from the previous node and calculate the expected hit location using Geant4. This predicted location
 is then compared with measured location. During the filter step, the track parameters at the current node is
-then adjusted based on the difference in the predicted and measured hit location in order to minimized
+adjusted based on the difference between the predicted and measured hit location in order to minimized
 the $\chi^2$. Kalman filter will then move on to the next node.
 
 Once all the nodes have been predicted and filtered, the smoothing step can begin. The smoothing step propagates
@@ -552,7 +561,7 @@ During normal data taking, the Beam DAQ records three quantities: integrated bea
 The number of protons on targets during DAQ live time can be calculated as follows:
 \begin{equation}
 	\mathrm{live\ proton} = \frac{\mathrm{QIEsum}-\mathrm{inhibit\_block\_sum}-\mathrm{trigger\_sum\_no\_inhibit}}{\mathrm{QIEsum}}\cdot \mathrm{G2SEM}
-\end{equation}
+\end{equation}\pdfcomment{update with pedestal subtraction}
 
 The conversion factor from QIE units to number of proton ($\frac{\mathrm{G2SEM}}{\mathrm{QIEsum}}$)
 is also a function of time. This is due to radiation damage to the mirror. The mirror needs to be replaced
@@ -593,53 +602,6 @@ numerator.
 	\end{tabular}
 \end{table}
 
-\section{Intensity Extrapolation}
-\label{sec:extrapolation}
-Extracting the Drell-Yan cross section ratio using the intensity extrapolation method
-is first studied by J.~Dove~\cite{dove2020} and A.~Tadepalli~\cite{tadepalli2019},
-and it is used in Ref.~\cite{dove2021}.
-The assumption behind this method is that the accidental background and physics events
-would have different intensity dependence. The number of observed physics
-events, in the absence of any spectrometer effects, should be linearly proportional to the beam
-intensity. On the contrary, the two muons in the accidental background are typically coming from
-two separate interactions, and therefore it is expected to be proportional to the intensity squared.
-By taking the ratio of the $(p+p)$ and $(p+d)$ dimuon event rates,
-other rate dependent effects would also be canceled out at zero intensity.
-
-The procedure for this method is summarized here. A mass cut at \SI{4.5}{\GeV} is applied to
-remove the charmonium decays, leaving only the Drell-Yan dimuons and the accidental background.
-Cuts are also applied to exclude region close to the boundaries of the acceptance.
-Then the background originated from the interaction with the instruments is estimated by using
-the empty flask data normalized by the integrated beam intensity, and is subtracted from the
-$p+p$ and $p+d$ data. Third, the $(p+d)/2(p+p)$ ratios are formed by empty flask subtracted
-dimuon data, normalized by the raw proton ratios. The ratio is calculated as a function of the
-instantaneous beam intensity measured by the BIM. The ratio is then fitted with the following function
-\begin{equation}
-	R_i \left(I\right) = p_{0i} + p_1 I + p_2 I^2,
-	\label{eq:common_pol2}
-\end{equation}
-where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p_{0i}$ gives
-the value of the cross section ratio in each $x_T$ bins. Other fit functions are also used
-to study the fit function dependence.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.6\linewidth]{run5-6_DY_tInt}
-	\caption{The intensity distribution of the reconstructed from Run 5-6 after applying the event selection.
-		The distributions are normalized to unit area.}
-	\label{fig:tInt_distribution}
-\end{figure}
-
-\pdfcomment{explain choice of raw proton}
-
-While this method allows for extractions of the Drell-Yan cross section ratio without relying
-heavily on simulation, this method cannot be used in the charmonium studies.
-Both Drell-Yan process and charmonium production would have the same linear intensity dependence,
-hence this method is not able to distinguish the different physics processes, and therefore could
-not be used in the charmonium studies. Moreover, only the cross section ratio could be obtained in
-this method, as the absolute yield and value of rate dependency correction will be needed in
-absolute cross section studies, and cannot be obtained from the intensity extrapolation method.
-
 \section{Mass Spectrum Fitting}
 With the goal of obtaining the absolute yield for different processes, the mass spectrum fitting
 procedure is developed. This also forms the bases of our recent publication~\cite{dove2023}.
@@ -675,7 +637,7 @@ Other mixed sample can also be used. This is done to estimate the systematic unc
 
 \subsection{TFractionFitter}
 To account for the statistical uncertainties in both the data and Monte Carlo
-simulation, the TFrationFitter algorithm is used in this analysis~\cite{barlow1993}.
+simulation, the TFractionFitter algorithm~\cite{barlow1993} is used in this analysis.
 This is achieved by performing a standard likelihood fit using Poisson statistics,
 while the templates, generated from MC, are also varied within statistics, leading
 to additional contributions to the overall likelihood.
@@ -699,11 +661,65 @@ found by maximizing this likelihood. One consequence of this approach is the
 $n \cross m$ fit parameters $A_{ji}$. However, the  minimization of these additional
 parameters is done analytically rather than treating them as formal fit parameters.
 
-In the case of weighted MC, \cref{eq:TF_f} is modified into
+To solve for the maximum, \cref{eq:TF_likelihood} is differentiated with respect to $p_j$ 
+and $A_{ji}$ and the derivatives are set to zero.
+This yields two sets of equations, those for the differentials with respect to $p_j$,
+\begin{equation}
+	\sum^n_{i=1} \left(\frac{d_i A_{ji}}{f_i} -A_{ji}\right)=0\quad \forall j,
+	\label{eq:TF_d1}
+\end{equation}
+and those for the differentials with respect to $A_{ji}$
+\begin{equation}
+	\frac{d_i p_j}{f_i} - p_j + \frac{a_{ji}}{A_{ji}}-1=0\quad \forall 	i,j.
+	\label{eq:TF_d2}
+\end{equation}
+\Cref{eq:TF_d2} and be simplified by rewritten as 
+\begin{equation}
+	1-\frac{d_i}{f_i} = \frac{1}{p_j}\left(\frac{a_{ji}}{A_{ji}}-1\right)\quad \forall i,j.
+	\label{eq:TF_d3}
+\end{equation}
+Since the left hand side only depends on $i$, one can define $t_i$ as
+\begin{equation}
+	t_i= 1-\frac{d_i}{f_i}.
+	\label{eq:TF_d4}
+\end{equation}
+And the right hand side can expressed as 
+\begin{equation}
+	A_{ji}=\frac{a_{ji}}{1+p_j t_i}.
+\end{equation}
+This reduces the $m\cross \left(n+1\right)$ unknowns in \cref{eq:TF_likelihood} ($p_j$ and $A_{ji}$)
+into $m+n$ unknowns ($p_j$ and $t_i$).
+And \cref{eq:TF_f} and be expressed as
+\begin{equation}
+	\frac{d_i}{1-t_i}=f_i=\sum_j^m p_jA_{ji}=\sum_j^m \frac{p_j a_{ji}}{1+p_jt_i}.
+	\label{eq:TF_d5}
+\end{equation}
+To solve for $p_j$ and $t_i$, one can employ an interactive procedure. First, solve for $p_j$ by maximizing
+\cref{eq:TF_d1} using numerical methods with fixed $t_i$. Next, refine $t_i$ by using \cref{eq:TF_d5} while keeping
+$p_j$ fixed. Repeat the process until convergence is reached.
+
+Some nice features arises automatically from the algebra. Substituting \cref{eq:TF_d3} into \cref{eq:TF_d1},
+\begin{equation}
+	\sum_i A_{ji}=\sum_i a_{ji}.
+\end{equation}
+These means the estimate of $A_{ji}$ for some source will change the shape of the distribution
+from that of the MC data $a_{ji}$, but will preserve the overall total number. 
+
+Using \cref{eq:TF_d2} and summing over $i$ and $j$, 
+\begin{equation}
+	\sum_i d_i = \sum_i\sum_j p_j a_{ji},
+\end{equation}
+which returns the normalization, without the need for imposing additional constraints.
+
+In the case of weighted MC, \cref{eq:TF_f} would need to be modified into
 \begin{equation}
 	f_i = \sum^m_{j=1} p_j w_{ji}A_{ji},
 \end{equation}
 where $w_{ji}$ is the average weight of the MC events in bin $i$ from the source $j$.
+And $A_{ji}$ is given by
+\begin{equation}
+	A_{ji}=\frac{a_{ji}}{1+p_j w_{ji}t_i}.
+\end{equation}
 
 \subsection{Yield Extraction}
 The normalization for different components (except for empty flask, which is fixed by relative live proton ratio)
@@ -872,7 +888,7 @@ molecule. Therefore the effective volume of molecules in the target is
 	\end{split}
 \end{equation}
 where $C=N_{\ce{HD}}/N_{\ce{D_2}}$ and $f=\left[ C V_{\ce{HD}}/V_{\ce{D_2}} + (1-C) \right]$ with the
-volume ratio $V_{\ce{HD}}V_{\ce{D_2}}=1.094$.
+volume ratio $V_{\ce{HD}}/V_{\ce{D_2}}=1.094$.
 The total number of molecules per area is
 \begin{equation}
 	\begin{split}
@@ -902,7 +918,7 @@ For contaminated deuterium, the effective density is
 \begin{equation}
 	\begin{split}
 		\rho_{\mathrm{eff.}} &= \frac{1}{L} (T_D^H + T_D^D)\\
-		&=\frac{\rho_{\ce{D_2}}}{f} \left[ \frac{A_H}{A_D}\frac{C}{2}+(1-C/2) \right].
+		&=\frac{\rho_{\ce{D_2}}}{f} \left[ \frac{A_H}{A_D}\frac{C}{2}+(1-C/2) \right],
 	\end{split}
 \end{equation}
 and the effective interaction length is
@@ -1095,6 +1111,53 @@ larger \cite{chleung-9643}.
 
 During later runs, only one trigger road set (roadset 78) was used, hence this is no
 longer an issue.
+
+\section{Intensity Extrapolation}
+\label{sec:extrapolation}
+An independent method for extracting the Drell-Yan cross section ratio, known as intensity extrapolation method, 
+is first studied by J.~Dove~\cite{dove2020} and A.~Tadepalli~\cite{tadepalli2019}, 
+and it is used in Ref.~\cite{dove2021}.
+The assumption behind this method is that the accidental background and physics events
+would have different intensity dependence. The number of observed physics
+events, in the absence of any spectrometer effects, should be linearly proportional to the beam
+intensity. On the contrary, the two muons in the accidental background are typically coming from
+two separate interactions, and therefore it is expected to be proportional to the intensity squared.
+By taking the ratio of the $(p+p)$ and $(p+d)$ dimuon event rates,
+other rate dependent effects would also be canceled out at zero intensity.
+
+The procedure for this method is summarized here. A mass cut at \SI{4.5}{\GeV} is applied to
+remove the charmonium decays, leaving only the Drell-Yan dimuons and the accidental background.
+Cuts are also applied to exclude region close to the boundaries of the acceptance.
+Then the background originated from the interaction with the instruments is estimated by using
+the empty flask data normalized by the integrated beam intensity, and is subtracted from the
+$p+p$ and $p+d$ data. Third, the $(p+d)/2(p+p)$ ratios are formed by empty flask subtracted
+dimuon data, normalized by the raw proton ratios. The ratio is calculated as a function of the
+instantaneous beam intensity measured by the BIM. The ratio is then fitted with the following function
+\begin{equation}
+	R_i \left(I\right) = p_{0i} + p_1 I + p_2 I^2,
+	\label{eq:common_pol2}
+\end{equation}
+where the parameter $p_1$ and $p_2$ are common to all bins, and the intercept $p_{0i}$ gives
+the value of the cross section ratio in each $x_T$ bins. Other fit functions are also used
+to study the fit function dependence.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\linewidth]{run5-6_DY_tInt}
+	\caption{The intensity distribution of the reconstructed from Run 5-6 after applying the event selection.
+		The distributions are normalized to unit area.}
+	\label{fig:tInt_distribution}
+\end{figure}
+
+\pdfcomment{explain choice of raw proton}
+
+While this method allows for extractions of the Drell-Yan cross section ratio without relying
+heavily on simulation, this method cannot be used in the charmonium studies.
+Both Drell-Yan process and charmonium production would have the same linear intensity dependence,
+hence this method is not able to distinguish the different physics processes, and therefore could
+not be used in the charmonium studies. Moreover, only the cross section ratio could be obtained in
+this method, as the absolute yield and value of rate dependency correction will be needed in
+absolute cross section studies, and cannot be obtained from the intensity extrapolation method.
 
 
 

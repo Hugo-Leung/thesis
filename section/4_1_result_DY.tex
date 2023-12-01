@@ -1,0 +1,175 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+\ifSubfilesClassLoaded{
+	\mainmatter
+	\setcounter{chapter}{6}
+}{}
+
+\section{Drell-Yan Cross Section Ratio}
+\subsection{Mass fit results}
+\Cref{fig:massfit_integrated_run23} shows the fit to the mass distributions for Run 2-3 data, and the
+data is very well described by the fitting procedure. Similarly, the mass distributions for Run 5-6
+are shown in \cref{fig:massfit_integrated_run56}.
+\begin{figure}[h!]
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run2-3/57_70_LH2_log}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run2-3/57_70_LD2_log}
+	\end{subfigure}
+	\caption{The mass spectrum for \ce{LH_2}(left) and \ce{LD_2}(right) targets data for Run 2-3.}
+	\label{fig:massfit_integrated_run23}
+\end{figure}
+\begin{figure}[h!]
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run5-6/5_6_LH2_log}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run5-6/5_6_LD2_log}
+	\end{subfigure}
+	\caption{The mass spectrum for \ce{LH_2}(left) and \ce{LD_2}(right) targets data for Run 5-6.}
+	\label{fig:massfit_integrated_run56}
+\end{figure}
+With the yield for different process obtained from the mass fits, the cross section ratios can be calculated
+and are also shown in \cref{fig:CSR_MF}, and are tabulated in \cref{tab:DY-MF-x2,tab:DY-MF-x1,tab:DY-MF-xF}.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.6\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/MF_full_xT_syst}
+	\end{subfigure}\\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/MF_full_xB_syst}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/MF_full_xF_syst}
+	\end{subfigure}
+	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_T$(top),
+		$x_B$(left) and $x_F$(right) using the mass fit method from the two datasets.}
+	\label{fig:CSR_MF}
+\end{figure}
+\begin{table}[h!]
+	\centering
+	\caption{The extracted Drell-Yan cross section ratio as a function of $x_T$ using the mass fit method.}
+	\label{tab:DY-MF-x2}
+	\input{table/DY_MF_x2.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{The extracted Drell-Yan cross section ratio as a function of $x_B$ using the mass fit method.}
+	\label{tab:DY-MF-x1}
+	\input{table/DY_MF_xB.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{The extracted Drell-Yan cross section ratio as a function of $x_F$ using the mass fit method.}
+	\label{tab:DY-MF-xF}
+	\input{table/DY_MF_xF.tex}
+\end{table}
+\FloatBarrier
+
+\subsubsection{Effect of the updated target contamination correction}
+\label{subsec:contamination_result}
+As discussed in \cref{M-subsec:contamination}, an incorrect target contamination correction was used
+in previous publications and the effect is shown in \cref{fig:contaimination_CSR}.
+The overall effect is a roughly \SI{2}{\percent} shift in the ratio. The updated corrections
+are used through out this thesis.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{DY-csr/Compare_targetCorr}
+	\caption{The effect of the updated target contamination correction on the Drell-Y.an
+		cross section. The extracted cross section ratio using the revised target contamination
+		is shown as red sold triangle, and the previous published version is shown as blue open
+		circle. The overall effect is a roughly \SI{2}{\percent} shift in the ratio. }
+	\label{fig:contaimination_CSR}
+\end{figure}
+
+
+\subsection{Comparison with global PDF analysis}
+\pdfmargincomment{modified to impact of SeaQuest result?}
+The published $\sigma_{pd}/2\sigma_{pp}$ ratio result has been included in various recent global
+PDF analysis, including Ref.~\cite{cocuzza2021,guzzi2022,accardi2023,alekhin2023}.
+In particular, \cref{fig:CSR_MF} shows the calculation using CT18 (without the SeaQuest data)
+and NNPDF 4.0 (including the SeaQuest data). The shift in the cross section ratio is primarily
+coming from the inclusion of the SeaQuest data. Unlike the previous E866 result, the SeaQuest data
+strongly suggests the $\bar{d}/\bar{u}$ ratio would remain greater than one for $x<0.4$, which is
+consistent with prediction from various models, including meson cloud and statistical model.
+
+The importance of the SeaQuest data can be seen in the NNPDF 4.0, where at large $x_T$,
+uncertainties bands is consistent with the uncertainties of our measurements, as the SeaQuest
+results is the only available data sensitive to the light sea-quark asymmetry at large $x$.
+
+
+\subsection{Comparison massfit with Intensity Extrapolation Method}
+As described in \cref{M-sec:extrapolation}, an independent method for extracting the Drell-Yan cross section
+ratio is developed by utilizing the rate dependence. The extracted ratios using this method are shown \cref{fig:CSR_IE},
+and are tabulated in \cref{tab:DY-IE-x2,tab:DY-IE-x1,tab:DY-IE-xF}.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.6\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/IE_full_xT_syst}
+	\end{subfigure}\\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/IE_full_xB_syst}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/IE_full_xF_syst}
+	\end{subfigure}
+	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_T$(top),
+		$x_B$(left) and $x_F$(right) using the intensity extrapolation method from the two datasets.}
+	\label{fig:CSR_IE}
+\end{figure}
+
+\begin{table}[h!]
+	\centering
+	\caption{The extracted Drell-Yan cross section ratio as a function of $x_T$ using the intensity extrapolation method.}
+	\label{tab:DY-IE-x2}
+	\input{table/DY_IE_x2.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{The extracted Drell-Yan cross section ratio as a function of $x_B$ using the intensity extrapolation method.}
+	\label{tab:DY-IE-x1}
+	\input{table/DY_IE_xB.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{The extracted Drell-Yan cross section ratio as a function of $x_F$ using the intensity extrapolation method.}
+	\label{tab:DY-IE-xF}
+	\input{table/DY_IE_xF.tex}
+\end{table}
+\FloatBarrier
+
+The results from massfit and extrapolation methods are shown in \cref{fig:CSR_method}. The final cross section ratio
+is obtained by taking the average of the two method and are shown in red in the figure. The final ratios are tabulated
+in \cref{tab:DY-final} 
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.6\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/method_full_xT_syst}
+	\end{subfigure}\\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/method_full_xB_syst}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/method_full_xF_syst}
+	\end{subfigure}
+	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_T$(top),
+		$x_B$(left) and $x_F$(right) using the mass fit and intensity extrapolation.}
+	\label{fig:CSR_method}
+\end{figure}
+
+\begin{table}[h!]
+	\centering
+	\caption{The final Drell-Yan cross section ratio after combining the results from the mass fit and intensity extrapolation methods.}
+	\label{tab:DY-final}
+	\scalebox{0.925}{
+		\input{table/DY_final.tex}
+	}
+\end{table}
+
+\FloatBarrier
+
+\ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
+
+\end{document}

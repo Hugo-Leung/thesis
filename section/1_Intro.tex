@@ -9,12 +9,21 @@ The first direct evidence for point-like constituents in the nucleon came
 from the deep-inelastic scattering (DIS) experiments at SLAC~\cite{breidenbach1969},
 which led to the introduction of quantum chromodynamics (QCD)~\cite{fritzsch1972,fritzsch1973}.
 According to QCD, nucleons are composed of quarks and gluons (collectively known as partons),
-bound together through the exchange of gluons. Much of the predictive power of QCD
-is contained in factorization theorems~\cite{collins1989}. QCD factorization separate
-hadronic collisions into long- and short-distance effects. While perturbative expansion
-of QCD has successfully described the short-distance hard scattering, the long-distance
-effects, such as the internal structure of hadrons,
-could not be calculated with perturbative QCD, and have to be determined experimentally.
+bound together through the exchange of gluons. One key feature of QCD is ``asymptotic freedom'':
+the effective coupling of QCD goes to zero at zero distance~\cite{gross1973,politzer1973}. 
+This allows short-distance processes to be analyzed using perturbative methods.
+However, the effective coupling becomes progressively larger at longer distance,
+ultimately being strong enough to lead to the confinement of quarks and gluons.
+In this regime perturbation theory clearly fails. 
+An alternative approach is used in the regime, known as lattice QCD~\cite{wilson1974},
+which involves replacing the space-time continuum by discrete lattice of points.
+Although enormous progress have made in lattice QCD calculations, they are limited
+both in achievable accuracy and in the observables that can be predicted.
+Much of the predictive power of QCD is contained in factorization theorems~\cite{collins1989}. 
+QCD factorization separate hadronic collisions into long- and short-distance effects.
+While perturbative expansion of QCD has successfully described the short-distance hard scattering,
+the long-distance effects, such as the internal structure of hadrons,
+could not be calculated with perturbative QCD, and have to be determined experimentally or via lattice QCD.
 
 This thesis presents results from SeaQuest, a fixed-target experiment at Fermilab.
 The primary goal of SeaQuest is to investigate the antiquark structures
@@ -133,11 +142,12 @@ then predicts the ratio $\mu_p/\mu_n=-2/3$ which is impressively close to the me
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.45\linewidth}
-		\input{images/quark_model/Baryon_octet}
+		\input{images/quark_model/Baryon_octet_v2}
 		\caption{The Baryon spin 1/2 Octet.}
 	\end{subfigure}
+	\hspace{3mm}%
 	\begin{subfigure}{0.45\linewidth}
-		\input{images/quark_model/Meson_octet}
+		\input{images/quark_model/Meson_octet_v2}
 		\caption{The Meson spin 0 Octet.}
 	\end{subfigure}
 	%\caption{Baryon and meson organized based on their charge(diagonal), strangeness(vertical) and isospin $I_3$(horizontal). }
@@ -226,7 +236,7 @@ Function (PDF) $f_{a/h}\left(x\right)$, which can be interpreted as the probabil
 of finding a parton of species $a$ in hadron $h$ with fraction $x$ of the hadron's momentum.
 And the cross section can be written as a convolution
 of the non-perturbative PDF and the perturbative short range interaction. To leading
-order, the structure function $F_2\left(x,Q^2\right)$ is given by
+order (LO), the structure function $F_2\left(x,Q^2\right)$ is given by
 \begin{equation}
 	F_2\left(x,Q^2\right)=x\sum_i e^2_i f_{i/h}\left(x,Q^2\right),
 	\label{eq:F2_parton}
@@ -335,7 +345,6 @@ $SU(3)$ gauge symmetry applied to the color degree of freedom. The $SU(3)$ group
 chosen to account for (a) meson states made up of $q\bar{q}$ but not $qq$ bound states.
 (b) There must be color singlet states. (c) The number of colors for each flavor
 must be in agreement with the measured hadronic cross-section in $e^+ e^-$ collision.
-
 
 An important feature of QCD is the asymptotic freedom. Being a renormalizable
 theory, a regularization procedure and a set of renormalization prescription
@@ -759,7 +768,7 @@ and $m_i$ is the mass of quark $i$.
 \pdfmargincomment{this model can at most predict the x dependence of dbar -ubar, but not the magnitude. It is worth keeping?}
 
 Since the BHPS model also predicts the probability for the $\ket{uudQ\bar{Q}}$ configuration to
-be inversely proportional to the mass of the quark $Q$, the intrinsic sea can have important
+be proportional to $1/m^2_Q$, where $m_Q$ is the mass of quark $Q$, the intrinsic sea can have important
 contribution to the light sea-quarks. In Ref.~\cite{chang2011,chang2011a}, the BHPS model
 was extended to the light quark sector. In this model, the $\bar{u}$ and $\bar{d}$ are predicted
 to  have the same $x$ dependence if one assumes $m_u=m_d$. The only source of asymmetry
@@ -768,7 +777,7 @@ which are not known from the BHPS model, and remain to be determined from experi
 Nevertheless, the $x$ dependence of the $\bar{d}-\bar{u}$ asymmetry can be obtained from the model.
 \Cref{fig:five_quark} shows the comparison of the $\bar{d}-\bar{u}$ data from E866 with calculation
 based on BHPS model, with normalization fixed by the measured asymmetry. At the initial scale,
-the sea-quark distribution exhibit a valence like behavior, but is overwhelm by the pertubative
+the sea-quark distribution exhibit a valence like behavior, but is overwhelm by the perturbative
 contribution at higher scale.
 \begin{figure}
 	\centering
@@ -817,15 +826,15 @@ especially in the antiquark region.
 
 \chapter{Charmonium Production}
 \label{ch:jpsi}
-Another process for probing the nucleon structure is via the charmonium production~\cite{peng1995,chang2020}.
-Unlike DIS and Drell-Yan, the charmonium production involves the strong interaction
-at leading-order. Therefore it can be used to probe the gluon structure, which is
-less sensitive in DIS or Drell-Yan, and the quark anti-quark structure. 
+Another process for probing the nucleon structure is the charmonium production~\cite{peng1995,chang2020}.
+Unlike DIS and Drell-Yan, the charmonium production involves strong interaction
+at the leading-order. Therefore it can be used to probe the gluon structure, which is
+less sensitive in DIS or Drell-Yan, and the quark and anti-quark structures. 
 At leading order, charmonium production involves two sub-processes, gluon fusion and 
 quark-antiquark annihilation, as illustrated in \cref{fig:charmonium}.
 
 The simultaneous measurement of charmonium production and Drell-Yan process, two very different
-processes, can provides complementary information on the partonic structures of the nucleon. 
+processes, can provide complementary information on the partonic structures of the nucleon. 
 In particular, the $\sigma_{pd}/2\sigma_{pp}$ ratio for charmonium 
 production is expected to be sensitive to the ratio of the gluon distributions in the proton 
 and neutron, as well as the $\bar{d}/\bar{u}$ ratio in the proton.
@@ -843,10 +852,11 @@ charge symmetry requires that the gluon distributions in the proton and neutron
 are identical. A measurement of the gluon contents in proton and neutron could test charge symmetry at
 the partonic level~\cite{piller1996,zhu2008,lansberg2012}.
 
-As $J/\psi$ and $\psi'$ are resonances, they tend to show up as peaks in th mass spectrum,
+As $J/\psi$ and $\psi'$ are resonances, they tend to show up as peaks in the dimuon mass spectrum,
 and the cross section is significantly larger than the Drell-Yan cross section.
-However, because of the non-perturbative nature of QCD, there are various models for
-calculating the charmonium production. The models usually separate the production
+However, there are various models for calculating the charmonium production, 
+which contains of the non-perturbative aspect of QCD.
+The models usually separate the production
 mechanism into two parts, the production of heavy-quark pairs and their subsequent
 hadronization into quarkonium states. One of the early approaches is the Color
 Evaporation method (CEM)~\cite{einhorn1975,bodwin1995}. The heavy-quark
@@ -882,19 +892,19 @@ where $i$,$j$ denote the type of interacting partons.
 	\caption{The Feynman diagram for $c\bar{c}$ pair production.}
 	\label{fig:charmonium}
 \end{figure}
-While proon induced $J/\psi$ production is often dominated by gluo fusion
+While proton induced $J/\psi$ production is often dominated by gluon fusion
 process~\cite{vogt1999}, The relative importance of gluon fusion
 and quark-antiquark annihilation is a strong function of hadron-hadron center-of-mass energy $\sqrt{s}$
 and $x_F=2P_L/\sqrt{s}$, where $P_L$ is the longitudinal momentum of the $J/\psi$ meson in the
 hadron-hadron center-of-mass frame.
-The NA51 collaboration reproted a measurement of the $p+p$ and $p+d$ cross sections
-for the charmonium at \SI{450}{\GeV} at signle value of rapidity ($x_F\sim 0$)~\cite{abreu1998}.
-The SeaQuest measurement cover a braoder kinematic range of $0.4<x_F<0.95$ at a lower beam energy
+The NA51 collaboration reported a measurement of the $p+p$ and $p+d$ cross sections
+for the charmonium at \SI{450}{\GeV} at a single value of rapidity ($x_F\sim 0$)~\cite{abreu1998}.
+The SeaQuest measurement covers a broader kinematic range of $0.4<x_F<0.95$ at a lower beam energy
 of \SI{120}{\GeV}.
 The calculated cross section for $J/\psi$ production in $p+p$ at \SI{120}{\GeV} using
 CEM is shown in \cref{fig:cem_cs}.  
-At our beam energy, the quark-antiquark annihilation would be more important the gluon fusion at large $x_F$, where
-the SeaQuest experiment is more sensitive.
+At our beam energy, the quark-antiquark annihilation would be more important than gluon fusion at large $x_F$, where
+the SeaQuest experiment has better coverage.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\linewidth]{pp_norm_cs_NLO_pp}
@@ -903,7 +913,7 @@ the SeaQuest experiment is more sensitive.
 	\label{fig:cem_cs}
 \end{figure}
 
-Another theoretical model for quarkonium productions is the non-relativistic
+Another theoretical model for quarkonium production is the non-relativistic
 QCD (NRQCD) \cite{bodwin1995}. Unlike CEM, the probability of
 hadronization depends on the color and spin state of the $c\bar{c}$ pairs and
 is described by various long-distance matrix elements (LDMEs). The quarkonium
@@ -926,14 +936,14 @@ for the hardronization probability for a specfic $c\bar{c}$ state into the
 charmonium state $H$. These LDMEs are obtained by fitting to data and assumed to
 be universal, independent of beam or target hadrons and the energy scale. Some 
 existing LDMEs are tabulated in \cref{tab:LDMEs}. The values of LDMEs from
-different groups are very different, in some case, even the sign is different.
+different groups are very different, in some cases, even the signs are different.
 This is partly due to the choice of data sets used in their global fits. The
 SeaQuest experiment can provide additonal constraints on these LDMEs. Some
-existing data is shown in \cref{fig:charm_cs}.
-Unlike most previous fixed target charmonium target, which utilized nuclear
+existing data are shown in \cref{fig:charm_cs}.
+Unlike most previous fixed-target charmonium experiments, which utilized nuclear
 targets, SeaQuest have both hydrogen and deuterium targets. 
 Studying the charmonium production in $p+p$ and $p+d$, would allow the extraction
-of the LDMEs with little to no model dependence from nuclear effects. 
+of the LDMEs with little, if any, model dependence from nuclear effects. 
 
 \begin{table}[ht!]
 	\centering
@@ -958,15 +968,10 @@ of the LDMEs with little to no model dependence from nuclear effects.
 	\label{fig:charm_cs}
 \end{figure}
 
-
-
-
-
-
 The calculated cross sections for $J/\psi$ and $\psi'$ production using NRQCD for
 $p+p$ at 120 GeV are shown in \cref{fig:NRQCD_cs}. In this model, quark-antiquark
 annihilation is more important than suggested by CEM. This model also suggests
-that the relative importance of the two subprocess depends on the charmonium state.
+that the relative importance of the two subprocesses depend on the charmonium state.
 In particular, \cref{fig:NRQCD_cs} shows that the quark-antiquark annihilation
 is the dominant process for $\psi^\prime$ production.
 \begin{figure}[h!]
@@ -982,7 +987,7 @@ is the dominant process for $\psi^\prime$ production.
 	\end{subfigure}
 	\caption{Calculated cross section for charmonium production using NRQCD model
 		\cite{chang2021}. CT14nlo is used as the proton PDF. The LDMEs used are
-		taken from table \num{4} in Ref.~\cite{hsieh2021}, and are obtained from a
+		taken from Table \num{4} in Ref.~\cite{hsieh2021}, and are obtained from a
 		global fit to fixed-target charmonium production data. }
 	\label{fig:NRQCD_cs}
 \end{figure}

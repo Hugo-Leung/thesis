@@ -15,16 +15,16 @@ the determination of the light sea-quark asymmetry at large $x$ and to understan
 the drop in $\bar{d}/\bar{u}$ at $x>0.25$.
 The E906 SeaQuest experiment was proposed as a follow-up to the E866 measurement~\cite{isenhower2001}.
 The main objective of the experiment is to probe the light sea-quark asymmetry at
-large $x$ with better accuracy than previous measurement through the use of the Drell-Yan
-process. To gain better statistics at large $x$, the \SI{120}{\GeV} proton beam from the Main
+large $x$ with better accuracy than the E866 experiment. 
+To gain better statistics at large $x$, the \SI{120}{\GeV} proton beam from the Main
 Injector is used instead of the \SI{800}{\GeV} beam from the Tevatron used during E866.
 Since the Drell-Yan cross section is inversely proportional to the center-mass energy
-squared, the lower beam energy allows for better statistics as large values of $x$.
+squared, the lower beam energy allows for better statistics at large values of $x$.
 
 \section{Beam}
 The layout of the Fermilab accelerator complex is shown in \cref{fig:complex},
 taken from Ref.~\cite{concept-book}.
-SeaQuest received its \SI{120}{\GeV} proton beam from the Fermilab Main Injector.
+SeaQuest receives its \SI{120}{\GeV} proton beam from the Fermilab Main Injector.
 The proton beam originate from a direct-extraction magnetron hydrogen ion source,
 which produces a \SI{35}{\keV} negative hydrogen ion beam. It is then accelerated
 to \SI{750}{\keV} using Radio-Frequency Quadrupole. Then the Linac accelerates the
@@ -46,11 +46,11 @@ Injector RF frequency, dividing the beam into ``RF buckets'' that are less than
 \end{figure}
 Even though the integrated intensity from each spill is very stable,
 the number of protons in each bucket can vary greatly during the spill, as
-is shown in \cref{fig:intensity}.
+shown in \cref{fig:intensity}.
 \begin{figure}[htpb!]
 	\centering
 	\includegraphics[width =0.8\linewidth]{beam_intensity_v2}
-	\caption{The beam intensity measured by the Beam DAQ Cherenkov counter every
+	\caption{The beam intensity measured by the beam intensity monitor every
 		bucket, taken from Ref.~\cite{aidala2019}. The horizontal line in each plot
 		indicate the threshold above which the trigger is inhibited.}
 	\label{fig:intensity}
@@ -58,11 +58,11 @@ is shown in \cref{fig:intensity}.
 
 \subsection{Beam Intensity Monitor}
 \label{subsec:BIM}
-The integrated beam intensity is monitor by Fermilab Accelerator Division using a
+The integrated beam intensity is monitored by Fermilab Accelerator Division using a
 secondary emission monitor located upstream of the SeaQuest experimental hall, which
 is read out once per spill.
 To better understand the bucket-to-bucket variation in the beam intensity, a Cherenkov  counter,
-shown in \cref{fig:BIM}, was added upstream of the target during the Main Injector upgrade.
+shown in \cref{fig:BIM}, was added upstream of the target during the Main Injector shutdown.
 \begin{figure}[htbp!]
 	\centering
 	\includegraphics[width=0.4\linewidth]{BIMCerenkov}
@@ -70,8 +70,8 @@ shown in \cref{fig:BIM}, was added upstream of the target during the Main Inject
 	\label{fig:BIM}
 \end{figure}
 
-An aluminized Kapton mirror reflects the Cherenkov  light, produced when the proton beam
-pass through the radiator, into a single photomultiplier tube. The signal is then
+An aluminized Kapton mirror reflects the Cherenkov light, produced when the proton beam
+passes through the radiator, into a single photomultiplier tube. The signal is then
 sent to a custom ``QIE'' (Charge Integrator and Encoder) module. This custom module
 is clocked with the Main Injector RF, and is capable of recording the beam intensity
 of each RF bucket for the entire spill. The QIE module is linked to the trigger
@@ -80,7 +80,7 @@ threshold. The module is also read out by the Beam DAQ, which will be discussed
 in \cref{subsec:beamDAQ}.
 The beam intensity monitor is calibrated against the upstream secondary emission monitor.
 
-The ability to record the numbers of proton in each bucket allows us to obtain the
+The ability to record the number of protons in each bucket allows us to obtain the
 yields as a function of the instantaneous intensity, which will be discussed
 further in \cref{M-sec:extrapolation}.
 
@@ -88,9 +88,9 @@ further in \cref{M-sec:extrapolation}.
 The SeaQuest target is placed between the Beam Intensity Monitor and the front face
 of spectrometer. The target system consists of two liquid targets, hydrogen and deuterium,
 and three solid targets, iron, carbon and tungsten. The liquid target material is held
-in a \SI{50.8}{\cm} cylindrical vacuum vessel, with a diameter of \SI{3.81}{\cm}.
+in a \SI{50.8}{\cm} long cylindrical vacuum vessel, with a diameter of \SI{3.81}{\cm}.
 In the case of liquid targets, the proton beam would also traverse through two
-\SI{140}{\um} thick windows on both ends of the vacuum vessel and the \SI{51}{\mu} end caps.
+\SI{140}{\um} thick windows on both ends of the vacuum vessel and the \SI{51}{\um} end caps.
 Each solid target is divided
 into \num{3} discs of equal length, and are spatially separated along the beam
 direction to minimize variation in acceptance between liquid and solid targets.
@@ -133,9 +133,9 @@ FMag, is placed \SI{104}{\cm} downstream the target. It is then followed by
 the first tracking station. The SeaQuest detector system is separated into four tracking stations.
 Stations 1, 2 and 3 each consists of plastic scintillator hodoscopes and drift chambers.
 The hodoscopes in each stations provides a fast signal for triggering whereas
-the drift chambers provide good spatial resolution for track precise reconstruction.
+the drift chambers provide good spatial resolution for precise track reconstruction.
 An open air dipole magnet (KMag) is placed between station 1 and station 2.
-Downstream of station 3, there is an \SI{1}{\meter} iron wall acting as a
+Downstream of station 3, there is an \SI{1}{\meter} iron wall acting as an
 absorber. Station 4 is located behind the  absorber and acts as a
 muon identifier. Station 4 consists of a hodoscope array and 4 layers of
 proportional tube planes.
@@ -150,8 +150,8 @@ proportional tube planes.
 \subsection{Magnets}
 There are two dipole magnets used in the SeaQuest spectrometer, namely the focusing
 magnet (FMag) and analyzing magnet (KMag). The magnetic field of both magnets point
-in the same direction vertically ($\pm y$), which bend the muons horizontally along
-the $x-z$ plane. The polarity of the magnets were flipped during Run 3, partly to reduce
+in the same direction vertically ($\pm y$), which bends the muons horizontally along
+the $x-z$ plane. The polarity of the magnets was flipped during Run 3, partly to reduce
 radiation damage to electronics located in the hall.
 
 The upstream focusing magnet (FMag) is a solid iron magnet, shown in \cref{fig:fmag}.
@@ -161,8 +161,8 @@ the Columbia University Nevis Laboratory Cyclotron, and the aluminium coils from
 SM3 magnet. The coils are excited to \SI{2000}{\ampere} and generate an \SI{1.9}{\tesla}
 magnetic field within the iron block. This corresponds to a transverse momentum kick of
 \SI{3.07}{\GeV}. FMag serves three main purposes: focusing high mass muon pairs, beam
-dump and hadron absorber. As a focusing magnet, FMag would focus dimuons with high $p_T$
-or high mass into the spectrometer acceptance. This is particularly important as SeaQuest
+dump and hadron absorber. As a focusing magnet, FMag would focus muons of high $p_T$
+or dimuons of high mass into the spectrometer acceptance. This is particularly important as SeaQuest
 aims to probe the partonic structure at high $x$, which would correspond to high mass dimuons.
 Additionally, it would also defocus the low momentum muons, hence reducing the background.
 Due to the high beam intensity, FMag also serves as beam dump. Typically, only $\sim 10\%$
@@ -247,21 +247,21 @@ denoted as X and X$'$, are aligned vertically. Two planes are tilted by \ang[ret
 denoted as U and U$'$, and two planes, V and V$'$, are tilted by \ang[retain-explicit-plus]{-14}.
 The wires in the primed planes are offset by half a drift cell relative to the
 unprimed planes to resolve left-right ambiguity of the drift direction.
-Station 1 and 2 each have one chamber referred as D1 and D2. The chamber at station
+Station 1 and 2 each have one chamber referred to as D1 and D2. The chamber at station
 3 is separated into top and bottom halves, denoted as D3p and D3m.
 
 In data sets 1-3, a smaller chamber, D1.1, was used. It was later replaced by a newly constructed
 chamber, D1.2, with better expected high rate capacity in data set 4-6. However, D1.1 would later be
 reinstalled for data set 5-6. D3m.1 was used during the commissioning run, data set 1, and
-was later replaced by D3m.2 for the later data sets.
+was replaced by D3m.2 for the later data sets.
 
 The D1.1, D2 and D3m.1 chambers were recycled from previous Fermilab experiments, E605 (D2 and D3m.1)~\cite{moreno1991}
 and E866 (D1.1)~\cite{hawker1998}. The other chambers were designed and constructed for the SeaQuest experiment.
 Specifications of each chamber are listed in \cref{table:chamber}.
 
-The signals from the sense wires are fed to ASDQ (Amplification, Shaper, Discriminator and Charger integrator)
+The signals from the sense wires are fed to ASDQ (Amplification, Shaper, Discriminator and Charge integrator)
 cards which are used for amplification and discrimination. The signal is then fed to LSB (Level Shifter Board)
-to covert into standard LVDS (low voltage differential signal), which can then be read out by the TDC
+to convert into standard LVDS (low voltage differential signal), which can then be read out by the TDC
 modules and recorded by the DAQ system.
 
 \begin{table}[h!]
@@ -291,10 +291,10 @@ modules and recorded by the DAQ system.
 
 \subsection{Proportional tubes}
 The muon identification is accomplished with the proportional tube at station 4. A \SI{1}{\meter} thick
-iron wall separate station 3 and 4, which acts as an absorber to stop hadrons and electrons from reaching
+iron wall separates stations 3 and 4, which acts as an absorber to stop hadrons and electrons from reaching
 station 4. For precise track reconstruction, there are four layers of proportional tubes planes. Each plane
 is made of eight proportional tube modules, with 16 proportional tubes per module. The 16 proportional tubes
-in each module are further divided into two sub-layers, with the second layers shifted by half a tube width to
+in each module are further divided into two sub-layers, with the second layer shifted by half a tube width to
 resolve the left-right ambiguity, as in the case of drift chambers. The proportional tubes oriented horizontally
 (vertically) are in the first and fourth (second and third) planes as shown in \cref{fig:prop}.
 \begin{figure}[ht!]
@@ -308,7 +308,7 @@ resolve the left-right ambiguity, as in the case of drift chambers. The proporti
 	\caption{XZ (left) and YZ (left) view of the proportional tube at station 4, taken from Ref.~\cite{aidala2019}.}
 	\label{fig:prop}
 \end{figure}
-A typical high energy muons would traverse two proportional tubes in each planes.
+A typical high energy muon would traverse two proportional tubes in each plane.
 For muon identification, 8 hits from 4 planes are required, and the hits
 should also be pointing back at the target.
 
@@ -327,7 +327,7 @@ At level 1, four FPGA modules are used to search for four-hit track
 candidates in each quadrant and compared with a preselected list of hit
 patterns, known as trigger roads. The list of trigger roads (known as roadset)
 are generated by studying the path of muons from Monte Carlo simulations, with
-the goal of persevering signal rates while suppressing backgrounds.
+the goal of preserving signal rates while suppressing backgrounds.
 The level 2 consists of a single module, and forms
 a trigger decision based on types of track candidates found at level 1. During
 SeaQuest data taking, there are five output triggers, as listed in \cref{tab:FPGA}.
@@ -375,7 +375,8 @@ the ``Event DAQ'', ``Scaler DAQ'' and ``Beam DAQ''.
 The Event DAQ records the event-by-event hit information and the trigger timing.
 It uses the VME-based ``CODA''~\cite{CODA} system developed by Thomas Jefferson National Accelerator
 Facility. This system uses 14 VME crates and can read out different detectors in parallel.
-Each VME crate contains a board processor, a trigger interface and a number of TDCs.
+Each VME crate contains a board processor, a trigger interface and a number of custom Time-to-Digital 
+converter (TDC) modules~\cite{wang2014a}.
 Each TDC will read out the hit information from each detector and will be read out by the processor.
 There is also a trigger supervisor crate.
 
@@ -388,17 +389,17 @@ The trigger supervisor can also prescale the first 8 triggers, such that the hig
 When the trigger supervisor receives a trigger, it generates a common stop signal, which is fanned out
 to the trigger interface in each VME crate. The trigger interface then instructs the processor to readout the TDCs
 and send the hit information back to the DAQ host over gigabit Ethernet. The trigger interface then
-reports back the to trigger supervisor once the crate has completed the readout. The trigger supervisor can process
+reports back to the trigger supervisor once the crate has completed the readout. The trigger supervisor can process
 a new trigger after all trigger interface has reported back. The trigger supervisor would also send a trigger to QIE,
 which allows it to record beam intensity of the 16 RF buckets before and after the trigger.
 
-The deadtime of this system is approximately \SI{150}{\micro\second}. This is primary
-dominated by the time required to readout all the TDCs in a single crate. Even though
+The deadtime of this system for each event is approximately \SI{150}{\micro\second}. This is primarily
+dominated by the time required to read out all the TDCs in a single crate. Even though
 each detector channel is readout in parallel, the TDCs are read out sequentially
-and each hit would take \SI{\sim 4}{\micro\second} to readout. Therefore, high occupancy
+and each hit would take \SI{\sim 4}{\micro\second} to read out. Therefore, high occupancy
 events would cause a longer deadtime.
 
-Between Run 5 and Run 6, an upgrade was preformed to the Event DAQ~\cite{Kun-1724}.
+Between Run 5 and Run 6, an upgrade was performed for the Event DAQ~\cite{Kun-1724}.
 Taking advantage of the beam structure, where the beam is only on for \SI{4}{\s} every minute,
 the hit information can be buffered in the VME during beam-on and only sent to the Event
 DAQ host during beam-off. When a hit occurred on a detector,
@@ -414,7 +415,7 @@ The Scaler DAQ operates independently of the Event DAQ.
 It is alive regardless of the status of the Event DAQ.
 It is designed to monitor the spectrometer and trigger,
 providing fast diagnostic data while the experiment is running. Like the Event DAQ,
-it utilizes the ``CODA'' system. It consist of a single VME crate with four scaler
+it utilizes the ``CODA'' system. It consists of a single VME crate with four scaler
 cards. The Scaler DAQ is triggered by a \SI{7.5}{\kilo\hertz} clock and the beam
 spill signal. It uses 3 VME scale 32 modules,
 a 32 bit per channel 140 MHz scaler by IPN Orsay for the G0 Experiment at JLab~\cite{Scale32},
@@ -424,9 +425,9 @@ on a monitor in the SeaQuest Control room.
 
 \subsection{Beam DAQ}
 \label{subsec:beamDAQ}
-The Beam DAQ aims to provide the instantaneous beam intensity with the Cherenkov  counter.
+The Beam DAQ aims to provide the instantaneous beam intensity information measured with the Cherenkov  counter.
 The signal from the Cherenkov  counter is sent to a Fermilab-designed QIE module.
-This custom module is synced to Main Injector RF clock and it reads out the Cherenkov
+This custom module is synchronized to Main Injector RF clock and it reads out the Cherenkov
 counter every 18.8 ns clock cycle. The Beam DAQ host then reads out this custom module
 after each spill to provide the integrated beam intensity for the entire spill.
 The Beam DAQ is also linked with the Event DAQ so it can calculate the integrated spill
@@ -436,28 +437,28 @@ intensity is above a certain threshold. The Beam DAQ will record the integrated 
 while inhibit is asserted at trigger logic.
 
 \subsection{Slow Controls}
-Slow Controls refer to several script, which utilizing the standard Experimental Physics and Industrial Control
+Slow Controls refer to several scripts, utilizing the standard Experimental Physics and Industrial Control
 System (EPICS)~\cite{dalesio1994}, to synchronize the different DAQ data streams, monitor the various systems,
 and to record process variables at a timescale of a spill or longer.
 
-Each DAQ system writes its output to separate files, in order to synchronize the different data streams,
+Each DAQ system writes its output to separate files. In order to synchronize the different data streams,
 a script is used to manage a master spill ID and insert the spill ID into the different data streams.
 This allows the decoder to reassemble the data offline. The spill ID is also written to the EPICS server.
 Another slow control program is also connected to the Fermilab accelerator control network (ACNET).
-This allows us to record the current to the different spectrometer magnets, target position
+This allows us to record the currents in different spectrometer magnets, target position
 and status of the target cryogenic system. A multi-channel digital meter is also used to record
 the environmental conditions such as temperature and humidity inside the experimental hall.
 
 \subsection{Decoder and Storage}
-Typically, each run of physical data taking lasts about an hour. The file size is typically
-several \unit{\giga\byte}s. The data files from all the DAQ systems and slow control system
+Typically, each run of physics  data taking lasts about an hour. The file size is typically
+several \unit{\giga\byte}s. The data files from all the DAQ systems and slow control systems
 are stored locally in a disk array located in the SeaQuest control room. The data from DAQ
 is also backed up on tape storage provided by Fermilab computing division.
 
 The Event DAQ and Scaler DAQ write their output in a CODA specific binary format. The Event
-DAQ file contains the TDC information from each detector of each triggered events. The instantaneous
+DAQ file contains the TDC information from each detector of each triggered event. The instantaneous
 beam intensity around the triggering bucket from the BeamDAQ is also attached in the Event DAQ file.
-These raw data files are processed by a custom program called ``decoder", which coverts the
+These raw data files are processed by a custom program called ``decoder", which converts the
 CODA specific format into a ROOT based format. These information will also be uploaded to a SQL
 server.
 

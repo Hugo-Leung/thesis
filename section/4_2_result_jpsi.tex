@@ -1,0 +1,299 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+\ifSubfilesClassLoaded{
+	\mainmatter
+	\setcounter{chapter}{6}
+}{}
+
+\section{Charmonium Cross Section}
+
+\subsection{Massfit results}
+The massfits in all $x_F$ bins are shown in \cref{fig:massfit_57-70_xF,fig:massfit_5-6_xF},
+and the fits in the $P_T$ bins are shown in \cref{fig:massfit_57-70_pT,fig:massfit_5-6_pT}.
+The two datasets are analyzed separately. The data in each bin is very well described by the fitting procedure
+and the $J/\psi$ and $\psi'$ yields can be extracted from the fits directly.
+\input{section/massfit_bin.tex}
+\FloatBarrier
+
+\subsection{\texorpdfstring{$x_F$}{x\_F} distributions}
+With the yields extracted, the cross section can be calculated.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/xF/combine_xF_LH2_5-6_5770}
+	\end{subfigure}
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/xF/combine_xF_LD2_5-6_5770}
+	\end{subfigure}
+	\\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/xF/ratio_xF_LH2_5-6_5770}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/xF/ratio_xF_LD2_5-6_5770}
+	\end{subfigure}
+	\caption{The extracted $J/\psi$ and $\psi'$ cross section (top) and $\sigma_{\psi'}/\sigma_{J/\psi}$
+		ratio (bottom) as a function of $x_F$ for $p+p$(left) and $p+d$(right) from the two datasets,
+		and compared with the NRQCD predictions.}
+	\label{fig:cs_xF}
+\end{figure}
+The extracted cross section for $J/\psi$ and $\psi'$ from the two datasets are shown in \cref{fig:cs_xF}, and are
+tabulated in \cref{tab:xF_57-70_LH2,tab:xF_57-70_LD2,tab:xF_5-6_LH2,tab:xF_5-6_LD2}.
+The results from the two datasets are in very good agreement.
+
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from run 2-3, with their statistical
+		and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_57-70_LH2.tex}
+	\label{tab:xF_57-70_LH2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from run 2-3, with their statistical
+		and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_57-70_LD2.tex}
+	\label{tab:xF_57-70_LD2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from run 5-6, with their statistical
+		and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_5-6_LH2.tex}
+	\label{tab:xF_5-6_LH2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from run 5-6, with their statistical
+		and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_5-6_LD2.tex}
+	\label{tab:xF_5-6_LD2}
+\end{table}
+\FloatBarrier
+
+The results from the two datasets are combined by taking the average, weighted by
+the inverse of the total uncertainties squared.
+The results from combined analysis are shown in \cref{fig:cs_xF_full} and are tabulated in
+\cref{tab:xF_full_LH2,tab:xF_full_LD2}.
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/full_data/combine_xF_LH2_full_psip}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/full_data/combine_xF_LD2_full_psip}
+	\end{subfigure}\\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/full_data/ratio_xF_LH2_full}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/full_data/ratio_xF_LD2_full}
+	\end{subfigure}
+	\caption{The extracted $J/\psi$ and $\psi'$ cross section (top) and $\sigma_{\psi'}/\sigma_{J/\psi}$
+		ratio (bottom) as a function of $x_F$ for $p+p$(left) and $p+d$(right) from
+		the combined analysis, and compared with the NRQCD predictions.}
+	\label{fig:cs_xF_full}
+\end{figure}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the combined analysis, with
+		their statistical and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_full_LH2.tex}
+	\label{tab:xF_full_LH2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the combined analysis, with
+		their statistical and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_full_LD2.tex}
+	\label{tab:xF_full_LD2}
+\end{table}
+While the extracted $J/\psi$ cross section is in very good agreement with the NRQCD calculation,
+the extracted $\psi'$
+cross section disagree with the prediction, particular at large $x_F$. At large $x_F$ the NRQCD
+calculation suggests the $\psi'$ should be dominated by the $q\bar{q}$ annihilation.
+It is possible that the LDMEs used  for the $\psi'$ cross section calculation are not fully optimized,
+and the $q\bar{q}$ annihilation is more important than suggested. This new result on the $\psi'$
+cross section can be used in further constrain the LDMEs.
+
+The ratios of $\sigma_{\psi'}/\sigma_{J/\psi}$ as a function of $x_F$ are also shown in \cref{fig:cs_xF_full}.
+This ratio shows a clear $x_F$ dependence and increases at large $x_F$. In the NRQCD framework,
+the difference in the $x_F$ distributions between $J/\psi$ and $\psi'$ is mostly originated
+from the relative weighting between the different production subprocess.
+In the CEM framework, the hadronization probability only depends on
+the final charmonium state, but not the underlying subprocess. Therefore, the CEM framework would predict
+the $x_F$ distributions for $J/\psi$ and $\psi'$ to have very similar shape, with a smaller total cross section
+for $\psi'$ production.
+
+\Cref{fig:csr_all_process} shows the extracted $\sigma_{pd}/2\sigma_{pp}$ ratios from the three processes,
+Drell-Yan process, $J/\psi$ and $\psi'$ production, as measured from the SeaQuest experiment.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{cs/full_data/pdpp_CSR_full.pdf}
+	\caption{The $\sigma_{pd}/2\sigma_{pp}$ ratios for the Drell-Yan process, $J/\psi$ and $\psi'$ production
+		as measured from the SeaQuest experiment.
+	}
+	\label{fig:csr_all_process}
+\end{figure}
+The charmonium ratios are closer to unity as compared to the Drell-Yan cross section ratio. This
+is partly due to the contribution from the gluon fusion process in charmonium production. Assuming
+charge symmetry, the gluon distribution in proton and neutron should be identical, and therefore
+if the production is dominated by the gluon fusion process, the charmonium ratios should be identical
+to unity. The deviation from one originates from the quark-antiquark annhilation diagrams, where they
+can be sensitive to the light sea-quark flavor asymmetry, like the Drell-Yan process. However, the charmonium
+production proceed via the strong interaction and is insensitive to the charge of the quarks, and therefore
+larger contribution from the valance quark ratio, $d(x)/u(x)$, as compared to the Drell-Yan process. Therefore,
+the charmonium ratio is not as sensitive to the sea-quark asymmetry as the Drell-Yan ratio.
+
+
+\FloatBarrier
+\subsection{\texorpdfstring{$P_T$}{P\_T} distributions}
+\pdfmargincomment{how to plot the pT distribution? Do I want to show jpsi and psi' on the same plot, or per roadset?}
+Following a similar procedure, the $P_T$ distribution are extracted from the two datasets,
+and separately are shown in \cref{fig:pT_distribution}.
+The $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio are also shown in \cref{fig:pT_ratio}.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/pT/57-70_pTsq_LH2}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/pT/57-70_pTsq_LD2}
+	\end{subfigure}
+	\\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/pT/5-6_pTsq_LH2}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/pT/5-6_pTsq_LD2}
+	\end{subfigure}
+	\caption{The extracted $J/\psi$ and $\psi'$ $P_T$ distribution for $p+p$(left)
+		and $p+d$(right) from the run 2-3 data(top) and run 5-6(bottom).}
+	\label{fig:pT_distribution}
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{cs/pT/ratio_pT_LH2_5-6_5770}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=0.9\linewidth]{cs/pT/ratio_pT_LD2_5-6_5770}
+	\end{subfigure}
+	\caption{The extracted  $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio as a function of $P_T$ for $p+p$(left)
+		and $p+d$(right) from the two datasets.}
+	\label{fig:pT_ratio}
+\end{figure}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the run 2-3, with
+		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
+	\input{table/pT_57-70_LH2.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the run 2-3, with
+		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
+	\input{table/pT_57-70_LD2.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the run 5-6, with
+		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
+	\input{table/pT_5-6_LH2.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the run 5-6, with
+		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
+	\input{table/pT_5-6_LD2.tex}
+\end{table}
+
+The result from the combined analysis are shown in \cref{fig:pT_combined} and tabulated in \cref{tab:pT_full_LH2,tab:pT_full_LD2}.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/full_data/full_pTsq_LH2}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/full_data/full_pTsq_LD2}
+	\end{subfigure}
+	\\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/full_data/ratio_pT_LH2_full}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{cs/full_data/ratio_pT_LD2_full}
+	\end{subfigure}
+	\caption{The extracted $J/\psi$ and $\psi'$ $P_T$ distribution (top) and $\sigma_{\psi'}/\sigma_{J/\psi}$
+		ratio (bottom) as a function of $P_T$ for $p+p$(left) and $p+d$(right) from
+		the combined analysis.}
+	\label{fig:pT_combined}
+\end{figure}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the combined analysis, with
+		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
+	\input{table/pT_full_LH2.tex}
+	\label{tab:pT_full_LH2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the combined analysis, with
+		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
+	\input{table/pT_full_LD2.tex}
+	\label{tab:pT_full_LD2}
+\end{table}
+
+The transverse momentum distributions are fitted to the Kaplan form, \cref{M-eq:kaplan}, and the extracted
+$\expval{P_T}$ and $\expval{P^2_T}$ are calculated using \cref{M-eq:kaplan_mean},
+and are listed in \cref{tab:kaplan_result}, showing similar values for $p+p$ and $p+d$,
+as well as $J/\psi$ and $\psi'$.
+
+\begin{table}[h!]
+	\centering
+	\caption{Extracted $\expval{P_T}$ and $\expval{P^2_T}$ for $J/\psi$ and $\psi'$ in $p+p$ and $p+d$ collisions.}
+	\label{tab:kaplan_result}
+	\input{table/kaplan}
+\end{table}
+
+\Cref{fig:pT_s} shows the extracted $\expval{P_T^2}$ for $p+p\to J/\psi$ as a function
+of $\sqrt{s}$ from SeaQuest compared with different experiments
+\cite{badier1983,clark1978,drapier1998,acharya2020}. The $\expval{P_T^2}$ follows an
+increasing pattern versus $\sqrt{s}$ over a wide range of energies.
+A linear fit versus the log of the center of mass energy~\cite{acharya2020},
+\begin{equation}
+	\expval{P_T^2}=a\ln{\left( \frac{\sqrt{s}}{b} \right)},
+\end{equation}
+describe the general trend, but some variation is expected due to the differing
+rapidity range of the measurements.
+The fitted parameters are $a=1.173\pm0.041$ and $b=7.17\pm0.35$.
+\pdfmargincomment{pT vs s}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{cs/pT/pT_s_release}
+	\caption{The extracted $\expval{P_T^2}$ for $p+p\rightarrow J/\psi$ from SeaQuest compared
+		with results from NA3~\cite{badier1983}, ISR~\cite{clark1978}, NA51~\cite{drapier1998},
+		and PHENIX~\cite{acharya2020}. The statistical and systematic uncertainties are summed in quadrature for
+		the SeaQuest results and for other experiments when available.   }
+	\label{fig:pT_s}
+\end{figure}
+
+\FloatBarrier
+
+\ifSubfilesClassLoaded{ \printbibliography[heading=bibintoc,title={References}]}{}
+
+\end{document}
