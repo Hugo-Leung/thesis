@@ -547,22 +547,22 @@ are categorized into different groups and are tabulated in \cref{table:trackCut,
 \label{sec:beam_norm}
 In SeaQuest, there are three beam luminosity related quantities.
 During data taking, the proton on target is monitored by two sets of instruments, a secondary
-emission monitor located upstream of the SeaQuest experimental hall, and a Cerenkov counter
+emission monitor located upstream of the SeaQuest experimental hall, and a Cherenkov counter
 (as described in \cref{M-subsec:BIM}). The secondary emission monitor provides the integrated
-beam intensity for the entire beam spill (labeled as ``G2SEM"). This is sometimes refer to as
+beam intensity for the entire beam spill (labeled as ``G2SEM"). This is sometimes referred as
 ``raw proton'' as this quantity does not include any deadtime or inhibit effect.
 
-The Cerenkov counter provides the beam intensity for each RF bucket in relative units.
+The Cherenkov counter provides the beam intensity for each RF bucket in relative units.
 During normal data taking, the Beam DAQ records three quantities: integrated beam intensity for entire spill
 (labeled as ``QIEsum''), integrated beam while inhibit is asserted at trigger logic
 (labeled as ``inhibit\_block\_sum'') and integrated intensity during dead time (labeled as
 ``trigger\_sum\_no\_inhibit''). All these quantities are in relative units.
 
-The number of protons on targets during DAQ live time can be calculated as follows:
+In previous studies, the number of protons on targets during DAQ live time can be calculated as follows:
 \begin{equation}
 	\mathrm{live\ proton} = \frac{\mathrm{QIEsum}-\mathrm{inhibit\_block\_sum}-\mathrm{trigger\_sum\_no\_inhibit}}{\mathrm{QIEsum}}\cdot \mathrm{G2SEM}
-\end{equation}\pdfcomment{update with pedestal subtraction}
-
+	\label{eq:livePoT-old}
+\end{equation}
 The conversion factor from QIE units to number of proton ($\frac{\mathrm{G2SEM}}{\mathrm{QIEsum}}$)
 is also a function of time. This is due to radiation damage to the mirror. The mirror needs to be replaced
 regularly. This factor over time is shown in \cref{fig:potperQIE}.
@@ -573,7 +573,63 @@ regularly. This factor over time is shown in \cref{fig:potperQIE}.
 	\label{fig:potperQIE}
 \end{figure}
 
-The Main DAQ also reads out the beam intensity from Cerenkov counter for the triggering bucket
+However, there is a pedestal in the QIE measurements. This is partly originate from the dark rate of the 
+detector. And this pedestal needs to be subtracted from the sums. 
+The value of the pedestal is obtained by studying empty buckets. 
+This value can change over time and is summarized in \cref{tabel:pedestal}.
+A typical spill contains $588\cdot 369000$ buckets, hence the $\mathrm{QIEsum}$ should be replaced with
+\begin{equation}
+	\mathrm{QIEsum}-\mathrm{pedestal}\cdot 588\cdot 369000.
+\end{equation}
+However, the numbers of bucket during DAQ deadtime or while the inhibit is asserted are less clear,
+as they are not always recorded reliably~\cite{chleung-10662}.
+Instead, the number of buckets during the DAQ deadtime of the whole dataset 
+is estimated using the measured deadtime from run periods where we believe the measurements are reliable.
+The measured deadtime per event for Run 5 is shown in \cref{fig:deadtime}.
+The extracted mean deadtime is used for the analysis of Run 2-3 and Run 5 data. 
+For Run 6, due to the DAQ upgrade, the deadtime is reduced to a fixed \SI{29.5}{\us}.
+The number of buckets during deadtime is estimated as
+\begin{equation}
+	N_{\mathrm{busy\ RF}}=N_{\mathrm{trigger}}\times\frac{\expval{\mathrm{deadtime}}}{18.9\unit{\ns}},
+\end{equation}
+where $N_{\mathrm{trigger}}$ is the number of trigger during a spill, and \SI{18.9}{\ns} is the width of a bucket. 
+Therefore, the $\mathrm{busy\_sum\_no\_inhibit}$ is \cref{eq:livePoT-old} is replaced by
+\begin{equation}
+	\mathrm{busy\_sum\_no\_inhibit} - N_{\mathrm{busy\ RF}}\cdot \mathrm{pedestal}.
+\end{equation}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]{run5ea_deadtime}
+	\caption{The measured deadtime per event for \ce{LH_2} target from Run 5.}
+	\label{fig:deadtime}
+\end{figure}
+
+During regular data-taking, the minimum width of the inhibit signal is control by a programmable
+register, and is typically set to 16, meaning when bucket $i$ is above the threshold, bucket $i-8$
+to $i+8$ (inclusive) with be inhibited. The length of the inhibit can be longer if a series
+of high intensity buckets arrive in succession. In this situation, the inhibit will extend till 8
+buckets after the last high intensity bucket. However, the length of each inhibit is not always available.
+Hence the number of inhibited buckets is estimated using the minimum inhibit width.
+\begin{equation}
+	N_{\mathrm{inhibited\ RF}}=N_{\mathrm{inhibit}}\cdot 17,
+\end{equation}
+where $N_{\mathrm{inhibit}}$ is the number of inhibit asserted.
+And the $\mathrm{inhibit\_block\_sum}$ is replaced by
+\begin{equation}
+	\mathrm{inhibit\_block\_sum}-N_{\mathrm{inhibited\ RF}}\cdot\mathrm{pedestal}.
+\end{equation}
+
+Therefore the pedestal-corrected live proton is given by
+\begin{multline}
+	\frac{\mathrm{live\ proton}}{\mathrm{G2SEM}}= 1-\frac{1}{\mathrm{QIEsum}-\mathrm{pedestal}\cdot 588\cdot 369000}\times\big[\mathrm{inhibit\_block\_sum}\\
+	-\mathrm{trigger\_sum\_no\_inhibit}-\mathrm{pedestal}\cdot\left(N_{\mathrm{inhibited\ RF}}+N_{\mathrm{busy\ RF}}\right)\big].
+	\label{eq:livePoT-new}
+\end{multline}
+This pedestal correction is found to have $\sim 5-10\%$ effect on the absolute normalization,
+but negligible effects on the relative normalization~\cite{chleung-10679}.
+
+
+The Main DAQ also reads out the beam intensity from Cherenkov counter for the triggering bucket
 and the $\pm16$ RF buckets before and after the trigger (label as ``RF-16" to ``RF+16", with
 ``RF00'' being the triggering bucket).
 
@@ -581,12 +637,6 @@ The number of proton in the triggering bucket can be calculated as follows:
 \begin{equation}
 	\mathrm{trigger\ intensity} = \frac{\mathrm{RF00}-\mathrm{pedestal}}{\mathrm{QIEsum}-\mathrm{pedestal}\cdot 588\cdot 369000}\cdot \mathrm{G2SEM}
 \end{equation}
-The pedestal comes from the dark rate of the detector, and it is obtained from studying the
-empty spills. This value can change overtime and is summarized in \cref{tabel:pedestal}.
-This number should be subtracted from the bucket specific QIE value, as well as the spill
-integrated QIEsum. There are a total of $588\cdot 369000$ buckets per spill, hence the
-numerator.
-
 \begin{table}[h!]
 	\centering
 	\caption{Summary of the QIE pedestal over time\cite{kenichi-9289}.}
@@ -595,8 +645,8 @@ numerator.
 		\hline
 		Run     & spill range                     & pedestal value \\ \hline
 		2-3     &                                 & $34\pm5$       \\ \hline
-		5ea-5eb & $[\num{910000},\num{1010000})$  & $33\pm 6$      \\ \hline
-		5eb     & $[\num{1010000},\num{1100000})$ & $28\pm 5$      \\ \hline
+		5       & $[\num{910000},\num{1010000})$  & $33\pm 6$      \\ \cline{2-3}
+		        & $[\num{1010000},\num{1100000})$ & $28\pm 5$      \\ \hline
 		6       & $[\num{1200000},\num{1320000})$ & $40\pm 12$     \\ \cline{2-3}
 		        & $[\num{1320000},\num{1420000})$ & $30\pm 7$      \\ \hline
 	\end{tabular}
@@ -624,7 +674,7 @@ the beam. It is used for understanding the background originating from interacti
 with the flask wall, beam dump or various upstream instrumentation. The normalization of the
 empty flask contribution is obtained from the ratio of live protons for the liquid target and
 empty flask. The empty flask normalization is then kept fixed during the fitting procedure, while
-other components are allowed to float. The live proton is chosen for the normalization here. The
+other components are allowed to float. The live proton is chosen for the normalization here, as the
 mass distribution is obtained by integrating over intensity, and rate dependence effect will need
 to be corrected later.
 
