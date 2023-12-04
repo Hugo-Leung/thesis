@@ -188,14 +188,14 @@ and background hit, we can understand the performance of our reconstruction soft
 occupancy.
 Since the NIM-3 trigger randomly, the hit distribution in each detector would be reflect
 the background and noise hits caused by the beam. However, as the probability of a dimuon event
-is higher at higher beam intensity, the signal (Matrix 1) events would have a significantly higher
+is higher at higher beam intensity, the signal (MATRIX-1) events would have a significantly higher
 average occupancy than the NIM-3 events, as shown in \cref{fig:NIM3_FPGA1}.
 The input occupancy distribution should have little or no
 effect on the reconstruction efficiency, as we are only interested the fraction of events that was
 successfully reconstructed in each occupancy bin, not the absolute number of events in each bin.
 However, the occupancy profile could have significant effect when using the occupancy integrated
 messy Monte Carlo such as mass fit studies. Therefore, when sampling the NIM-3 events, the occupancy ratio
-of the Matrix 1 and NIM-3 events is used as weights, and high occupancy NIM-3 would have a higher
+of the MATRIX-1 and NIM-3 events is used as weights, and high occupancy NIM-3 would have a higher
 probability to be used, where as only a small fraction of lower occupancy NIM-3 events would be used.
 
 \begin{figure}[h!]
@@ -214,17 +214,63 @@ probability to be used, where as only a small fraction of lower occupancy NIM-3 
 One of the changes I made to the Monte Carlo generator during this study
 is the maximum transverse momentum of the virtual photon.
 
-From the conservation of energy, one can deduce the maximum $P_T$ carried by the virtual photon
-is given by
+Let $\mathbf{P}_\gamma$ and $\mathbf{P}_R$ be the four momenta of the virtual photon and residual system respectively.
+In the hadron-hadron center-of-mass frame, 
 \begin{equation}
-	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2 - P_L^2,
+	\begin{split}
+		\mathbf{P}_\gamma &= \begin{bmatrix}
+			E_\gamma & \vec{P}
+		\end{bmatrix},	\\
+		\mathbf{P}_R &= \begin{bmatrix}
+			E_R & -\vec{P}
+		\end{bmatrix},
+	\end{split}
 \end{equation}
-where $P_L$ is the longitudinal momentum of the virtual photon in the hadron-hadron center of mass frame.
-At SeaQuest, we defined $x_F = \frac{2P_L}{\sqrt{s}\left[1-M^2_\gamma/s\right]}$, therefore
+and 
+\begin{equation}
+    \begin{split}
+        E^2_R &= M_R^2 + P^2,\\
+        E^2_\gamma &= M_\gamma^2 + P^2,
+    \end{split}
+\end{equation}
+where $M_\gamma$ and $M_R$ are the mass of the virtual photon and residual system respectively.
+From the conservation of energy, the sum of virtual photon and residual system momenta should
+equal the center of mass energy $\sqrt{s}$.
+\begin{equation}
+	\begin{split}
+		s &=\left( \mathbf{P_R}+\mathbf{P_\gamma} \right)^2 = \left(E_R+E_\gamma\right)^2\\
+		&= E_R^2+E_\gamma^2+2E_R E_\gamma.\\
+	\end{split}
+\end{equation}
+Therefore the magnitude of the virtual photon momentum $\vec{P}$ is given by
+\begin{equation}
+	P^2 = \frac{1}{4s} \left[ s^2 + \left(M_R^2 - M_\gamma^2\right)^2 -2s\left(M^2_R+M_\gamma^2\right) \right]
+\end{equation}
+
+For maximum $P$, the mass of the residual system should be approaching zero. Therefore,
+\begin{equation}
+    \begin{split}
+        \left(P^{\mathrm{max}}\right)^2 &= \frac{1}{4s} \left[ s^2 +  M_\gamma^4 -2sM_\gamma^2\right]\\
+        &=\frac{s}{4}\left[ 1 -M_\gamma^2/s\right]^2.\\
+    \end{split}
+\end{equation}
+
+The virtual photon momentum, $\vec{P}$, can be decompose into the longitudinal ($P_L$) and transverse ($P_T$)
+components. The maximum $P_L$ is achieved when $P_T$ is approaching zero. Hence
+\begin{equation}
+	P_L^{\mathrm{max}} = \frac{\sqrt{s}}{2}\left(1-\frac{M_\gamma^2}{s}\right).
+\end{equation}
+Therefore, we define Feynman $x$ as
+\begin{equation}
+	x_F = \frac{P_L}{P_L^{\mathrm{max}}}=\frac{2P_L}{\sqrt{s}\left(1-M_\gamma^2/2\right)}.
+\end{equation}
+For a fixed $x_F$, the maximum $P_T$ carried by the virtual photon
+is given by
 \begin{equation}
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2\left[1-x_F^2\right].
 	\label{eq:pTmax}
 \end{equation}
+
 Earlier versions of the SeaQuest Monte Carlo generators used an inconsistent definition of $x_F$
 and $P_T^{\mathrm{max}}$, resulting in an incomplete coverage of the kinematic phase space.
 
@@ -406,7 +452,7 @@ region. The energy loss and transverse momentum kick in FMag are taken into acco
 
 \subsection{Vertex Finding}
 Once all the tracks are found in each event, the reconstruction of the dimuon vertex can begin using kVertex.
-For Matrix-1 events, all possible combinations of $\mu^+$ and $\mu^-$ tracks are tested if they can form
+For MATRIX-1 events, all possible combinations of $\mu^+$ and $\mu^-$ tracks are tested if they can form
 a dimuon. The vertex is determined using the same Kalment filter with the tracks acting as measurements.
 
 \pdfmargincomment{kalment filter, refitting if it the pair originate from target to account for multiple scattering }
@@ -472,59 +518,59 @@ We believe the accidental background is coming from the decay of multiple pions 
 within the same RF buckets. By combining two uncorrelated muon tracks, we can simulate the profile
 of the accidental background.
 
-The chosen method in our group is by mixing tracks from MATRIX 4 events. The MATRIX 4 triggers when
+The chosen method in our group is by mixing tracks from MATRIX-4 events. The MATRIX-4 triggers when
 only one muon track is observed in the spectrometer.
 The accidental background template is then created by combining a $\mu^+$ track with
 another $\mu^-$ track from a different event. This method is first studied by
 J.~Dove~\cite{dove2020}.
 
-The MATRIX 4 events are first processed by the same track finding procedure as with
-the MATRIX 1 dimuon data.
-To reproduce the MATRIX 1 triggers, the MATRIX 4 tracks are then separated in bins
-based on the charge and top/bottom halves of the spectrometer. Since the MATRIX 1
+The MATRIX-4 events are first processed by the same track finding procedure as with
+the MATRIX-1 dimuon data.
+To reproduce the MATRIX-1 trigger requirements, the MATRIX-4 tracks are then separated in bins
+based on the charge and top/bottom halves of the spectrometer. Since the MATRIX-1
 requires the two opposite tracks to be on different halves on the spectrometer,
 a positive tracks in the top half would only be mixed with a negative tracks in the
-bottom half of the spectrometer, and vice versa. The MATRIX 4 data is also separated
+bottom half of the spectrometer, and vice versa. The MATRIX-4 data is also separated
 based on the target position. During the mixing procedure, only the tracks from same
 target would be analyzed together.
 The data can also optionally be binned in the occupancy to study the intensity dependence
 of the accidental background.
 
 In order to preserve any change in performance in the spectrometer over time, all the
-MATRIX 4 tracks in each bin are then sorted in time. Tracks are then mixed in chronological order.
-While MATRIX 4 triggers on a single track, it is also
-possible for the reconstruction software to find multiple tracks in a given MATRIX 4 event.
+MATRIX-4 tracks in each bin are then sorted in time. Tracks are then mixed in chronological order.
+While MATRIX-4 triggers on a single track, it is also
+possible for the reconstruction software to find multiple tracks in a given MATRIX-4 event.
 In order to prevent tracks from the same event to be mixed, a sliding number $d$ can also be introduced.
 With this option enabled, the $i$-th positive track would be mixed with the $\left(i+d\right)$-th negative track.
 Typically, a sliding number of one is chosen.
-A minor beneficent is that this method also ensures the result to be reproducible as compared to random
+A minor benefit is that this method also ensures the result to be reproducible as compared to random
 mixing.
 
 Once the two tracks are selected, the mixed events are ready for vertex finding. As with the
 real data, the dimuon kinematics variables are calculated. The same dimuon selection will
-also be applied and can be compared with the real data. Sine the probability of observing a
-single track event is much higher than a two track event, the MATRIX 4 trigger is typically
+also be applied and can be compared with the real data. Since the probability of observing a
+single track event is much higher than a two track event, the MATRIX-4 trigger is typically
 heavily prescaled to preserve DAQ bandwidth. Typically, a prescale factor of \num{30000} is used during
 normal data taking run, meaning only \num{1} in \num{30000} single track event is recorded.
-Therefore, the amount of available MATRIX 4 data for each target can be limited. The mixed events
+Therefore, the amount of available MATRIX-4 data for each target can be limited. The mixed events
 from different target can also be combined to increase statistics. For this study, the \ce{LH_2}
 and \ce{LD_2} mixed events are combined during the mass fitting.
 
 Alternative accidental background generating methods have also been proposed by different groups.
-One such method is proposed by K. Liu. In this method, MATRIX 1 events are used. In order to track the
+One such method is proposed by K. Liu. In this method, MATRIX-1 events are used. In order to track the
 change of the spectrometer performance over time, two tracks from the same 1 hour run are selected
 randomly. The two tracks are still required to fulfill the opposite charge and top/bottom requirements.
 The two tracks are also required to have similar occupancy, usually within \SI{10}{\percent}.
-Because of the use of MATRIX 1 data, the mixed sample has larger statistics. Therefore, when
-using MATRIX 1 mixed sample, target specific mixed sample is typically used. One disadvantage to using MATRIX 1
-was potential contamination from physics sources. For example, near the $J/\psi$ peak, the MATRIX 1
+Because of the use of MATRIX-1 data, the mixed sample has larger statistics. Therefore, when
+using MATRIX-1 mixed sample, target specific mixed sample is typically used. One disadvantage to using MATRIX-1
+was potential contamination from physics sources. For example, near the $J/\psi$ peak, the MATRIX-1
 data is heavily dominated by the charmonium decay, therefore it is possible that both tracks in the same
 mixed event are from the $J/\psi$ decay. While it is possible to have multiple $J/\psi$ decays or
 multiple Drell-Yan interactions in the same RF bucket,
 the probability is relatively small. It is more likely to have multiple pions produced in the same RF
 buckets by multiple interactions, which then decay into high energy muons, forming a high-mass
 dimuon background.
-On the contrary, the MATRIX 4 trigger fires when there is only one track, and therefore less
+On the contrary, the MATRIX-4 trigger fires when there is only one track, and therefore less
 susceptible to the contamination from physics sources.
 
 Both mixing samples are used for the mass fit studies and the difference is quoted as a source systematic
@@ -680,8 +726,8 @@ mass distribution is obtained by integrating over intensity, and rate dependence
 to be corrected later.
 
 \paragraph{Accidental/Mixed background correction}
-As described in \cref{sec:mixing}, the mixed sample from the MATRIX 4 is typically used.
-Due to the limited sample size in the raw MATRIX 4 data, 
+As described in \cref{sec:mixing}, the mixed sample from the MATRIX-4 is typically used.
+Due to the limited sample size in the raw MATRIX-4 data, 
 the statistics of the mixed sample is typically limited. For both \ce{LH_2} and \ce{LD_2} studies, 
 the mixed sample from both \ce{LH_2} and \ce{LD_2} are combined.
 Then the sample template is used for both \ce{LH_2} and \ce{LD_2} analysis.
@@ -752,14 +798,14 @@ $p_j$ fixed. Repeat the process until convergence is reached.
 
 Some nice features arises automatically from the algebra. Substituting \cref{eq:TF_d3} into \cref{eq:TF_d1},
 \begin{equation}
-	\sum_i A_{ji}=\sum_i a_{ji}.
+	\sum_{i=1}^{n} A_{ji}=\sum_{i=1}^{n} a_{ji}\quad\forall j .
 \end{equation}
 These means the estimate of $A_{ji}$ for some source $j$ will change the shape of the distribution
 from that of the MC data $a_{ji}$, but will preserve the overall total number. 
 
 Using \cref{eq:TF_d2} and summing over $i$ and $j$, 
 \begin{equation}
-	\sum_i d_i = \sum_i\sum_j p_j a_{ji},
+	\sum_{i=1}^n d_i = \sum_{i=1}^{n}\sum_{j=1}^m p_j a_{ji},
 \end{equation}
 which returns the normalization, without the need for imposing additional constraints.
 
