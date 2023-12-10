@@ -484,7 +484,7 @@ therefore we defined $x_F$ as
 \begin{equation}
 	x_F = \frac{2P_z}{\sqrt{s}-M^2/\sqrt{s}},
 \end{equation}
-where $M$ is the dimuon mass.
+where $M$ is the dimuon mass. With this definition, the full range of $\abs{x_F}<1$ is covered.
 
 For the momentum fractions $x_1$, $x_2$, the following definition, taken from Ref.~\cite{Coester-1286} is chosen
 \begin{equation}
@@ -499,12 +499,12 @@ beam hadron, target hadron and the virtual photon respectively.
 Because of our choice of $x_1$, $x_2$ definitions, the mass of the dimuon is now related to
 the momentum fractions as
 \begin{equation}
-	M^2= sx_1x_2-P_T^2.
+	x_1x_2= \frac{M^2+P_T^2}{s}.
 \end{equation}
 And $x_F$ is no longer the difference between $x_1$ and $x_2$.
 
 Other definitions of the momentum fractions are listed in \cref{M-a_ch:kinematic}. These different definitions
-are consistent in the limit of zero dimuon transverse momentum.
+are consistent in the limit of $P_T/\sqrt{s}$ approaches zero.
 Neglecting the small intrinsic momentum of the partons,
 the transverse momentum of the virtual photon mostly originates from higher order QCD effect, such as gluon
 emission by the quarks. Therefore, a virtual photon with large transverse momentum would originate
@@ -646,8 +646,13 @@ Therefore, the $\mathrm{busy\_sum\_no\_inhibit}$ is \cref{eq:livePoT-old} is rep
 \end{equation}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{run5ea_deadtime}
-	\caption{The measured deadtime per event for \ce{LH_2} target from Run 5.}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{deadtime/run5ea_deadtime_LH2_repair}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{deadtime/run5ea_deadtime_LD2_repair}
+	\end{subfigure}
+	\caption{The measured deadtime per event for \ce{LH_2} (left) and \ce{LD_2} (right) data from Run 5.}
 	\label{fig:deadtime}
 \end{figure}
 
@@ -700,6 +705,7 @@ The number of proton in the triggering bucket can be calculated as follows:
 \end{table}
 
 \section{Mass Spectrum Fitting}
+\label{sec:massfit_procedure}
 With the goal of obtaining the absolute yield for different processes, the mass spectrum fitting
 procedure is developed. This also forms the bases of our recent publication~\cite{dove2023}.
 
@@ -925,7 +931,7 @@ For a pure target, the cross section can be obtained from the yield using the fo
 	B\sigma = \frac{Y A}{T N_A P X \epsilon},
 \end{equation}
 where $Y$ is the extracted yield, $A$ is the atomic mass of the target,
-$T$ is the thickness of the target, $N_A$ is the Avogadro’s number,
+$T$ is the thickness of the target, $N_A$ is the Avogadro's number,
 $P$ is the proton on target, $\epsilon$ is the acceptance and efficiency correction,
 and $X$ is the beam attenuation factor given by
 \begin{equation}
@@ -1176,8 +1182,8 @@ parameters used are $1.735$ for $J/\psi$ and $1.620$ for $\psi'$, and are consis
 \section{Intensity Extrapolation}
 \label{sec:extrapolation}
 An independent method for extracting the Drell-Yan cross section ratio, known as intensity extrapolation method, 
-is first studied by J.~Dove~\cite{dove2020} and A.~Tadepalli~\cite{tadepalli2019}, 
-and it is used in Ref.~\cite{dove2021}.
+is developed by J.~Dove~\cite{dove2020} and A.~Tadepalli~\cite{tadepalli2019}, 
+and it is used in Ref.~\cite{dove2021}. Here I outlined the procedure.
 The assumption behind this method is that the accidental background and physics events
 would have different intensity dependence. The number of observed physics
 events, in the absence of any spectrometer effects, should be linearly proportional to the beam

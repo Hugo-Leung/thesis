@@ -8,9 +8,10 @@
 
 \section{Drell-Yan Cross Section Ratio}
 \subsection{Mass fit results}
-\Cref{fig:massfit_integrated_run23} shows the fit to the mass distributions for Run 2-3 data, and the
-data is very well described by the fitting procedure. Similarly, the mass distributions for Run 5-6
-are shown in \cref{fig:massfit_integrated_run56}.
+The fits to the mass distributions for Run 2-3 data are shown in \cref{fig:massfit_integrated}, and the
+data is very well described by the fitting procedure outlined in \cref{M-sec:massfit_procedure}.
+Similarly, the mass distributions for Run 5-6
+are also shown in \cref{fig:massfit_integrated}.\pdfmargincomment{undate massfit plots!!!}
 \begin{figure}[h!]
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{massfit/run2-3/57_70_LH2_log}
@@ -18,18 +19,15 @@ are shown in \cref{fig:massfit_integrated_run56}.
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{massfit/run2-3/57_70_LD2_log}
 	\end{subfigure}
-	\caption{The mass spectrum for \ce{LH_2}(left) and \ce{LD_2}(right) targets data for Run 2-3.}
-	\label{fig:massfit_integrated_run23}
-\end{figure}
-\begin{figure}[h!]
+	\\
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{massfit/run5-6/5_6_LH2_log}
 	\end{subfigure}
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{massfit/run5-6/5_6_LD2_log}
 	\end{subfigure}
-	\caption{The mass spectrum for \ce{LH_2}(left) and \ce{LD_2}(right) targets data for Run 5-6.}
-	\label{fig:massfit_integrated_run56}
+	\caption{The mass spectrum for \ce{LH_2}(left) and \ce{LD_2}(right) targets data for Run 2-3 (top) and Run 5-6 (bottom).}
+	\label{fig:massfit_integrated}
 \end{figure}
 With the yield for different process obtained from the mass fits, the cross section ratios can be calculated
 and are also shown in \cref{fig:CSR_MF}, and are tabulated in \cref{tab:DY-MF-x2,tab:DY-MF-x1,tab:DY-MF-xF}.
@@ -48,6 +46,8 @@ and are also shown in \cref{fig:CSR_MF}, and are tabulated in \cref{tab:DY-MF-x2
 		$x_B$(left) and $x_F$(right) using the mass fit method from the two datasets.}
 	\label{fig:CSR_MF}
 \end{figure}
+
+The extracted cross section ratio from the two datasets are consistent with each other within uncertainties.
 \begin{table}[h!]
 	\centering
 	\caption{The extracted Drell-Yan cross section ratio as a function of $x_T$ using the mass fit method.}
@@ -69,8 +69,8 @@ and are also shown in \cref{fig:CSR_MF}, and are tabulated in \cref{tab:DY-MF-x2
 \FloatBarrier
 
 \subsubsection{Effect of the updated target contamination correction}
-\label{subsec:contamination_result}
-As discussed in \cref{M-subsec:contamination}, an incorrect target contamination correction was used
+\label{subsubsec:contamination_result}
+As discussed in \cref{M-subsec:contamination}, incorrect target contamination corrections were used
 in previous publications and the effect is shown in \cref{fig:contaimination_CSR}.
 The overall effect is a roughly \SI{2}{\percent} shift in the ratio. The updated corrections
 are used through out this thesis.
@@ -90,7 +90,7 @@ are used through out this thesis.
 The published $\sigma_{pd}/2\sigma_{pp}$ ratio result has been included in various recent global
 PDF analysis, including Ref.~\cite{cocuzza2021,guzzi2022,accardi2023,alekhin2023}.
 In particular, \cref{fig:CSR_MF} shows the calculation using CT18 (without the SeaQuest data)
-and NNPDF 4.0 (including the SeaQuest data). The shift in the cross section ratio is primarily
+and NNPDF 4.0 (including the SeaQuest data). The shift in the calculated cross section ratio is primarily
 coming from the inclusion of the SeaQuest data. Unlike the previous E866 result, the SeaQuest data
 strongly suggests the $\bar{d}/\bar{u}$ ratio would remain greater than one for $x<0.4$, which is
 consistent with prediction from various models, including meson cloud and statistical model.
@@ -102,7 +102,72 @@ results is the only available data sensitive to the light sea-quark asymmetry at
 
 \subsection{Comparison massfit with Intensity Extrapolation Method}
 As described in \cref{M-sec:extrapolation}, an independent method for extracting the Drell-Yan cross section
-ratio is developed by utilizing the rate dependence. The extracted ratios using this method are shown \cref{fig:CSR_IE},
+ratio is developed by utilizing the rate dependence. 
+
+\subsubsection{Systematic uncertainties due to choice of fit function}
+To understand the systematic uncertainties in the intensity extrapolation method due to the
+choice of fit function, the following functions are used.
+\begin{align}
+	R_i\left(I\right) & = p_{0i} + p_{1} I + p_{2} I^2 \quad\text{(FIT 1)}                                                     \\
+	R_i\left(I\right) & = p_{0i} + \left[p_{10} + p_{11}x_i\right] I + \left[p_{20} + p_{21}x_i\right]I^2 \quad \text{(FIT 2)}
+	\label{eq:fit_functions}
+\end{align}
+The fit to data using the two fits are shown in \cref{fig:run2-3_FIT1_xT,fig:run2-3_FIT2_xT}
+and $\chi^2$ for the fits are tabulated in \cref{tab:chi_IE}
+And the fit for other variables are listed in \cref{M-a_ch:extrapolation}.
+\input{section/extrapolation_xT_23_1.tex}
+\input{section/extrapolation_xT_23_2.tex}
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.6\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run23_xT_IE}
+	\end{subfigure}\\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run23_xB_IE}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run23_xF_IE}
+	\end{subfigure}
+	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_T$(top),
+		$x_B$(left) and $x_F$(right) using the intensity extrapolation method with the two fit functions in \cref{eq:fit_functions}
+		using Run 2-3 data.}
+	\label{fig:CSR_IE_run23}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.6\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run56_xT_IE}
+	\end{subfigure}\\
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run56_xB_IE}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics*[width=\linewidth]{DY-csr/run56_xF_IE}
+	\end{subfigure}
+	\caption{Comparison of the extracted Drell-Yan cross section ratio as a function of $x_T$(top),
+		$x_B$(left) and $x_F$(right) using the intensity extrapolation method with the two fit functions in \cref{eq:fit_functions}
+		using Run 5-6 data.}
+	\label{fig:CSR_IE_run56}
+\end{figure}
+
+While the difference caused by the fit functions are small for $x_T$, as reported in Ref.~\cite{dove2021},
+the difference is significantly larger in the other variables and in Run 5-6.
+This is a major uncertainty in this method. 
+In Ref.~\cite{dove2021} Fit-1 was chosen as the central value, but the reduced $\chi^2$ are very similar between the two fits,
+as tabulated in \cref{tab:chi_IE}.
+\begin{table}[h!]
+	\centering
+	\caption{The reduced $\chi^2$ for the different fits used in the intensity extrapolation method for Run 2-3 and Run 5-6. }
+	\label{tab:chi_IE}
+	\input{table/extrapolate/combine.tex}
+\end{table}
+
+
+
+\subsubsection{Results from Intensity Extrapolation method.}
+The extracted ratios using this method are shown \cref{fig:CSR_IE},
 and are tabulated in \cref{tab:DY-IE-x2,tab:DY-IE-x1,tab:DY-IE-xF}.
 \begin{figure}[h!]
 	\centering
@@ -119,6 +184,8 @@ and are tabulated in \cref{tab:DY-IE-x2,tab:DY-IE-x1,tab:DY-IE-xF}.
 		$x_B$(left) and $x_F$(right) using the intensity extrapolation method from the two datasets.}
 	\label{fig:CSR_IE}
 \end{figure}
+
+
 
 \begin{table}[h!]
 	\centering
