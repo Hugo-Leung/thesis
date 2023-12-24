@@ -10,11 +10,53 @@
 \section{Charmonium Cross Section}
 
 \subsection{Massfit results}
-The massfits in all $x_F$ bins are shown in \cref{fig:massfit_57-70_xF,fig:massfit_5-6_xF},
-and the fits in the $P_T$ bins are shown in \cref{fig:massfit_57-70_pT,fig:massfit_5-6_pT}.
-The two datasets are analyzed separately. The data in each bin is very well described by the fitting procedure
-and the $J/\psi$ and $\psi'$ yields can be extracted from the fits directly.
-\input{section/massfit_bin.tex}
+Like the Drell-Yan analysis, the two data sets are analyzed separately.
+Using the fact that $J/\psi$ and $\psi'$ are mass resonances and correspond to peaks in the mass spectrum,
+the kinematic distributions are extracted from mass decompositions performed independently in each kinematic bins.
+The fits in the first $x_F$ bin is shown in \cref{fig:massfit_1st_xF},
+and the fits in the other $x_F$ bins are shown in \cref{M-sec:a3_xFbin}.
+The data in each bin is very well described by the fitting procedure.
+The $J/\psi$ and $\psi'$ yields can then be extracted from the fits directly.
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run2-3/LH2/xF/LH2_xFbin0}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run2-3/LD2/xF/LD2_xFbin0}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run5-6/LH2/xF/LH2_xFbin0}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run5-6/LD2/xF/LD2_xFbin0}
+	\end{subfigure}
+	\caption{Mass fit for the first $x_F$ bin ($0.5\leq x_F<0.6$) for both \ce{LH_2} (left) and \ce{LD_2} (right) targets
+		and both run 2-3 (top) and run 5-6 (bottom). }
+	\label{fig:massfit_1st_xF}
+\end{figure}
+Similarly, the $P_T$ distributions are extracted from the individual fits in $P_T$ bins.
+The fits for the first $P_T$ bin are shown in \cref{fig:massfit_1st_pT},
+and the fits for the other bins are shown in \cref{M-sec:a3_pTbin}.
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run2-3/LH2/pT/LH2_pTbin0}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run2-3/LD2/pT/LD2_pTbin0}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run5-6/LH2/pT/LH2_pTbin0}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\includegraphics[width=\linewidth]{massfit/run5-6/LD2/pT/LD2_pTbin0}
+	\end{subfigure}
+	\caption{Mass fit for the first $P_T$ bin ($0\leq P_T<0.3$) for both \ce{LH_2} (left) and \ce{LD_2} (right) targets
+		and both run 2-3 (top) and run 5-6 (bottom). }
+	\label{fig:massfit_1st_pT}
+\end{figure}
 \FloatBarrier
 
 \subsection{\texorpdfstring{$x_F$}{x\_F} distributions}
@@ -36,46 +78,13 @@ With the yields extracted, the cross section can be calculated.
 		\includegraphics[width=\linewidth]{cs/xF/ratio_xF_LD2_5-6_5770}
 	\end{subfigure}
 	\caption{The extracted $J/\psi$ and $\psi'$ cross section (top) and $\sigma_{\psi'}/\sigma_{J/\psi}$
-		ratio (bottom) as a function of $x_F$ for $p+p$(left) and $p+d$(right) from the two datasets,
+		ratio (bottom) as a function of $x_F$ for $p+p$ (left) and $p+d$ (right) from the two datasets,
 		and compared with the NRQCD predictions.}
 	\label{fig:cs_xF}
 \end{figure}
 The extracted cross section for $J/\psi$ and $\psi'$ from the two datasets are shown in \cref{fig:cs_xF}, and are
-tabulated in \cref{tab:xF_57-70_LH2,tab:xF_57-70_LD2,tab:xF_5-6_LH2,tab:xF_5-6_LD2}.
+tabulated in \cref{M-sec:a3_xF}.
 The results from the two datasets are in very good agreement.
-
-\begin{table}[h!]
-	\centering
-	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
-		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from run 2-3, with their statistical
-		and systematic uncertainties and the average $x_F$ in each bin.}
-	\input{table/xF_57-70_LH2.tex}
-	\label{tab:xF_57-70_LH2}
-\end{table}
-\begin{table}[h!]
-	\centering
-	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
-		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from run 2-3, with their statistical
-		and systematic uncertainties and the average $x_F$ in each bin.}
-	\input{table/xF_57-70_LD2.tex}
-	\label{tab:xF_57-70_LD2}
-\end{table}
-\begin{table}[h!]
-	\centering
-	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
-		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from run 5-6, with their statistical
-		and systematic uncertainties and the average $x_F$ in each bin.}
-	\input{table/xF_5-6_LH2.tex}
-	\label{tab:xF_5-6_LH2}
-\end{table}
-\begin{table}[h!]
-	\centering
-	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
-		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from run 5-6, with their statistical
-		and systematic uncertainties and the average $x_F$ in each bin.}
-	\input{table/xF_5-6_LD2.tex}
-	\label{tab:xF_5-6_LD2}
-\end{table}
 \FloatBarrier
 
 The results from the two datasets are combined by taking the average, weighted by
@@ -97,8 +106,9 @@ The results from combined analysis are shown in \cref{fig:cs_xF_full} and are ta
 		\includegraphics[width=\linewidth]{cs/full_data/ratio_xF_LD2_full}
 	\end{subfigure}
 	\caption{The extracted $J/\psi$ and $\psi'$ cross section (top) and $\sigma_{\psi'}/\sigma_{J/\psi}$
-		ratio (bottom) as a function of $x_F$ for $p+p$(left) and $p+d$(right) from
-		the combined analysis, and compared with the NRQCD predictions.}
+		ratio (bottom) as a function of $x_F$ for $p+p$ (left) and $p+d$ (right) from
+		the combined analysis, and compared with the NRQCD predictions.
+		The error bands on the NRQCD calculations indicate the \SI{68}{\percent} confidence level of the PDFs.}
 	\label{fig:cs_xF_full}
 \end{figure}
 \begin{table}[h!]
@@ -117,28 +127,30 @@ The results from combined analysis are shown in \cref{fig:cs_xF_full} and are ta
 	\input{table/xF_full_LD2.tex}
 	\label{tab:xF_full_LD2}
 \end{table}
-While the extracted $J/\psi$ cross section is in very good agreement with the NRQCD calculation,
-the extracted $\psi'$
-cross section disagree with the prediction, particular at large $x_F$. At large $x_F$ the NRQCD
-calculation suggests the $\psi'$ should be dominated by the $q\bar{q}$ annihilation.
-It is possible that the LDMEs used  for the $\psi'$ cross section calculation are not fully optimized,
-and the $q\bar{q}$ annihilation is more important than suggested. This new result on the $\psi'$
-cross section can be used in further constrain the LDMEs.
-
-The ratios of $\sigma_{\psi'}/\sigma_{J/\psi}$ as a function of $x_F$ are also shown in \cref{fig:cs_xF_full}.
-This ratio shows a clear $x_F$ dependence and increases at large $x_F$. In the NRQCD framework,
-the difference in the $x_F$ distributions between $J/\psi$ and $\psi'$ is mostly originated
-from the relative weighting between the different production subprocess.
-In the CEM framework, the hadronization probability only depends on
+The $d\sigma/dx_F$ distributions of charmonium production are compared with theoretical
+calculations in \cref{fig:cs_xF_full}. The calculates were performed using NRQCD approach.
+The LDEMEs are taken from a recent global fit t fixed-target $J/\psi$ and $\psi'$ productions data \cite{hsieh2021,chang2023}.
+\Cref{fig:cs_xF_full} shows that the $d\sigma/dx_F$ data for $p+p$ and $p+d$ are very well described
+by the NRQCD calculation using CT18. The ratio of $\sigma_{\psi'}/\sigma_{J/\psi}$ as a function of $x_F$
+is also shown in \cref{fig:cs_xF_full}. The measured ratio is found to increase as $x_F$ increases,
+suggesting a broader $x_F$ distribution for $\psi'$ than for $J/\psi$ production. 
+This behavior is well described by the NRQCD calculations.
+Since the valence quark in the proton has a much broader $x$ distribution than the gluon,
+one expect the $q\bar{q}$ annihilation process would give a broader $x_F$ distribution than the
+gluon-gluon fusion process. Therefore, the broader $x_F$ distribution for the $\psi'$ production
+is represent the increasing importance of the $q\bar{q}$ annihilation process for the $\psi'$
+production.
+It is also worth pointing out that in the CEM framework, the hadronization probability only depends on
 the final charmonium state, but not the underlying subprocess. Therefore, the CEM framework would predict
-the $x_F$ distributions for $J/\psi$ and $\psi'$ to have very similar shape, with a smaller total cross section
-for $\psi'$ production.
+the $x_F$ distributions for $J/\psi$ and $\psi'$ to be very similar, with a smaller total cross section
+for $\psi'$ production. And therefore the predicted $\sigma_{\psi'}/\sigma_{J/\psi}$ from CEM would be
+largely independent of $x_F$.
 
 \Cref{fig:csr_all_process} shows the extracted $\sigma_{pd}/2\sigma_{pp}$ ratios from the three processes,
-Drell-Yan process, $J/\psi$ and $\psi'$ production, as measured from the SeaQuest experiment.
+Drell-Yan process, $J/\psi$ and $\psi'$ production, as extracted from the SeaQuest data.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{cs/full_data/pdpp_CSR_full.pdf}
+	\includegraphics[width=0.8\linewidth]{cs/full_data/pdpp_CSR_full.pdf}
 	\caption{The $\sigma_{pd}/2\sigma_{pp}$ ratios for the Drell-Yan process, $J/\psi$ and $\psi'$ production
 		as measured from the SeaQuest experiment.
 	}
@@ -148,18 +160,18 @@ The charmonium ratios are closer to unity as compared to the Drell-Yan cross sec
 is partly due to the contribution from the gluon fusion process in charmonium production. Assuming
 charge symmetry, the gluon distribution in proton and neutron should be identical, and therefore
 if the production is dominated by the gluon fusion process, the charmonium ratios should be identical
-to unity. The deviation from one originates from the quark-antiquark annhilation diagrams, where they
+to unity. The deviation from one originates from the quark-antiquark annihilation diagrams, where they
 can be sensitive to the light sea-quark flavor asymmetry, like the Drell-Yan process. However, the charmonium
-production proceed via the strong interaction and is insensitive to the charge of the quarks, and therefore
-larger contribution from the valance quark ratio, $d(x)/u(x)$, as compared to the Drell-Yan process. Therefore,
-the charmonium ratio is not as sensitive to the sea-quark asymmetry as the Drell-Yan ratio.
-
+production proceed via the strong interaction and is insensitive to the charge of the quarks, and
+the contribution from the valance quark ratio, $d(x)/u(x)$, would be larger in charmonium production as compared to the Drell-Yan process.
+Therefore, the charmonium ratio is not as sensitive to the sea-quark asymmetry as the Drell-Yan ratio.
+The measured $\sigma_{pd}/2\sigma_{pp}$ ratios is in qualitative agreement with this expectation.
 
 \FloatBarrier
 \subsection{\texorpdfstring{$P_T$}{P\_T} distributions}
-\pdfmargincomment{how to plot the pT distribution? Do I want to show jpsi and psi' on the same plot, or per roadset?}
-Following a similar procedure, the $P_T$ distribution are extracted from the two datasets,
-and separately are shown in \cref{fig:pT_distribution}.
+Following a similar procedure, the $P_T$ distribution are extracted from the two datasets separately,
+The results from the two datasets are shown in \cref{fig:pT_distribution}, and are also tabulated in
+\cref{M-sec:a3_pT}.
 The $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio are also shown in \cref{fig:pT_ratio}.
 \begin{figure}[h!]
 	\centering
@@ -176,8 +188,8 @@ The $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio are also shown in \cref{fig:pT_ratio}
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=\linewidth]{cs/pT/5-6_pTsq_LD2}
 	\end{subfigure}
-	\caption{The extracted $J/\psi$ and $\psi'$ $P_T$ distribution for $p+p$(left)
-		and $p+d$(right) from the run 2-3 data(top) and run 5-6(bottom).}
+	\caption{The extracted $J/\psi$ and $\psi'$ $P_T$ distribution for $p+p$ (left)
+		and $p+d$ (right) from the run 2-3 data (top) and run 5-6 (bottom).}
 	\label{fig:pT_distribution}
 \end{figure}
 \begin{figure}[h!]
@@ -188,38 +200,10 @@ The $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio are also shown in \cref{fig:pT_ratio}
 	\begin{subfigure}{0.45\linewidth}
 		\includegraphics[width=0.9\linewidth]{cs/pT/ratio_pT_LD2_5-6_5770}
 	\end{subfigure}
-	\caption{The extracted  $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio as a function of $P_T$ for $p+p$(left)
-		and $p+d$(right) from the two datasets.}
+	\caption{The extracted  $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio as a function of $P_T$ for $p+p$ (left)
+		and $p+d$ (right) from the two datasets.}
 	\label{fig:pT_ratio}
 \end{figure}
-\begin{table}[h!]
-	\centering
-	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
-		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the run 2-3, with
-		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
-	\input{table/pT_57-70_LH2.tex}
-\end{table}
-\begin{table}[h!]
-	\centering
-	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
-		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the run 2-3, with
-		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
-	\input{table/pT_57-70_LD2.tex}
-\end{table}
-\begin{table}[h!]
-	\centering
-	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
-		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the run 5-6, with
-		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
-	\input{table/pT_5-6_LH2.tex}
-\end{table}
-\begin{table}[h!]
-	\centering
-	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
-		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the run 5-6, with
-		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
-	\input{table/pT_5-6_LD2.tex}
-\end{table}
 
 The result from the combined analysis are shown in \cref{fig:pT_combined} and tabulated in \cref{tab:pT_full_LH2,tab:pT_full_LD2}.
 \begin{figure}[h!]
@@ -238,30 +222,38 @@ The result from the combined analysis are shown in \cref{fig:pT_combined} and ta
 		\includegraphics[width=\linewidth]{cs/full_data/ratio_pT_LD2_full}
 	\end{subfigure}
 	\caption{The extracted $J/\psi$ and $\psi'$ $P_T$ distribution (top) and $\sigma_{\psi'}/\sigma_{J/\psi}$
-		ratio (bottom) as a function of $P_T$ for $p+p$(left) and $p+d$(right) from
+		ratio (bottom) as a function of $P_T$ for $p+p$ (left) and $p+d$ (right) from
 		the combined analysis.}
 	\label{fig:pT_combined}
 \end{figure}
 \begin{table}[h!]
 	\centering
-	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+	\caption{Cross section $d\sigma/dP^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
 		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the combined analysis, with
-		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
+		their statistical and systematic uncertainties and the $\expval{P_T}$ (in \unit{\GeV}) in each bin.}
 	\input{table/pT_full_LH2.tex}
 	\label{tab:pT_full_LH2}
 \end{table}
 \begin{table}[h!]
 	\centering
-	\caption{Cross section $d\sigma/dp^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+	\caption{Cross section $d\sigma/dP^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
 		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the combined analysis, with
-		their statistical and systematic uncertainties and the $\expval{p_T}$ (in \unit{\GeV})in each bin.}
+		their statistical and systematic uncertainties and the $\expval{P_T}$ (in \unit{\GeV}) in each bin.}
 	\input{table/pT_full_LD2.tex}
 	\label{tab:pT_full_LD2}
 \end{table}
-
-The transverse momentum distributions are fitted to the Kaplan form, \cref{M-eq:kaplan}, and the extracted
-$\expval{P_T}$ and $\expval{P^2_T}$ are calculated using \cref{M-eq:kaplan_mean},
-and are listed in \cref{tab:kaplan_result}, showing similar values for $p+p$ and $p+d$,
+The transverse momentum distributions are fitted to the Kaplan form, 
+\begin{equation}
+	\dv{\sigma}{P_T^2} =p_0 \left(1+ P_T^2/p_1^2\right)^{-6}.
+	\label{eq:4_2_kaplan}
+\end{equation}
+The extracted $\expval{P_T}$ and $\expval{P^2_T}$ are calculated from the fits using the following relations,
+\begin{equation}
+	\begin{split}
+		\expval{P_T} = \frac{35\pi p_1}{256}, \quad \expval{P_T^2} = \frac{p_1^2}{4},
+	\end{split}
+\end{equation}
+and are tabulated in \cref{tab:kaplan_result}, showing similar values for $p+p$ and $p+d$,
 as well as $J/\psi$ and $\psi'$.
 
 \begin{table}[h!]
@@ -273,19 +265,22 @@ as well as $J/\psi$ and $\psi'$.
 
 \Cref{fig:pT_s} shows the extracted $\expval{P_T^2}$ for $p+p\to J/\psi$ as a function
 of $\sqrt{s}$ from SeaQuest compared with different experiments
-\cite{badier1983,clark1978,drapier1998,acharya2020}. The $\expval{P_T^2}$ follows an
-increasing pattern versus $\sqrt{s}$ over a wide range of energies.
-A linear fit versus the log of the center of mass energy~\cite{acharya2020},
+\cite{badier1983,clark1978,drapier1998,acharya2020}. The $\expval{P_T^2}$
+increases logarithmically as $\sqrt{s}$ increases over a wide range of energies.
+A linear fit versus the log of the center of mass energy, adapted from Ref.~\cite{acharya2020},
 \begin{equation}
 	\expval{P_T^2}=a\ln{\left( \frac{\sqrt{s}}{b} \right)},
 \end{equation}
-describe the general trend, but some variation is expected due to the differing
-rapidity range of the measurements.
-The fitted parameters are $a=1.068\pm0.049$ and $b=6.25\pm0.44$.
-\pdfmargincomment{pT vs s}
+with $a=\left(1.068\pm0.049\right)\unit{\GeV\squared}$ and $b=\left(6.25\pm0.44\right)\unit{\GeV}$,
+describes the general trend, but some variation is expected due to the differing
+rapidity range of the measurements. The $x_F$ dependence of $\expval{P_T^2}$ has been shown in
+previous fixed target $J/\psi$ production measurements~\cite{biino1987}.
+The parameter $b$ is similar to a threshold for $J/\psi$ production, 
+the fit suggests the $J/\psi$ meson would have zero $P_T$ when $\sqrt{s}$ approaches $b$.
+
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\linewidth]{cs/pT/pT_s_paper}
+	\includegraphics[width=0.7\linewidth]{cs/pT/pT_s_thesis}
 	\caption{The extracted $\expval{P_T^2}$ for $p+p\rightarrow J/\psi$ from SeaQuest compared
 		with results from NA3~\cite{badier1983}, ISR~\cite{clark1978}, NA51~\cite{drapier1998},
 		and PHENIX~\cite{acharya2020}. The statistical and systematic uncertainties are summed in quadrature for

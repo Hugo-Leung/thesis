@@ -15,7 +15,7 @@ the determination of the light sea-quark asymmetry at large $x$ and to understan
 the drop in $\bar{d}/\bar{u}$ at $x>0.25$.
 The E906 SeaQuest experiment was proposed as a follow-up to the E866 measurement~\cite{isenhower2001}.
 The main objective of the experiment is to probe the light sea-quark asymmetry at
-large $x$ with better accuracy than the E866 experiment. 
+large $x$ with better accuracy than the E866 experiment.
 To gain better statistics at large $x$, the \SI{120}{\GeV} proton beam from the Main
 Injector is used instead of the \SI{800}{\GeV} beam from the Tevatron used during E866.
 Since the Drell-Yan cross section is inversely proportional to the center-mass energy
@@ -115,9 +115,9 @@ of each target positions are listed in \cref{table:target}.
 	\begin{tabular}{cccccc}
 		\hline
 		Target      & Position & Density (\unit{\g\per\cm\cubed}) & length (\unit{\cm}) & interaction length   (\unit{\g\per\cm\squared}) & spill/cycle \\ \hline
-		\ce{H_2}   & 1        & \num{0.071}                      & \num{50.8}          & \num{52.0}                                      & 10          \\
+		\ce{H_2}    & 1        & \num{0.071}                      & \num{50.8}          & \num{52.0}                                      & 10          \\
 		Empty Flask & 2        & -                                & -                   & -                                               & 2           \\
-		\ce{D_2}   & 3        & \num{0.1634}                     & \num{50.8}          & \num{71.8}                                      & 5           \\
+		\ce{D_2}    & 3        & \num{0.1634}                     & \num{50.8}          & \num{71.8}                                      & 5           \\
 		No target   & 4        & -                                & -                   & -                                               & 2           \\
 		Iron        & 5        & \num{7.87}                       & \num{1.905}         & \num{132.1}                                     & 1           \\
 		Carbon      & 6        & \num{1.80}                       & \num{3.322}         & \num{85.8}                                      & 2           \\
@@ -172,7 +172,7 @@ while allowing muons into the spectrometer.
 A \SI{5}{\cm} diameter by \SI{25}{\cm} deep hole is drilled into the upstream
 end of FMag along the beam axis. This is done to move the initial interaction points
 of the beam with the beam dump further away from the targets, allowing for better target/dump
-separation. This also reduces the radiation within the target cave, which facilitates 
+separation. This also reduces the radiation within the target cave, which facilitates
 access to the target area for maintenance.
 The magnetic field distribution is modeled using a magnetostatic modeling program. The
 excitation is measured by wrapping a 1-turn coil around the central region of the magnet to measure the induced
@@ -196,11 +196,11 @@ probe and is further calibrated using the reconstructed mass of the $J/\psi$ res
 
 
 \subsection{Hodoscope}
-A hodoscope is placed on upstream end of each tracking stations. Each of the hodoscope planes
+A hodoscope is placed near the upstream end of each tracking station. Each of the hodoscope planes
 is composed of overlapping panels of scintillators viewed by photomultiplier tubes (PMTs) at the end.
-When a charged particle passes through the scintillator, the molecules would be excited and
-release photons. These photons are then collected by the PMTs, the amplified signals are
-then send through discriminators. The signal is then recorded by the Data Acquisition (DAQ) System
+When a charged particle passes through the scintillator, some molecules would be excited and
+release photons afterward. These photons are then collected by the PMTs, the amplified signals are
+then sent through discriminators. The signal is then recorded by the Data Acquisition (DAQ) system
 using Time-to-Digital converters (TDCs).
 The primary purpose of the scintillator hodoscopes is to provide fast signal for the
 trigger system. It is also used during reconstruction to reduce the number of chamber hits.
@@ -210,7 +210,7 @@ The scintillator bars in each plane are also split in the middle, denoted as Top
 for the x-planes, or Left and Right for the y-planes.
 
 Station~1 and 2 each have single x-y planes. Station~3 has a single x plane, and station
-4 has two y planes and one x plane. The scintillator bars used in St~.1 and 2 are recycled
+4 has two y planes and one x plane. The scintillator bars used in St.~1 and 2 are recycled
 from HERMES experiment~\cite{ackerstaff1998a}, whereas new Eljen EJ-200 scintillator material
 is used for St.~3 and 4. Because of the physical size of the scintillator bars in St.~4, the
 hodoscopes have PMTs on both ends of the scintillator bars. Each of the PMT base has a
@@ -224,7 +224,7 @@ The configuration of the hodoscope is summarized in \cref{table:hodo}. \pdfmargi
 	\label{table:hodo}
 	\begin{tabular}{ccccccc}
 		\hline
-		Plane & Number      & Length (\unit{\cm}) & Width (\unit{\cm}) & Thickness (\unit{\cm}) & Array Width (\unit{\cm}) & Location (\unit{\cm})                                                 \\ \hline
+		Plane & Number      & Length (\unit{\cm}) & Width (\unit{\cm}) & Thickness (\unit{\cm}) & Array Width (\unit{\cm}) & $z$-Location (\unit{\cm})                                             \\ \hline
 		1Y    & $20\times2$ & \num{78.7}          & \num{7.32}         & \num{0.64}             & \num{140}                & \num{667}                                                             \\
 		1X    & $23\times2$ & \num{69.9}          & \num{7.32}         & \num{0.64}             & \num{161}                & \num{654}                                                             \\
 		2Y    & $19\times2$ & \num{132.0}         & \num{13.0}         & \num{0.64}             & \num{241}                & \num{1402}                                                            \\
@@ -375,7 +375,7 @@ the ``Event DAQ'', ``Scaler DAQ'' and ``Beam DAQ''.
 The Event DAQ records the event-by-event hit information and the trigger timing.
 It uses the VME-based ``CODA''~\cite{CODA} system developed by Thomas Jefferson National Accelerator
 Facility. This system uses 14 VME crates and can read out different detectors in parallel.
-Each VME crate contains a board processor, a trigger interface and a number of custom Time-to-Digital 
+Each VME crate contains a board processor, a trigger interface and a number of custom Time-to-Digital
 converter (TDC) modules~\cite{wang2014a}.
 Each TDC will read out the hit information from each detector and will be read out by the processor.
 There is also a trigger supervisor crate.

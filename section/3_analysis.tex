@@ -23,7 +23,7 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 		2   & Roadset 57              & 06/25/2014 to 08/20/2014 \\
 		    & Roadset 59              & 08/20/2014 to 09/03/2014 \\
 		\hline
-		N/A & D3p and D3m moved       & 10//03/2014              \\
+		N/A & D3p and D3m moved       & 10/03/2014               \\
 		\hline
 		3   & Roadset 62              & 11/08/2014 to 01/14/2015 \\
 		    & Deuterium Change        & 11/13/2014               \\
@@ -34,7 +34,7 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 		    & D1 and H1 moved         & 05/13/2015               \\
 		    & Roadset 70              & 06/19/2015 to 07/03/2015 \\
 		\hline
-		4   & Constant adjustments    & 11/13/2015 to 03/06/2016 \\
+		4   & Frequent adjustments    & 11/13/2015 to 03/06/2016 \\
 		5   & Roadset 78              & 03/06/2016 to 07/29/2016 \\
 		6   & DAQ upgrade             & 01/14/2017 to 07/07/2017 \\ \hline
 	\end{tabular}
@@ -45,9 +45,9 @@ upgrade. After the Main Injector restarted in 2013, the data collection began in
 \section{Monte Carlo}
 \label{sec:MC}
 SeaQuest utilizes a GEANT4~\cite{agostinelli2003,allison2006,allison2016}
-based Monte Carlo simulation (GMC) to simulate the
+based Monte Carlo (GMC) simulation to simulate the
 performance of the spectrometer and the acceptance. The GMC is based on the
-E866 FastMC, a fortran-based simulation code, and is ported to SeaQuest and
+E866 FastMC, a Fortran-based simulation code, and is ported to SeaQuest and
 modified according to SeaQuest's experimental configurations~\cite{kerns2018,prasad2020}.
 
 \subsection{Dimuon generation}
@@ -63,12 +63,12 @@ at high mass and $x_F$, while also preserving the expected dimuon kinematic dist
 For a Drell-Yan dimuon, a mass and $x_F$ pair is chosen, the transverse momentum is also chosen.
 For the $J/\psi$ and $\psi'$ dimuons, the dimuon mass is fixed at the mass of the corresponding
 resonance.
-Because the transverse momentum distribution ($p_T$) cannot be calculated using
+Because the transverse momentum distribution ($P_T$) cannot be calculated using
 fixed-order pQCD, it is typically parameterized using some functional form.
-In the GMC simulation, the input $p_T$ distribution is based on the
+In the GMC simulation, the input $P_T$ distribution is based on the
 Kaplan functional form~\cite{kaplan1978}.
 \begin{equation}
-	f\left(P_T^2\right) \propto \left(1+ P_T^2/p_1^2\right)^{-6},
+	\dv{\sigma}{P_T^2} \propto \left(1+ P_T^2/p_1^2\right)^{-6},
 	\label{eq:kaplan}
 \end{equation}
 The parameter $p_1$ controls the broadness of the $P_T$ distribution, and is
@@ -81,8 +81,8 @@ related to the average $P_T$ as follows
 	\end{split}
 \end{equation}
 The parameter $p_1$ is chosen to be \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
-decays. These values are inherited from the previous \SI{800}{\GeV} Drell-Yan experiment at Fermilab.
-It was later determined that these values of $p_1$ are not suitable for SeaQuest due the the lower
+production. These values are inherited from the previous \SI{800}{\GeV} Drell-Yan experiment at Fermilab.
+It was later determined that these values of $p_1$ are not suitable for SeaQuest due to the lower
 beam energy of \SI{120}{\GeV}, and the $P_T$ distribution is adjusted following a re-weighting procedure, which
 would be described in \cref{subsec:pt_reweight}.
 
@@ -90,7 +90,7 @@ The dimuon angular distribution is typically calculated in the dimuon rest frame
 Collins-Soper frame~\cite{collins1977} and shown in \cref{fig:cs_frame}.
 For the Drell-Yan events, the polar angle $\theta$ for the $\mu^-$ follows
 a $1+\cos^2\theta$ distribution with a uniform azimuthal angular distribution $\phi$ in the Collins-Soper frame.
-On the other hand, the angular distribution for the $J/\psi$ and $\psi'$ are uniform in
+On the other hand, the angular distributions for the $J/\psi$ and $\psi'$ are uniform in
 both $\theta$ and $\phi$.
 
 \subsubsection{Transformation from Collins-Soper frame to Laboratory frame}
@@ -100,19 +100,19 @@ both $\theta$ and $\phi$.
 	\input{images/Collins_Soper_frame.tex}
 	\caption{Definition of the Collins–Soper frame and various angles and planes in the rest frame of the dimuon.
 		The hadron plane is formed by $\vec{P}_A$ and $\vec{P}_B$, the momentum vectors of the colliding hadrons.
-		The $\hat{x}$ and $\hat{z}$ axes both lie on the hadron plane, with $\hat{z}$ bisecting $\vec{P}_A$ And
+		The $\hat{x}$ and $\hat{z}$ axes both lie on the hadron plane, with $\hat{z}$ bisecting $\vec{P}_A$ and
 		$\vec{P}_B$. Adapted from Ref.~\cite{peng2019}}
 	\label{fig:cs_frame}
 \end{figure}
 The Collins-Soper frame is defined in the rest frame of the dimuon.
 The hadron plane is formed by the momentum vectors of the two interacting hadrons
 ($\vec{P}_A$ and $\vec{P}_B$). The $\hat{x}$ and $\hat{z}$ axes are chosen to be on the hadron plane.
-The Collins-Soper frame is defined such that the $\hat{z}$ axis bisecting the $\vec{P}_A$ and $-\vec{P}_B$
-vectors and $\hat{x}$ is along the dilepton transverse momentum. 
-The outgoing leptons $l^+$ and $l^-$ are emitted back-to-back, forming the lepton plane, 
+The Collins-Soper frame is defined such that the $\hat{z}$ axis bisects the $\vec{P}_A$ and $-\vec{P}_B$
+vectors and $\hat{x}$ is along the dilepton transverse momentum.
+The outgoing leptons $l^+$ and $l^-$ are emitted back-to-back, forming the lepton plane with the $\hat{z}$ axis,
 with polar angle $\theta$ and azimuthal angle $\phi$ for $l^-$.
-The annihilating quark and antiquark annihilate collinearly with equal momenta along $\hat{z}'$.
-The quark momentum vector $\hat{z}'$ and $\hat{z}$ axis forms the quark plane, which can be offset from the
+The quark and antiquark annihilate collinearly with equal momenta along $\hat{z}'$.
+The quark momentum vector $\hat{z}'$ and the $\hat{z}$ axis form the quark plane, which can be different from the
 hadron plane.
 
 To transform from the Collins-Soper frame to lab frame, three Lorentz transforms are applied.
@@ -120,90 +120,91 @@ The first transformation boosts along the virtual photon's $-P_T$ direction, a s
 boosts along the $-z$ direction to reach the hadron-hadron center of mass frame. A final transformation
 then boosts along the $-z$ direction to reach the lab frame~\cite{Don-1926}.
 
-The first transform from the Collins-Soper frame is along the $\hat{x}$ direction (or along the dilepton $-p_T$).
+The first transformation from the Collins-Soper frame is along the $\hat{x}$ direction (or along the dilepton $-P_T$).
 The $\gamma$ and $\beta$ for this boost are given as
 \begin{equation}
 	\begin{split}
-		\gamma_1 & = \frac{\sqrt{p_T^2 + M^2}}{M},\\
-		\beta_1 & = \frac{M}{\sqrt{p_T^2 + M^2}}.
+		\gamma_1 & = \frac{\sqrt{P_T^2 + M^2}}{M},   \\
+		\beta_1  & = \frac{P_T}{\sqrt{P_T^2 + M^2}}.
 	\end{split}
 \end{equation}
 The $x$-$y$ axes are then rotated along $z$ direction by $\phi_\gamma$, as the dilepton $P_T$
 does not necessarily lie on the $x$-axis in the lab frame.
 This angle $\phi_\gamma$ is randomly selected from a uniform distribution.
 
-The next transform is along the $z$-axis to reach the hadron-hadron center of mass frame.
+The next transformation is along the $z$-axis to reach the hadron-hadron center of mass frame.
 \begin{equation}
 	\begin{split}
-		\gamma_2 &= \frac{\sqrt{P_L^2 + M^2}}{M},\\
-		\beta_2 & = \frac{M}{\sqrt{p_L^2 + M^2}},
+		\gamma_2 & = \frac{\sqrt{P_L^2 + M^2}}{M},   \\
+		\beta_2  & = \frac{P_T}{\sqrt{P_L^2 + M^2}},
 	\end{split}
 \end{equation}
 where $P_L$ and $M$ are the longitudinal momentum and mass of the virtual photon respectively.
-The final transform along the $z$-axis to the lab frame is given by
+The final transformation along the $z$-axis to the lab frame is given by
 \begin{equation}
 	\begin{split}
-		\gamma_3 &= \frac{E_{\mathrm{beam}}+m_{\mathrm{proton}}}{\sqrt{s}},\\
-		\beta_3 & = \frac{P_{\mathrm{proton}}}{E_{\mathrm{beam}}+m_{\mathrm{proton}}}.
+		\gamma_3 & = \frac{E_{\mathrm{beam}}+m_{\mathrm{proton}}}{\sqrt{s}},            \\
+		\beta_3  & = \frac{P_{\mathrm{proton}}}{E_{\mathrm{beam}}+m_{\mathrm{proton}}}.
 	\end{split}
 \end{equation}
 
 \subsubsection{Cross section weighting}
-To recover the expected kinematics distributions, 
+To recover the expected kinematic distributions,
 each event is assigned a weight based on the cross section.
-The Drell-Yan cross section is calculated based on the kinematics of the generated events. 
+The Drell-Yan cross section is calculated based on the kinematics of the generated events.
 The leading order cross section is calculated with the CT14 pdf.
-The NLO effect is then included using 2-dimensional K-Factor~\cite{shivangi-1747}, which
+The NLO effect is then included using 2-dimensional (in $M$ and $x_F$) K-Factor~\cite{shivangi-1747}, which
 is defined as the ratio of the NLO cross section over LO cross section and is
 calculated using DYNNLO (see \cref{sec:DYNNLO}).
 The proton on deuterium cross section is calculated using the charge symmetry.
-Assuming negligible nuclear correction, the proton on deuterium cross section are calculated
-as the sum of $p+p$ and $p+n$ cross section.
+Assuming negligible nuclear correction, the proton on deuterium cross section is calculated
+as the sum of $p+p$ and $p+n$ cross sections.
 
-The cross section for the $J/\psi$ is parameterized by a Gaussian in $x_F$ and fitted to the
+The cross section for the $J/\psi$ production is parameterized by a Gaussian in $x_F$ and fitted to the
 calculation using color evaporation model, with the normalization taken from a particularization by E789~\cite{schub1995}.
 \begin{equation}
-	\dv{\sigma_{J/\psi}}{x_F} = Ae^{-B\sqrt{\tau}} \left[ \frac{e^{-x^2_F/2C^2}}{\sqrt{2\pi}C} \right],
+	\dv{\sigma_{J/\psi}}{x_F} = Ae^{-Bm_{J/\psi}/\sqrt{s}} \left[ \frac{e^{-x^2_F/2C^2}}{\sqrt{2\pi}C} \right],
 \end{equation}
-where $A=\SI{1464}{\nano\barn}$, $B=16.66$, $C=0.2398$, and $\tau=m^2_{J/\psi}/s$.
+where $A=\SI{1464}{\nano\barn}$, $B=16.66$ and $C=0.2398$.
 The branching ration $B\left(J/\psi\rightarrow \mu^+ \mu^-\right)=0.0594$ is also included.
-The $\psi'$ cross section is based to $J/\psi$ cross section, with an additional factor
+The $\psi'$ cross section is proportional to the $J/\psi$ cross section, with an additional factor
 $\left[B\left(\psi'\rightarrow \mu^+ \mu^-\right)\cross\sigma_{\psi'}\right]/\left[B\left(J/\psi\rightarrow \mu^+ \mu^-\right)\cross\sigma_{J/\psi}\right]=0.019$.
 
 \subsection{Messy and Clean Monte Carlo}
 \label{subsec:messyMC}
-Before reconstruction, the resolution and efficiency of the detectors needs to be included.
-This step is known as realization.
+Before reconstruction, the resolution and efficiency of the detectors need to be included.
+This step is known as `realization'.
 From previous studies, the efficiency for the chambers is determined to be \SI{\sim 94}{\percent}
-with a resolution of \SI{\sim 0.04}{\cm}. Therefore for all chamber hits, \SI{6}{\percent} of
+with a resolution of \SI{\sim 0.04}{\cm}. Therefore for all chambers, \SI{6}{\percent} of
 hits are dropped randomly, with a Gaussian smearing applied to the drift distance for the remaining
-hits with a width of \SI{0.04}{\cm}. The Monte Carlo data are now ready for track reconstruction and analysis.
+hits with a $\sigma$ of \SI{0.04}{\cm}. The Monte Carlo data are now ready for track reconstruction and analysis.
 This is labeled as ``clean Monte Carlo'', and is used in acceptance studies without the
 rate dependent effects.
 
-If we are interested in the rate dependent effects, there is an option to embed NIM-3 hits into
+If we are interested in the rate dependent effects, there is an option to embed
+hits in the detectors for events triggered by NIM-3 into
 the clean Monte Carlo to create what is known as ``messy Monte Carlo''.
 The purpose is to simulate the noise and background hits in the spectrometer. By including noise
-and background hit, we can understand the performance of our reconstruction software at different
+and background hit, we can understand the performance of our reconstruction software versus detector
 occupancy.
-Since the NIM-3 trigger randomly, the hit distribution in each detector would be reflect
+Since NIM-3 is a random trigger, the hit distribution in each detector would reflect
 the background and noise hits caused by the beam. However, as the probability of a dimuon event
 is higher at higher beam intensity, the signal (MATRIX-1) events would have a significantly higher
 average occupancy than the NIM-3 events, as shown in \cref{fig:NIM3_FPGA1}.
 The input occupancy distribution should have little or no
-effect on the reconstruction efficiency, as we are only interested the fraction of events that was
+effect on the reconstruction efficiency, as we are only interested in the fraction of events that was
 successfully reconstructed in each occupancy bin, not the absolute number of events in each bin.
-However, the occupancy profile could have significant effect when using the occupancy integrated
-messy Monte Carlo such as mass fit studies. Therefore, when sampling the NIM-3 events, the occupancy ratio
+However, the occupancy profile would have significant effect when using the occupancy integrated
+messy Monte Carlo such as in the mass fit studies. Therefore, when sampling the NIM-3 events, the occupancy ratio
 of the MATRIX-1 and NIM-3 events is used as weights, and high occupancy NIM-3 would have a higher
-probability to be used, where as only a small fraction of lower occupancy NIM-3 events would be used.
+probability to be used, whereas only a small fraction of lower occupancy NIM-3 events would be used.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{rs67_NIM3_FPGA1}
 	\caption{The St.~1 occupancy distribution for MATRIX-1 and NIM-3 events. Both histograms are normalized
 		to unit area. The average occupancy for the MATRIX-1 events are higher as the probability of observing
-		a dimuon is higher at higher beam intensity, and the beam intensity is strongly related to the chamber
+		a dimuon is higher at higher beam intensity, and the beam intensity correlates strongly with the chamber
 		occupancy.
 	}
 	\label{fig:NIM3_FPGA1}
@@ -211,58 +212,56 @@ probability to be used, where as only a small fraction of lower occupancy NIM-3 
 
 \subsection{Maximum dimuon \texorpdfstring{$P_T$}{P\_T}}
 \label{subsec:max_pt}
-One of the changes I made to the Monte Carlo generator during this study
-is the maximum transverse momentum of the virtual photon.
+One of the changes I made to the Monte Carlo generator during my study
+is on the maximum transverse momentum of the virtual photon.
 
 Let $\mathbf{P}_\gamma$ and $\mathbf{P}_R$ be the four momenta of the virtual photon and residual system respectively.
-In the hadron-hadron center-of-mass frame, 
+In the hadron-hadron center-of-mass frame,
 \begin{equation}
 	\begin{split}
-		\mathbf{P}_\gamma &= \begin{bmatrix}
-			E_\gamma & \vec{P}
-		\end{bmatrix},	\\
-		\mathbf{P}_R &= \begin{bmatrix}
-			E_R & -\vec{P}
-		\end{bmatrix},
+		\mathbf{P}_\gamma & = \begin{bmatrix}
+			                      E_\gamma & \vec{P}
+		                      \end{bmatrix}, \\
+		\mathbf{P}_R      & = \begin{bmatrix}
+			                      E_R & -\vec{P}
+		                      \end{bmatrix},
 	\end{split}
 \end{equation}
-and 
+and
 \begin{equation}
-    \begin{split}
-        E^2_R &= M_R^2 + P^2,\\
-        E^2_\gamma &= M_\gamma^2 + P^2,
-    \end{split}
+	\begin{split}
+		E^2_\gamma & = M_\gamma^2 + P^2, \\
+		E^2_R      & = M_R^2 + P^2,
+	\end{split}
 \end{equation}
-where $M_\gamma$ and $M_R$ are the mass of the virtual photon and residual system respectively.
+where $M_\gamma$ and $M_R$ are the mass of the virtual photon and the residual system respectively.
 From the conservation of energy, the sum of virtual photon and residual system momenta should
 equal the center of mass energy $\sqrt{s}$.
 \begin{equation}
 	\begin{split}
-		s &=\left( \mathbf{P_R}+\mathbf{P_\gamma} \right)^2 = \left(E_R+E_\gamma\right)^2\\
-		&= E_R^2+E_\gamma^2+2E_R E_\gamma.\\
+		s & =\left( \mathbf{P}_\gamma+\mathbf{P}_R \right)^2 = \left(E_\gamma+E_R\right)^2 \\
+		  & = E_\gamma^2+E_R^2+2E_\gamma E_R.                                              \\
 	\end{split}
 \end{equation}
 Therefore the magnitude of the virtual photon momentum $\vec{P}$ is given by
 \begin{equation}
-	P^2 = \frac{1}{4s} \left[ s^2 + \left(M_R^2 - M_\gamma^2\right)^2 -2s\left(M^2_R+M_\gamma^2\right) \right]
+	P^2 = \frac{1}{4s} \left[ s^2 + \left(M_\gamma^2 - M_R^2\right)^2 -2s\left(M^2_\gamma+M_R^2\right) \right].
 \end{equation}
-
 For maximum $P$, the mass of the residual system should be approaching zero. Therefore,
 \begin{equation}
-    \begin{split}
-        \left(P^{\mathrm{max}}\right)^2 &= \frac{1}{4s} \left[ s^2 +  M_\gamma^4 -2sM_\gamma^2\right]\\
-        &=\frac{s}{4}\left[ 1 -M_\gamma^2/s\right]^2.\\
-    \end{split}
+	\begin{split}
+		\left(P^{\mathrm{max}}\right)^2 & = \frac{1}{4s} \left[ s^2 +  M_\gamma^4 -2sM_\gamma^2\right] \\
+		                                & =\frac{s}{4}\left[ 1 -M_\gamma^2/s\right]^2.                 \\
+	\end{split}
 \end{equation}
-
-The virtual photon momentum, $\vec{P}$, can be decompose into the longitudinal ($P_L$) and transverse ($P_T$)
+The virtual photon momentum, $\vec{P}$, can be decomposed into the longitudinal ($P_L$) and transverse ($P_T$)
 components. The maximum $P_L$ is achieved when $P_T$ is approaching zero. Hence
 \begin{equation}
 	P_L^{\mathrm{max}} = \frac{\sqrt{s}}{2}\left(1-\frac{M_\gamma^2}{s}\right).
 \end{equation}
 Therefore, we define Feynman $x$ as
 \begin{equation}
-	x_F = \frac{P_L}{P_L^{\mathrm{max}}}=\frac{2P_L}{\sqrt{s}\left(1-M_\gamma^2/2\right)}.
+	x_F = \frac{P_L}{P_L^{\mathrm{max}}}=\frac{2P_L}{\sqrt{s}\left(1-M_\gamma^2/s\right)}.
 \end{equation}
 For a fixed $x_F$, the maximum $P_T$ carried by the virtual photon
 is given by
@@ -270,24 +269,23 @@ is given by
 	\left(P_T^{\mathrm{max}}\right)^2 = \frac{s}{4} \left[1-M^2_\gamma/s\right]^2\left[1-x_F^2\right].
 	\label{eq:pTmax}
 \end{equation}
-
 Earlier versions of the SeaQuest Monte Carlo generators used an inconsistent definition of $x_F$
 and $P_T^{\mathrm{max}}$, resulting in an incomplete coverage of the kinematic phase space.
 
 \subsection{\texorpdfstring{$P_T$}{P\_T} re-weighting in Monte Carlo}
 \label{subsec:pt_reweight}
 This was first studied by S.~Prasad~\cite{prasad2020}.
-In the GMC, the transverse momentum distribution randomly follows the Kaplan functional form
+In the GMC, the transverse momentum distribution follows the Kaplan functional form
 \cref{eq:kaplan},
-with $p_1$ is set to \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
-decays. If the chosen $P_T$ exceeds $P_T^{\mathrm{max}}$ in \cref{eq:pTmax}
+with $p_1$ set to \SI{2.8}{\GeV} for Drell-Yan and \SI{3}{\GeV} for charmonium
+production. If the chosen $P_T$ exceeds $P_T^{\mathrm{max}}$ in \cref{eq:pTmax}
 and does not satisfy the kinematic constraint, a new $P_T$ will be chosen until
 the constraint is satisfied.
 
 The chosen value of $p_1$ is taken from experiments conducted at higher
-energies, and may not be suitable to the SeaQuest kinematic. An additional weight is
+energies, and may not be suitable for the SeaQuest kinematics. An additional weight is
 applied to account for the difference between the $P_T$ distribution in the MC input
-and in the real data. In addition, the $P_T$ distribution can also depend on $x_F$.
+and in the real data. In addition, the $P_T$ distribution can depend on $x_F$.
 The $x_F$ dependence of the $P_T$ distribution has been reported in the pion induced
 Drell-Yan experiment E615~\cite{conway1989}. The $x_F$ and $\sqrt{s}$ dependence in
 proton induced Drell-Yan has also been reported in Ref.~\cite{prasad2020}.
@@ -301,14 +299,14 @@ where $N$ is the normalization constant and is given by
 \begin{equation}
 	N=\frac{5}{p_1^2-p_1^2\left[ 1+ \left(P_T^{\mathrm{max}}\right)^2/p_1^2\right]^{-5}}.
 \end{equation}
-Therefore the $p_T$ reweight is given by
+Therefore the $P_T$ reweight is given by
 \begin{equation}
 	P_T \mathrm{ reweight}\left(m,x_F\right)=
-	\frac{\left(1 + \frac{p_T^2}{2.8^2} \right)^6}{\left(1 + \frac{p_T^2}{\left(p_1\left(x_F\right)\right)^2} \right)^6} \frac{2.8^2}{\left(p_1\left(x_F\right)\right)^2}\frac{1-\left[ 1+ \frac{\left(P_T^{\mathrm{max}}\left(m,x_F\right)\right)^2}{2.8^2}\right]^{-5}}{1-\left[ 1+ \frac{\left(P_T^{\mathrm{max}}\left(m,x_F\right)\right)^2}{\left(p_1\left(x_F\right)\right)^2}\right]^{-5}}.
+	\frac{\left(1 + \frac{P_T^2}{2.8^2} \right)^6}{\left(1 + \frac{P_T^2}{\left(p_1\left(x_F\right)\right)^2} \right)^6} \frac{2.8^2}{\left(p_1\left(x_F\right)\right)^2}\frac{1-\left[ 1+ \frac{\left(P_T^{\mathrm{max}}\left(m,x_F\right)\right)^2}{2.8^2}\right]^{-5}}{1-\left[ 1+ \frac{\left(P_T^{\mathrm{max}}\left(m,x_F\right)\right)^2}{\left(p_1\left(x_F\right)\right)^2}\right]^{-5}}.
 	\label{eq:pT_reWeight}
 \end{equation}
 The addition of the last factor in \cref{eq:pT_reWeight}, as compared to previous studies,
-is to ensure the normalization is preserved and would not affect the other kinematic
+is to ensure that the normalization is preserved and would not affect the other kinematic
 distributions at generator level.
 
 While we could modify the input $P_T$ distribution in the Monte Carlo event generator,
@@ -331,9 +329,9 @@ to identify valid dimuons and reconstruct the dimuon kinematics.
 
 \subsection{Spill-level Cuts}
 During the offline decoding process, several data quality cuts are applied.
-These cut are to ensure the data taking conditions were both normal and accurately recorded.
+These cut are to ensure that the data taking conditions were both normal and accurately recorded.
 During analysis, this is typically done by querying the database
-and requiring the data quality equals to zero in the spill table.
+and requiring the data quality to be zero in the spill table.
 These cuts are tabulated in \cref{tab:spillQA}.
 \input{section/QA.tex}
 
@@ -351,11 +349,12 @@ all detectors.
 \paragraph{After-pulse cut}
 Due to the tendency of the wire chamber channels to `ring' after being hit,
 a single charge particle may produce multiple pulses on the same
-wire in quick succession. Therefore, if there are multiple TDC hits on same chamber wire
+wire in rapid succession. Therefore, if there are multiple TDC hits on the same chamber wire
 within a small predefined time window, only the first hit will be kept.
 
 \paragraph{Cluster removal cut}
-There are three types of cluster hits: cell-edge hits, delta-rays and electronic noise.
+There are three types of cluster hits: cell-edge hits, delta-rays and electronic noise. The flowchart
+is shown in \cref{fig:cluster_cuts}.
 
 When a muon passes through the wire plane near the cell edge, it will often cause two adjacent
 wires to fire. If the drift distance of one hit is more than \SI{90}{\percent} of the cell width,
@@ -365,25 +364,25 @@ with larger drift distance will be discarded.
 Delta rays are electrons knocked off by the primary radiation particle when passing
 through the chamber. The knocked off electron is capable of producing secondary ionization.
 Some of these electrons scatter at large angles and travel parallel to the chamber plane
-and fire several wire. Since the primary muon would locate on either side on the hit cluster,
+and fire several wires. Since the primary muon would locate on either side on the hit cluster,
 only edge hits are retained.
 
 The chamber electronics are also prone to electronic noise, thereby creating clusters of
 hits that do not correspond to real particle. During the offline analysis, if a string of
 3 or more hits on adjacent wires have similar TDC time, with average time difference between
 hits less than \SI{10}{\ns}, all these hits are considered electronic noise and are removed.
-
 \begin{figure}
 	\centering
 	\input{images/cluster}
 	\caption{Flowchart depicting the cluster removal procedure.}
+	\label{fig:cluster_cuts}
 \end{figure}
 
-\paragraph{Trigger Hodoscope masking}
+\paragraph{Trigger hodoscope masking}
 As the hodoscopes have a shorter time resolution compared to the chamber drift time and
 the RF bucket periodicity, the hodoscopes are used for triggering. The hodoscope hits
 are recorded by both the FPGA trigger modules as well as the TDC modules. The in-time hodoscope
-hits from all 4 stations are combined to form all possible combinations, called road. These
+hits from all 4 stations are combined to form all possible combinations, called roads. These
 combinations are checked against the active trigger road set used. Only the chamber hits
 that fall behind a fired hodoscope paddle, that forms part of a valid trigger road, will be retained.
 
@@ -415,15 +414,16 @@ the search window on St.~1 is constrained by this ratio.
 \pdfmargincomment{kalment filter}
 Once the hits are identified, the Kalman track fitting can begin~\cite{kalman1960}. A list of nodes are created
 from the hits. Each node corresponds to a hit and also contain the drift distance of the particular hit.
-The Kalman filter parametrize a track based on the five parameters (the momentum, x-, y-slope, x- and y-position)
+The Kalman filter parametrizes a track based on the five parameters (the momentum, x-, y-slope, x- and y-position)
 at each of the nodes.
-The Kalman filter then iteratively refines the these parameters by comparing the the measured hit location
-to the prediction. At each iteration, the Kalman filter preform three steps: predict, filter, and smoothing.
+The Kalman filter then iteratively refines the these parameters by comparing the measured hit location
+to the prediction. At each iteration, the Kalman filter preforms three steps: predict, filter, and smoothing,
+as depicted in \cref{fig:kalman_flowchart}.
 The Kalman filter loops over all the nodes, using the current estimate of the track parameters
-from the previous node and calculate the expected hit location using Geant4. This predicted location
+from the previous node and calculates the expected hit location using Geant4. This predicted location
 is then compared with measured location. During the filter step, the track parameters at the current node is
 adjusted based on the difference between the predicted and measured hit location in order to minimized
-the $\chi^2$. Kalman filter will then move on to the next node.
+the $\chi^2$. Kalman filter will then move on to the next node. This is illustrated in \cref{fig:kalman_node}.
 
 Once all the nodes have been predicted and filtered, the smoothing step can begin. The smoothing step propagates
 the changes to the track parameters in each node to the adjacent nodes.
@@ -452,12 +452,12 @@ region. The energy loss and transverse momentum kick in FMag are taken into acco
 
 \subsection{Vertex Finding}
 Once all the tracks are found in each event, the reconstruction of the dimuon vertex can begin using kVertex.
-For MATRIX-1 events, all possible combinations of $\mu^+$ and $\mu^-$ tracks are tested if they can form
+For MATRIX-1 events, all possible combinations of $\mu^+$ and $\mu^-$ tracks are tested to see if they can form
 a dimuon. The vertex is determined using the same Kalment filter with the tracks acting as measurements.
 
 \pdfmargincomment{kalment filter, refitting if it the pair originate from target to account for multiple scattering }
 To account for multiple scattering of the muons while traversing FMag, dimuon pairs that are
-determined to be likely originating from the target, are refitted by requiring the dimuon vertex to
+determined to be likely originating from the target are refitted by requiring the dimuon vertex to
 fall within the target. Due to the length of the target and the acceptance of the spectrometer,
 the most probable z-vertex is found to depend on the mass of the dimuon, and is calculated from the
 following empirical formula~\cite{kun-1283}
@@ -469,28 +469,28 @@ The refitting procedure is repeated until the new z-vertex reaches convergence.
 
 \subsection{Dimuon Kinematic Variables}
 \label{subsec:def_kinematic}
-The dimuon kinematic variable is calculated after vertex finding. The primary outputs of kTracker
+The dimuon kinematic variables are calculated after vertex finding. The primary outputs of kTracker
 are the four-momenta of the two muons as well as the dimuon vertex. The other variables are inferred
 from these information. While most variables have consistent definitions across literature, the momentum
 fractions $x_1$, $x_2$ and the Feynman x ($x_F$) require some attentions as there can be multiple definitions.
 
-Feynman x, or $x_F$, is defined as $P_z/P_z^{max}$, the ratio of longitudinal dimuon momentum
+Feynman x, or $x_F$, is defined as $P_z/P_z^{\mathrm{max}}$, the ratio of longitudinal dimuon momentum
 over the maximum allowed value in the hadron-hadron center of mass frame. In high energy
-experiment, $P_z^{max}$ is often given as $\sqrt{s}/2$, since half of the available energy is
+experiment, $P_z^{\mathrm{max}}$ is often given as $\sqrt{s}/2$, since half of the available energy is
 carried away by the recoiled system.
 However, as SeaQuest is at a lower energy, the mass of the virtual photon becomes comparable to its momentum.
 A heavier virtual photon would imply less available energy for the longitudinal momentum,
 therefore we defined $x_F$ as
 \begin{equation}
-	x_F = \frac{2P_z}{\sqrt{s}-M^2/\sqrt{s}},
+	x_F = \frac{2P_z}{\sqrt{s}\left(1-M^2/s\right)},
 \end{equation}
 where $M$ is the dimuon mass. With this definition, the full range of $\abs{x_F}<1$ is covered.
 
 For the momentum fractions $x_1$, $x_2$, the following definition, taken from Ref.~\cite{Coester-1286} is chosen
 \begin{equation}
 	\begin{split}
-		x_1 &= \frac{P_{\textrm{target}}\cdot P_{\gamma^*}}{P_{\textrm{target}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})},\\
-		x_2 &= \frac{P_{\textrm{beam}}\cdot P_{\gamma^*}}{P_{\textrm{beam}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})},
+		x_1 & = \frac{P_{\textrm{target}}\cdot P_{\gamma^*}}{P_{\textrm{target}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})}, \\
+		x_2 & = \frac{P_{\textrm{beam}}\cdot P_{\gamma^*}}{P_{\textrm{beam}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})},
 	\end{split}
 \end{equation}
 where $P_{\textrm{beam}}$, $P_{\textrm{target}}$ and $P_{\gamma^*}$ are the four momentum of the
@@ -553,7 +553,7 @@ single track event is much higher than a two track event, the MATRIX-4 trigger i
 heavily prescaled to preserve DAQ bandwidth. Typically, a prescale factor of \num{30000} is used during
 normal data taking run, meaning only \num{1} in \num{30000} single track event is recorded.
 Therefore, the amount of available MATRIX-4 data for each target can be limited. The mixed events
-from different target can also be combined to increase statistics. For this study, the \ce{LH_2}
+from different targets can also be combined to increase statistics. For this study, the \ce{LH_2}
 and \ce{LD_2} mixed events are combined during the mass fitting.
 
 Alternative accidental background generating methods have also been proposed by different groups.
@@ -581,7 +581,6 @@ The event selection that is used in this study is based on the study by C.~Brown
 with some modification to increase acceptance at low mass. These cuts
 are categorized into different groups and are tabulated in \cref{table:trackCut,table:dimuonCut,table:physCut,table:occCut}.
 
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \input{table/cuts/track.tex}
 \input{table/cuts/dimuon.tex}
 \input{table/cuts/physics_occ.tex}
@@ -596,7 +595,7 @@ In SeaQuest, there are three beam luminosity related quantities.
 During data taking, the proton on target is monitored by two sets of instruments, a secondary
 emission monitor located upstream of the SeaQuest experimental hall, and a Cherenkov counter
 (as described in \cref{M-subsec:BIM}). The secondary emission monitor provides the integrated
-beam intensity for the entire beam spill (labeled as ``G2SEM"). This is sometimes referred as
+beam intensity for the entire beam spill (labeled as ``G2SEM"). This is sometimes called
 ``raw proton'' as this quantity does not include any deadtime or inhibit effect.
 
 The Cherenkov counter provides the beam intensity for each RF bucket in relative units.
@@ -620,9 +619,9 @@ regularly. This factor over time is shown in \cref{fig:potperQIE}.
 	\label{fig:potperQIE}
 \end{figure}
 
-However, there is a pedestal in the QIE measurements. This is partly originate from the dark rate of the 
-detector. And this pedestal needs to be subtracted from the sums. 
-The value of the pedestal is obtained by studying empty buckets. 
+However, there is a pedestal in the QIE measurements. This is partly originating from the dark rate of the
+detector. And this pedestal needs to be subtracted from the sums.
+The value of the pedestal is obtained by studying empty buckets.
 This value can change over time and is summarized in \cref{tabel:pedestal}.
 A typical spill contains $588\cdot 369000$ buckets, hence the $\mathrm{QIEsum}$ should be replaced with
 \begin{equation}
@@ -630,16 +629,16 @@ A typical spill contains $588\cdot 369000$ buckets, hence the $\mathrm{QIEsum}$ 
 \end{equation}
 However, the numbers of bucket during DAQ deadtime or while the inhibit is asserted are less clear,
 as they are not always recorded reliably~\cite{chleung-10662}.
-Instead, the number of buckets during the DAQ deadtime of the whole dataset 
+Instead, the number of buckets during the DAQ deadtime of the whole dataset
 is estimated using the measured deadtime from run periods where we believe the measurements are reliable.
 The measured deadtime per event for Run 5 is shown in \cref{fig:deadtime}.
-The extracted mean deadtime is used for the analysis of Run 2-3 and Run 5 data. 
+The extracted mean deadtime is used for the analysis of Run 2-3 and Run 5 data.
 For Run 6, due to the DAQ upgrade, the deadtime is reduced to a fixed \SI{29.5}{\us}.
 The number of buckets during deadtime is estimated as
 \begin{equation}
 	N_{\mathrm{busy\ RF}}=N_{\mathrm{trigger}}\times\frac{\expval{\mathrm{deadtime}}}{18.9\unit{\ns}},
 \end{equation}
-where $N_{\mathrm{trigger}}$ is the number of trigger during a spill, and \SI{18.9}{\ns} is the width of a bucket. 
+where $N_{\mathrm{trigger}}$ is the number of triggers during a spill, and \SI{18.9}{\ns} is the width of a bucket.
 Therefore, the $\mathrm{busy\_sum\_no\_inhibit}$ is \cref{eq:livePoT-old} is replaced by
 \begin{equation}
 	\mathrm{busy\_sum\_no\_inhibit} - N_{\mathrm{busy\ RF}}\cdot \mathrm{pedestal}.
@@ -656,9 +655,9 @@ Therefore, the $\mathrm{busy\_sum\_no\_inhibit}$ is \cref{eq:livePoT-old} is rep
 	\label{fig:deadtime}
 \end{figure}
 
-During regular data-taking, the minimum width of the inhibit signal is control by a programmable
-register, and is typically set to 16, meaning when bucket $i$ is above the threshold, bucket $i-8$
-to $i+8$ (inclusive) with be inhibited. The length of the inhibit can be longer if a series
+During regular data-taking, the minimum width of the inhibit signal is controled by a programmable
+register, and is typically set to 16, meaning when bucket $i$ is above the threshold, buckets $i-8$
+to $i+8$ (inclusive) will be inhibited. The length of the inhibit can be longer if a series
 of high intensity buckets arrive in succession. In this situation, the inhibit will extend till 8
 buckets after the last high intensity bucket. However, the length of each inhibit is not always available.
 Hence the number of inhibited buckets is estimated using the minimum inhibit width.
@@ -674,7 +673,7 @@ And the $\mathrm{inhibit\_block\_sum}$ is replaced by
 Therefore the pedestal-corrected live proton is given by
 \begin{multline}
 	\frac{\mathrm{live\ proton}}{\mathrm{G2SEM}}= 1-\frac{1}{\mathrm{QIEsum}-\mathrm{pedestal}\cdot 588\cdot 369000}\times\big[\mathrm{inhibit\_block\_sum}\\
-	+\mathrm{trigger\_sum\_no\_inhibit}-\mathrm{pedestal}\cdot\left(N_{\mathrm{inhibited\ RF}}+N_{\mathrm{busy\ RF}}\right)\big].
+		+\mathrm{trigger\_sum\_no\_inhibit}-\mathrm{pedestal}\cdot\left(N_{\mathrm{inhibited\ RF}}+N_{\mathrm{busy\ RF}}\right)\big].
 	\label{eq:livePoT-new}
 \end{multline}
 This pedestal correction is found to have $\sim 5-10\%$ effect on the absolute normalization,
@@ -685,7 +684,7 @@ The Main DAQ also reads out the beam intensity from Cherenkov counter for the tr
 and the $\pm16$ RF buckets before and after the trigger (label as ``RF-16" to ``RF+16", with
 ``RF00'' being the triggering bucket).
 
-The number of proton in the triggering bucket can be calculated as follows:
+The number of protons in the triggering bucket can be calculated as follows:
 \begin{equation}
 	\mathrm{trigger\ intensity} = \frac{\mathrm{RF00}-\mathrm{pedestal}}{\mathrm{QIEsum}-\mathrm{pedestal}\cdot 588\cdot 369000}\cdot \mathrm{G2SEM}
 \end{equation}
@@ -695,12 +694,12 @@ The number of proton in the triggering bucket can be calculated as follows:
 	\label{tabel:pedestal}
 	\begin{tabular}{|c|c|c|}
 		\hline
-		Run     & spill range                     & pedestal value \\ \hline
-		2-3     &                                 & $34\pm5$       \\ \hline
-		5       & $[\num{910000},\num{1010000})$  & $33\pm 6$      \\ \cline{2-3}
-		        & $[\num{1010000},\num{1100000})$ & $28\pm 5$      \\ \hline
-		6       & $[\num{1200000},\num{1320000})$ & $40\pm 12$     \\ \cline{2-3}
-		        & $[\num{1320000},\num{1420000})$ & $30\pm 7$      \\ \hline
+		Run & spill range                     & pedestal value \\ \hline
+		2-3 &                                 & $34\pm5$       \\ \hline
+		5   & $[\num{910000},\num{1010000})$  & $33\pm 6$      \\ \cline{2-3}
+		    & $[\num{1010000},\num{1100000})$ & $28\pm 5$      \\ \hline
+		6   & $[\num{1200000},\num{1320000})$ & $40\pm 12$     \\ \cline{2-3}
+		    & $[\num{1320000},\num{1420000})$ & $30\pm 7$      \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -728,13 +727,13 @@ with the flask wall, beam dump or various upstream instrumentation. The normaliz
 empty flask contribution is obtained from the ratio of live protons for the liquid target and
 empty flask. The empty flask normalization is then kept fixed during the fitting procedure, while
 other components are allowed to float. The relative live proton ratio is used for the normalization here, as the
-mass distribution is obtained by integrating over intensity, and rate dependence effect will need
+mass distribution is obtained by integrating over intensity, and rate dependent effects will need
 to be corrected later.
 
 \paragraph{Accidental/Mixed background correction}
 As described in \cref{sec:mixing}, the mixed sample from the MATRIX-4 is typically used.
-Due to the limited sample size in the raw MATRIX-4 data, 
-the statistics of the mixed sample is typically limited. For both \ce{LH_2} and \ce{LD_2} studies, 
+Due to the limited sample size in the raw MATRIX-4 data,
+the statistics of the mixed sample is typically limited. For both \ce{LH_2} and \ce{LD_2} studies,
 the mixed sample from both \ce{LH_2} and \ce{LD_2} are combined.
 Then the sample template is used for both \ce{LH_2} and \ce{LD_2} analysis.
 Other mixed samples can also be used. This is done to estimate the systematic uncertainty.
@@ -746,9 +745,10 @@ This is achieved by performing a standard likelihood fit using Poisson statistic
 while the templates, generated from MC, are also varied within statistics, leading
 to additional contributions to the overall likelihood.
 
-Let there be $m$ sources, the number of MC events in bin $i$ from source $j$
-is given by $a_{ji}$. For each source, there is some (unknown) expected distribution
-$A_{ji}$. The expected number of events in each bin is given by
+Let there be $m$ sources and the data is divided into $n$ bins.
+The number of MC events in bin $i$ from source $j$ is given by $a_{ji}$.
+For each source, there is some (unknown) expected distribution $A_{ji}$.
+The expected number of events in each bin is given by
 \begin{equation}
 	f_i = \sum^m_{j=1} p_j A_{ji}.
 	\label{eq:TF_f}
@@ -765,7 +765,7 @@ found by maximizing this likelihood. One consequence of this approach is the add
 $n \cross m$ fit parameters $A_{ji}$. However, the  minimization of these additional
 parameters is done analytically rather than treating them as formal fit parameters.
 
-To maximize the likelihood, \cref{eq:TF_likelihood} is differentiated with respect to $p_j$ 
+To maximize the likelihood, \cref{eq:TF_likelihood} is differentiated with respect to $p_j$
 and $A_{ji}$ and the derivatives are set to zero.
 This yields two sets of equations, those for the differentials with respect to $p_j$,
 \begin{equation}
@@ -777,17 +777,17 @@ and those for the differentials with respect to $A_{ji}$
 	\frac{d_i p_j}{f_i} - p_j + \frac{a_{ji}}{A_{ji}}-1=0\quad \forall 	i,j.
 	\label{eq:TF_d2}
 \end{equation}
-\Cref{eq:TF_d2} and be simplified by rewritten as 
+\Cref{eq:TF_d2} can be simplified and rewritten as
 \begin{equation}
 	1-\frac{d_i}{f_i} = \frac{1}{p_j}\left(\frac{a_{ji}}{A_{ji}}-1\right)\quad \forall i,j.
 	\label{eq:TF_d3}
 \end{equation}
-Since the left hand side only depends on $i$, one can define $t_i$ as
+Since the left-hand side only depends on $i$, one can define $t_i$ as
 \begin{equation}
 	t_i= 1-\frac{d_i}{f_i}.
 	\label{eq:TF_d4}
 \end{equation}
-And the right hand side can expressed as 
+And the right-hand side can be expressed as
 \begin{equation}
 	A_{ji}=\frac{a_{ji}}{1+p_j t_i}.
 \end{equation}
@@ -802,14 +802,14 @@ To solve for $p_j$ and $t_i$, one can employ an interactive procedure. First, so
 \cref{eq:TF_d1} using numerical methods with fixed $t_i$. Next, refine $t_i$ by using \cref{eq:TF_d5} while keeping
 $p_j$ fixed. Repeat the process until convergence is reached.
 
-Some nice features arises automatically from the algebra. Substituting \cref{eq:TF_d3} into \cref{eq:TF_d1},
+Some nice features arise automatically from the algebra. Substituting \cref{eq:TF_d3} into \cref{eq:TF_d1},
 \begin{equation}
 	\sum_{i=1}^{n} A_{ji}=\sum_{i=1}^{n} a_{ji}\quad\forall j .
 \end{equation}
-These means the estimate of $A_{ji}$ for some source $j$ will change the shape of the distribution
-from that of the MC data $a_{ji}$, but will preserve the overall total number. 
+These mean that the estimate of $A_{ji}$ for some source $j$ will change the shape of the distribution
+from that of the MC data $a_{ji}$, but will preserve the overall total number.
 
-Using \cref{eq:TF_d2} and summing over $i$ and $j$, 
+Using \cref{eq:TF_d2} and summing over $i$ and $j$,
 \begin{equation}
 	\sum_{i=1}^n d_i = \sum_{i=1}^{n}\sum_{j=1}^m p_j a_{ji},
 \end{equation}
@@ -827,7 +827,7 @@ And $A_{ji}$ is given by
 
 \subsection{Yield Extraction}
 The normalization for different components (except for empty flask, which is fixed by relative live proton ratio)
-can obtained by fitting to the mass distribution. Once the normalization is obtained, the yield can be
+can be obtained by fitting to the mass distribution. Once the normalization is obtained, the yield can be
 obtained. To minimize the impact of the Monte Carlo input to the extracted Drell-Yan yield, the Drell-Yan Monte
 Carlo is only used during the fitting procedure. And the Drell-Yan yield is defined as follows
 \begin{equation}
@@ -840,7 +840,7 @@ In the case of Monte Carlo, $N$ is the weighted integral of the
 simulated distribution, whereas $N_{mix bkg.}$ and $N_{\textrm{flask}}$ are the number of events in the mixed
 sample and empty flask data.
 
-For the charmonium studies, we can utilized the fact that they are resonances and show up as distinct peaks
+For the charmonium studies, we can utilize the fact that they are resonances and show up as distinct peaks
 in the mass spectrum. A separate mass fit can be performed for each kinematic bin. Since each bin is analyzed
 separately, the input Monte Carlo would have little effect on the extract yield. Therefore the yield is simply
 \begin{equation}
@@ -850,17 +850,17 @@ One downside of such approach is that the kinematic bin would need to be suffici
 data across a wide range of mass for the fitting to be stable.
 
 The extracted yield is integrated over intensity. Therefore, the
-normalization is done with live proton, which exclude the proton on target during deadtime. And the tracking
+normalization is done with live protons, which exclude the protons on target during deadtime. And the tracking
 efficiency also need to be accounted for.
 
 \subsection{Tracking Efficiency}
 As the detector occupancy increases, there is a higher probability for kTracker to
 remove a real physics hit during the EventReducer stage. Therefore, the reconstruction of high occupancy
-events would fail at a higher rate than low occupancy events. 
+events would fail at a higher rate than low occupancy events.
 The tracking efficiency correction is obtained by studying the messy and clean Monte Carlo.
 Since the occupancy
 is correlated between different tracking stations, we can parameterize the tracking efficiency
-as a function of one of the chambers. The occupancy is defined as the number of
+as a function of any one of the chambers. The occupancy is defined as the number of
 in-time hits in the chamber. In early studies, the tracking efficiency is
 typically parameterized using St.~1 occupancy (D1).
 However, I chose to use the St.~2 occupancy (D2) in this study. This
@@ -881,10 +881,10 @@ The ratio of reconstructed events of messy over clean MC is plotted in \cref{fig
 \end{figure}
 
 This tracking efficiency can also depend on the dimuon kinematics. This can be caused
-by the noise hits being more localized in some area of the detector, which can map to
+by the noise hits being more localized in some areas of the detector, which can map to
 different kinematic phase space. To study this effect, we repeat the study with different
-Monte Carlo, and the extract efficiency is tabulated in \cref{tab:track_eff_DY,tab:track_eff_jpsi,tab:track_eff_psip}. The extracted efficiency
-are consistent with each other within uncertainties.
+Monte Carlo, and the extracted efficiency is tabulated in \cref{tab:track_eff_DY,tab:track_eff_jpsi,tab:track_eff_psip}.
+The extracted efficiencies are consistent with each other within uncertainties.
 
 \begin{table}
 	\centering
@@ -913,14 +913,14 @@ will produce more hits in the detector. This is shown in \cref{fig:target_D2}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{run5-6_DY_D2}
-	\caption{The St.~2 occupancy profile for \ce{LH_2} and \ce{LD_2} for run 5-6 after event selection. Both histograms are normalized to unit area.
+	\caption{The St.~2 occupancy profile for \ce{LH_2} and \ce{LD_2} for runs 5-6 after event selection. Both histograms are normalized to unit area.
 	}
 	\label{fig:target_D2}
 \end{figure}
 
 
 \section{Absolute \texorpdfstring{$J/\psi$}{J/psi} Cross Section Extraction}
-The charmonium yield is extracted from the data using the mass fit method.
+The charmonium yield is extracted from the data using the mass-fit method.
 Separate mass fits are done independently for each kinematic bin. After obtaining
 the yield, various corrections are needed, including the tracking efficiency, target
 contamination correction and acceptance correction.
@@ -932,16 +932,16 @@ For a pure target, the cross section can be obtained from the yield using the fo
 \end{equation}
 where $Y$ is the extracted yield, $A$ is the atomic mass of the target,
 $T$ is the thickness of the target, $N_A$ is the Avogadro's number,
-$P$ is the proton on target, $\epsilon$ is the acceptance and efficiency correction,
+$P$ is the number of protons on target, $\epsilon$ is the acceptance and efficiency correction,
 and $X$ is the beam attenuation factor given by
 \begin{equation}
 	X=\frac{\lambda}{L\rho} \left[1-\exp\left(-\frac{L\rho}{\lambda}\right)\right],
 \end{equation}
 where $\lambda$ is the interaction length, $L$ and $\rho$ are the length and density
 of the target. And $B$ is the branching ratio for decaying into a dimuon pair, which is need
- to obtain the production cross section. The branching ratios used are taken from Ref.~\cite{workman2022}.
+to obtain the production cross section. The branching ratios used are taken from Ref.~\cite{workman2022}.
 \begin{equation}
-	B\left(J/\psi\to\mu^+\mu-\right)=5.961\times 10^{-2},\quad B\left(\psi'\to\mu^+\mu-\right)=8\times 10^{-3}.
+	B\left(J/\psi\to\mu^+\mu^-\right)=5.961\times 10^{-2},\quad B\left(\psi'\to\mu^+\mu^-\right)=8\times 10^{-3}.
 \end{equation}
 
 The liquid targets are held in a flask \SI{50.8}{\cm} long and \SI{7.62}{\cm} in diameter
@@ -950,11 +950,12 @@ pure. On the other hand, the Deuterium used came from two sources:
 \begin{itemize}
 	\item \SI{95.8\pm0.2}{\percent} pure deuterium that was used for bubble chamber experiments
 	      at Fermilab, with contamination in the form of \ce{HD}.
-	\item \SI{99.99}{\percent} pure commercial deuterium which is used in later part of the experiment.
+	\item \SI{99.99}{\percent}\footnote{As stated by the analysis report from the vendor.}
+	      pure commercial deuterium which is used in later part of the experiment.
 \end{itemize}
 \begin{table}[h!]
 	\centering
-	\caption{Summary of \ce{LD_2} contamination, taken from Ref.~\cite{don-4993}}
+	\caption{Summary of \ce{LD_2} contamination, taken from Ref.~\cite{paul-1893}}
 	\label{table:LD2_contamination}
 	\begin{tabular}{|l|ll|l|l|}
 		\hline
@@ -969,9 +970,10 @@ pure. On the other hand, the Deuterium used came from two sources:
 	\end{tabular}
 \end{table}
 Therefore, care is needed to account for the contribution from the hydrogen contamination in deuterium
-target data. The result of the mass spectroscopy of the deuterium gas \cite{don-4993} is
+target data. The result of the mass spectroscopy of the deuterium gas \cite{paul-1893} is
 summarized in \cref{table:LD2_contamination}. Based on this analysis, it is concluded the Fermilab
-deuterium contains \SI{91.6}{\percent} \ce{D_2} and \SI{8.4}{\percent} \ce{HD} by moles. \pdfcomment{need to check this sentence.}
+deuterium contains $95.8\pm0.2\%$ D and $4.2\pm0.2\%$ H,
+which corresponds to model fractions of\SI{91.6}{\percent} \ce{D_2} and \SI{8.4}{\percent} \ce{HD}.
 
 The yield from the contaminated deuterium can be expressed as
 \begin{equation}
@@ -985,55 +987,55 @@ In order to extract the $T_D^D$ and $T^D_H$ from the mole fraction listed in \cr
 we first note that the volume of a \ce{HD} molecule is about \num{1.094} times the volume of a \ce{D_2}
 molecule. Therefore the effective volume of molecules in the target is
 \begin{equation}
-	\begin{split}
-		V_{\mathrm{eff.}}&=\frac{N_{\ce{HD}} V_{\ce{HD}} + N_{\ce{D_2}} V_{\ce{D_2}}}{N_{\text{tot.}}}\\
-		&=V_{D_2} \left[ C \frac{V_{\ce{HD}}}{V_{\ce{D_2}}} + (1-C) \right]\\
-		&=V_{D_2} f,
-	\end{split}
+	%\begin{split}
+	V_{\mathrm{eff.}}=\frac{N_{\ce{HD}} V_{\ce{HD}} + N_{\ce{D_2}} V_{\ce{D_2}}}{N_{\text{tot.}}}
+	=V_{D_2} \left[ C \frac{V_{\ce{HD}}}{V_{\ce{D_2}}} + (1-C) \right]
+	=V_{D_2} f,
+	%\end{split}
 \end{equation}
 where $C=N_{\ce{HD}}/N_{\ce{D_2}}$ and $f=\left[ C V_{\ce{HD}}/V_{\ce{D_2}} + (1-C) \right]$ with the
 volume ratio $V_{\ce{HD}}/V_{\ce{D_2}}=1.094$.
 The total number of molecules per area is
 \begin{equation}
-	\begin{split}
-		\frac{N_{\mathrm{tot.}}}{\mathrm{Area}} &= \frac{L}{V_{\mathrm{eff.}}}\\
-		&= \frac{L}{V_{\ce{D_2}}f}=\frac{L\rho_{\ce{D_2}}}{2A_Df}.
-	\end{split}
+	%\begin{split}
+	\frac{N_{\mathrm{tot.}}}{\mathrm{Area}} = \frac{L}{V_{\mathrm{eff.}}}
+	= \frac{L}{V_{\ce{D_2}}f}=\frac{L\rho_{\ce{D_2}}}{2A_Df}.
+	%\end{split}
 \end{equation}
 The thickness of D (in \unit{\g\per\cm\squared}) in the target cell is
 \begin{equation}
-	\begin{split}
-		T_D^D &= \frac{N_D A_D}{\mathrm{Area}} = A_D\frac{N_{\mathrm{tot.}}}{\mathrm{Area}} \left[ 2(1-C) + C \right]\\
-		&=A_D \frac{L\rho_{\ce{D_2}}}{2A_Df}(2-C)\\
-		&=\frac{L\rho_{\ce{D_2}}}{f}(1-C/2).
-	\end{split}
+	%\begin{split}
+	T_D^D = \frac{N_D A_D}{\mathrm{Area}} = A_D\frac{N_{\mathrm{tot.}}}{\mathrm{Area}} \left[ 2(1-C) + C \right]
+	=A_D \frac{L\rho_{\ce{D_2}}}{2A_Df}(2-C)
+	=\frac{L\rho_{\ce{D_2}}}{f}(1-C/2).
+	%\end{split}
 \end{equation}
 The thickness of H (in \unit{\g\per\cm\squared}) in the target cell is
 \begin{equation}
-	\begin{split}
-		T^D_H &= \frac{N_H A_H}{\mathrm{Area}} = A_H\frac{N_{\mathrm{tot.}}}{\mathrm{Area}}C\\
-		&=\frac{L\rho_{\ce{D_2}}}{f}\frac{A_H}{A_D}\frac{C}{2}.
-	\end{split}
+	%\begin{split}
+	T^D_H = \frac{N_H A_H}{\mathrm{Area}} = A_H\frac{N_{\mathrm{tot.}}}{\mathrm{Area}}C
+	=\frac{L\rho_{\ce{D_2}}}{f}\frac{A_H}{A_D}\frac{C}{2}.
+	%\end{split}
 	\label{eq:TDH}
 \end{equation}
 To determine the density of the deuterium target, the vent pressure is measured and is compared
 with NIST database to obtained the expected density for pure deuterium ($\rho_{\ce{D_2}}$) \cite{density-1453}.
 For contaminated deuterium, the effective density is
 \begin{equation}
-	\begin{split}
-		\rho_{\mathrm{eff.}} &= \frac{1}{L} (T_D^H + T_D^D)\\
-		&=\frac{\rho_{\ce{D_2}}}{f} \left[ \frac{A_H}{A_D}\frac{C}{2}+(1-C/2) \right],
-	\end{split}
+	%\begin{split}
+	\rho_{\mathrm{eff.}} = \frac{1}{L} (T_D^H + T_D^D)
+	=\frac{\rho_{\ce{D_2}}}{f} \left[ \frac{A_H}{A_D}\frac{C}{2}+(1-C/2) \right],
+	%\end{split}
 \end{equation}
 and the effective interaction length is
 \begin{equation}
-	\begin{split}
-		\frac{1}{\lambda_{\mathrm{eff.}}} &= \frac{1}{L\rho_{\mathrm{eff.}}} \left[\frac{T_D^H}{\lambda_H} +\frac{T_D^D}{\lambda_D}\right]\\
-		&=\left[\frac{A_H}{A_D}\frac{C}{2\lambda_H} + \frac{1-C/2}{\lambda_D}\right]\left( \frac{A_H}{A_D}\frac{C}{2} +(1-C/2)\right)^{-1}.
-	\end{split}
+	%\begin{split}
+	\frac{1}{\lambda_{\mathrm{eff.}}} = \frac{1}{L\rho_{\mathrm{eff.}}} \left[\frac{T_D^H}{\lambda_H} +\frac{T_D^D}{\lambda_D}\right]
+	=\left[\frac{A_H}{A_D}\frac{C}{2\lambda_H} + \frac{1-C/2}{\lambda_D}\right]\left( \frac{A_H}{A_D}\frac{C}{2} +(1-C/2)\right)^{-1}.
+	%\end{split}
 \end{equation}
 
-Note that in previous studies and publications, including Ref.~\cite{dove2021,dove2023},
+Note that in previous studies and publications, including Refs.~\cite{dove2021,dove2023},
 the ratio of atomic mass is missing in \cref{eq:TDH}.
 This results in a roughly \SI{2}{\percent} difference in the cross section ratio
 that will be discussed in \cref{M-subsubsec:contamination_result}.
@@ -1057,32 +1059,32 @@ The average contamination for entire roadset 57 -70 data is determined to be $C=
 Therefore the effective values for target contamination for this dataset are
 \begin{equation}
 	\begin{split}
-		T_D^H &= \SI{0.1230}{\g\per\cm\squared}, \\
-		T_D^D &= \SI{8.009}{\g\per\cm\squared},\\
-		\rho_{\mathrm{eff.}} & = \SI{0.1601}{\g\per\cm\squared},\\
-		\lambda_{\mathrm{eff.}} &= \SI{71.39}{\g\per\cm\squared},\\
-		\lambda_{\mathrm{eff.}}/\rho_{\mathrm{eff.}} &= \SI{446.0}{\cm},\\
-		X_{\mathrm{eff.}} &= 0.9451.
+		T_D^H                                        & = \SI{0.1230}{\g\per\cm\squared}, \\
+		T_D^D                                        & = \SI{8.009}{\g\per\cm\squared},  \\
+		\rho_{\mathrm{eff.}}                         & = \SI{0.1601}{\g\per\cm\squared}, \\
+		\lambda_{\mathrm{eff.}}                      & = \SI{71.39}{\g\per\cm\squared},  \\
+		\lambda_{\mathrm{eff.}}/\rho_{\mathrm{eff.}} & = \SI{446.0}{\cm},                \\
+		X_{\mathrm{eff.}}                            & = 0.9451.
 	\end{split}
 \end{equation}
 For later runs where commercial pure deuterium is used,
 \begin{equation}
 	\begin{split}
-		T_D^H &= \SI{0.}{\g\per\cm\squared}, \\
-		T_D^D &= \SI{8.30072}{\g\per\cm\squared},\\
-		\rho_{\mathrm{eff.}} & = \rho_{\ce{D_2}} = \SI{0.1634}{\g\per\cm\squared},\\
-		\lambda_{\mathrm{eff.}} &=  \lambda_{\ce{D_2}} =\SI{71.80}{\g\per\cm\squared},\\
-		\lambda_{\mathrm{eff.}}/\rho_{\mathrm{eff.}} &= \SI{439.4}{\cm},\\
-		X_{\mathrm{eff.}} &= 0.9444.
+		T_D^H                                        & = \SI{0.}{\g\per\cm\squared},                         \\
+		T_D^D                                        & = \SI{8.30072}{\g\per\cm\squared},                    \\
+		\rho_{\mathrm{eff.}}                         & = \rho_{\ce{D_2}} = \SI{0.1634}{\g\per\cm\squared},   \\
+		\lambda_{\mathrm{eff.}}                      & =  \lambda_{\ce{D_2}} =\SI{71.80}{\g\per\cm\squared}, \\
+		\lambda_{\mathrm{eff.}}/\rho_{\mathrm{eff.}} & = \SI{439.4}{\cm},                                    \\
+		X_{\mathrm{eff.}}                            & = 0.9444.
 	\end{split}
 \end{equation}
 And since there is no contamination in the \ce{LH_2} target
 \begin{equation}
 	\begin{split}
-		\rho_{H_2} &= \SI{0.0708}{\g\per\cm\cubed},\\
-		T_H^H &= L\rho_{\ce{H_2}} = \SI{3.597}{\g\per\cm\squared},\\
-		\lambda_H/\rho_{\ce{H_2}} &= \SI{734.5}{\cm},\\
-		X_H &=0.9662.
+		\rho_{H_2}                & = \SI{0.0708}{\g\per\cm\cubed},                     \\
+		T_H^H                     & = L\rho_{\ce{H_2}} = \SI{3.597}{\g\per\cm\squared}, \\
+		\lambda_H/\rho_{\ce{H_2}} & = \SI{734.5}{\cm},                                  \\
+		X_H                       & =0.9662.
 	\end{split}
 \end{equation}
 
@@ -1094,7 +1096,7 @@ and is defined as follows
 	\epsilon_{acc.}\left(\Omega\right)=\mathrm{Acceptance}\left(\Omega\right)= \frac{N_{accept}\left(\Omega\right)}{N_{thrown}\left(\Omega\right)},
 \end{equation}
 where $N_{accept}\left(\Omega\right)$ is the number of accepted events in a given kinematic bin $\Omega$
-by analyzing the clean Monte Carlo , with the same dimuon selection
+by analyzing the clean Monte Carlo, with the same dimuon selection
 as the data, while $N_{thrown}$ is the total number of generated Monte Carlo events in the same kinematic bin.
 The clean Monte Carlo is used in the acceptance calculation with the explicit intent to separate out the
 rate dependent effects.
@@ -1106,11 +1108,11 @@ the first order effect of bin migration, caused by the spectrometer resolution.
 %Since our histograms are weighted histograms, the uncertainty is calculated using the following
 \pdfcomment{verify the uncertainty calculation here}
 
-The calculated acceptance for $J/\psi$ and $\psi'$ are shown in \cref{fig:jpsi_acceptance,fig:psip_acceptance}.
-The $\psi'$ acceptance is also larger then the $J/\psi$, primarily due to the
+The calculated acceptances for $J/\psi$ and $\psi'$ are shown in \cref{fig:jpsi_acceptance,fig:psip_acceptance}.
+The $\psi'$ acceptance is also larger than the $J/\psi$, primarily due to the
 trigger matrix being optimized for the high mass dimuons. The acceptance is also larger at forward $x_F$,
 as would be expected for a forward spectrometer.
-At the later runs the trigger requirements have been relaxed to allow for more low mass events.
+During the later runs, the trigger requirements have been relaxed to allow for more low mass events.
 This is also reflected in the figures.
 \begin{figure}[h!]
 	\centering
@@ -1142,8 +1144,8 @@ This is also reflected in the figures.
 
 \subsection{\texorpdfstring{$P_T$}{P\_T} distribution}
 A first order $P_T$ reweighting for the Drell-Yan MC is performed in this analysis. The acceptance is first
-calculated using the original Monte Carlo data. While the $P_T$ is known be incorrect,
-the extracted acceptance as a function for $P_T$ should not depend on the input
+calculated using the original Monte Carlo data. While the $P_T$ is known to be incorrect,
+the extracted acceptance as a function of $P_T$ should not depend on the input
 distribution. The $P_T$ distribution from the empty flask subtracted data
 is plotted in 3 $x_F$ bins. A \SI{4.5}{\GeV} mass cut is applied to remove contribution for the
 resonances. The acceptance corrected distributions are fitted to \cref{eq:kaplan} to
@@ -1152,7 +1154,7 @@ and it is also fitted to a first order polynomial. The $p1(x_F)$ extracted is us
 the $P_T$-reweighting. And the $p_1\left(x_F\right)$ is given by
 \begin{equation}
 	\begin{split}
-		p_1 = 2.411 - 0.7658 \abs{x_F} \quad \text{for \ce{LH_2}}\\
+		p_1 = 2.411 - 0.7658 \abs{x_F} \quad \text{for \ce{LH_2}} \\
 		p_1 = 2.394 - 0.7576 \abs{x_F} \quad \text{for \ce{LD_2}}
 	\end{split}
 \end{equation}
@@ -1170,20 +1172,20 @@ the $P_T$-reweighting. And the $p_1\left(x_F\right)$ is given by
 	\label{fig:p1_xF_DY}
 \end{figure}
 As seen in \cref{fig:p1_xF_DY}, the $p_1$ (and therefore $\expval{P_T}$) decreases as $x_F$ increases.
-As $x_F$ increases, more of the available energy are taken by the dimuon longitudinal momentum,
+As $x_F$ increases, more and more of the available energy is taken by the dimuon longitudinal momentum,
 therefore the $P_T$ distribution should be narrower.
-This is also consistent to previous studies in Ref.~\cite{prasad2020} and the maximum $P_T$ discussed in
+This is also consistent with previous studies in Ref.~\cite{prasad2020} and the maximum $P_T$ discussed in
 \cref{subsec:messyMC}.
 
-For the charmonium decays, the $P_T$ distribution is extracted in a iterative process, and the $p1$
+For the charmonium decays, the $P_T$ distribution is extracted in an iterative process, and the $p1$
 parameters used are $1.735$ for $J/\psi$ and $1.620$ for $\psi'$, and are consistent with the result in
 \cref{M-tab:kaplan_result}.
 
 \section{Intensity Extrapolation}
 \label{sec:extrapolation}
-An independent method for extracting the Drell-Yan cross section ratio, known as intensity extrapolation method, 
-is developed by J.~Dove~\cite{dove2020} and A.~Tadepalli~\cite{tadepalli2019}, 
-and it is used in Ref.~\cite{dove2021}. Here I outlined the procedure.
+An independent method for extracting the Drell-Yan cross section ratio, known as intensity extrapolation method,
+is developed by J.~Dove~\cite{dove2020} and A.~Tadepalli~\cite{tadepalli2019},
+and it is used in Ref.~\cite{dove2021}.
 The assumption behind this method is that the accidental background and physics events
 would have different intensity dependence. The number of observed physics
 events, in the absence of any spectrometer effects, should be linearly proportional to the beam
@@ -1192,8 +1194,9 @@ two separate interactions, and therefore it is expected to be proportional to th
 By taking the ratio of the $(p+p)$ and $(p+d)$ dimuon event rates,
 other rate dependent effects would also be canceled out at zero intensity.
 
-The procedure for this method is summarized here. A mass cut at \SI{4.5}{\GeV} is applied to
-remove the charmonium decays, leaving only the Drell-Yan dimuons and the accidental background.
+The procedure for this method is summarized here. A lower mass cut at \SI{4.5}{\GeV} is applied to
+remove the charmonium decays, leaving only the Drell-Yan dimuons, the accidental background,
+and the empty flask background.
 Cuts are also applied to exclude region close to the boundaries of the acceptance.
 Then the background originated from the interaction with the instruments is estimated by using
 the empty flask data normalized by the integrated beam intensity, and is subtracted from the
@@ -1231,11 +1234,11 @@ For the Drell-Yan cross section ratios studies, the intensity extrapolation meth
 method involve different assumptions and therefore different sources of systematic uncertainties.
 \paragraph{Proton beam normalization}
 The beam normalization uncertainty is present in all studies presented here.
-As described in \cref{sec:beam_norm}, the number of protons are measured by the BIM, which is
+As described in \cref{sec:beam_norm}, the number of protons is measured by the BIM, which is
 calibrated against a SEM monitor. The SEM monitor is further calibrated by studying the activation of
 an irradiated high purity copper foil. A copper foil is placed in the beam line near the monitor,
 causing the production of \ce{^{24}Na}. The \ce{^{24}Na} then decay into \ce{^{24}Mg} through $\beta$
-decay. The number of  \ce{^{24}Na} nuclei is deduced by counting the number \SI{1369}{\keV} photons
+decay. The number of  \ce{^{24}Na} nuclei is deduced by counting the number of \SI{1369}{\keV} photons
 produced. Using the \SI{3.56}{\milli\barn} production cross section for \ce{^{24}Na} in natural
 copper  by \SI{120}{\GeV} protons, the number of incident protons can be deduced. The estimated
 random uncertainty in the counting and extraction of \SI{1369}{\keV} peak is $\sim 1-2\%$.
@@ -1259,7 +1262,7 @@ functions is included in the systematic uncertainty.
 
 \paragraph{Mixed background}
 This is specific to studies using mass fit method. Different mixing methods have been proposed in SeaQuest.
-The mixed sample from the two methods described in \cref{sec:mixing} are used. The difference between
+The mixed samples from the two methods described in \cref{sec:mixing} are used. The difference between
 the two analyses is included in the systematic uncertainty.
 
 \paragraph{Acceptance simulation}
@@ -1290,26 +1293,26 @@ using the same definition as SeaQuest as discussed in \cref{subsec:def_kinematic
 The PDF sets used in this study are CT18~\cite{hou2021} and NNPDF4.0~\cite{ball2022a}.
 And they are accessed through the LHAPDF library~\cite{buckley2015}. It should be noted
 that the CT18 PDF set is published before the SeaQuest result, whereas NNPDF4.0
-incorporate the SeaQuest measurements~\cite{dove2021} in the global fit.
+incorporates the SeaQuest measurements~\cite{dove2021} in the global fit.
 
-The uncertainty band for calculations using CT18 PDFs are calculated using the hessian methods.
+The uncertainty bands for calculations using CT18 PDFs are calculated using the hessian method.
 Given a central PDF member $S_0$ and $2N_{\mathrm{par}}$ eigenvector PDF member $S^\pm_i$ ($i=1,\dots,N_{\mathrm{par}}$),
 where $N_{\mathrm{par}}$ is the number of parameters. The central value $F_0$ and the uncertainty $\sigma^\pm_F$
 on a PDF-dependent quantity are given by:
 \begin{equation}
 	\begin{split}
-		F_0 &= F(S_0),\quad F_i^\pm=F(S_i^\pm) \\
-		\sigma^+_F &= \sqrt{\sum_{i=1}^{N_{\mathrm{par}}} \left[\max\left(F_i^+ - F_0, F_0 - F^-_i,0\right)\right]^2 }\\
-		\sigma^-_F &= \sqrt{\sum_{i=1}^{N_{\mathrm{par}}} \left[\max\left(F_0 - F^+_i, F_i^- - F_0,0\right)\right]^2 }
+		F_0        & = F(S_0),\quad F_i^\pm=F(S_i^\pm)                                                                  \\
+		\sigma^+_F & = \sqrt{\sum_{i=1}^{N_{\mathrm{par}}} \left[\max\left(F_i^+ - F_0, F_0 - F^-_i,0\right)\right]^2 } \\
+		\sigma^-_F & = \sqrt{\sum_{i=1}^{N_{\mathrm{par}}} \left[\max\left(F_0 - F^+_i, F_i^- - F_0,0\right)\right]^2 }
 	\end{split}
 \end{equation}
 
 Whereas the uncertainty for NNPDF4.0 is calculated using the replicas method. Given $N_{\mathrm{rep}}$ replica
-PDF members $S^k$, the central value and the uncertainty is given by the mean and standard deviation
+PDF members $S^k$, the central value and the uncertainty are given by the mean and standard deviation
 \begin{equation}
 	\begin{split}
-		F_0&=\expval{F}=\frac{1}{N_{\mathrm{rep}}}\sum_{i=1}^{N_{\mathrm{rep}}}F\left(S^k\right)\\
-		\sigma_F&= \sqrt{\frac{1}{N_{\mathrm{rep}}-1}\sum_{i=1}^{N_{\mathrm{rep}}}\left[F\left(S^k\right)-F_0\right]^2}
+		F_0      & =\expval{F}=\frac{1}{N_{\mathrm{rep}}}\sum_{i=1}^{N_{\mathrm{rep}}}F\left(S^k\right)                   \\
+		\sigma_F & = \sqrt{\frac{1}{N_{\mathrm{rep}}-1}\sum_{i=1}^{N_{\mathrm{rep}}}\left[F\left(S^k\right)-F_0\right]^2}
 	\end{split}
 \end{equation}
 
@@ -1320,11 +1323,11 @@ The DYNNLO calculation requires two energy scales, the factorization and renorma
 as introduced in \cref{M-subsec:scaling_violation}. Since the DYNNLO code was designed to calculate
 vector boson production cross section at the LHC, the scale is originally chosen to be the W boson mass (\SI{80.385}{\GeV}).
 The SeaQuest data covers the mass of \SI{4.5}{\GeV} to \SI{8.8}{\GeV} for the Drell-Yan
-process. The original chosen scale is certainly too high for fixed target experiments.
+process. The originally chosen scale is certainly too high for fixed-target experiments.
 It is recommended by the authors to pick a scale of the order of the dimuon mass.
 Instead of using a fixed scale, we chose to turn on dynamic scale,
 where both factorization and renormalization scales would be dynamically set to the dimuon mass at
-each iteration.  The difference between using a fixed scale and dynamic scales is shown in \cref{fig:DY_scale}.
+each iteration.  The difference between using a fixed scale and dynamic scale is shown in \cref{fig:DY_scale}.
 The overall difference is small, as the chosen fixed scale is within the dimuon mass range of interest.
 The effect is more significant when the difference between the chosen fixed scale and the dimuon mass
 becomes larger.

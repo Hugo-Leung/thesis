@@ -1,0 +1,112 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+\ifSubfilesClassLoaded{
+	\mainmatter
+	\appendix
+	\setcounter{chapter}{2}
+}{}
+\chapter{Mass Fit Plots in Each Kinematic Bin}
+\input{section/massfit_bin.tex}
+
+\chapter{Tables of \texorpdfstring{$J/\psi$}{J/psi} and \texorpdfstring{$\psi'$}{psi'} Cross Sections}
+\section{\texorpdfstring{$x_F$}{xF} distributions}
+\label{sec:a3_xF}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from run 2-3, with their statistical
+		and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_57-70_LH2.tex}
+	\label{tab:xF_57-70_LH2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from run 2-3, with their statistical
+		and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_57-70_LD2.tex}
+	\label{tab:xF_57-70_LD2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from run 5-6, with their statistical
+		and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_5-6_LH2.tex}
+	\label{tab:xF_5-6_LH2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from run 5-6, with their statistical
+		and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_5-6_LD2.tex}
+	\label{tab:xF_5-6_LD2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the combined analysis, with
+		their statistical and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_full_LH2.tex}
+	\label{tab:a3_xF_full_LH2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section as a function of $x_F$ (in \unit{\nano\barn\per nucleon}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the combined analysis, with
+		their statistical and systematic uncertainties and the average $x_F$ in each bin.}
+	\input{table/xF_full_LD2.tex}
+	\label{tab:a3_xF_full_LD2}
+\end{table}
+\FloatBarrier
+
+\section{\texorpdfstring{$P_T$}{P\_T} distributions}
+\label{sec:a3_pT}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dP^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the run 2-3, with
+		their statistical and systematic uncertainties and the $\expval{P_T}$ (in \unit{\GeV}) in each bin.}
+	\input{table/pT_57-70_LH2.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dP^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the run 2-3, with
+		their statistical and systematic uncertainties and the $\expval{P_T}$ (in \unit{\GeV}) in each bin.}
+	\input{table/pT_57-70_LD2.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dP^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the run 5-6, with
+		their statistical and systematic uncertainties and the $\expval{P_T}$ (in \unit{\GeV}) in each bin.}
+	\input{table/pT_5-6_LH2.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dP^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the run 5-6, with
+		their statistical and systematic uncertainties and the $\expval{P_T}$ (in \unit{\GeV}) in each bin.}
+	\input{table/pT_5-6_LD2.tex}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dP^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+p$ extracted from the combined analysis, with
+		their statistical and systematic uncertainties and the $\expval{P_T}$ (in \unit{\GeV}) in each bin.}
+	\input{table/pT_full_LH2.tex}
+	\label{tab:a3_pT_full_LH2}
+\end{table}
+\begin{table}[h!]
+	\centering
+	\caption{Cross section $d\sigma/dP^2_T$ (in \unit{\nano\barn\GeV^{-2} nucleon^{-1}}) and the
+		$\sigma_{\psi'}/\sigma_{J/\psi}$ ratio for $p+d$ extracted from the combined analysis, with
+		their statistical and systematic uncertainties and the $\expval{P_T}$ (in \unit{\GeV}) in each bin.}
+	\input{table/pT_full_LD2.tex}
+	\label{tab:a3_pT_full_LD2}
+\end{table}
+
+\end{document}
