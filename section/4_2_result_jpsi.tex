@@ -93,21 +93,21 @@ The results from combined analysis are shown in \cref{fig:cs_xF_full} and are ta
 \cref{tab:xF_full_LH2,tab:xF_full_LD2}.
 \begin{figure}
 	\centering
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.48\linewidth}
 		\includegraphics[width=\linewidth]{cs/full_data/combine_xF_LH2_full_psip}
 	\end{subfigure}
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.48\linewidth}
 		\includegraphics[width=\linewidth]{cs/full_data/combine_xF_LD2_full_psip}
 	\end{subfigure}\\
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.48\linewidth}
 		\includegraphics[width=\linewidth]{cs/full_data/ratio_xF_LH2_full}
 	\end{subfigure}
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.48\linewidth}
 		\includegraphics[width=\linewidth]{cs/full_data/ratio_xF_LD2_full}
 	\end{subfigure}
 	\caption{The extracted $J/\psi$ and $\psi'$ cross section (top) and $\sigma_{\psi'}/\sigma_{J/\psi}$
 		ratio (bottom) as a function of $x_F$ for $p+p$ (left) and $p+d$ (right) from
-		the combined analysis, and compared with the NRQCD predictions.
+		the combined analysis, and compared with the NRQCD prediction using NNPDF4.0 and CT18.
 		The error bands on the NRQCD calculations indicate the \SI{68}{\percent} confidence level of the PDFs.}
 	\label{fig:cs_xF_full}
 \end{figure}
@@ -208,17 +208,17 @@ The $\sigma_{\psi'}/\sigma_{J/\psi}$ ratio are also shown in \cref{fig:pT_ratio}
 The result from the combined analysis are shown in \cref{fig:pT_combined} and tabulated in \cref{tab:pT_full_LH2,tab:pT_full_LD2}.
 \begin{figure}[h!]
 	\centering
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.48\linewidth}
 		\includegraphics[width=\linewidth]{cs/full_data/full_pTsq_LH2}
 	\end{subfigure}
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.48\linewidth}
 		\includegraphics[width=\linewidth]{cs/full_data/full_pTsq_LD2}
 	\end{subfigure}
 	\\
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.48\linewidth}
 		\includegraphics[width=\linewidth]{cs/full_data/ratio_pT_LH2_full}
 	\end{subfigure}
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.48\linewidth}
 		\includegraphics[width=\linewidth]{cs/full_data/ratio_pT_LD2_full}
 	\end{subfigure}
 	\caption{The extracted $J/\psi$ and $\psi'$ $P_T$ distribution (top) and $\sigma_{\psi'}/\sigma_{J/\psi}$
@@ -242,12 +242,12 @@ The result from the combined analysis are shown in \cref{fig:pT_combined} and ta
 	\input{table/pT_full_LD2.tex}
 	\label{tab:pT_full_LD2}
 \end{table}
-The transverse momentum distributions are fitted to the Kaplan form, 
+The transverse momentum distributions are then fitted to the Kaplan form, 
 \begin{equation}
 	\dv{\sigma}{P_T^2} =p_0 \left(1+ P_T^2/p_1^2\right)^{-6}.
 	\label{eq:4_2_kaplan}
 \end{equation}
-The extracted $\expval{P_T}$ and $\expval{P^2_T}$ are calculated from the fits using the following relations,
+The $\expval{P_T}$ and $\expval{P^2_T}$ are extracted from the fits using the following relations,
 \begin{equation}
 	\begin{split}
 		\expval{P_T} = \frac{35\pi p_1}{256}, \quad \expval{P_T^2} = \frac{p_1^2}{4},
@@ -276,7 +276,7 @@ describes the general trend, but some variation is expected due to the differing
 rapidity range of the measurements. The $x_F$ dependence of $\expval{P_T^2}$ has been shown in
 previous fixed target $J/\psi$ production measurements~\cite{biino1987}.
 The parameter $b$ is similar to a threshold for $J/\psi$ production, 
-the fit suggests the $J/\psi$ meson would have zero $P_T$ when $\sqrt{s}$ approaches $b$.
+the fit suggests the $J/\psi$ meson would be produced with zero transverse momentum when $\sqrt{s}$ approaches $b$.
 
 \begin{figure}
 	\centering
