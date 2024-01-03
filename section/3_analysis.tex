@@ -1249,6 +1249,16 @@ section studies, whereas a \SI{2}{\percent} relative normalization uncertainty i
 targets. This \SI{2}{\percent} relative normalization uncertainty is also included in the empty flask
 subtraction.
 
+\paragraph{Charmonium polarization}
+The angular distribution for the $J/\psi$ and $\psi'$ is expected to followed
+\begin{equation}
+	\dv{\sigma}{\Omega} \propto 1+\lambda \cos^2\theta,
+\end{equation}
+in the Collins-Soper frame. The parameter $\lambda$ is assumed to be $0\pm0.2$ through out
+this analysis~\cite{chang2003}. The value of $\lambda$ is assumed to be  the same for both
+$p+p$ and $p+d$, but is allowed to be different between $J/\psi$ and $\psi'$ when evaluating
+the systematic uncertainties. This translate to an additional $\sim 5\%$ normalization uncertainty.
+
 \paragraph{Choice of fit function}
 This is specific to the cross section ratio studies using intensity extrapolation method.
 To estimate the effect of the choice of fit function, different fit functions were examined.
@@ -1277,6 +1287,25 @@ larger \cite{chleung-9643}.
 During later runs, only one trigger road set (roadset 78) was used, hence this is no
 longer an issue.
 
+\subsection{Combining datasets}
+\label{subsec:combine}
+During this analysis, the SeaQuest data is separated into two sets, namely `Run 2-3' and `Run 5-6'.
+The two data sets are analyzed separately. To obtained the results from the full dataset, the weighted
+average is computed. The different sources of systematic uncertainties are separated into two types.
+The first type includes sources that are related to overall normalization, such as polarization and beam
+normalization. And the other sources are out into the second type. The results from the full dataset
+is estimated as 
+\begin{equation}
+	\begin{split}
+		\bar{y}&=\sum_i w_i y_i,\\
+		w_i &\propto \left(\delta y^i_{\mathrm{stat.}}+\delta y^i_{\mathrm{syst. 2}}\right)^{-1}\\
+		\delta\bar{y}_{\mathrm{stat.}}&=\sqrt{\sum_i \left(w_i \delta y^i_{\mathrm{stat.}}\right)^2},\\
+		\delta\bar{y}_{\mathrm{syst.}}&=\sqrt{\left(\sum_i w_i \delta y^i_{\mathrm{syst. 1}}\right)^2+\sum_i \left(\delta y^i_{\mathrm{syst. 2}}\right)^2},
+	\end{split}
+\end{equation}
+where $y_i$ is the result from the analysis of each data set.
+And $\delta y^i_{\mathrm{stat.}}$, $\delta y^i_{\mathrm{syst. 1}}$, $\delta y^i_{\mathrm{syst. 2}}$
+are the statistical and two types of systematic uncertainties respectively.
 
 \section{Drell-Yan NLO calculation}
 \label{sec:DYNNLO}
