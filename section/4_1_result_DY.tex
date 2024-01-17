@@ -30,21 +30,21 @@ Similarly, the mass distributions for Run 5-6 are also shown in \cref{fig:massfi
 	\caption{The mass spectrum for \ce{LH_2}(left) and \ce{LD_2}(right) targets data for Run 2-3 (top) and Run 5-6 (bottom).}
 	\label{fig:massfit_integrated}
 \end{figure}
-With the yield for different process obtained from the mass fits, 
+With the yields for different processes obtained from the mass fits, 
 the cross section ratio as a function of $x_T$ can be calculated
 and are shown in \cref{fig:CSR_MF_xT}, and tabulated in \cref{tab:DY-MF-x2}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\linewidth]{DY-csr/MF_full_xT_syst}
 	\caption{The extracted Drell-Yan cross section ratio as a function of $x_T$
-		using the mass fit method from Run 2-3 (black square) and Run 5-6 (blue triangle),
-		as well as the combined result (red circle). The curve corresponds to calculations
+		using the mass fit method from Run 2-3 (black squares) and Run 5-6 (blue triangles),
+		as well as the combined result (red circles). The curve corresponds to calculations
 		using CT18 (green) and NNPDF4.0 (orange).}
 	\label{fig:CSR_MF_xT}
 \end{figure}
 \begin{table}[h!]
 	\centering
-	\caption{The extracted Drell-Yan cross section ratio as a function of $x_T$ using the mass fit method.}
+	\caption{The extracted Drell-Yan cross section ratios as a function of $x_T$ using the mass fit method.}
 	\label{tab:DY-MF-x2}
 	\input{table/DY_MF_x2.tex}
 \end{table}
@@ -59,20 +59,20 @@ As discussed in \cref{M-subsec:contamination}, incorrect target contamination co
 in previous publications and the effect is shown in \cref{fig:contaimination_CSR}.
 The overall effect is a roughly \SI{2}{\percent} shift in the ratio. 
 This correction only affects the results from Run~2-3 as the later runs utilize commercial pure deuterium.
-The updated corrections are used through out this thesis.
+The updated corrections are used throughout this thesis.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{DY-csr/Compare_targetCorr}
-	\caption{The effect of the updated target contamination correction on the Drell-Y.an
+	\caption{The effect of the updated target contamination correction on the Drell-Yan
 		cross section. The extracted cross section ratio using the revised target contamination
-		is shown as red sold triangle, and the previous published version is shown as blue open
-		circle. The overall effect is a roughly \SI{2}{\percent} shift in the ratio. }
+		is shown as red solid triangles, and the previous published version is shown as blue open
+		circles. The overall effect is a roughly \SI{2}{\percent} shift in the ratio. }
 	\label{fig:contaimination_CSR}
 \end{figure}
 \FloatBarrier
 
-\subsubsection{Cross section ratio vs other variable}
-Following similar procedure, the Drell-Yan cross section ratio as a function of $x_B$ (\cref{fig:CSR_MF_xB})
+\subsubsection{Cross section ratio vs other variables}
+Following a similar procedure, the Drell-Yan cross section ratios as a function of $x_B$ (\cref{fig:CSR_MF_xB})
 and $x_F$ (\cref{fig:CSR_MF_xF}) are also extracted.
 \begin{figure}[h!]
 	\centering
@@ -107,12 +107,12 @@ and $x_F$ (\cref{fig:CSR_MF_xF}) are also extracted.
 \subsection{Comparison with global PDF analysis}
 The published $\sigma_{pd}/2\sigma_{pp}$ ratio result has been included in various recent global
 PDF analysis, including Ref.~\cite{cocuzza2021,guzzi2022,accardi2023,alekhin2023}.
-In particular, \cref{fig:CSR_MF_xT} shows the calculation using CT18 (without the SeaQuest data)
+In particular, \cref{fig:CSR_MF_xT} shows the calculation using CT18 (obtained without the SeaQuest data)
 and NNPDF 4.0 (including the SeaQuest data). The shift in the calculated cross section ratio is primarily
 coming from the inclusion of the SeaQuest data. Unlike the previous E866 result, the measured cross section ratio
 from SeaQuest stays above one for the entire measured kinematic region,
 strongly suggests the $\bar{d}/\bar{u}$ ratio would remain greater than one for $x<0.45$, which is
-consistent with prediction from various models, including meson cloud and statistical model.
+consistent with prediction from various models, including meson-cloud and statistical model.
 
 The importance of the SeaQuest data can be seen in the NNPDF4.0, where at large $x_T$,
 uncertainties bands is consistent with the uncertainties of our measurements, as the SeaQuest
@@ -120,33 +120,34 @@ results is the only available data sensitive to the light sea-quark asymmetry at
 The updated $\sigma_{pd}/2\sigma_{pp}$ ratio from the combined analysis is slightly larger than the NNPDF4.0
 calculation, this is partly due to the updated contamination correction.
 The impact of the SeaQuest measurement is further illustrated in \cref{fig:JAM_impact}. 
-The JAM analysis~\cite{cocuzza2021} found that the SeaQuest measurement greatly reduce the 
+The JAM analysis~\cite{cocuzza2021} found that the SeaQuest measurement greatly reduces the 
 uncertainties on the $\bar{d}/\bar{u}$ ratio, by up to $\approx 50\%$ at $x>0.3$. 
 The addition of the SeaQuest data also constrain the ratio to remain above unity up to values of $x\approx0.4$.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\linewidth]{JAM_impact.png}
-	\caption{impact on the $\bar{d}/\bar{u}$ ratio (top) and the asymmetry $x\left(\bar{d}-\bar{u}\right)$
-		of the SeaQuest measurement (red band) and STAR $W$ data \cite{adam2021} (blue band) relative to the baseline (green band)
-		in the JAM analysis~\cite{cocuzza2021}. Taken from Ref.~\cite{cocuzza2021}.}
+	\includegraphics[width=0.5\linewidth]{JAM_impact}
+	\caption{impact on the $\bar{d}/\bar{u}$ ratio (top) and the asymmetry $x\left(\bar{d}-\bar{u}\right)$ (middle)
+		of the SeaQuest measurement (red band) and STAR $W$ data \cite{adam2021} (blue band) relative to the baseline (green band) 
+		where the SeaQuest and STAR measurements are excluded in the JAM analysis~\cite{cocuzza2021}.
+		Taken from Ref.~\cite{cocuzza2021}.}
 	\label{fig:JAM_impact}
 \end{figure}
 
-\subsection{Comparison massfit with Intensity Extrapolation Method}
+\subsection{Comparison between Massfit and Intensity Extrapolation Method}
 As described in \cref{M-sec:extrapolation}, an independent method for extracting the Drell-Yan cross section
-ratio is developed by utilizing the rate dependence. 
+ratio is developed by utilizing its rate dependence. 
 
 \subsubsection{Systematic uncertainties due to choice of fit function}
 To understand the systematic uncertainties in the intensity extrapolation method due to the
-choice of fit function, the following functions are used.
+choice of fit function, the following two fit functions are used.
 \begin{align}
 	R_i\left(I\right) & = p_{0i} + p_{1} I + p_{2} I^2 \quad\text{(FIT 1)}                                                     \\
 	R_i\left(I\right) & = p_{0i} + \left[p_{10} + p_{11}x_i\right] I + \left[p_{20} + p_{21}x_i\right]I^2 \quad \text{(FIT 2)}
 	\label{eq:fit_functions}
 \end{align}
-The fit to data using the two fits selected $x_T$ bins are shown in \cref{fig:FIT1_selected,fig:FIT2_selected}
+The fit to data using the two fits for selected $x_T$ bins are shown in \cref{fig:FIT1_selected,fig:FIT2_selected},
 and $\chi^2$ for the fits are tabulated in \cref{tab:chi_IE}.
-And the fit in other $x_T$ bins and for other variables are shown in \cref{M-a_ch:extrapolation}.
+The fit in other $x_T$ bins and for other variables are shown in \cref{M-a_ch:extrapolation}.
 %\input{section/extrapolation_xT_23_1.tex}
 %\input{section/extrapolation_xT_23_2.tex}
 \begin{figure}[h!]
@@ -230,11 +231,18 @@ And the fit in other $x_T$ bins and for other variables are shown in \cref{M-a_c
 	\label{fig:CSR_IE_run56}
 \end{figure}
 
-While the difference caused by the fit functions are small for $x_T$ in Run 2-3, as reported in Ref.~\cite{dove2021},
-the difference is significantly larger in the other variables and in Run 5-6.
-This is a major uncertainty in this method. 
+While the difference caused by the fit functions are small for $x_T$ in Run 2-3,
+as shown in \cref{fig:CSR_IE_run23} and reported in Ref.~\cite{dove2021},
+the difference is significantly larger in the other variables and in Run 5-6, as shown in \cref{fig:CSR_IE_run56}.
+This is a major systematic uncertainty in this method. 
 In Ref.~\cite{dove2021}, Fit-1 was chosen as the central value, but the reduced $\chi^2$ are very similar between the two fits,
-as tabulated in \cref{tab:chi_IE}.
+as tabulated in \cref{tab:chi_IE}. 
+It should also be noted that during the Run 5-6 data taking, the variation in the instantaneous beam
+intensity was reduced as compared to Run 2-3.
+This is partly due to the improvement in beam quality and partly due to the tightening of the beam inhibit thresholds.
+Therefore, the range of trigger intensity that can be used for the intensity extrapolation is smaller in Run 5-6. 
+The smaller range might be partly responsible for the larger systematic uncertainty in the intensity extrapolation method
+in Run 5-6.
 \begin{table}[h!]
 	\centering
 	\caption{The reduced $\chi^2$ for the different fits used in the intensity extrapolation method for Run 2-3 and Run 5-6. }
@@ -243,7 +251,7 @@ as tabulated in \cref{tab:chi_IE}.
 \end{table}
 
 \subsubsection{Results from Intensity Extrapolation method.}
-The extracted ratios using this method are shown \cref{fig:CSR_IE},
+The extracted ratios using this method are shown in \cref{fig:CSR_IE},
 and are tabulated in \cref{tab:DY-IE-x2,tab:DY-IE-x1,tab:DY-IE-xF}.
 \begin{figure}[h!]
 	\centering
@@ -281,7 +289,6 @@ and are tabulated in \cref{tab:DY-IE-x2,tab:DY-IE-x1,tab:DY-IE-xF}.
 \end{table}
 \FloatBarrier
 
-The comparison of the results from massfit and extrapolation methods are shown in \cref{fig:CSR_method}. 
 \begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.6\linewidth}
@@ -297,11 +304,12 @@ The comparison of the results from massfit and extrapolation methods are shown i
 		$x_B$(left) and $x_F$(right) using the mass fit and intensity extrapolation.}
 	\label{fig:CSR_method}
 \end{figure}
-The results from the two method mostly agree with each other,
+The comparison of the results from massfit and extrapolation methods are shown in \cref{fig:CSR_method}. 
+The results from the two methods mostly agree with each other,
 partly due to the larger systematic uncertainties in the extrapolation method,
 which is mostly dominated by the difference in the fit function.
 
-The final cross section ratio is obtained by taking the average of the two method and are shown in red in the \cref{fig:CSR_method}.
+The final cross section ratio is obtained by taking the average of the two method and shown in red in \cref{fig:CSR_method}.
 The final ratios are tabulated in \cref{tab:DY-final} 
 \begin{table}[h!]
 	\centering

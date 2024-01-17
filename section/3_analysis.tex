@@ -486,22 +486,24 @@ therefore we defined $x_F$ as
 \end{equation}
 where $M$ is the dimuon mass. With this definition, the full range of $\abs{x_F}<1$ is covered.
 
-For the momentum fractions $x_1$, $x_2$, the following definition, taken from Ref.~\cite{Coester-1286} is chosen
+In fixed-target experiments, the two momentum fractions $x_1$, $x_2$ are typically referred as $x_B$ ($x$-beam)
+and $x_T$ ($x$-target) respectively.
+And the following definition, taken from Ref.~\cite{Coester-1286} is chosen for our experiment.
 \begin{equation}
 	\begin{split}
-		x_1 & = \frac{P_{\textrm{target}}\cdot P_{\gamma^*}}{P_{\textrm{target}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})}, \\
-		x_2 & = \frac{P_{\textrm{beam}}\cdot P_{\gamma^*}}{P_{\textrm{beam}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})},
+		x_B & = \frac{P_{\textrm{target}}\cdot P_{\gamma^*}}{P_{\textrm{target}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})}, \\
+		x_T & = \frac{P_{\textrm{beam}}\cdot P_{\gamma^*}}{P_{\textrm{beam}}\cdot (P_{\textrm{beam}}+P_{\textrm{target}})},
 	\end{split}
 \end{equation}
 where $P_{\textrm{beam}}$, $P_{\textrm{target}}$ and $P_{\gamma^*}$ are the four momentum of the
 beam hadron, target hadron and the virtual photon respectively.
 
-Because of our choice of $x_1$, $x_2$ definitions, the mass of the dimuon is now related to
+Because of our choice of $x_B$, $x_T$ definitions, the mass of the dimuon is now related to
 the momentum fractions as
 \begin{equation}
-	x_1x_2= \frac{M^2+P_T^2}{s}.
+	x_B x_T= \frac{M^2+P_T^2}{s}.
 \end{equation}
-And $x_F$ is no longer the difference between $x_1$ and $x_2$.
+And $x_F$ is no longer the difference between $x_B$ and $x_T$.
 
 Other definitions of the momentum fractions are listed in \cref{M-a_ch:kinematic}. These different definitions
 are consistent in the limit of $P_T/\sqrt{s}$ approaches zero.
@@ -1294,7 +1296,7 @@ During this analysis, the SeaQuest data is separated into two sets, namely `Run 
 The two data sets are analyzed separately. To obtained the results from the full dataset, the weighted
 average is computed. The different sources of systematic uncertainties are separated into two types.
 The first type includes sources that are related to overall normalization, such as polarization and beam
-normalization. And the other sources are out into the second type. The results from the full dataset
+normalization. And the other sources are grouped into the second type. The results from the full dataset
 is estimated as 
 \begin{equation}
 	\begin{split}
@@ -1306,7 +1308,7 @@ is estimated as
 \end{equation}
 where $y_i$ is the result from the analysis of each data set.
 And $\delta y^i_{\mathrm{stat.}}$, $\delta y^i_{\mathrm{syst. 1}}$, $\delta y^i_{\mathrm{syst. 2}}$
-are the statistical and two types of systematic uncertainties respectively.
+are the statistical and the two types of systematic uncertainties respectively.
 
 \section{Drell-Yan NLO calculation}
 \label{sec:DYNNLO}
@@ -1364,7 +1366,7 @@ becomes larger.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]{scale/dy_cs0_d.pdf}
-	\caption{The calculated Drell-Yan cross section using a fixed scale compared with using dynamic scales.
+	\caption{The calculated $p+d$ Drell-Yan cross section using a fixed scale (blue) compared with using dynamic scales (red).
 		The uncertainty bands denotes the \SI{90}{\percent} confident level from CT18NLO PDF.
 	}
 	\label{fig:DY_scale}
