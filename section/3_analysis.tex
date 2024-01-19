@@ -136,7 +136,7 @@ The next transformation is along the $z$-axis to reach the hadron-hadron center 
 \begin{equation}
 	\begin{split}
 		\gamma_2 & = \frac{\sqrt{P_L^2 + M^2}}{M},   \\
-		\beta_2  & = \frac{P_T}{\sqrt{P_L^2 + M^2}},
+		\beta_2  & = \frac{P_L}{\sqrt{P_L^2 + M^2}},
 	\end{split}
 \end{equation}
 where $P_L$ and $M$ are the longitudinal momentum and mass of the virtual photon respectively.
@@ -748,7 +748,7 @@ while the templates, generated from MC, are also varied within statistics, leadi
 to additional contributions to the overall likelihood.
 
 Let there be $m$ sources and the data is divided into $n$ bins.
-The number of MC events in bin $i$ from source $j$ is given by $a_{ji}$.
+The number of MC events in bin~$i$ from source~$j$ is given by $a_{ji}$.
 For each source, there is some (unknown) expected distribution $A_{ji}$.
 The expected number of events in each bin is given by
 \begin{equation}
@@ -795,7 +795,7 @@ And the right-hand side can be expressed as
 \end{equation}
 This reduces the $m\cross \left(n+1\right)$ unknowns in \cref{eq:TF_likelihood} ($p_j$ and $A_{ji}$)
 into $m+n$ unknowns ($p_j$ and $t_i$).
-And \cref{eq:TF_f} and be expressed as
+And \cref{eq:TF_f} can be expressed as
 \begin{equation}
 	\frac{d_i}{1-t_i}=f_i=\sum_j^m p_jA_{ji}=\sum_j^m \frac{p_j a_{ji}}{1+p_jt_i}.
 	\label{eq:TF_d5}
@@ -976,7 +976,7 @@ Therefore, care is needed to account for the contribution from the hydrogen cont
 target data. The result of the mass spectroscopy of the deuterium gas \cite{paul-1893} is
 summarized in \cref{table:LD2_contamination}. Based on this analysis, it is concluded the Fermilab
 deuterium contains $95.8\pm0.2\%$ D and $4.2\pm0.2\%$ H,
-which corresponds to model fractions of\SI{91.6}{\percent} \ce{D_2} and \SI{8.4}{\percent} \ce{HD}.
+which corresponds to model fractions of \SI{91.6}{\percent} \ce{D_2} and \SI{8.4}{\percent} \ce{HD}.
 
 The yield from the contaminated deuterium can be expressed as
 \begin{equation}
@@ -1108,8 +1108,6 @@ The histogram in the numerator is filled using the reconstructed kinematics, whe
 the thrown histogram in the denominator is filled using the thrown kinematics. This accounts for
 the first order effect of bin migration, caused by the spectrometer resolution.
 
-%Since our histograms are weighted histograms, the uncertainty is calculated using the following
-\pdfcomment{verify the uncertainty calculation here}
 
 The calculated acceptances for $J/\psi$ and $\psi'$ are shown in \cref{fig:jpsi_acceptance,fig:psip_acceptance}.
 The $\psi'$ acceptance is also larger than the $J/\psi$, primarily due to the
@@ -1143,6 +1141,8 @@ This is also reflected in the figures.
 	\caption{Spectrometer acceptance for the $\psi'$}
 	\label{fig:psip_acceptance}
 \end{figure}
+%Since our histograms are weighted histograms, the uncertainty is calculated using the following
+\pdfcomment{verify the uncertainty calculation here}
 \section{Comparison of data with Monte Carlo}
 
 \subsection{\texorpdfstring{$P_T$}{P\_T} distribution}
@@ -1301,9 +1301,9 @@ is estimated as
 \begin{equation}
 	\begin{split}
 		\bar{y}&=\sum_i w_i y_i,\\
-		w_i &\propto \left(\delta y^i_{\mathrm{stat.}}+\delta y^i_{\mathrm{syst. 2}}\right)^{-1}\\
+		w_i &\propto \left[\left(\delta y^i_{\mathrm{stat.}}\right)^2+\left(\delta y^i_{\mathrm{syst. 2}}\right)^2\right]^{-1},\\
 		\delta\bar{y}_{\mathrm{stat.}}&=\sqrt{\sum_i \left(w_i \delta y^i_{\mathrm{stat.}}\right)^2},\\
-		\delta\bar{y}_{\mathrm{syst.}}&=\sqrt{\left(\sum_i w_i \delta y^i_{\mathrm{syst. 1}}\right)^2+\sum_i \left(\delta y^i_{\mathrm{syst. 2}}\right)^2},
+		\delta\bar{y}_{\mathrm{syst.}}&=\sqrt{\left(\sum_i w_i \delta y^i_{\mathrm{syst. 1}}\right)^2+\sum_i \left(w_i \delta y^i_{\mathrm{syst. 2}}\right)^2},
 	\end{split}
 \end{equation}
 where $y_i$ is the result from the analysis of each data set.
@@ -1365,7 +1365,7 @@ The effect is more significant when the difference between the chosen fixed scal
 becomes larger.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\linewidth]{scale/dy_cs0_d.pdf}
+	\includegraphics[width=0.8\linewidth]{scale/dy_cs0_d.pdf}
 	\caption{The calculated $p+d$ Drell-Yan cross section using a fixed scale (blue) compared with using dynamic scales (red).
 		The uncertainty bands denotes the \SI{90}{\percent} confident level from CT18NLO PDF.
 	}
