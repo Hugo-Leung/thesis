@@ -379,7 +379,7 @@ generating matrices $t_c$ is used in $\mathcal{G}$.
 The QCD generalization of \cref{eq:F2_parton} is
 \begin{equation}
 	\frac{1}{x}F_2\left(x,Q^2\right) = \sum_a \int_x^1 \frac{\dd{\xi}}{x}f_{a/h}\left(\xi,\mu\right)\frac{\xi}{x}H_{2a}\left( \frac{x}{\xi}, \frac{Q}{\mu}, \alpha_s\left(\mu\right)\right)
-	+ \text{Remainder}
+	+ \text{Remainder}.
 \end{equation}
 The hard scattering coefficient $H_{2a}$ is expanded as power series in $\alpha_s$. It
 can be shown that the remainder is suppressed by powers of $Q$. Here the parton
@@ -395,7 +395,7 @@ where $P_{a/b}$ is the Altarelli-Parisi kernel~\cite{altarelli1977}.
 
 At order $\alpha_s$, the $F_2$ structure function is given by~\cite{collins1989}
 \begin{equation}
-	\frac{1}{x} F_2\left(x,Q^2\right) = \sum_j e^2_j f_{j/h}\left(x,\mu\right) + \sum_{j,b} e^2_j \int^1_x \frac{\dd{\xi}}{\xi} f_{b/h}\left(x,\mu\right) \frac{\alpha_s}{\pi} C_{jb}\left(\frac{x}{\xi}, \frac{Q}{\mu}\right) + \mathcal{O}(\alpha_s^2).
+	\frac{1}{x} F_2\left(x,Q^2\right) = \sum_j e^2_j f_{j/h}\left(x,\mu\right) + \sum_{j,b} e^2_j \int^1_x \frac{\dd{\xi}}{\xi} f_{b/h}\left(\xi,\mu\right) \frac{\alpha_s}{\pi} C_{jb}\left(\frac{x}{\xi}, \frac{Q}{\mu}\right) + \mathcal{O}(\alpha_s^2).
 \end{equation}
 The sum over $j$ runs over the quark and antiquark flavors. While the gluons
 did not contribute at leading order, they contribute at order $\alpha_s$ through
@@ -945,8 +945,8 @@ Using the potential model, the wavefucntion of the heavy quark pair can be calcu
 and the color-singlet LDEMEs can be estimated from the wavefunction at the origin
 \begin{equation}
 	\begin{split}
-		\langle O^{\psi}[^3S_1^{\left[1\right]}]\rangle &= \frac{3N_c}{2\pi} \left| R_{\psi}\left(0\right)\right|^2,\\
-		\langle O^{\chi_{cJ}}[^3P_J^{\left[1\right]}]\rangle &= \frac{3}{4\pi}\left(2J+1\right) \left| R'_{\chi_{cJ}}\left(0\right)\right|^2.
+		\expval{O^{\psi}[^3S_1^{\left[1\right]}]} &= \frac{3N_c}{2\pi} \left| R_{\psi}\left(0\right)\right|^2,\\
+		\expval{O^{\chi_{cJ}}[^3P_J^{\left[1\right]}]} &= \frac{3}{4\pi}\left(2J+1\right) \left| R'_{\chi_{cJ}}\left(0\right)\right|^2.
 	\end{split}
 \end{equation}
 And the potential model gives $\left|R_{J/\psi}\left(0\right)\right|^2=\SI{0.81}{\GeV^3}$,
