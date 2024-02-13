@@ -30,7 +30,7 @@ Similarly, the mass distributions for Run 5-6 are also shown in \cref{fig:massfi
 	\caption{The mass spectrum for \ce{LH_2}(left) and \ce{LD_2}(right) targets data for Run 2-3 (top) and Run 5-6 (bottom).}
 	\label{fig:massfit_integrated}
 \end{figure}
-With the yields for different processes obtained from the mass fits, 
+With the yields for different processes obtained from the mass fits,
 the cross section ratio as a function of $x_T$ can be calculated following \cref{M-subsec:contamination},
 and are shown in \cref{fig:CSR_MF_xT} and tabulated in \cref{tab:DY-MF-x2}.
 \begin{figure}[htpb!]
@@ -49,7 +49,7 @@ and are shown in \cref{fig:CSR_MF_xT} and tabulated in \cref{tab:DY-MF-x2}.
 	\input{table/DY_MF_x2.tex}
 \end{table}
 
-The extracted cross section ratio from the two datasets are consistent with each other within uncertainties.
+The extracted cross section ratios from the two datasets are consistent with each other within uncertainties.
 The red points in \cref{fig:CSR_MF_xT} represent results from the combined analysis following the procedure in \cref{M-subsec:combine}.
 \FloatBarrier
 
@@ -57,7 +57,7 @@ The red points in \cref{fig:CSR_MF_xT} represent results from the combined analy
 \label{subsubsec:contamination_result}
 As discussed in \cref{M-subsec:contamination}, incorrect target contamination corrections were used
 in previous publications and the effect is shown in \cref{fig:contaimination_CSR}.
-The overall effect is a roughly \SI{2}{\percent} shift in the ratio. 
+The overall effect is a roughly \SI{2}{\percent} shift upwards in the ratio.
 This correction only affects the results from Run~2-3 as the later runs utilize commercial pure deuterium.
 The updated corrections are used throughout this thesis.
 \begin{figure}[htpb!]
@@ -106,14 +106,14 @@ and $x_F$ (\cref{fig:CSR_MF_xF}) are also extracted, and tabulated in \cref{tab:
 
 \subsection{Comparison with global PDF analysis}
 \Cref{fig:e866_e906} shows the comparison of the measured $\sigma_{pd}/2\sigma_{pp}$ from SeaQuest and NuSea~\cite{towell2001},
-as well as calculations using CT18 PDFs. 
-Part of the apparent difference between the measured $\sigma_{pd}/2\sigma_{pp}$ from the two experiment originates
+as well as calculations using CT18 PDFs.
+Part of the apparent difference between the measured $\sigma_{pd}/2\sigma_{pp}$ from the two experiments originates
 from the different beam energies and therefore different $x_B$ coverage.
 This effect is reflected in the calculated cross section ratios in \cref{fig:e866_e906}.
 The measured ratios from SeaQuest are consistent with both NuSea results and calculations using CT18 PDFs
 at low $x_T$. Since the high statistics data at low $x_T$ from NuSea were used to constrain
 the CT18 PDFs, the good agreement reflects the consistency between NuSea and SeaQuest results
-at the low $x_T$ region. 
+at the low $x_T$ region.
 In contrast, the SeaQuest results at higher $x_T$ are significantly larger than NuSea results and calculations using CT18 PDFs.
 The CT18 PDFs, based on fits that include the NuSea data, show a drop of the cross section
 at large $x_T$. No such drop is observed in the SeaQuest results.
@@ -124,19 +124,19 @@ at large $x_T$. No such drop is observed in the SeaQuest results.
 		between SeaQuest (red circles) and NuSea~\cite{towell2001} (blue triangles).
 		The curves represent calculations using CT18NLO~\cite{hou2021} at SeaQuest kinematics (green) and NuSea kinematics (orange).}
 	\label{fig:e866_e906}
-\end{figure} 
+\end{figure}
 
-The published $\sigma_{pd}/2\sigma_{pp}$ ratio result using Run 2-3 data~\cite{dove2021,dove2023}
+The published $\sigma_{pd}/2\sigma_{pp}$ result using Run 2-3 data~\cite{dove2021,dove2023}
 has been included in various recent global PDF analysis~\cite{cocuzza2021,guzzi2022,accardi2023,alekhin2023}.
 In particular, \cref{fig:CSR_MF_xT} shows the calculation using CT18 (obtained without the SeaQuest data)
 and NNPDF~4.0 (obtained with the SeaQuest data). The shift in the calculated cross section ratio is primarily
-coming from the inclusion of the SeaQuest data.
-As the NNPDF4.0 analysis were performed with the SeaQuest results in their global analysis,
+coming from the inclusion of the published SeaQuest data.
+As the NNPDF4.0 analysis was performed with the SeaQuest results included,
 calculations with NNPDF4.0 PDFs are naturally in better agreement with the SeaQuest results.
 
 The importance of the SeaQuest data can be seen in the NNPDF4.0, where at large $x_T$, the
 uncertainty band is consistent with the uncertainties of our measurements, as the SeaQuest
-results is the only available data sensitive to the light sea-quark asymmetry at large $x$.
+results are the only available data sensitive to the light sea-quark asymmetry at large $x$.
 The updated $\sigma_{pd}/2\sigma_{pp}$ ratio from the combined analysis is slightly larger than the NNPDF4.0
 calculation, this is partly due to the updated contamination correction, and partly due to the new data.
 \begin{figure}[htpb!]
@@ -148,63 +148,124 @@ calculation, this is partly due to the updated contamination correction, and par
 		\includegraphics[width=\linewidth]{dbarUbar/E906_E866_dbarubar.pdf}
 	\end{subfigure}
 	\caption{The extracted $\bar{d}/\bar{u}$ from the measured $\sigma_{pd}/2\sigma_{pp}$ Drell-Yan cross section ratio
-		from SeaQuest (red solid circles) and E866~\cite{towell2001} (open blue circles).
+		from SeaQuest (red solid circles), E866~\cite{towell2001} (open blue circles).
 		The extracted ratios are compared with CT18~\cite{hou2021} and NNPDF4.0~\cite{ball2022a} global PDF analyses (top)
 		and with predictions from meson cloud model~\cite{alberg2022} and statistical model~\cite{soffer2019} (bottom).}
 	\label{fig:e906_e866_dbarubar}
 \end{figure}
 \begin{table}[htpb!]
 	\centering
-	\caption{The extracted $\bar{d}/\bar{u}$ for each $x$ bin. The first uncertainty is statistical the second systematic.}
+	\caption{The extracted $\bar{d}/\bar{u}$ and $\bar{d}-\bar{u}$ for each $x$ bin.
+		The first uncertainty is statistical and the second systematic.}
 	\label{tab:dbarubar_e906}
 	\input{table/dbarubar.tex}
 \end{table}
 
-In order to compared the results from SeaQuest with predictions from various models,
+In order to compare the results from SeaQuest with predictions from various models,
 an estimate for the $\bar{d}/\bar{u}$ ratio is extracted from the cross section ratio by
-an iterative method, as described in Ref.~\cite{dove2021}. 
+an iterative method, as described in Ref.~\cite{dove2021}.
 We first make an estimate for the $\bar{d}/\bar{u}$ ratio over the measured $x_T$
-and calculate the cross section ratio $R$ using a chosen PDF set. 
+and calculate the cross section ratio $R$ using a chosen PDF set.
 This PDF set provides all other parton distributions except for the $\bar{d}/\bar{u}$ ratio,
-which is allowed to vary. The $\bar{d}/\bar{u}$ ratio is initialized as 
+which is allowed to vary. The $\bar{d}/\bar{u}$ ratio is initialized as
 \begin{equation}
 	\left[\frac{\bar{d}}{\bar{u}}\right]\left(x_T\right) = 2R\left(x_T\right)-1.
 \end{equation}
 The $\bar{d}/\bar{u}$ ratio outside the measured $x_T$ range was assumed to be $1.0$,
-and change to $0.5$ and $2.0$ to estimate the systematic uncertainty arises from this assumption.
-The cross section ratio $R$ is then calculated up to next-to-leading order, as 
+and changed to $0.5$ and $2.0$ to estimate the systematic uncertainty arises from this assumption.
+The cross section ratio $R$ is then calculated up to next-to-leading order, as
 \begin{equation}
 	R_{\mathrm{pred}}\left(x_T\right)  = \frac{\sum_{x_B} A\left(x_B, x_T\right)\sigma^{pd}_{NLO}\left(x_B, x_T\right)}{2\sum_{x_B} A\left(x_B, x_T\right)\sigma^{pp}_{NLO}\left(x_B, x_T\right)},
 \end{equation}
-where $A\left(x_B,x_T\right)$ is the acceptance for a $\left(x_B, x_T\right)$ bin. 
-The $\bar{d}/\bar{u}$ ratio is then adjusted according the to the difference between
-the measured and predicted ratios, until the difference is less then $10^{-3}$.
+where $A\left(x_B,x_T\right)$ is the acceptance for a $\left(x_B, x_T\right)$ bin.
+The $\bar{d}/\bar{u}$ ratio is then adjusted according to the difference between
+the measured and predicted ratios, until the difference is less than $10^{-3}$.
 
 The extracted $\bar{d}/\bar{u}$ from the measured SeaQuest cross section ratio,
-using the CT18 PDFs as the basis, are shown in \cref{fig:e906_e866_dbarubar} 
-and tabulated in \cref{tab:dbarubar_e906}. 
+using the CT18 PDFs as the basis, are shown in \cref{fig:e906_e866_dbarubar}
+and tabulated in \cref{tab:dbarubar_e906}.
 While the SeaQuest results are consistent with previous E866 results~\cite{towell2001} at low $x$,
-the extracted $\bar{d}/\bar{u}$ ratios from the SeaQuest measurements continue to rise as $x$ increases,
+the extracted $\bar{d}/\bar{u}$ ratios from the SeaQuest measurement continue to rise as $x$ increases,
 and is in tension with the E866 result.
 The SeaQuest results are also in much better agreement with predictions from meson cloud model~\cite{alberg2022}
 and statistical model~\cite{soffer2019}.
 The extracted $\bar{d}/\bar{u}$ ratios are also compared with results from CT18~\cite{hou2021} and NNPDF4.0~\cite{ball2022a}
-global analyses in \cref{fig:e906_e866_dbarubar}. 
+global analyses in \cref{fig:e906_e866_dbarubar}.
 The inclusion of the SeaQuest result from Run 2-3 in the NNPDF4.0 analysis strongly constrains the $\bar{d}/\bar{u}$ ratios
 to remain above unity at large $x$.
-With the reduced statistical uncertainties from the combined analysis,
+With the reduced statistical uncertainties from the combined analysis presented in this thesis,
 the uncertainty on the $\bar{d}/\bar{u}$ in these global analyses can be further reduced.
+
+\begin{figure}[htpb!]
+	\centering
+	\begin{subfigure}{0.55\linewidth}
+		\includegraphics[width=\linewidth]{dbarUbar/dbub_diff_with_PDF.pdf}
+	\end{subfigure}
+	\begin{subfigure}{0.55\linewidth}
+		\includegraphics[width=\linewidth]{dbarUbar/dbub_diff_with_model.pdf}
+	\end{subfigure}
+	\caption{The extracted $\bar{d}-\bar{u}$ from from SeaQuest (red solid circles), E866~\cite{towell2001} (open blue circles)
+		and HERMES~\cite{ackerstaff1998} (black triangles).
+		The results are compared with CT18~\cite{hou2021} and NNPDF4.0~\cite{ball2022a} global PDF analyses (top)
+		and with predictions from meson cloud model~\cite{alberg2022} and statistical model~\cite{soffer2019} (bottom).}
+	\label{fig:e906_e866_dbarMubar}
+\end{figure}
+The isovector PDF $\bar{d}-\bar{u}$ over the region $0.13<x<0.45$
+can also be calculated from the extracted $\bar{d}/\bar{u}$ ratio by taking the $\bar{d}+\bar{u}$
+distribution from CT18.
+As a flavor nonsinglet quantity, the integral, $\int^1_0 \left[\bar{d}\left(x\right) - \bar{u}\left(x\right)\right] \dd{x}$,
+is expected to be independent of $Q^2$, even though the $x$ dependence might differ at different $Q^2$.
+As the perturbative processes should not produce a significant $\bar{d},\,\bar{u}$ difference,
+the $\bar{d}-\bar{u}$ values can provide a direct measure on the nonperturbative contributions.
+The values of $\bar{d}-\bar{u}$ derived from the SeaQuest data are shown in \cref{fig:e906_e866_dbarMubar} and tabulated in \cref{tab:dbarubar_e906},
+and are also compared with results from E866~\cite{towell2001} and HERMES~\cite{ackerstaff1998},
+and with predictions from meson cloud and statistical models.
+Unlike $\bar{d}/\bar{u}$ ratio, the difference $\bar{d}-\bar{u}$ is insensitive to the flavor-symmetric contributions
+to the sea-quark distributions in these models. Like the ratio, the deduced difference $\bar{d}-\bar{u}$ is also
+in good agreement with both models.
+It is also worth pointing out that the small $x$ behavior of the $\bar{d}-\bar{u}$ can be studied using
+semi-inclusive DIS as indicated by the HERMES measurements~\cite{ackerstaff1998}.
+With the advent of the Electron Ion Collider, the flavor asymmetry at small $x$ region, where abundant sea-quarks reside,
+can be further constrained.
+The flavor asymmetry $\bar{d}-\bar{u}$ can also be study using lattice techniques
+within the framework of LaMET as discussed in \cref{M-subsec:lattice}.
+Though, it has been pointed out that calculations from lattice in the antiquark region are currently
+susceptible to systematic uncertainties,
+and in particular the inverse problem arising in the reconstruction of the $x$-dependence~\cite{constantinou2021}.
+The current results using the LaMET framework do not agree among different groups nor with current global PDF analyses.
+The measured flavor asymmetry can provide an important benchmark for the lattice calculations in the future.
+
+The SeaQuest data can also be used to calculate two integral: $\int^{0.45}_{0.13} \left[\bar{d}\left(x\right) - \bar{u}\left(x\right) \right]\dd{x}$,
+which describes the integrated sea-quark flavor asymmetry, and $\int^{0.45}_{0.13} x\left[\bar{d}\left(x\right) - \bar{u}\left(x\right) \right]\dd{x}$,
+which represents the difference in the momentum fractions carried by $\bar{u}$ and $\bar{d}$ quarks.
+These values are listed in \cref{tab:dbarMubar_int}, and are compared with different PDFs and models.
+It should be noted that as SeaQuest is only probing the large $x$ region, the sea-quark PDFs are small in this region.
+Hence, when compared with the measured $\int^{1}_{0} \left[\bar{d}\left(x\right) - \bar{u}\left(x\right) \right]\dd{x}=0.118\pm 0.012$
+from E866 based on the measurements over $0.015<x<0.35$ and extrapolations~\cite{towell2001},
+the results from SeaQuest is inheritably smaller.
+\begin{table}[htpb!]
+	\centering
+	\caption{Values of $\int_{0.45}^{0.13} \left[\bar{d}\left(x\right) - \bar{u}\left(x\right)\right] \dd{x}$
+		and $\int_{0.45}^{0.13} x\left[\bar{d}\left(x\right) - \bar{u}\left(x\right)\right] \dd{x}$ at $Q^2=25.5\unit{\GeV\squared}$ extracted from
+		SeaQuest compared with CT18, NNPDF4.0 PDFs and well as meson cloud and statistical models.}
+	\label{tab:dbarMubar_int}
+	\renewcommand{\arraystretch}{1.5}
+	\scalebox{0.93}{
+		\input{table/dbarubar_int.tex}
+	}
+\end{table}
+
 \begin{comment}
-The impact of the SeaQuest measurement is further illustrated in \cref{fig:JAM_impact}. 
-The JAM analysis~\cite{cocuzza2021} found that the SeaQuest measurement greatly reduces the 
-uncertainties on the $\bar{d}/\bar{u}$ ratio, by up to $\approx 50\%$ at $x>0.3$. 
+The impact of the SeaQuest measurement is further illustrated in \cref{fig:JAM_impact}.
+The JAM analysis~\cite{cocuzza2021} found that the SeaQuest measurement greatly reduces the
+uncertainties on the $\bar{d}/\bar{u}$ ratio, by up to $\approx 50\%$ at $x>0.3$.
 The addition of the SeaQuest data also constrain the ratio to remain above unity up to values of $x\approx0.4$,
 which is also in better agreement with prediction from various models, including meson-cloud and statistical model.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\linewidth]{JAM_impact}
 	\caption{impact on the $\bar{d}/\bar{u}$ ratio (top) and the asymmetry $x\left(\bar{d}-\bar{u}\right)$ (middle)
-		of the SeaQuest measurement (red band) and STAR $W$ data \cite{adam2021} (blue band) relative to the baseline (green band) 
+		of the SeaQuest measurement (red band) and STAR $W$ data \cite{adam2021} (blue band) relative to the baseline (green band)
 		where the SeaQuest and STAR measurements are excluded in the JAM analysis~\cite{cocuzza2021}.
 		The uncertainty on $\bar{d}/\bar{u}$ for these two scenarios normalized to that of the baseline
 		are shown in the bottom panel. Taken from Ref.~\cite{cocuzza2021}.}
@@ -214,7 +275,7 @@ which is also in better agreement with prediction from various models, including
 
 \subsection{Comparison between Massfit and Intensity Extrapolation Method}
 As described in \cref{M-sec:extrapolation}, an independent method for extracting the Drell-Yan cross section
-ratio is developed by utilizing its rate dependence. 
+ratio is developed by utilizing its rate dependence.
 
 \subsubsection{Systematic uncertainties due to choice of fit function}
 To understand the systematic uncertainties in the intensity extrapolation method due to the
@@ -310,16 +371,16 @@ The fit in other $x_T$ bins and for other variables are shown in \cref{M-a_ch:ex
 	\label{fig:CSR_IE_run56}
 \end{figure}
 
-While the difference caused by the fit functions are small for $x_T$ in Run 2-3,
+While the difference caused by the fit functions is small for $x_T$ in Run 2-3,
 as shown in \cref{fig:CSR_IE_run23} and reported in Ref.~\cite{dove2021},
 the difference is significantly larger in the other variables and in Run 5-6, as shown in \cref{fig:CSR_IE_run56}.
-This is a major systematic uncertainty in this method. 
+This is a major systematic uncertainty in this method.
 In Ref.~\cite{dove2021}, Fit-1 was chosen as the central value, but the reduced $\chi^2$ are very similar between the two fits,
-as tabulated in \cref{tab:chi_IE}. 
+as tabulated in \cref{tab:chi_IE}.
 It should also be noted that during the Run 5-6 data taking, the variation in the instantaneous beam
 intensity was reduced as compared to Run 2-3.
 This is partly due to the improvement in beam quality and partly due to the tightening of the beam inhibit thresholds.
-Therefore, the range of trigger intensity that can be used for the intensity extrapolation is smaller in Run 5-6. 
+Therefore, the range of trigger intensity that can be used for the intensity extrapolation is smaller in Run 5-6.
 The smaller range might be partly responsible for the larger systematic uncertainty in the intensity extrapolation method
 in Run 5-6.
 \begin{table}[h!]
@@ -329,7 +390,7 @@ in Run 5-6.
 	\input{table/extrapolate/combine.tex}
 \end{table}
 
-\subsubsection{Results from Intensity Extrapolation method.}
+\subsubsection{Results from Intensity Extrapolation method}
 The extracted ratios using this method are shown in \cref{fig:CSR_IE},
 and are tabulated in \cref{tab:DY-IE-x2,tab:DY-IE-x1,tab:DY-IE-xF}.
 \begin{figure}[h!]
@@ -383,16 +444,16 @@ and are tabulated in \cref{tab:DY-IE-x2,tab:DY-IE-x1,tab:DY-IE-xF}.
 		$x_B$(left) and $x_F$(right) using the mass fit (blue)  and intensity extrapolation (black).}
 	\label{fig:CSR_method}
 \end{figure}
-The comparison of the results from massfit and extrapolation methods are shown in \cref{fig:CSR_method}. 
+The comparison of the results from mass fit and extrapolation methods are shown in \cref{fig:CSR_method}.
 The results from the two methods mostly agree with each other,
 partly due to the larger systematic uncertainties in the extrapolation method,
 which is mostly dominated by the difference in the fit function.
 
-The final cross section ratio is obtained by taking the average of the two method and shown in red in \cref{fig:CSR_method}.
-The final ratios are tabulated in \cref{tab:DY-final} 
+The cross section ratios obtained by taking the average of the two methods are shown in red in \cref{fig:CSR_method},
+and tabulated in \cref{tab:DY-final}.
 \begin{table}[h!]
 	\centering
-	\caption{The final Drell-Yan cross section ratio after combining the results from the mass fit and intensity extrapolation methods.}
+	\caption{The Drell-Yan cross section ratios after combining the results from the mass fit and intensity extrapolation methods.}
 	\label{tab:DY-final}
 	\scalebox{0.925}{
 		\input{table/DY_final.tex}

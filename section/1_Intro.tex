@@ -795,6 +795,7 @@ development in understanding the nonperturbative charm in the proton~\cite{guzzi
 also suggestions that SeaQuest kinematic would be ideal for testing limits on intrinsic charm~\cite{vogt2021}.
 
 \subsection{Lattice QCD}
+\label{subsec:lattice}
 Lattice QCD calculations of the $\bar{d} - \bar{u}$ based on the Large Momentum Effective
 theory (LaMET)~\cite{ji2021,constantinou2021} have become available recently by two different groups,
 LP3~\cite{chen2018} and ETMC~\cite{alexandrou2018}.
@@ -827,11 +828,11 @@ especially in the antiquark region.
 \chapter{Charmonium Production}
 \label{ch:jpsi}
 Another process for probing the nucleon structure is the charmonium production~\cite{peng1995,chang2020}.
-Unlike DIS and Drell-Yan, the charmonium production involves strong interaction
-at the leading-order. Therefore it can be used to probe the gluon structure, which is
-less sensitive in DIS or Drell-Yan, and the quark and anti-quark structures.
+Unlike DIS and Drell-Yan, the charmonium production involves strong interaction already
+at the leading-order. Therefore it can be used to probe the gluon structure, which 
+the DIS or Drell-Yan processes are less sensitive to, and the quark and anti-quark structures.
 At leading order, charmonium production involves two sub-processes, gluon fusion and
-quark-antiquark annihilation, as illustrated in \cref{fig:charmonium}.
+quark-antiquark annihilation into a gluon, as illustrated in \cref{fig:charmonium}.
 
 The simultaneous measurement of charmonium production and Drell-Yan process, two very different
 processes, can provide complementary information on the partonic structures of the nucleon.
@@ -852,19 +853,19 @@ charge symmetry requires that the gluon distributions in the proton and neutron
 are identical. A measurement of the gluon contents in proton and neutron could test charge symmetry at
 the partonic level~\cite{piller1996,zhu2008,lansberg2012}.
 
-As $J/\psi$ and $\psi'$ are resonances, they tend to show up as peaks in the dimuon mass spectrum,
+As $J/\psi$ and $\psi'$ are resonances, they show up as peaks in the dimuon mass spectrum,
 and the cross section is significantly larger than the Drell-Yan cross section.
-However, there are various models for calculating the charmonium production,
-which contains of the non-perturbative aspect of QCD.
+However, there are various models for calculating the quarkonium production,
+which contains non-perturbative aspects of QCD.
 The models usually separate the production
 mechanism into two parts, the production of heavy-quark pairs and their subsequent
 hadronization into quarkonium states. One of the early approaches is the Color
-Evaporation method (CEM)~\cite{einhorn1975,bodwin1995}. The heavy-quark
+Evaporation Model (CEM)~\cite{einhorn1975,bodwin1995}. The heavy-quark
 pairs production is expanded in terms of the strong coupling constant $\alpha_s$
 and is calculated with perturbative QCD (pQCD). CEM then assumes a constant
-probability $F$ for the $c\bar{c}$ pairs to hadronize into a specific charmonium
+probability $F$ for the $c\bar{c}$ pairs to hadronize into a specific quarkonium
 state and this probability is independent of the kinematics or the production
-subprocess. The charmonium production cross section in the CEM framework can be
+subprocess. The $J/\psi$ production cross section in the CEM framework can be
 expressed as
 \begin{equation}
 	\begin{split}
@@ -889,11 +890,11 @@ where $i$,$j$ denote the type of interacting partons.
 		\input{images/feynamn/qq}
 		\caption{Quark-antiquark annihilation.\label{subfig:qqbar}}
 	\end{subfigure}
-	\caption{The Feynman diagram for $c\bar{c}$ pair production.}
+	\caption{The Feynman diagrams for $c\bar{c}$ pair production.}
 	\label{fig:charmonium}
 \end{figure}
 While proton induced $J/\psi$ production is often dominated by gluon fusion
-process~\cite{vogt1999}, The relative importance of gluon fusion
+process~\cite{vogt1999}, the relative importance of gluon fusion
 and quark-antiquark annihilation is a strong function of hadron-hadron center-of-mass energy $\sqrt{s}$
 and $x_F=2P_L/\sqrt{s}$, where $P_L$ is the longitudinal momentum of the $J/\psi$ meson in the
 hadron-hadron center-of-mass frame.
@@ -908,7 +909,7 @@ the SeaQuest experiment has better coverage.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\linewidth]{pp_norm_cs_NLO_pp}
-	\caption{Calculated cross section for $J/\psi$ production using CEM model with CT14NLO PDF.
+	\caption{Calculated cross section for $J/\psi$ production using the CEM model with the CT14NLO PDF.
 		The CEM code is obtained from Ref.~\cite{mangano1993}.}
 	\label{fig:cem_cs}
 \end{figure}
@@ -927,13 +928,13 @@ production cross section in this framework is given as
 \begin{equation}
 	\hat{\sigma}\left[ij\rightarrow H\right]= \sum_n C^{ij}_{c\bar{c}\left[n\right]}\left(x_1P_A,x_2P_B,\mu_F,\mu_R , m_c\right)\expval{O^H_n}.
 \end{equation}
-The $c\bar{c}$ pairs are produced in state $n={^{2S+1}L_j^{\left[a\right]}}$ with definite spin $S$,
-orbital angular momentum $L$, total angular momentum $J$, and color multiplicity $a=1,8$.
+The $c\bar{c}$ pairs are produced in state $n={^{2S+1}L_J^{\left[a\right]}}$ with definite spin $S$,
+orbital angular momentum $L$, total angular momentum $J$, and color state $a=1,8$.
 The coefficient $C^{ij}_{c\bar{c}\left[n\right]}$ describes the production of $c\bar{c}$ pair in state $n$,
 from partons $i$ and $j$ and is calculated perturbatively in powers of $\alpha_s$ using pQCD.
-The LDME $\expval{O^H_n}$ accounts for the hardronization probability for a specfic $c\bar{c}$ state into the
+The LDME $\expval{O^H_n}$ accounts for the hardronization probability for a specfic $c\bar{c}$ state $n$ into the
 charmonium state $H$.
-This formulism suggests the $c\bar{c}$ pairs can be produced in color-octet state,
+This formalaism suggests that the $c\bar{c}$ pairs can be produced in color-octet state,
 then evlove into physical color-singlet quarkonia by nonperturbative emission of soft gluons.
 
 The LDMEs discribe the hadronization process,
@@ -941,8 +942,8 @@ and are assumed to be universal and independent of beam or target hadrons and th
 As the LDMEs describe the non-pertubative interactions,
 they cannot be calculated using pQCD, and have to be extracted from models or experiments.
 For example, the color-singlet LDMEs are typically estmated using the potential model~\cite{eichten1995}.
-Using the potential model, the wavefucntion of the heavy quark pair can be calculated, 
-and the color-singlet LDEMEs can be estimated from the wavefunction at the origin
+Using the potential model, the wavefunction of the heavy quark pair can be calculated, 
+and the color-singlet LDMEs can be estimated from the wavefunction at the origin
 \begin{equation}
 	\begin{split}
 		\expval{O^{\psi}[^3S_1^{\left[1\right]}]} &= \frac{3N_c}{2\pi} \left| R_{\psi}\left(0\right)\right|^2,\\
@@ -953,13 +954,13 @@ And the potential model gives $\left|R_{J/\psi}\left(0\right)\right|^2=\SI{0.81}
 $\left|R_{\psi'}\left(0\right)\right|^2=\SI{0.53}{\GeV^3}$, and $\left|R'_{\chi_{cJ}}\left(0\right)\right|^2=\SI{0.075}{\GeV^5}$.
 The other LDMEs are typically obtained by fitting to data.
 Some existing LDMEs for direct $J/\psi$ production are tabulated in \cref{tab:LDMEs}.
-The values of LDMEs from different groups are very different, in some cases, even the signs are different.
+The values of some LDMEs from different groups are very different, in some cases, even the signs are different.
 This is partly due to the choice of data sets used in their global fits. The
 SeaQuest experiment can provide additonal constraints on these LDMEs. Some
 existing data are shown in \cref{fig:charm_cs}.
 Unlike most previous fixed-target charmonium experiments, which utilized nuclear
 targets, SeaQuest have both hydrogen and deuterium targets.
-Studying the charmonium production in $p+p$ and $p+d$, would allow the extraction
+Studying the charmonium production in $p+p$ and $p+d$ would allow the extraction
 of the LDMEs with little, if any, model dependence from nuclear effects.
 
 \begin{table}[ht!]
@@ -987,12 +988,12 @@ of the LDMEs with little, if any, model dependence from nuclear effects.
 
 The NRQCD calculations~\cite{chang2023a} presented in this thesis are performed using the LDMEs
 from a recent global analysis of both pion- and proton-induced charmonium production data~\cite{chang2023}.
-In the their analysis, only unpolarized observables where analyzed.
-Therefore, the formulism can simplified by combining the color-octet LDMEs
+In the their analysis, only unpolarized observables were analyzed.
+Therefore, the formalism can be simplified by combining the color-octet LDMEs
 \begin{equation}
 	\Delta^H_{[8]}=\expval{O^H[^1S_0^{\left[8\right]}]}+\frac{3}{m_c^2}\expval{O^H[^3P_0^{\left[8\right]}]}+\frac{4}{5m_c^2}\expval{O^H[^3P_2^{\left[8\right]}]}.
 \end{equation}
-Furthermore, the calculated cross section for $J/\psi$ also need to include the feed-dwon from hadronic decay
+Furthermore, the calculated cross section for $J/\psi$ also need to include the feed-down from hadronic decay
 of $\psi'$ and radiative decays of three $\chi_{cJ}$ states.
 Therefore the total $J/\psi$ cross section is given by
 \begin{equation}
@@ -1032,7 +1033,7 @@ The number of independent LDMEs are further reduced by applying spin symmetry re
 	\input{table/LDME_wcchang.tex}
 \end{table}
 
-The values of LDMEs used in the calculations is tabulated in \cref{tab:LDME_wcchang}.
+The values of LDMEs used in the calculations are tabulated in \cref{tab:LDME_wcchang}.
 The calculated cross sections for $J/\psi$ and $\psi'$ production using NRQCD for
 $p+p$ at 120 GeV are shown in \cref{fig:NRQCD_cs}. In this model, quark-antiquark
 annihilation is more important than suggested by CEM. This model also suggests
