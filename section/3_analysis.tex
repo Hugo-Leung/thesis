@@ -638,7 +638,7 @@ The extracted mean deadtime is used for the analysis of Run 2-3 and Run 5 data.
 For Run 6, due to the DAQ upgrade, the deadtime is reduced to a fixed \SI{29.5}{\us}.
 The number of buckets during deadtime is estimated as
 \begin{equation}
-	N_{\mathrm{busy\ RF}}=N_{\mathrm{trigger}}\times\frac{\expval{\mathrm{deadtime}}}{18.9\unit{\ns}},
+	N_{\mathrm{busy\ RF}}=N_{\mathrm{trigger}}\times\frac{\expval{\mathrm{deadtime}}}{\SI{18.9}{\ns}},
 \end{equation}
 where $N_{\mathrm{trigger}}$ is the number of triggers during a spill, and \SI{18.9}{\ns} is the width of a bucket.
 Therefore, the $\mathrm{busy\_sum\_no\_inhibit}$ is \cref{eq:livePoT-old} is replaced by

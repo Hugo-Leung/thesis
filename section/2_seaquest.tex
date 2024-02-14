@@ -214,8 +214,8 @@ Station~1 and 2 each have single x-y planes. Station~3 has a single x plane, and
 from HERMES experiment~\cite{ackerstaff1998a}, whereas new Eljen EJ-200 scintillator material
 is used for St.~3 and 4. Because of the physical size of the scintillator bars in St.~4, the
 hodoscopes have PMTs on both ends of the scintillator bars. Each of the PMT base has a
-``clip line'' attached at the output to reduce the output pulse from $20-25$\unit{\ns}
-down to $10-15$\unit{\ns} full width.
+``clip line'' attached at the output to reduce the output pulse from \SIrange{20}{25}{\ns}
+down to \SIrange{10}{15}{\ns} full width.
 
 The configuration of the hodoscope is summarized in \cref{table:hodo}. \pdfmargincomment{why are there 2 y hodo in St4? Lower rate at St4? Shivangi's thesis is correct NIM paper is wrong}
 \begin{table}[h!]
@@ -408,7 +408,7 @@ When a trigger signal is received by the trigger supervisor,
 a common-stop signal is issued to all TDCs. The TDCs will then store the hit information
 to an event buffer. Once the spill is over, the readout controller will read the event
 buffers on all the TDCs and send the hit information back to the DAQ host.
-This design reduces the deadtime from $150 -200\unit{\micro\second}$ per event to a fixed $28\unit{\micro\second}$.
+This design reduces the deadtime from \SIrange{150}{200}{\micro\second} per event to a fixed \SI{28}{\micro\second}.
 
 \subsection{Scaler DAQ}
 The Scaler DAQ operates independently of the Event DAQ.
