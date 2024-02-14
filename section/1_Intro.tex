@@ -873,7 +873,7 @@ expressed as
 		                                           & \cross f_{i/A}\left(x_1,\mu_F\right)f_{j/B}\left(x_2,\mu_F\right)\sigma\left[ij\rightarrow c\bar{c}X\right]\left(x_1P_A,x_2P_B,\mu_F,\mu_R \right),
 	\end{split}
 \end{equation}
-where $i$,$j$ denote the type of interacting partons.
+where $i$, $j$ denote the type of interacting partons.
 \begin{figure}[htpb!]
 	\centering
 	\begin{subfigure}[c]{0.4\linewidth}
@@ -946,14 +946,14 @@ Using the potential model, the wavefunction of the heavy quark pair can be calcu
 and the color-singlet LDMEs can be estimated from the wavefunction at the origin
 \begin{equation}
 	\begin{split}
-		\expval{O^{\psi}[^3S_1^{\left[1\right]}]} &= \frac{3N_c}{2\pi} \left| R_{\psi}\left(0\right)\right|^2,\\
-		\expval{O^{\chi_{cJ}}[^3P_J^{\left[1\right]}]} &= \frac{3}{4\pi}\left(2J+1\right) \left| R'_{\chi_{cJ}}\left(0\right)\right|^2.
+		\expval{O^{\psi}\left[^3S_1^{\left[1\right]}\right]} &= \frac{3N_c}{2\pi} \left| R_{\psi}\left(0\right)\right|^2,\\
+		\expval{O^{\chi_{cJ}}\left[^3P_J^{\left[1\right]}\right]} &= \frac{3}{4\pi}\left(2J+1\right) \left| R'_{\chi_{cJ}}\left(0\right)\right|^2.
 	\end{split}
 \end{equation}
 And the potential model gives $\left|R_{J/\psi}\left(0\right)\right|^2=\SI{0.81}{\GeV^3}$,
 $\left|R_{\psi'}\left(0\right)\right|^2=\SI{0.53}{\GeV^3}$, and $\left|R'_{\chi_{cJ}}\left(0\right)\right|^2=\SI{0.075}{\GeV^5}$.
 The other LDMEs are typically obtained by fitting to data.
-Some existing LDMEs for direct $J/\psi$ production are tabulated in \cref{tab:LDMEs}.
+Some existing LDMEs for direct $J/\psi$ and $\psi'$ productions are tabulated in \cref{tab:LDMEs}.
 The values of some LDMEs from different groups are very different, in some cases, even the signs are different.
 This is partly due to the choice of data sets used in their global fits. The
 SeaQuest experiment can provide additonal constraints on these LDMEs. Some
@@ -967,9 +967,9 @@ of the LDMEs with little, if any, model dependence from nuclear effects.
 	\centering
 	\caption{The NRQCD LDMEs for $J/\psi$ and $\psi'$ from different groups.}
 	\label{tab:LDMEs}
-	\scalebox{0.81}{
+	\begin{adjustbox}{width=1.03\textwidth, center=\textwidth}
 		\input{table/jpsi_LDME.tex}
-	}
+	\end{adjustbox}
 \end{table}
 
 \begin{figure}[ht!]
@@ -991,7 +991,7 @@ from a recent global analysis of both pion- and proton-induced charmonium produc
 In the their analysis, only unpolarized observables were analyzed.
 Therefore, the formalism can be simplified by combining the color-octet LDMEs
 \begin{equation}
-	\Delta^H_{[8]}=\expval{O^H[^1S_0^{\left[8\right]}]}+\frac{3}{m_c^2}\expval{O^H[^3P_0^{\left[8\right]}]}+\frac{4}{5m_c^2}\expval{O^H[^3P_2^{\left[8\right]}]}.
+	\Delta^H_{[8]}=\expval{O^H\left[^1S_0^{\left[8\right]}\right]}+\frac{3}{m_c^2}\expval{O^H\left[^3P_0^{\left[8\right]}\right]}+\frac{4}{5m_c^2}\expval{O^H\left[^3P_2^{\left[8\right]}\right]}.
 \end{equation}
 Furthermore, the calculated cross section for $J/\psi$ also need to include the feed-down from hadronic decay
 of $\psi'$ and radiative decays of three $\chi_{cJ}$ states.
@@ -1002,7 +1002,7 @@ Therefore the total $J/\psi$ cross section is given by
 where $B$ is the branching ratio for $\psi'$ or $\chi_{cJ}$ to decay into $J/\psi$.
 
 The relationship between the LDMEs and the $c\bar{c}$ produced via different
-subprocesses up to $\mathcal{O}\left(\alpha_s^2\right)$ are shown in \cref{tab:LDME_order}.
+subprocesses up to $\mathcal{O}\left(\alpha_s^3\right)$ are shown in \cref{tab:LDME_order}.
 For $q\bar{q}$ subprocess, the $c\bar{c}$ pairs are produced in
 $S$-wave color-octet states at $\mathcal{O}\left(\alpha_s^2\right)$,
 which then hadronize into various charmonium states with the LDMEs $\expval{O^H\left[^3 S_1^{[8]}\right]}$.
