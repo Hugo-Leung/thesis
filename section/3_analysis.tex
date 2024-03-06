@@ -411,7 +411,7 @@ account during this step. Since the magnetic field strength is fixed, the sagitt
 St.~2 is approximately a constant and is determined using Monte Carlo simulation. Using this fact,
 the search window on St.~1 is constrained by this ratio.
 
-\pdfmargincomment{kalment filter}
+\pdfmargincomment{kalman filter}
 Once the hits are identified, the Kalman track fitting can begin~\cite{kalman1960}. A list of nodes are created
 from the hits. Each node corresponds to a hit and also contain the drift distance of the particular hit.
 The Kalman filter parametrizes a track based on the five parameters (the momentum, x-, y-slope, x- and y-position)
@@ -420,7 +420,7 @@ The Kalman filter then iteratively refines the these parameters by comparing the
 to the prediction. At each iteration, the Kalman filter preforms three steps: predict, filter, and smoothing,
 as depicted in \cref{fig:kalman_flowchart}.
 The Kalman filter loops over all the nodes, using the current estimate of the track parameters
-from the previous node and calculates the expected hit location using Geant4. This predicted location
+from the previous node and calculates the expected hit location using GEANT4. This predicted location
 is then compared with measured location. During the filter step, the track parameters at the current node is
 adjusted based on the difference between the predicted and measured hit location in order to minimized
 the $\chi^2$. Kalman filter will then move on to the next node. This is illustrated in \cref{fig:kalman_node}.
@@ -453,9 +453,9 @@ region. The energy loss and transverse momentum kick in FMag are taken into acco
 \subsection{Vertex Finding}
 Once all the tracks are found in each event, the reconstruction of the dimuon vertex can begin using kVertex.
 For MATRIX-1 events, all possible combinations of $\mu^+$ and $\mu^-$ tracks are tested to see if they can form
-a dimuon. The vertex is determined using the same Kalment filter with the tracks acting as measurements.
+a dimuon. The vertex is determined using the same Kalman filter with the tracks acting as measurements.
 
-\pdfmargincomment{kalment filter, refitting if it the pair originate from target to account for multiple scattering }
+\pdfmargincomment{Kalman filter, refitting if it the pair originate from target to account for multiple scattering }
 To account for multiple scattering of the muons while traversing FMag, dimuon pairs that are
 determined to be likely originating from the target are refitted by requiring the dimuon vertex to
 fall within the target. Due to the length of the target and the acceptance of the spectrometer,
@@ -657,7 +657,7 @@ Therefore, the $\mathrm{busy\_sum\_no\_inhibit}$ is \cref{eq:livePoT-old} is rep
 	\label{fig:deadtime}
 \end{figure}
 
-During regular data-taking, the minimum width of the inhibit signal is controled by a programmable
+During regular data-taking, the minimum width of the inhibit signal is controlled by a programmable
 register, and is typically set to 16, meaning when bucket $i$ is above the threshold, buckets $i-8$
 to $i+8$ (inclusive) will be inhibited. The length of the inhibit can be longer if a series
 of high intensity buckets arrive in succession. In this situation, the inhibit will extend till 8
