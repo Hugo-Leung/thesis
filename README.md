@@ -11,13 +11,13 @@ E906/SeaQuest is a fixed-target experiment at Fermilab with a 120 GeV proton bea
 	The measurement of the Drell-Yan $\sigma_{pd}/2\sigma_{pp}$ cross section
 	ratio is particularly sensitive to the light sea-quark asymmetry in the proton.
 	The SeaQuest measurement provides information on the $\bar{d}/\bar{u}$ asymmetry
-	for  Bjorken-$x$ ranging from 0.1 to 0.45.
+	for  Bjorken $x$ ranging from 0.1 to 0.45.
 	The improved statistics	of the SeaQuest measurement allows for a check on the surprising behavior of
 	$\bar{d}/\bar{u}$ at large $x$ observed in E866/NuSea.
 	The Drell-Yan cross section ratio is extracted from the entire SeaQuest dataset
 	using two independent methods.
 	The measured $\sigma_{pd}/2\sigma_{pp}$ ratio is found to remain about unity,
-	indicating the $\bar{d}>\bar{u}$ for $x$ up to \num{0.45}.
+	indicating the $\bar{d}>\bar{u}$ for $x$ up to 0.45.
 	The new result is compared with various parton distribution functions and theoretical calculations.
 	In contrast to the Drell-Yan process, the charmonium production can be used to probe both the quark
 	content as well as the gluon content.
